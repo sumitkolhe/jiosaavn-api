@@ -1,0 +1,19 @@
+{
+  "name": "jiosaavn-api",
+  "version": "1.0.0",
+  "description": "JioSaavn API [Unofficial]",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "Sumit kolhe",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
