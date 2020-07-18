@@ -5,6 +5,14 @@ const userAgentCreator = new UA({ deviceCategory: "desktop" });
 const url = require("./utils/url");
 const app = express();
 
+const getSongListUrl = "https://www.jiosaavn.com/api.php?_format=json&_marker=0&ctx=web6dot0&__call=autocomplete.get&query="
+//particular song details
+  const getSongDetailUrl= "https://www.jiosaavn.com/api.php?&api_version=4&_format=json&_marker=0&ctx=web6dot0&__call=song.getDetails&pids="
+  const generateAuthtoken = "https://www.jiosaavn.com/api.php?&bitrate=128&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url="
+  const GetSongsFromSearch = "https://www.jiosaavn.com/api.php?&p=1&_format=json&_marker=0&api_version=4&ctx=web6dot0&__call=search.getResults&q="
+
+
+
 app.get("/:query/:count?", async (req, res) => {
 //  var rotatingUserAgent = userAgentCreator.random().toString();
 //  axios.defaults.headers.common["User-Agent"] = rotatingUserAgent;
@@ -15,9 +23,9 @@ app.get("/:query/:count?", async (req, res) => {
   console.log(count);
   var songsArray = new Array();
   var songsObj = new Object();
-  console.log(url.GetSongsFromSearch + query + "&n=" + count)
+  console.log(GetSongsFromSearch + query + "&n=" + count)
   axios
-    .get(url.GetSongsFromSearch + query + "&n=" + count)
+    .get(GetSongsFromSearch + query + "&n=" + count)
     .then(async (response) => {
       var songs = response.data.results;
       console.log(response.data.results)
@@ -51,7 +59,7 @@ app.get("/:query/:count?", async (req, res) => {
 
 function GetDownloadLink(encrypted_id) {
   return axios
-    .get(url.generateAuthtoken + encodeURIComponent(encrypted_id))
+    .get(generateAuthtoken + encodeURIComponent(encrypted_id))
     .then((response) => {
       return CleanDownloadLink(response.data.auth_url);
     });

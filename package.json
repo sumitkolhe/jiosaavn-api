@@ -4,7 +4,7 @@
   "description": "JioSaavn API [Unofficial]",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "set NODE_ENV=production&&nodemon index.js",
     "start":"node index.js"
   },
   "author": "Sumit kolhe",
