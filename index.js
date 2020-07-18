@@ -15,6 +15,7 @@ app.get("/:query/:count?", async (req, res) => {
   console.log(count);
   var songsArray = new Array();
   var songsObj = new Object();
+  console.log(url.GetSongsFromSearch)
   axios
     .get(url.GetSongsFromSearch + query + "&n=" + count)
     .then(async (response) => {
