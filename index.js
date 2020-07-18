@@ -19,6 +19,7 @@ app.get("/:query/:count?", async (req, res) => {
     .get(url.GetSongsFromSearch + query + "&n=" + count)
     .then(async (response) => {
       var songs = response.data.results;
+      console.log(response.data.results)
       for (element of songs) {
         songsArray.push({
           song_name: element.title,
