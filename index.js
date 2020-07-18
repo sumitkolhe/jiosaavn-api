@@ -6,8 +6,8 @@ const url = require("./utils/url");
 const app = express();
 
 app.get("/:query/:count?", async (req, res) => {
-  var rotatingUserAgent = userAgentCreator.random().toString();
-  axios.defaults.headers.common["User-Agent"] = rotatingUserAgent;
+//  var rotatingUserAgent = userAgentCreator.random().toString();
+//  axios.defaults.headers.common["User-Agent"] = rotatingUserAgent;
 
   var query = req.params.query;
   var count = req.params.count;
