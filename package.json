@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "set NODE_ENV=production&&nodemon index.js",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "author": "Sumit kolhe",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
     "express": "^4.17.1",
     "https-proxy-agent": "^5.0.0",
     "user-agents": "^1.0.559"
