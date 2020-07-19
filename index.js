@@ -70,10 +70,16 @@ function GetDownloadLink(encrypted_id) {
     });
 }
 function CleanDownloadLink(auth_url) {
-  var url = auth_url.split("?")[0];
+  if(auth_url){
+     var url = auth_url.split("?")[0];
   url = url.split("/")[3] + "/" + url.split("/")[4];
   url = "https://aac.saavncdn.com/" + url;
   return url;
+  }
+  else{
+    return null 
+  }
+ 
 }
 
 function fixImageUrl(img_url) {
