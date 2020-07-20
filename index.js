@@ -17,7 +17,7 @@ app.get("/songs/:query", async (req, res) => {
   var songsObj = new Object();
   axios
     .get(
-      "https://saavn.lazyfox.workers.dev/api.php?_format=json&n=6&p=1&_marker=0&ctx=android&__call=search.getResults&q=" +
+      "https://proxy.serverone.workers.dev/-----https://jiosaavn.com/api.php?_format=json&n=6&p=1&_marker=0&ctx=android&__call=search.getResults&q=" +
         query
     )
     .then(async (response) => {
@@ -59,7 +59,7 @@ app.get("/songs/:query", async (req, res) => {
 function GetDownloadLinkFromAuthToken(encrypted_id) {
   return axios
     .get(
-      "https://saavn.lazyfox.workers.dev/api.php?bitrate=320&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url=" +
+      "https://proxy.serverone.workers.dev/-----https://jiosaavn.com/api.php?bitrate=320&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url=" +
         encodeURIComponent(encrypted_id)
     )
     .then((response) => {
@@ -98,7 +98,7 @@ function CleanDownloadLink(auth_url) {
 function GetStreamLink(encrypted_id) {
   return axios
     .get(
-      "https://saavn.lazyfox.workers.dev/api.php?bitrate=320&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url=" +
+      "https://proxy.serverone.workers.dev/-----https://jiosaavn.com/api.php?bitrate=320&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url=" +
         encodeURIComponent(encrypted_id)
     )
     .then((response) => {
