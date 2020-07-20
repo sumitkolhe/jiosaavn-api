@@ -2,14 +2,14 @@ axios = require("axios");
 const express = require("express");
 const UA = require("user-agents");
 const userAgentCreator = new UA({ deviceCategory: "desktop" });
-const HttpsProxyAgent = require("https-proxy-agent");
+//const HttpsProxyAgent = require("https-proxy-agent");
 const url = require("./utils/urls");
 const app = express();
 const cors = require("cors");
 //const httpsAgent = new HttpsProxyAgent({ host: "103.224.39.2", port: "82" });
 app.use(cors());
 
-app.get("/songs/:query", async (req, res) => {});
+//app.get("/songs/:query", async (req, res) => {});
 
 app.get("/search/:query", async (req, res) => {
   var user = userAgentCreator.random().toString();
@@ -53,17 +53,6 @@ app.get("/search/:query", async (req, res) => {
   });
 });
 
-function GetDownloadLinkFromAuthToken(encrypted_id) {
-  return axios
-    .get(url.tokenUrl + encodeURIComponent(encrypted_id))
-    .then((response) => {
-      return CleanDownloadLink(response.data.auth_url);
-    })
-    .catch((err) => {
-      return "error";
-    });
-}
-
 function GetDownloadLinkFromPreview(media_preview_url) {
   var url = media_preview_url.replace("preview", "aac");
   url = url.replace("_96_p.mp4", "_320.mp3");
@@ -71,12 +60,25 @@ function GetDownloadLinkFromPreview(media_preview_url) {
   return axios
     .head(url)
     .then((response) => {
-      return url;
+      if (response.status == 200) {
+        return url;
+      }
     })
     .catch((err) => {
       var url = media_preview_url.replace("preview", "aac");
       url = url.replace("_96_p.mp4", "_320.mp4");
       return url;
+    });
+}
+
+function GetDownloadLinkFromAuthToken(encrypted_id) {
+  return axios
+    .get(url.tokenUrl + encodeURIComponent(encrypted_id))
+    .then((response) => {
+      return CleanDownloadLink(response.data.auth_url);
+    })
+    .catch((err) => {
+      return "error getting download link";
     });
 }
 
@@ -96,7 +98,7 @@ function GetStreamLink(encrypted_id) {
       return response.data.auth_url;
     })
     .catch((err) => {
-      return "error";
+      return "error getting stream link";
     });
 }
 
