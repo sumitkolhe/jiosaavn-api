@@ -1,21 +1,85 @@
-axios = require("axios");
+const axios = require("axios");
 const express = require("express");
 const UA = require("user-agents");
+const helper = require("./utils/helper");
+const controller = require("./controller/controller");
 const userAgentCreator = new UA({ deviceCategory: "desktop" });
 //const HttpsProxyAgent = require("https-proxy-agent");
 const url = require("./utils/urls");
 const app = express();
 const cors = require("cors");
+
 //const httpsAgent = new HttpsProxyAgent({ host: "103.224.39.2", port: "82" });
 app.use(cors());
 
-//app.get("/songs/:query", async (req, res) => {});
+app.get("/songs/*", async (req, res) => {
+  var link = req.params[0];
+  var songId = await GetSongId(link);
+  var songsArray = new Array();
+  var songsObj = new Object();
+  if (songId != null) {
+    axios.get(url.songIdUrl + songId).then(async (response) => {
+      var element = response.data[songId];
+      songsArray.push({
+        song_id: element.id,
+        song_title: element.song,
+        song_url: element.perma_url,
+        song_image: await helper.fixImageUrl(element.image),
+        song_play_count: element.play_count,
+        album_id: element.albumid,
+        album_title: element.album,
+        album_url: element.album_url,
+        artist_name: element.primary_artists,
+        year: element.year,
+        duration: element.duration,
+        language: element.language,
+        label: element.label,
+        encrypted_media_url: element.encrypted_media_url,
+        preview_url: element.media_preview_url,
+        stream_link: await controller.GetStreamLink(
+          element.encrypted_media_url
+        ),
+        download_link: element.media_preview_url
+          ? await controller.GetDownloadLinkFromPreview(
+              element.media_preview_url
+            )
+          : await controller.GetDownloadLinkFromAuthToken(
+              element.encrypted_media_url
+            ),
+      });
+      songsObj["result"] = songsArray;
+      res.json(songsObj);
+    });
+  } else {
+    res.json({ error: "Invalid link" });
+  }
+});
 
-app.get("/search/:query", async (req, res) => {
+function GetSongId(link) {
+  if (link.includes("jiosaavn.com/song/")) {
+    return axios.get(link).then((response) => {
+      if (
+        response.status == 200 &&
+        !response.data.includes("This page seems to be missing.")
+      ) {
+        var songID = response.data
+          .split('"song":{"type":"')[1]
+          .split('","image":')[0]
+          .split('"')[4];
+        return songID;
+      } else {
+        return null;
+      }
+    });
+  } else return null;
+}
+
+app.get("/search/:search", async (req, res) => {
   var user = userAgentCreator.random().toString();
   axios.defaults.headers.common["User-Agent"] = user;
 
-  var query = req.params.query;
+  var query = req.params.search;
+
   var songsArray = new Array();
   var songsObj = new Object();
   axios.get(url.searchUrl + query).then(async (response) => {
@@ -27,7 +91,7 @@ app.get("/search/:query", async (req, res) => {
           song_id: element.id,
           song_title: element.song,
           song_url: element.perma_url,
-          song_image: await fixImageUrl(element.image),
+          song_image: await helper.fixImageUrl(element.image),
           song_play_count: element.play_count,
           album_id: element.albumid,
           album_title: element.album,
@@ -39,10 +103,16 @@ app.get("/search/:query", async (req, res) => {
           label: element.label,
           encrypted_media_url: element.encrypted_media_url,
           preview_url: element.media_preview_url,
-          stream_link: await GetStreamLink(element.encrypted_media_url),
+          stream_link: await controller.GetStreamLink(
+            element.encrypted_media_url
+          ),
           download_link: element.media_preview_url
-            ? await GetDownloadLinkFromPreview(element.media_preview_url)
-            : await GetDownloadLinkFromAuthToken(element.encrypted_media_url),
+            ? await controller.GetDownloadLinkFromPreview(
+                element.media_preview_url
+              )
+            : await controller.GetDownloadLinkFromAuthToken(
+                element.encrypted_media_url
+              ),
         });
       }
       songsObj["songs"] = songsArray;
@@ -52,65 +122,5 @@ app.get("/search/:query", async (req, res) => {
     }
   });
 });
-
-function GetDownloadLinkFromPreview(media_preview_url) {
-  var url = media_preview_url.replace("preview", "aac");
-  url = url.replace("_96_p.mp4", "_320.mp3");
-
-  return axios
-    .head(url)
-    .then((response) => {
-      if (response.status == 200) {
-        console.log("checked preview | MP3 working");
-        return url;
-      }
-    })
-    .catch((err) => {
-      console.log(
-        "checked preview | mp3 NOT working | changing extension back to mp3 -> mp4"
-      );
-      var url = media_preview_url.replace("preview", "aac");
-      url = url.replace("_96_p.mp4", "_320.mp4");
-      return url;
-    });
-}
-
-function GetDownloadLinkFromAuthToken(encrypted_id) {
-  return axios
-    .get(url.tokenUrl + encodeURIComponent(encrypted_id))
-    .then((response) => {
-      console.log("no preview url | Falling back to generate AUTH Token");
-      return CleanDownloadLink(response.data.auth_url);
-    })
-    .catch((err) => {
-      return "error";
-    });
-}
-
-function CleanDownloadLink(auth_url) {
-  if (auth_url) {
-    var url = auth_url.split("?")[0];
-    url = url.split("/")[3] + "/" + url.split("/")[4];
-    url = "https://aac.saavncdn.com/" + url;
-    return url;
-  }
-}
-
-function GetStreamLink(encrypted_id) {
-  return axios
-    .get(url.tokenUrl + encodeURIComponent(encrypted_id))
-    .then((response) => {
-      return response.data.auth_url;
-    })
-    .catch((err) => {
-      return "error";
-    });
-}
-
-function fixImageUrl(img_url) {
-  var fixedImageUrl = img_url.replace("150x150", "500x500");
-  fixedImageUrl = fixedImageUrl.replace("http://", "https://");
-  return fixedImageUrl;
-}
 
 app.listen(80);
