@@ -1,6 +1,6 @@
 const axios = require("axios");
-const url = require('../utils/urls');
-const helper = require("../utils/helper")
+const url = require("../utils/urls");
+const helper = require("../utils/helper");
 
 const GetDownloadLinkFromPreview = (media_preview_url) => {
   var url = media_preview_url.replace("preview", "aac");
@@ -11,14 +11,14 @@ const GetDownloadLinkFromPreview = (media_preview_url) => {
     .head(url)
     .then((response) => {
       if (response.status == 200) {
-         console.log("checked preview | MP3 working");
+        console.log("checked preview | MP3 working");
         return url;
       }
     })
     .catch((err) => {
       console.log(
         "checked preview | MP3 NOT working | changing extension mp3 -> mp4"
-       );
+      );
       var url = media_preview_url.replace("preview", "aac");
       url = url.replace("_96_p.mp4", "_320.mp4");
       url = url.replace("http://", "https://");
@@ -49,8 +49,57 @@ const GetStreamLink = (encrypted_id) => {
     });
 };
 
+const GetSongId = (link) => {
+  if (link.includes("jiosaavn.com/song/")) {
+    return axios.get(link).then((response) => {
+      if (
+        response.status == 200 &&
+        !response.data.includes("This page seems to be missing.")
+      ) {
+        var songID = response.data
+          .split('"song":{"type":"')[1]
+          .split('","image":')[0]
+          .split('"')[4];
+        return songID;
+      } else {
+        return null;
+      }
+    });
+  } else return null;
+};
+
+const GenerateJSON = async (songsArray, element) => {
+  songsArray.push({
+    song_id: element.id,
+    song_title: element.song,
+    song_url: element.perma_url,
+    song_image: await helper.fixImageUrl(element.image),
+    song_play_count: element.play_count,
+    album_id: element.albumid,
+    album_title: element.album,
+    album_url: element.album_url,
+    artist_name: element.primary_artists,
+    year: element.year,
+    duration: element.duration,
+    language: element.language,
+    label: element.label,
+    encrypted_media_url: element.encrypted_media_url,
+    preview_url: element.media_preview_url,
+    stream_link: await GetStreamLink(element.encrypted_media_url),
+    download_link: element.media_preview_url
+      ? await GetDownloadLinkFromPreview(element.media_preview_url)
+      : await GetDownloadLinkFromAuthToken(
+          element.encrypted_media_url
+        ),
+  });
+
+  return songsArray;
+};
+
 module.exports = {
   GetDownloadLinkFromPreview,
   GetDownloadLinkFromAuthToken,
   GetStreamLink,
+  GetSongId,
+  GenerateJSON,
 };
