@@ -88,9 +88,7 @@ const GenerateJSON = async (songsArray, element) => {
     stream_link: await GetStreamLink(element.encrypted_media_url),
     download_link: element.media_preview_url
       ? await GetDownloadLinkFromPreview(element.media_preview_url)
-      : await GetDownloadLinkFromAuthToken(
-          element.encrypted_media_url
-        ),
+      : await GetDownloadLinkFromAuthToken(element.encrypted_media_url),
   });
 
   return songsArray;
