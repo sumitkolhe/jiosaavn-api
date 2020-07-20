@@ -9,10 +9,10 @@ const cors = require("cors");
 app.use(cors());
 
 app.get("/songs/:query", async (req, res) => {
-  //axios.defaults.headers.common["User-Agent"] = userAgentCreator.random().toString();
+  var user = userAgentCreator.random().toString()
+  axios.defaults.headers.common["User-Agent"] = user;
 
   var query = req.params.query;
-  console.log(query);
   var songsArray = new Array();
   var songsObj = new Object();
   axios
@@ -23,7 +23,6 @@ app.get("/songs/:query", async (req, res) => {
     .then(async (response) => {
       var songs = response.data.results;
 
-      console.log(response.config);
       if (songs) {
         for (element of songs) {
           songsArray.push({
