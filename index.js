@@ -3,64 +3,59 @@ const express = require("express");
 const UA = require("user-agents");
 const userAgentCreator = new UA({ deviceCategory: "desktop" });
 const HttpsProxyAgent = require("https-proxy-agent");
+const url = require("./utils/urls");
 const app = express();
 const cors = require("cors");
 //const httpsAgent = new HttpsProxyAgent({ host: "103.224.39.2", port: "82" });
 app.use(cors());
 
-app.get("/songs/:query", async (req, res) => {
-  var user = userAgentCreator.random().toString()
+app.get("/songs/:query", async (req, res) => {});
+
+app.get("/search/:query", async (req, res) => {
+  var user = userAgentCreator.random().toString();
   axios.defaults.headers.common["User-Agent"] = user;
 
   var query = req.params.query;
   var songsArray = new Array();
   var songsObj = new Object();
-  axios
-    .get(
-      "https://www.jiosaavn.com/api.php?_format=json&n=6&p=1&_marker=0&ctx=android&__call=search.getResults&q=" +
-        query
-    )
-    .then(async (response) => {
-      var songs = response.data.results;
+  axios.get(url.searchUrl + query).then(async (response) => {
+    var songs = response.data.results;
 
-      if (songs) {
-        for (element of songs) {
-          songsArray.push({
-            song_id: element.id,
-            song_title: element.song,
-            song_url: element.perma_url,
-            song_image: await fixImageUrl(element.image),
-            song_play_count: element.play_count,
-            album_id: element.albumid,
-            album_title: element.album,
-            album_url: element.album_url,
-            artist_name: element.primary_artists,
-            year: element.year,
-            duration: element.duration,
-            language: element.language,
-            label: element.label,
-            encrypted_media_url: element.encrypted_media_url,
-            preview_url: element.media_preview_url,
-            stream_link: await GetStreamLink(element.encrypted_media_url),
-            download_link: element.media_preview_url
-              ? await GetDownloadLinkFromPreview(element.media_preview_url)
-              : await GetDownloadLinkFromAuthToken(element.encrypted_media_url),
-          });
-        }
-        songsObj["songs"] = songsArray;
-        res.json(songsObj);
-      } else {
-        res.json({ error: "please try again after sometime" });
+    if (songs) {
+      for (element of songs) {
+        songsArray.push({
+          song_id: element.id,
+          song_title: element.song,
+          song_url: element.perma_url,
+          song_image: await fixImageUrl(element.image),
+          song_play_count: element.play_count,
+          album_id: element.albumid,
+          album_title: element.album,
+          album_url: element.album_url,
+          artist_name: element.primary_artists,
+          year: element.year,
+          duration: element.duration,
+          language: element.language,
+          label: element.label,
+          encrypted_media_url: element.encrypted_media_url,
+          preview_url: element.media_preview_url,
+          stream_link: await GetStreamLink(element.encrypted_media_url),
+          download_link: element.media_preview_url
+            ? await GetDownloadLinkFromPreview(element.media_preview_url)
+            : await GetDownloadLinkFromAuthToken(element.encrypted_media_url),
+        });
       }
-    });
+      songsObj["songs"] = songsArray;
+      res.json(songsObj);
+    } else {
+      res.json({ error: "please try again after sometime" });
+    }
+  });
 });
 
 function GetDownloadLinkFromAuthToken(encrypted_id) {
   return axios
-    .get(
-      "https://www.jiosaavn.com/api.php?bitrate=320&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url=" +
-        encodeURIComponent(encrypted_id)
-    )
+    .get(url.tokenUrl + encodeURIComponent(encrypted_id))
     .then((response) => {
       return CleanDownloadLink(response.data.auth_url);
     })
@@ -96,10 +91,7 @@ function CleanDownloadLink(auth_url) {
 
 function GetStreamLink(encrypted_id) {
   return axios
-    .get(
-      "https://www.jiosaavn.com/api.php?bitrate=320&api_version=4&_format=json&ctx=web6dot0&_marker=0&__call=song.generateAuthToken&url=" +
-        encodeURIComponent(encrypted_id)
-    )
+    .get(url.tokenUrl + encodeURIComponent(encrypted_id))
     .then((response) => {
       return response.data.auth_url;
     })
