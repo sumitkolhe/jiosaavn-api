@@ -61,10 +61,14 @@ function GetDownloadLinkFromPreview(media_preview_url) {
     .head(url)
     .then((response) => {
       if (response.status == 200) {
+        console.log("checked preview | MP3 working");
         return url;
       }
     })
     .catch((err) => {
+      console.log(
+        "checked preview | mp3 NOT working | changing extension back to mp3 -> mp4"
+      );
       var url = media_preview_url.replace("preview", "aac");
       url = url.replace("_96_p.mp4", "_320.mp4");
       return url;
@@ -75,10 +79,11 @@ function GetDownloadLinkFromAuthToken(encrypted_id) {
   return axios
     .get(url.tokenUrl + encodeURIComponent(encrypted_id))
     .then((response) => {
+      console.log("no preview url | Falling back to generate AUTH Token");
       return CleanDownloadLink(response.data.auth_url);
     })
     .catch((err) => {
-      return "error getting download link";
+      return "error";
     });
 }
 
@@ -98,7 +103,7 @@ function GetStreamLink(encrypted_id) {
       return response.data.auth_url;
     })
     .catch((err) => {
-      return "error getting stream link";
+      return "error";
     });
 }
 
