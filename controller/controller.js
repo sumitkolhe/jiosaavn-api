@@ -50,7 +50,7 @@ const GetStreamLink = (encrypted_id) => {
 };
 
 const GetSongId = (link) => {
-  if (link.includes("jiosaavn.com/song/")) {
+  if (link.includes("jiosaavn.com/")) {
     return axios.get(link).then((response) => {
       if (
         response.status == 200 &&
