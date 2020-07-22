@@ -34,6 +34,27 @@ app.get("/songs/*", async (req, res) => {
   }
 });
 
+app.get("/fastsearch/:search", async (req, res) => {
+  var user = userAgentCreator.random().toString();
+  axios.defaults.headers.common["User-Agent"] = user;
+  var query = req.params.search;
+  var songsArray = new Array();
+  var songsObj = new Object();
+  axios.get(url.searchUrl + query).then(async (response) => {
+    var songs = response.data.results;
+
+    if (songs) {
+      for (element of songs) {
+        await controller.GenerateFastJSON(songsArray, element);
+      }
+      songsObj["result"] = songsArray;
+      res.json(songsObj);
+    } else {
+      res.json({ error: "please try again after sometime" });
+    }
+  });
+});
+
 app.get("/search/:search", async (req, res) => {
   var user = userAgentCreator.random().toString();
   axios.defaults.headers.common["User-Agent"] = user;
