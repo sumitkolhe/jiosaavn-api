@@ -59,7 +59,7 @@ const GetSongId = (link) => {
         var songID = response.data
           .split('"song":{"type":"')[1]
           .split('","image":')[0]
-          .split('"')[4];
+          .split('"')[8];
         return songID;
       } else {
         return null;
