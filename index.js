@@ -12,7 +12,6 @@ const cors = require("cors");
 app.use(cors());
 
 app.get("/", (req, res) => {
-  console.log("testing teleport")
   res.json("online");
 });
 
