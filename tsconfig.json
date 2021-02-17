@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "ES2018",
-    "outDir": "./dist",
     "module": "commonjs",
     "strict": true,
     "noImplicitAny": true,
@@ -19,17 +18,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "baseUrl": "./src",
-    "paths": {
-      "@config/*": ["config/*"],
-      "@middleware/*": ["middleware/*"],
-      "@model/*": ["model/*"],
-      "@routes/*": ["routes/*"],
-      "@helpers/*": ["helpers/*"],
-      "@utils/*": ["utils/*"],
-      "@controller/*": ["controller/*"]
-    }
+    "baseUrl": ".",
+    "typeRoots": ["types"]
   },
-  "include": ["src/**/*"],
+  "include": ["api/**/*", "types"],
   "exclude": ["node_modules"]
 }
