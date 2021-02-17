@@ -21,6 +21,6 @@
     "baseUrl": ".",
     "typeRoots": ["types"]
   },
-  "include": ["api/**/*", "types"],
+  "include": ["api/**/*", "types", "utils"],
   "exclude": ["node_modules"]
 }

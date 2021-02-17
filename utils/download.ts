@@ -1,12 +1,12 @@
-export const getDownloadLinks = (link: string) => {
+export const getDownloadLinks = (song_download_link: string) => {
   return [
-    link
+    song_download_link
       .replace("preview.saavncdn.com", "aac.saavncdn.com")
       .replace("_96_p", "_96"),
-    link
+    song_download_link
       .replace("preview.saavncdn.com", "aac.saavncdn.com")
       .replace("_96_p", "_160"),
-    link
+    song_download_link
       .replace("preview.saavncdn.com", "aac.saavncdn.com")
       .replace("_96_p", "_320"),
   ];

@@ -1,6 +1,5 @@
-import { sanitizeImage } from "../utils/sanitize";
 import { songDetails } from "types/song-details";
-import { getDownloadLinks } from "../utils/download";
+import { getDownloadLinks } from "./download";
 
 export const generatePayload = (song_data: any, id?: string) => {
   const data = song_data[id!];
@@ -16,7 +15,7 @@ export const generatePayload = (song_data: any, id?: string) => {
     song_language: data.language,
     song_has_lyrics: data.has_lyrics,
     song_artist: data.primary_artists,
-    song_image: sanitizeImage(data.image),
+    song_image: data.image.replace("150x150", "500x500"),
     song_link: data.perma_url,
     album_link: data.album_url,
     song_label: data.label,
