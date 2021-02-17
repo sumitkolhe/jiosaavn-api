@@ -2,6 +2,7 @@
   "version": 2,
   "routes": [
     { "src": "/", "dest": "/api/index.ts" },
-    { "src": "/song", "dest": "/api/song.ts" }
+    { "src": "/song", "dest": "/api/song.ts" },
+    { "src": "/search", "dest": "/api/search.ts" }
   ]
 }

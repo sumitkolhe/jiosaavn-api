@@ -10,10 +10,14 @@ export interface songDetails {
   album_id: string | number;
   song_release_date: string | Date;
   song_link: string;
-  album_link:string;
+  album_link: string;
   song_play_count: string | number;
   copyright: string;
   song_has_lyrics: string;
   song_duration: string | number;
   download_links: string | string[];
+}
+
+export interface searchDetails {
+  results: [songDetails];
 }

@@ -1,8 +1,7 @@
-import { songDetails } from "types/song-details";
+import { songDetails } from "types";
 import { getDownloadLinks } from "./download";
 
-export const generatePayload = (song_data: any, id?: string) => {
-  const data = song_data[id!];
+export const generatePayload = (data: any) => {
   const response_payload: songDetails = {
     song_id: data.id,
     song_name: data.song,

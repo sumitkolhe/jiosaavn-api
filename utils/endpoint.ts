@@ -1,5 +1,5 @@
 export const getSearchSongsUrl = (song_name: string) => {
-  return `https://www.jiosaavn.com/api.php?__call=search.getResults&_format=json&n=5&p=1&_marker=0&ctx=android&q=${song_name}`;
+  return `https://www.jiosaavn.com/api.php?__call=search.getResults&_format=json&n=10&p=1&_marker=0&ctx=android&q=${song_name}`;
 };
 
 export const getSongDetailsUrl = (song_id: string) => {
