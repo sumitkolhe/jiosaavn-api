@@ -15,7 +15,7 @@ export interface songDetails {
   copyright: string;
   song_has_lyrics: string;
   song_duration: string | number;
-  download_links: string | string[];
+  download_links: Array<string> | boolean;
 }
 
 export interface searchDetails {
