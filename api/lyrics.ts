@@ -13,7 +13,6 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
     await axiosInstance
       .get(getLyricsUrl(song_id))
       .then((lyrics_details: AxiosResponse<lyricsDetails>) => {
-          console.log(lyrics_details.config.headers)
         if (!lyrics_details.data.lyrics)
           res.json({ message: "lyrics are not available for this song" });
         else
