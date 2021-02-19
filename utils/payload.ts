@@ -1,8 +1,23 @@
 import { albumDetails, songDetails } from "types";
-import { getDownloadLinks } from "./download";
+
+export const getDownloadLinks = (song_download_link: string) => {
+  if (song_download_link)
+    return [
+      song_download_link
+        .replace("preview.saavncdn.com", "aac.saavncdn.com")
+        .replace("_96_p", "_96"),
+      song_download_link
+        .replace("preview.saavncdn.com", "aac.saavncdn.com")
+        .replace("_96_p", "_160"),
+      song_download_link
+        .replace("preview.saavncdn.com", "aac.saavncdn.com")
+        .replace("_96_p", "_320"),
+    ];
+  return false;
+};
 
 export const generateSongPayload = (data: any) => {
-  const response_payload: songDetails = {
+  const song_payload: songDetails = {
     song_id: data.id,
     song_name: data.song,
     album_id: data.albumid,
@@ -22,7 +37,7 @@ export const generateSongPayload = (data: any) => {
     download_links: getDownloadLinks(data.media_preview_url),
   };
 
-  return response_payload;
+  return song_payload;
 };
 
 export const generateAlbumPayload = (data: any) => {
@@ -30,7 +45,7 @@ export const generateAlbumPayload = (data: any) => {
   data.songs.forEach((song: songDetails) => {
     songsArray.push(generateSongPayload(song));
   });
-  const response_payload: albumDetails = {
+  const album_payload: albumDetails = {
     album_id: data.albumid,
     album_name: data.title,
     album_image: data.image.replace("150x150", "500x500"),
@@ -40,5 +55,5 @@ export const generateAlbumPayload = (data: any) => {
     album_language: data.language,
     songs: songsArray,
   };
-  return response_payload;
+  return album_payload;
 };

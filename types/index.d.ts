@@ -35,3 +35,8 @@ export interface songSearchDetails {
 export interface albumSearchDetails {
   results: Array<albumDetails>;
 }
+
+export interface lyricsDetails {
+  lyrics: string;
+  snippet: string;
+}

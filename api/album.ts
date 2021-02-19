@@ -1,7 +1,7 @@
 import { NowRequest, NowResponse } from "@vercel/node";
 import { generateAlbumPayload } from "../utils/payload";
 import { AxiosResponse } from "axios";
-import { axiosInstance } from "../utils/axios";
+import { axiosInstance } from "../utils/config";
 import { getAlbumDetailsUrl } from "../utils/endpoints";
 import { setHeaders } from "../utils/headers";
 import { albumDetails } from "types";

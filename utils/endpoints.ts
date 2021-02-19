@@ -18,8 +18,9 @@ export const getAlbumDetailsUrl = (album_id: string): string => {
   return `https://www.jiosaavn.com/api.php?__call=content.getAlbumDetails&_format=json&cc=in&_marker=0%3F_marker=0&albumid=${album_id}`;
 };
 
+// Lyrics
 export const getLyricsUrl = (song_id: string): string => {
-  return `https://www.jiosaavn.com/api.php?__call=lyrics.getLyrics&ctx=web6dot0&api_version=4&_format=json&_marker=0%3F_marker=0&lyrics_id=${song_id}`;
+  return `https://www.jiosaavn.com/api.php?__call=lyrics.getLyrics&ctx=web6dot0&_format=json&_marker=0%3F_marker=0&lyrics_id=${song_id}`;
 };
 
 // export const getSongIdFromLink = (song_link:string) => {
