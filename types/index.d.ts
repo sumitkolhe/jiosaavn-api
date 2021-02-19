@@ -17,7 +17,20 @@ export interface songDetails {
   song_duration: string | number;
   download_links: Array<string> | boolean;
 }
-
-export interface searchDetails {
+export interface albumDetails {
+  album_id: string;
+  album_name: string;
+  album_image: string;
+  album_link: string;
+  album_description: string;
+  album_artist: string;
+  year: string;
+  album_language: string;
+  album_songs: string[];
+}
+export interface songSearchDetails {
   results: [songDetails];
+}
+export interface ablumSearchDetails {
+  albums: { data: [albumDetails] };
 }

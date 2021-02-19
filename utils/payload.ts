@@ -1,7 +1,7 @@
-import { songDetails } from "types";
+import { albumDetails, songDetails } from "types";
 import { getDownloadLinks } from "./download";
 
-export const generatePayload = (data: any) => {
+export const generateSongPayload = (data: any) => {
   const response_payload: songDetails = {
     song_id: data.id,
     song_name: data.song,
@@ -20,6 +20,22 @@ export const generatePayload = (data: any) => {
     song_label: data.label,
     copyright: data.copyright_text,
     download_links: getDownloadLinks(data.media_preview_url),
+  };
+
+  return response_payload;
+};
+
+export const generateAlbumPayload = (data: any) => {
+  const response_payload: albumDetails = {
+    album_id: data.id,
+    album_name: data.title,
+    album_image: data.image.replace("150x150", "500x500"),
+    album_link: data.url,
+    album_description: data.description,
+    year: data.more_info.year,
+    album_artist: data.music,
+    album_language: data.more_info.language,
+    album_songs: data.more_info.song_pids,
   };
   return response_payload;
 };

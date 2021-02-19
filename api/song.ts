@@ -1,9 +1,10 @@
 import { NowRequest, NowResponse } from "@vercel/node";
-import { generatePayload } from "../utils/payload";
+import { generateSongPayload } from "../utils/payload";
 import { AxiosResponse } from "axios";
 import { axiosInstance } from "../utils/axios";
 import { getSongDetailsUrl } from "../utils/endpoints";
 import { setHeaders } from "../utils/headers";
+import { songDetails } from "types";
 
 module.exports = async (req: NowRequest, res: NowResponse) => {
   setHeaders(res);
@@ -12,8 +13,8 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   try {
     await axiosInstance
       .get(getSongDetailsUrl(song_id))
-      .then((song_details: AxiosResponse<any>) => {
-        res.json(generatePayload(song_details.data[song_id]));
+      .then((song_details: AxiosResponse<songDetails | any>) => {
+        res.json(generateSongPayload(song_details.data[song_id]));
       });
   } catch (error) {
     res.json({

@@ -6,3 +6,4 @@ module.exports = async (_req: NowRequest, res: NowResponse) => {
     Documentation: "https://github.com/sumitkolhe/jiosaavn-api",
   });
 };
+ 
