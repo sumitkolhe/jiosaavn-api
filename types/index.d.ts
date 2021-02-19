@@ -32,6 +32,6 @@ export interface albumDetails {
 export interface songSearchDetails {
   results: Array<songDetails>;
 }
-export interface ablumSearchDetails {
-  results: Array<songDetails>;
+export interface albumSearchDetails {
+  results: Array<albumDetails>;
 }

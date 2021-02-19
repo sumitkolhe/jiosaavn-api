@@ -7,8 +7,8 @@ import { setHeaders } from "../utils/headers";
 import {
   songSearchDetails,
   songDetails,
-  ablumSearchDetails,
   albumDetails,
+  albumSearchDetails,
 } from "types";
 
 const searchSongs = async (song_name: string, res: NowResponse) => {
@@ -34,10 +34,10 @@ const searchAlbums = async (album_name: string, res: NowResponse) => {
   try {
     await axiosInstance
       .get(getAlbumSearchUrl(album_name))
-      .then((song_details: AxiosResponse<ablumSearchDetails>) => {
+      .then((album_details: AxiosResponse<albumSearchDetails>) => {
         let albums = new Array();
-        song_details.data.results.forEach((song: albumDetails) => {
-          albums.push(generateAlbumPayload(song));
+        album_details.data.results.forEach((album: albumDetails) => {
+          albums.push(generateAlbumPayload(album));
         });
         res.json(albums);
       });
