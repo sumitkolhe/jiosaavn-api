@@ -26,16 +26,19 @@ export const generateSongPayload = (data: any) => {
 };
 
 export const generateAlbumPayload = (data: any) => {
+  let songsArray: songDetails[] = new Array();
+  data.songs.forEach((song: songDetails) => {
+    songsArray.push(generateSongPayload(song));
+  });
   const response_payload: albumDetails = {
-    album_id: data.id,
+    album_id: data.albumid,
     album_name: data.title,
     album_image: data.image.replace("150x150", "500x500"),
-    album_link: data.url,
-    album_description: data.description,
-    year: data.more_info.year,
-    album_artist: data.music,
-    album_language: data.more_info.language,
-    album_songs: data.more_info.song_pids,
+    album_link: data.perma_url,
+    year: data.year,
+    album_artist: data.primary_artists,
+    album_language: data.language,
+    songs: songsArray,
   };
   return response_payload;
 };

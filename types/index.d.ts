@@ -22,15 +22,16 @@ export interface albumDetails {
   album_name: string;
   album_image: string;
   album_link: string;
-  album_description: string;
   album_artist: string;
   year: string;
   album_language: string;
-  album_songs: string[];
+  album_release_date?: string;
+  songs?: Array<songDetails>;
 }
+
 export interface songSearchDetails {
-  results: [songDetails];
+  results: Array<songDetails>;
 }
 export interface ablumSearchDetails {
-  albums: { data: [albumDetails] };
+  results: Array<songDetails>;
 }
