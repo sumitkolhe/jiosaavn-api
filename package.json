@@ -1,23 +1,22 @@
 {
   "name": "jiosaavn-api",
   "version": "1.0.0",
-  "description": "JioSaavn API [Unofficial]",
-  "main": "index.js",
-  "scripts": {
-    "dev": "set NODE_ENV=production&&nodemon index.js",
-    "start": "node index.js"
+  "description": "unofficial api for downloading songs from jiosaavn.com",
+  "main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sumitkolhe/jiosaavn-api"
   },
-  "author": "Sumit kolhe",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "author": "Sumit Kolhe",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "https-proxy-agent": "^5.0.0",
-    "user-agents": "^1.0.559"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
-    "@architect/sandbox": "^3.3.6",
-    "nodemon": "^2.0.4"
+    "@vercel/node": "^1.9.0"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/", "dest": "/api/index.ts" },
+    { "src": "/song", "dest": "/api/song.ts" },
+    { "src": "/album", "dest": "/api/album.ts" },
+    { "src": "/search", "dest": "/api/search.ts" },
+    { "src": "/lyrics", "dest": "/api/lyrics.ts" }
+  ]
+}
