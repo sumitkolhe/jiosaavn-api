@@ -15,7 +15,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   const album_id = req.query.id as string;
   const album_token = req.query.link as string;
   if ((!album_id && !album_token) || (album_id && album_token))
-    res.json({ message: "incorrect query parameters" });
+    res.status(400).json({ message: "incorrect query parameters" });
 
   try {
     if (album_id) {
@@ -27,7 +27,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
     } else if (album_token) {
       const link = extractIdFromLink(album_token, "album");
       if (!link)
-        res.json({
+        res.status(400).json({
           message: "invalid link",
         });
       await axiosInstance
@@ -37,7 +37,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
         });
     }
   } catch (error) {
-    res.json({
+    res.status(500).json({
       message: "something went wrong",
     });
   }

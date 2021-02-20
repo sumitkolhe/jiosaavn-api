@@ -15,7 +15,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   const song_id = req.query.id as string;
   const song_token = req.query.link as string;
   if ((!song_id && !song_token) || (song_id && song_token))
-    res.json({ message: "incorrect query parameters" });
+    res.status(400).json({ message: "incorrect query parameters" });
 
   try {
     if (song_id) {
@@ -27,7 +27,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
     } else if (song_token) {
       const link = extractIdFromLink(song_token, "song");
       if (!link)
-        res.json({
+        res.status(400).json({
           message: "invalid link",
         });
       await axiosInstance
@@ -37,7 +37,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
         });
     }
   } catch (error) {
-    res.json({
+    res.status(400).json({
       message: "something went wrong",
     });
   }

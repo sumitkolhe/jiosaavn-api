@@ -1,4 +1,4 @@
-# :musical_note: JioSaavn API [UNOFFICIAL]
+# :musical_note: JioSaavn API
 
 An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality for free.
 
@@ -16,10 +16,7 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
 
 ## :mag_right: Usage
 
-### Song Search : 
-
-
-
+###  For how to use, check out [Documentation](https://docs.saavn.me).
 
 ## :construction_worker: Local development
 

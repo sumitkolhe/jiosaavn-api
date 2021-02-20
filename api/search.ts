@@ -23,7 +23,7 @@ const searchSongs = async (song_name: string, res: NowResponse) => {
         res.json(songs);
       });
   } catch (error) {
-    res.json({
+    res.status(500).json({
       message: "something went wrong",
     });
   }
@@ -41,7 +41,7 @@ const searchAlbums = async (album_name: string, res: NowResponse) => {
         res.json(albums);
       });
   } catch (error) {
-    res.json({
+    res.status(500).json({
       message: "something went wrong",
     });
   }
@@ -54,5 +54,5 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
 
   if (song_name) searchSongs(song_name, res);
   else if (album_name) searchAlbums(album_name, res);
-  else res.json({ message: "wrong query parameters" });
+  else res.status(400).json({ message: "wrong query parameters" });
 };

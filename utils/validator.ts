@@ -4,3 +4,4 @@ export const extractIdFromLink = (link: string, type: string): string => {
   }
   return "";
 };
+ 
