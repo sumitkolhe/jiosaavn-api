@@ -38,8 +38,7 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
     }
   } catch (error) {
     res.json({
-      status: error.status,
-      message: error.message,
+      message: "something went wrong",
     });
   }
 };

@@ -14,6 +14,13 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
 - :cloud: Lightweight and has minimal dependencies.
 - :package: Host your own instance on [vercel](https://vercel.com).
 
+## :mag_right: Usage
+
+### Song Search : 
+
+
+
+
 ## :construction_worker: Local development
 
 ### Prerequisites
