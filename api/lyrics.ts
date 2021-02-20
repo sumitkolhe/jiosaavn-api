@@ -14,10 +14,12 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
       .get(getLyricsUrl(song_id))
       .then((lyrics_details: AxiosResponse<lyricsDetails>) => {
         if (!lyrics_details.data.lyrics)
-          res.status(400).json({ message: "lyrics are not available for this song" });
+          res
+            .status(400)
+            .json({ message: "lyrics are not available for this song" });
         else
           res.json({
-            lyrics: lyrics_details.data.lyrics,
+            lyrics: lyrics_details.data.lyrics.replace(/<br>/g, " "),
             snippet: lyrics_details.data.snippet,
           });
       });
