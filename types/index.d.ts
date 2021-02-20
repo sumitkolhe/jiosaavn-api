@@ -1,7 +1,7 @@
 export interface songDetails {
   song_id: string;
   song_name: string;
-  album: string;
+  album_name: string;
   year: string | number;
   song_artist: string;
   song_image: string;

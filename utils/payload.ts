@@ -21,7 +21,7 @@ export const generateSongPayload = (data: any) => {
     song_id: data.id,
     song_name: data.song,
     album_id: data.albumid,
-    album: data.album,
+    album_name: data.album,
     year: data.year,
     song_release_date: data.release_date,
     song_duration: data.duration,
