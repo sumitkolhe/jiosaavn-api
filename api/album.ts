@@ -10,11 +10,12 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   setHeaders(res);
   const album_id = req.query.id as string;
 
+  if (!album_id) res.json({ message: "Album id is missing" });
+
   try {
     await axiosInstance
       .get(getAlbumDetailsUrl(album_id))
       .then((album_details: AxiosResponse<albumDetails>) => {
-        console.log(album_details.data);
         res.json(generateAlbumPayload(album_details.data));
       });
   } catch (error) {

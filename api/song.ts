@@ -9,7 +9,7 @@ import { songDetails } from "types";
 module.exports = async (req: NowRequest, res: NowResponse) => {
   setHeaders(res);
   const song_id = req.query.id as string;
-
+  if (!song_id) res.json({ message: "Song id is missing" });
   try {
     await axiosInstance
       .get(getSongDetailsUrl(song_id))

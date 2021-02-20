@@ -42,9 +42,7 @@ export const generateSongPayload = (data: any) => {
 
 export const generateAlbumPayload = (data: any) => {
   let songsArray: songDetails[] = new Array();
-  data.songs.forEach((song: songDetails) => {
-    songsArray.push(generateSongPayload(song));
-  });
+
   const album_payload: albumDetails = {
     album_id: data.albumid,
     album_name: data.title,
@@ -53,7 +51,13 @@ export const generateAlbumPayload = (data: any) => {
     year: data.year,
     album_artist: data.primary_artists,
     album_language: data.language,
-    songs: songsArray,
   };
+
+  if (data.songs) {
+    data.songs.forEach((song: songDetails) => {
+      songsArray.push(generateSongPayload(song));
+    });
+    album_payload.songs = songsArray;
+  }
   return album_payload;
 };
