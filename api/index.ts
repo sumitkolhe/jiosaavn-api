@@ -1,10 +1,10 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
-module.exports = async (_req: NowRequest, res: NowResponse) => {
+module.exports = async (_req: VercelRequest, res: VercelResponse) => {
   res.json({
-    Server: "online",
-    Documentation: "https://docs.saavn.me",
-    Github_repo: "https://github.com/sumitkolhe/jiosaavn-api",
-    Author: "https://sumit.codes",
+    server: "online",
+    documentation: "https://docs.saavn.me",
+    github: "https://github.com/sumitkolhe/jiosaavn-api",
+    author: "https://sumit.co",
   });
 };

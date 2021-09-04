@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import { generateAlbumPayload } from "../utils/payload";
 import { AxiosResponse } from "axios";
 import { axiosInstance } from "../utils/config";
@@ -10,7 +10,7 @@ import { setHeaders } from "../utils/headers";
 import { albumDetails } from "types";
 import { extractIdFromLink } from "../utils/validator";
 
-module.exports = async (req: NowRequest, res: NowResponse) => {
+module.exports = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res);
   const album_id = req.query.id as string;
   const album_token = req.query.link as string;

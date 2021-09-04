@@ -1,11 +1,11 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import { AxiosResponse } from "axios";
 import { lyricsDetails } from "types";
 import { axiosInstance } from "../utils/config";
 import { getLyricsUrl } from "../utils/endpoints";
 import { setHeaders } from "../utils/headers";
 
-module.exports = async (req: NowRequest, res: NowResponse) => {
+module.exports = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res);
   const song_id = req.query.id as string;
 

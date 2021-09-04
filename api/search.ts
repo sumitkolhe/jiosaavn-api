@@ -1,21 +1,14 @@
-import { NowRequest, NowResponse } from "@vercel/node";
-import { generateAlbumPayload, generateSongPayload } from "../utils/payload";
-import { AxiosResponse } from "axios";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import { axiosInstance } from "../utils/config";
-import { getAlbumSearchUrl, getSongSearchUrl } from "../utils/endpoints";
+import { getSongSearchUrl } from "../utils/endpoints";
 import { setHeaders } from "../utils/headers";
-import {
-  songSearchDetails,
-  songDetails,
-  albumDetails,
-  albumSearchDetails,
-} from "types";
 
-const searchQuery = async (song_name: string, res: NowResponse) => {
+const searchQuery = async (query: string, res: VercelResponse) => {
   try {
     await axiosInstance
-      .get(getSongSearchUrl(song_name)).then(resp=>resp.data)
-      .then(data => {
+      .get(getSongSearchUrl(query))
+      .then((resp) => resp.data)
+      .then((data) => {
         res.json(data);
       });
   } catch (error) {
@@ -25,7 +18,7 @@ const searchQuery = async (song_name: string, res: NowResponse) => {
   }
 };
 
-module.exports = async (req: NowRequest, res: NowResponse) => {
+module.exports = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res);
   const query = req.query.query as string;
 

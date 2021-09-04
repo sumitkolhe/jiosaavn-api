@@ -1,5 +1,3 @@
-const RESULT_LIMIT: number = 10;
-
 // Search by query
 export const getSongSearchUrl = (song_name: string): string => {
   return `https://www.jiosaavn.com/api.php?__call=autocomplete.get&_format=json&_marker=0&includeMetaTags=1&query=${song_name}`;

@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 import { generateSongPayload } from "../utils/payload";
 import { AxiosResponse } from "axios";
 import { axiosInstance } from "../utils/config";
@@ -10,7 +10,7 @@ import { setHeaders } from "../utils/headers";
 import { songDetails } from "types";
 import { extractIdFromLink } from "../utils/validator";
 
-module.exports = async (req: NowRequest, res: NowResponse) => {
+module.exports = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res);
 
   const song_id = req.query.pids as string;
@@ -21,12 +21,13 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   try {
     if (song_id) {
       await axiosInstance
-        .get(getSongDetailsUrl(song_id)).then(resp => resp.data)
-        .then(data => {
+        .get(getSongDetailsUrl(song_id))
+        .then((resp) => resp.data)
+        .then((data) => {
           var resArray = [];
           for (var key in data) {
             if (data.hasOwnProperty(key)) {
-              resArray.push(generateSongPayload(data[key]))
+              resArray.push(generateSongPayload(data[key]));
             }
           }
 
