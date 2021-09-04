@@ -2,11 +2,12 @@ const RESULT_LIMIT: number = 10;
 
 // Search by query
 export const getSongSearchUrl = (song_name: string): string => {
-  return `https://www.jiosaavn.com/api.php?__call=search.getResults&_format=json&n=${RESULT_LIMIT}&p=1&_marker=0&ctx=android&q=${song_name}`;
+  return `https://www.jiosaavn.com/api.php?__call=autocomplete.get&_format=json&_marker=0&includeMetaTags=1&query=${song_name}`;
 };
 
-export const getAlbumSearchUrl = (album_name: string): string => {
-  return `https://www.jiosaavn.com/api.php?__call=search.getAlbumResults&_format=json&n=${RESULT_LIMIT}&p=1&_marker=0&ctx=android&q=${album_name}`;
+// home page
+export const getHomeUrl = (): string => {
+  return `https://www.jiosaavn.com/api.php?__call=content.getHomepageData&_format=json&_marker=0&includeMetaTags=1`;
 };
 
 // Details

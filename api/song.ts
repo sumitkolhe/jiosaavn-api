@@ -12,7 +12,8 @@ import { extractIdFromLink } from "../utils/validator";
 
 module.exports = async (req: NowRequest, res: NowResponse) => {
   setHeaders(res);
-  const song_id = req.query.id as string;
+
+  const song_id = req.query.pids as string;
   const song_token = req.query.link as string;
   if ((!song_id && !song_token) || (song_id && song_token))
     res.status(400).json({ message: "incorrect query parameters" });
@@ -20,9 +21,16 @@ module.exports = async (req: NowRequest, res: NowResponse) => {
   try {
     if (song_id) {
       await axiosInstance
-        .get(getSongDetailsUrl(song_id))
-        .then((song_details: AxiosResponse<songDetails | any>) => {
-          res.json(generateSongPayload(song_details.data[song_id]));
+        .get(getSongDetailsUrl(song_id)).then(resp => resp.data)
+        .then(data => {
+          var resArray = [];
+          for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+              resArray.push(generateSongPayload(data[key]))
+            }
+          }
+
+          res.json(resArray);
         });
     } else if (song_token) {
       const link = extractIdFromLink(song_token, "song");
