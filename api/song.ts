@@ -4,21 +4,20 @@ import { generateSongPayload } from '@helpers/createPayload'
 import { axiosInstance } from '@config/axios'
 import { getSongDetailsByTokenUrl, getSongDetailsUrl } from '../config/endpoints'
 import { setHeaders } from '@utils/headers'
-import { songDetails } from '@interfaces/song'
+import { Song } from '@interfaces/song'
 import { extractIdFromLink } from '@utils/validator'
 
 const song = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
 
-  const song_id = req.query.pids as string
-  const song_token = req.query.link as string
-  if ((!song_id && !song_token) || (song_id && song_token))
-    res.status(400).json({ message: 'incorrect query parameters' })
+  const songId = req.query.pids as string
+  const songToken = req.query.link as string
+  if ((!songId && !songToken) || (songId && songToken)) res.status(400).json({ message: 'incorrect query parameters' })
 
   try {
-    if (song_id) {
+    if (songId) {
       await axiosInstance
-        .get(getSongDetailsUrl(song_id))
+        .get(getSongDetailsUrl(songId))
         .then((resp) => resp.data)
         .then((data) => {
           const resArray = []
@@ -30,14 +29,14 @@ const song = async (req: VercelRequest, res: VercelResponse) => {
 
           res.json(resArray)
         })
-    } else if (song_token) {
-      const link = extractIdFromLink(song_token, 'song')
+    } else if (songToken) {
+      const link = extractIdFromLink(songToken, 'song')
       if (!link)
         res.status(400).json({
           message: 'invalid link',
         })
-      await axiosInstance.get(getSongDetailsByTokenUrl(link)).then((song_details: AxiosResponse<songDetails | any>) => {
-        res.json(generateSongPayload(song_details.data.songs[0]))
+      await axiosInstance.get(getSongDetailsByTokenUrl(link)).then((songDetails: AxiosResponse<Song | any>) => {
+        res.json(generateSongPayload(songDetails.data.songs[0]))
       })
     }
   } catch (error) {
