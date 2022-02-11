@@ -1,4 +1,4 @@
-export interface songDetails {
+export interface Song {
   songId: string
   songName: string
   albumName: string
@@ -18,6 +18,6 @@ export interface songDetails {
   downloadLinks: Array<string> | boolean
 }
 
-export interface songSearchDetails {
-  results: Array<songDetails>
+export interface SongSearch {
+  results: Array<Song>
 }

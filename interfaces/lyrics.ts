@@ -1,4 +1,4 @@
-export interface lyricsDetails {
+export interface Lyrics {
   lyrics: string
   snippet: string
 }

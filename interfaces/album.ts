@@ -1,6 +1,6 @@
-import { songDetails } from 'interfaces/song'
+import { Song } from 'interfaces/song'
 
-export interface albumDetails {
+export interface Album {
   albumId: string
   albumName: string
   albumImage: string
@@ -9,9 +9,9 @@ export interface albumDetails {
   year: string
   albumLanguage: string
   albumReleaseDate?: string
-  songs?: Array<songDetails>
+  songs?: Array<Song>
 }
 
-export interface albumSearchDetails {
-  results: Array<albumDetails>
+export interface AlbumSearch {
+  results: Array<Album>
 }
