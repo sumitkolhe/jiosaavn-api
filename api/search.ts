@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { axiosInstance } from '../utils/config'
-import { getSongSearchUrl } from '../utils/endpoints'
+import { getSongSearchUrl } from '../config/endpoints'
 import { setHeaders } from '../utils/headers'
 
 const searchQuery = async (query: string, res: VercelResponse) => {

@@ -2,7 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AxiosResponse } from 'axios'
 import { lyricsDetails } from 'types'
 import { axiosInstance } from '../utils/config'
-import { getLyricsUrl } from '../utils/endpoints'
+import { getLyricsUrl } from '../config/endpoints'
 import { setHeaders } from '../utils/headers'
 
 const lyrics = async (req: VercelRequest, res: VercelResponse) => {

@@ -27,6 +27,6 @@
       "@api/*": ["./api/*"]
     }
   },
-  "include": ["api/**/*", "types", "utils"],
+  "include": ["api/**/*", "types", "utils", "config/endpoints.ts"],
   "exclude": ["node_modules"]
 }
