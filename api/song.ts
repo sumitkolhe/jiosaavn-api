@@ -4,7 +4,7 @@ import { generateSongPayload } from '../utils/payload'
 import { axiosInstance } from '../config/axioss
 import { getSongDetailsByTokenUrl, getSongDetailsUrl } from '../config/endpoints'
 import { setHeaders } from '../utils/headers'
-import { songDetails } from 'types'
+import { songDetails } from 'interfaces/lyrics/lyrics'
 import { extractIdFromLink } from '../utils/validator'
 
 const song = async (req: VercelRequest, res: VercelResponse) => {

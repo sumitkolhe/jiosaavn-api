@@ -19,7 +19,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "baseUrl": ".",
-    "typeRoots": ["types"],
+    "typeRoots": ["interfaces"],
     "paths": {
       "@config/*": ["./config/*"],
       "@helpers/*": ["./helpers/*"],
@@ -27,6 +27,6 @@
       "@api/*": ["./api/*"]
     }
   },
-  "include": ["api/**/*", "types", "utils", "config/endpoints.ts", "config/axios.ts"],
+  "include": ["api/**/*", "interfaces", "utils", "config/endpoints.ts", "config/axios.ts"],
   "exclude": ["node_modules"]
 }
