@@ -25,9 +25,10 @@
       "@helpers/*": ["./helpers/*"],
       "@utils/*": ["./utils/*"],
       "@interfaces/*": ["./interfaces/*"],
+      "@data/*": ["./data/*"],
       "@api/*": ["./api/*"]
     }
   },
-  "include": ["api/**/*", "interfaces", "utils", "config/endpoints.ts", "config/axios.ts"],
+  "include": ["/**/*"],
   "exclude": ["node_modules"]
 }
