@@ -1,5 +1,5 @@
-import { albumDetails } from '@interfaces/album'
-import { songDetails } from '@interfaces/song'
+import { Album } from '@interfaces/album'
+import { Song } from '@interfaces/song'
 
 export const getDownloadLinks = (songDownloadLink: string) => {
   if (songDownloadLink)
@@ -12,7 +12,7 @@ export const getDownloadLinks = (songDownloadLink: string) => {
 }
 
 export const generateSongPayload = (data: any) => {
-  const songPayload: songDetails = {
+  const songPayload: Song = {
     songId: data.id,
     songName: data.song,
     albumId: data.albumid,
@@ -36,9 +36,9 @@ export const generateSongPayload = (data: any) => {
 }
 
 export const generateAlbumPayload = (data: any) => {
-  const songsArray: songDetails[] = []
+  const songsArray: Song[] = []
 
-  const albumPayload: albumDetails = {
+  const albumPayload: Album = {
     albumId: data.albumid,
     albumName: data.title,
     albumImage: data.image.replace('150x150', '500x500'),
@@ -49,7 +49,7 @@ export const generateAlbumPayload = (data: any) => {
   }
 
   if (data.songs) {
-    data.songs.forEach((song: songDetails) => {
+    data.songs.forEach((song: Song) => {
       songsArray.push(generateSongPayload(song))
     })
     albumPayload.songs = songsArray
