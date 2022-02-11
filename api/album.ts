@@ -4,29 +4,29 @@ import { generateAlbumPayload } from '@helpers/createPayload'
 import { axiosInstance } from '@config/axios'
 import { getAlbumDetailsByTokenUrl, getAlbumDetailsUrl } from '@config/endpoints'
 import { setHeaders } from '@utils/headers'
-import { albumDetails } from '@interfaces/album'
+import { Album } from '@interfaces/album'
 import { extractIdFromLink } from '@utils/validator'
 
 const album = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
-  const album_id = req.query.id as string
-  const album_token = req.query.link as string
-  if ((!album_id && !album_token) || (album_id && album_token))
+  const albumId = req.query.id as string
+  const albumToken = req.query.link as string
+  if ((!albumId && !albumToken) || (albumId && albumToken))
     res.status(400).json({ message: 'incorrect query parameters' })
 
   try {
-    if (album_id) {
-      await axiosInstance.get(getAlbumDetailsUrl(album_id)).then((album_details: AxiosResponse<albumDetails>) => {
-        res.json(generateAlbumPayload(album_details.data))
+    if (albumId) {
+      await axiosInstance.get(getAlbumDetailsUrl(albumId)).then((albumDetails: AxiosResponse<Album>) => {
+        res.json(generateAlbumPayload(albumDetails.data))
       })
-    } else if (album_token) {
-      const link = extractIdFromLink(album_token, 'album')
+    } else if (albumToken) {
+      const link = extractIdFromLink(albumToken, 'album')
       if (!link)
         res.status(400).json({
           message: 'invalid link',
         })
-      await axiosInstance.get(getAlbumDetailsByTokenUrl(link)).then((album_details: AxiosResponse<albumDetails>) => {
-        res.json(generateAlbumPayload(album_details.data))
+      await axiosInstance.get(getAlbumDetailsByTokenUrl(link)).then((albumDetails: AxiosResponse<Album>) => {
+        res.json(generateAlbumPayload(albumDetails.data))
       })
     }
   } catch (error) {
