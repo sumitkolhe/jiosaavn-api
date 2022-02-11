@@ -1,8 +1,8 @@
 {
   "name": "jiosaavn-api",
   "version": "1.0.0",
-  "description": "unofficial api for downloading songs from jiosaavn.com",
-  "main": "src/index.ts",
+  "description": "Unofficial api for downloading songs from jiosaavn.com",
+  "main": "src/api/index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sumitkolhe/jiosaavn-api"
