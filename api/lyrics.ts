@@ -1,21 +1,21 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AxiosResponse } from 'axios'
-import { lyricsDetails } from '@interfaces/lyrics'
+import { Lyrics } from '@interfaces/lyrics'
 import { axiosInstance } from '@config/axios'
 import { getLyricsUrl } from '@config/endpoints'
 import { setHeaders } from '@utils/headers'
 
 const lyrics = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
-  const song_id = req.query.id as string
+  const songId = req.query.id as string
 
   try {
-    await axiosInstance.get(getLyricsUrl(song_id)).then((lyrics_details: AxiosResponse<lyricsDetails>) => {
-      if (!lyrics_details.data.lyrics) res.status(400).json({ message: 'lyrics are not available for this song' })
+    await axiosInstance.get(getLyricsUrl(songId)).then((lyricsDetails: AxiosResponse<Lyrics>) => {
+      if (!lyricsDetails.data.lyrics) res.status(400).json({ message: 'lyrics are not available for this song' })
       else
         res.json({
-          lyrics: lyrics_details.data.lyrics.replace(/<br>/g, ' '),
-          snippet: lyrics_details.data.snippet,
+          lyrics: lyricsDetails.data.lyrics.replace(/<br>/g, ' '),
+          snippet: lyricsDetails.data.snippet,
         })
     })
   } catch (error) {
