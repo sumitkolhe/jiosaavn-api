@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 
-module.exports = async (_req: VercelRequest, res: VercelResponse) => {
+const index = async (_req: VercelRequest, res: VercelResponse) => {
   res.json({
     server: 'online',
     documentation: 'https://docs.saavn.me',
@@ -8,3 +8,4 @@ module.exports = async (_req: VercelRequest, res: VercelResponse) => {
     author: 'https://sumit.co',
   })
 }
+export default index

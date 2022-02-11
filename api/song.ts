@@ -7,7 +7,7 @@ import { setHeaders } from '../utils/headers'
 import { songDetails } from 'types'
 import { extractIdFromLink } from '../utils/validator'
 
-module.exports = async (req: VercelRequest, res: VercelResponse) => {
+const song = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
 
   const song_id = req.query.pids as string
@@ -46,3 +46,5 @@ module.exports = async (req: VercelRequest, res: VercelResponse) => {
     })
   }
 }
+
+export default song

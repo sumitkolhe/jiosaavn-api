@@ -3,7 +3,7 @@ import { axiosInstance } from '../utils/config'
 import { getHomeUrl } from '../utils/endpoints'
 import { setHeaders } from '../utils/headers'
 
-module.exports = async (_req: VercelRequest, res: VercelResponse) => {
+const home async (_req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
   try {
     await axiosInstance
@@ -18,3 +18,5 @@ module.exports = async (_req: VercelRequest, res: VercelResponse) => {
     })
   }
 }
+
+export default home

@@ -5,7 +5,7 @@ import { axiosInstance } from '../utils/config'
 import { getLyricsUrl } from '../utils/endpoints'
 import { setHeaders } from '../utils/headers'
 
-module.exports = async (req: VercelRequest, res: VercelResponse) => {
+const lyrics = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
   const song_id = req.query.id as string
 
@@ -24,3 +24,5 @@ module.exports = async (req: VercelRequest, res: VercelResponse) => {
     })
   }
 }
+
+export default lyrics

@@ -18,10 +18,12 @@ const searchQuery = async (query: string, res: VercelResponse) => {
   }
 }
 
-module.exports = async (req: VercelRequest, res: VercelResponse) => {
+const search = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
   const query = req.query.query as string
 
   if (query) searchQuery(query, res)
   else res.status(400).json({ message: 'wrong query parameters' })
 }
+
+export default search

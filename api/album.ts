@@ -7,7 +7,7 @@ import { setHeaders } from '../utils/headers'
 import { albumDetails } from 'types'
 import { extractIdFromLink } from '../utils/validator'
 
-module.exports = async (req: VercelRequest, res: VercelResponse) => {
+const album = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
   const album_id = req.query.id as string
   const album_token = req.query.link as string
@@ -35,3 +35,5 @@ module.exports = async (req: VercelRequest, res: VercelResponse) => {
     })
   }
 }
+
+export default album
