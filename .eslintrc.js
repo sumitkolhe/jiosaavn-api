@@ -26,6 +26,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'arrow-body-style': ['error', 'as-needed'],
     'import/extensions': 'off',
     'import/no-unresolved': 'error',
