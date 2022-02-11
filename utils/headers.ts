@@ -1,6 +1,6 @@
 import { VercelResponse } from '@vercel/node'
 
-export const setHeaders = (res: VercelResponse) => {
+export const setHeaders = (res: VercelResponse): VercelResponse => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
