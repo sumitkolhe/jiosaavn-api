@@ -9,6 +9,9 @@
   },
   "scripts": {
     "start": "vercel dev",
+    "pretty": "prettier --write \"./**/*.{js,ts,json}\"",
+    "lint": "eslint . --ext \".ts\"",
+    "lint:fix": "eslint --fix --ext .js,.ts .",
     "deploy": "vercel deploy --prod"
   },
   "author": "Sumit Kolhe",
