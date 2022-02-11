@@ -1,4 +1,5 @@
-import { albumDetails, songDetails } from 'interfaces/lyrics/lyrics'
+import { albumDetails } from '@interfaces/album'
+import { songDetails } from '@interfaces/song'
 
 export const getDownloadLinks = (songDownloadLink: string) => {
   if (songDownloadLink)
