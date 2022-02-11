@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AxiosResponse } from 'axios'
 import { lyricsDetails } from 'types'
-import { axiosInstance } from '../utils/config'
+import { axiosInstance } from '../config/axioss
 import { getLyricsUrl } from '../config/endpoints'
 import { setHeaders } from '../utils/headers'
 

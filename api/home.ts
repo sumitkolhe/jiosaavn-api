@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { axiosInstance } from '../utils/config'
+import { axiosInstance } from '../config/axioss
 import { getHomeUrl } from '../config/endpoints'
 import { setHeaders } from '../utils/headers'
 

@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AxiosResponse } from 'axios'
 import { generateAlbumPayload } from '../utils/payload'
-import { axiosInstance } from '../utils/config'
+import { axiosInstance } from '../config/axioss
 import { getAlbumDetailsByTokenUrl, getAlbumDetailsUrl } from '../config/endpoints'
 import { setHeaders } from '../utils/headers'
 import { albumDetails } from 'types'
