@@ -19,7 +19,13 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "baseUrl": ".",
-    "typeRoots": ["types"]
+    "typeRoots": ["types"],
+    "paths": {
+      "@config/*": ["./config/*"],
+      "@helpers/*": ["./helpers/*"],
+      "@utils/*": ["./utils/*"],
+      "@api/*": ["./api/*"]
+    }
   },
   "include": ["api/**/*", "types", "utils"],
   "exclude": ["node_modules"]
