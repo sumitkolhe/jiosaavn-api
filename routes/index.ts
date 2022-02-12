@@ -1,6 +1,5 @@
 import express, { Router } from 'express'
 import { Controller } from '../controller/saavn.controller'
-import { routes } from '../interfaces/routes'
 
 export const parentRouter: Router = express.Router()
 
@@ -12,6 +11,6 @@ parentRouter.get('/', (_req, res) => {
     author: 'https://sumit.co',
   })
 })
-
-parentRouter.get(routes.homeData, Controller.homeData)
-parentRouter.get(routes.topCharts, Controller.topCharts)
+parentRouter.get('/search', Controller.searchAll)
+parentRouter.get('/home', Controller.homeData)
+parentRouter.get('/topCharts', Controller.topCharts)
