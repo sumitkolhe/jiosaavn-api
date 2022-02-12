@@ -13,4 +13,4 @@ parentRouter.get('/', (_req, res) => {
 })
 parentRouter.get('/search', Controller.searchAll)
 parentRouter.get('/home', Controller.homeData)
-parentRouter.get('/topCharts', Controller.topCharts)
+parentRouter.get('/charts', Controller.topCharts)

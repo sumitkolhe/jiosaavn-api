@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express'
-import { TopChartsService } from '../services/topcharts.service'
+import { ChartsService } from '../services/charts.service'
 import { HomeDataService } from '../services/homeData.service'
 import { SearchService } from '../services/search.service'
 
@@ -25,7 +25,7 @@ export class Controller {
 
   public static topCharts: RequestHandler = async (_req, res, next) => {
     try {
-      const topCharts = await TopChartsService()
+      const topCharts = await ChartsService()
       res.json(topCharts)
     } catch (error) {
       next(error)
