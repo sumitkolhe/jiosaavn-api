@@ -1,16 +1,6 @@
 import { Album } from '../interfaces/album'
 import { Song } from '../interfaces/song'
 
-export const getDownloadLinks = (songDownloadLink: string) => {
-  if (songDownloadLink)
-    return [
-      songDownloadLink.replace('preview.saavncdn.com', 'aac.saavncdn.com').replace('_96_p', '_96'),
-      songDownloadLink.replace('preview.saavncdn.com', 'aac.saavncdn.com').replace('_96_p', '_160'),
-      songDownloadLink.replace('preview.saavncdn.com', 'aac.saavncdn.com').replace('_96_p', '_320'),
-    ]
-  return false
-}
-
 export const generateSongPayload = (data: any) => {
   const songPayload: Song = {
     songId: data.id,
