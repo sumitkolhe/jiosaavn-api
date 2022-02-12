@@ -1,7 +1,8 @@
 import { axiosInstance } from '../config/axios'
-import { endpoints } from '../config/endpoints'
+import { ApiType, getEndpoint } from '../config/endpoints'
 
 export const TopChartsService = async () => {
-  const result = await axiosInstance.get(endpoints.topCharts)
+  const endpoint = getEndpoint(true, ApiType.topCharts)
+  const result = await axiosInstance.get(endpoint)
   return result.data
 }

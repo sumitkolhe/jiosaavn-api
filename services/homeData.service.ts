@@ -1,7 +1,8 @@
 import { axiosInstance } from '../config/axios'
-import { endpoints } from '../config/endpoints'
+import { ApiType, getEndpoint } from '../config/endpoints'
 
 export const HomeDataService = async () => {
-  const response = await axiosInstance.get(endpoints.homeData)
+  const endpoint = getEndpoint(true, ApiType.homeData)
+  const response = await axiosInstance.get(endpoint)
   return response.data
 }
