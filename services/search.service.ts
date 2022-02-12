@@ -14,6 +14,7 @@ export class SearchService {
   }
 
   public static searchSongs = async (query: string, page: string, limit: string) => {
+    // api v4 does not contain media_preview_url
     const endpoint = getEndpoint(false, ApiType.searchSong)
 
     const response: AxiosResponse<SongSearch> = await axiosInstance.get(endpoint, {
@@ -25,12 +26,13 @@ export class SearchService {
   }
 
   public static searchAlbums = async (query: string, page: string, limit: string) => {
-    const endpoint = getEndpoint(false, ApiType.searchAlbum)
+    const endpoint = getEndpoint(true, ApiType.searchAlbum)
 
     const response = await axiosInstance.get(endpoint, {
       params: { q: query, p: page || 1, n: limit || 20 },
     })
 
-    return response.data
+    const payload = GeneratePayload.albums(response)
+    return payload
   }
 }

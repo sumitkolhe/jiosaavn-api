@@ -1,14 +1,24 @@
 import { Song } from './song'
 
+interface MoreInfo {
+  song_count: string
+  artistMap: {
+    primary_artists: {
+      id: string
+      name: string
+    }[]
+  }
+}
 export interface Album {
-  albumId: string
-  albumName: string
-  albumImage: string
-  albumLink: string
-  albumArtist: string
+  id: string
+  title: string
+  image: string
+  perma_url: string
   year: string
-  albumLanguage: string
-  albumReleaseDate?: string
+  play_count: string
+  language: string
+  explicit_content: string
+  more_info: MoreInfo
   songs?: Array<Song>
 }
 
