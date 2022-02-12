@@ -1,4 +1,4 @@
-export const sanitizeDownloadLinks = (link: string) => {
+export const createDownloadLinks = (link: string) => {
   if (!link) return false
 
   const qualities = [
@@ -7,8 +7,10 @@ export const sanitizeDownloadLinks = (link: string) => {
     { id: '_320', bitrate: '320kbps' },
   ]
 
-  return qualities.map((quality) => ({
-    quality: quality.bitrate,
-    link: link.replace('preview.saavncdn.com', 'aac.saavncdn.com').replace('_96_p', quality.id),
-  }))
+  return (
+    qualities.map((quality) => ({
+      quality: quality.bitrate,
+      link: link.replace('preview.saavncdn.com', 'aac.saavncdn.com').replace('_96_p', quality.id),
+    })) || false
+  )
 }
