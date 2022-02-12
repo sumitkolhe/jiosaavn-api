@@ -6,6 +6,7 @@ export const enum ApiType {
   charts = 'content.getCharts',
   trending = 'content.getTrending',
   searchSong = 'search.getResults',
+  searchAlbum = 'search.getAlbumResults',
 }
 
 export const getEndpoint = (isVersion4: boolean, api: string) =>
