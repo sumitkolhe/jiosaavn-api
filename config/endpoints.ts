@@ -27,3 +27,10 @@ export const getAlbumDetailsByTokenUrl = (
 // Lyrics
 export const getLyricsUrl = (songId: string): string =>
   `https://www.jiosaavn.com/api.php?__call=lyrics.getLyrics&ctx=web6dot0&_format=json&_marker=0%3F_marker=0&lyrics_id=${songId}`
+
+const BaseUrl = 'https://www.jiosaavn.com/api.php'
+
+export const endpoints = {
+  homeData: `${BaseUrl}?api_version=4&_format=json&_marker=0&ctx=web6dot0&__call=webapi.getLaunchData`,
+  topCharts: `${BaseUrl}?api_version=4&_format=json&_marker=0&ctx=web6dot0&__call=content.getCharts`,
+}
