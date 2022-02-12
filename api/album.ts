@@ -4,7 +4,7 @@ import { generateAlbumPayload } from '../helpers/createPayload'
 import { axiosInstance } from '../config/axios'
 import { getAlbumDetailsByTokenUrl, getAlbumDetailsUrl } from '../config/endpoints'
 import { Album } from '../interfaces/album'
-import { extractIdFromLink } from '../utils/validator'
+import { extractIdFromLink } from '../middleware/validator'
 
 const album = async (req: VercelRequest, res: VercelResponse) => {
   const albumId = req.query.id as string

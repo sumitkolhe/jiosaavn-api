@@ -1,14 +1,15 @@
-import express from 'express'
+import express, { NextFunction, Request, Response } from 'express'
+import { parentRouter } from '../routes'
+import { CreateError, HandleError } from '../middleware/errorHandler'
 
 const app = express()
 
-app.get('/', (_req: express.Request, res: express.Response) => {
-  res.json({
-    server: 'online',
-    documentation: 'https://docs.saavn.me',
-    github: 'https://github.com/sumitkolhe/jiosaavn-api',
-    author: 'https://sumit.co',
-  })
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(parentRouter)
+app.use((_req: Request, _res: Response, next: NextFunction) => {
+  next(CreateError.NotFound('Not Found'))
 })
+app.use((err: unknown, req: Request, res: Response, next: NextFunction) => HandleError(err, req, res, next))
 
 export default app

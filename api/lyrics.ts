@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios'
 import { Lyrics } from '../interfaces/lyrics'
 import { axiosInstance } from '../config/axios'
 import { endpoints } from '../config/endpoints'
-import { CreateError } from '../utils/errorHandler'
+import { CreateError } from '../middleware/errorHandler'
 
 const lyricsData = async (req: VercelRequest, res: VercelResponse) => {
   const songId = req.query.id as string

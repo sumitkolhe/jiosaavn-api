@@ -4,7 +4,7 @@ import { generateSongPayload } from '../helpers/createPayload'
 import { axiosInstance } from '../config/axios'
 import { getSongDetailsByTokenUrl, getSongDetailsUrl } from '../config/endpoints'
 import { Song } from '../interfaces/song'
-import { extractIdFromLink } from '../utils/validator'
+import { extractIdFromLink } from '../middleware/validator'
 
 const song = async (req: VercelRequest, res: VercelResponse) => {
   const songId = req.query.pids as string
