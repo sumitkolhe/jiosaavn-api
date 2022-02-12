@@ -28,7 +28,9 @@ export class Controller {
   public static searchSongs: RequestHandler = async (req, res, next) => {
     try {
       const { query, page, limit } = req.query
+
       const searchResults = await SearchService.searchSongs(query as string, page as string, limit as string)
+
       res.json({ status: globalConstants.status.success, data: searchResults })
     } catch (error) {
       next(error)
