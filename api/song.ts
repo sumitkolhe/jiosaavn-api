@@ -1,11 +1,11 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AxiosResponse } from 'axios'
-import { generateSongPayload } from '@helpers/createPayload'
-import { axiosInstance } from '@config/axios'
-import { getSongDetailsByTokenUrl, getSongDetailsUrl } from '../config/endpoints'
-import { setHeaders } from '@utils/headers'
-import { Song } from '@interfaces/song'
-import { extractIdFromLink } from '@utils/validator'
+import { generateSongPayload } from 'helpers/createPayload'
+import { axiosInstance } from 'config/axios'
+import { getSongDetailsByTokenUrl, getSongDetailsUrl } from 'config/endpoints'
+import { setHeaders } from 'utils/headers'
+import { Song } from 'interfaces/song'
+import { extractIdFromLink } from 'utils/validator'
 
 const song = async (req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)
