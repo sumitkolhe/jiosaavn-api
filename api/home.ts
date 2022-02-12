@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { axiosInstance } from 'config/axios'
-import { getHomeUrl } from 'config/endpoints'
-import { setHeaders } from 'utils/headers'
+import { axiosInstance } from '../config/axios'
+import { getHomeUrl } from '../config/endpoints'
+import { setHeaders } from '../utils/headers'
 
 const home = async (_req: VercelRequest, res: VercelResponse) => {
   setHeaders(res)

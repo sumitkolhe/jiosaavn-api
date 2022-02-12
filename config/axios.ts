@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { userAgents } from '@data/useragents'
+import { userAgents } from '../data/useragents'
 
 const axiosConfig = {
   headers: {

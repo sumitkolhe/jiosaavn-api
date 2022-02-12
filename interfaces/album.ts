@@ -1,4 +1,4 @@
-import { Song } from 'interfaces/song'
+import { Song } from './song'
 
 export interface Album {
   albumId: string
