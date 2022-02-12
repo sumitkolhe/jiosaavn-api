@@ -18,9 +18,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "baseUrl": ".",
-    "typeRoots": ["types"]
+    "baseUrl": "./",
+    "typeRoots": ["interfaces"]
   },
-  "include": ["api/**/*", "types", "utils"],
+  "include": ["/**/*"],
   "exclude": ["node_modules"]
 }
