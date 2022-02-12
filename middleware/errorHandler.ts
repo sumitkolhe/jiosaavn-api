@@ -1,3 +1,6 @@
+import { ErrorRequestHandler } from 'express'
+import { globalConstants } from '../constants'
+
 export class CreateError extends Error {
   public status: number
 
@@ -28,4 +31,16 @@ export class CreateError extends Error {
   static InternalServerError(message?: string): CreateError {
     return new CreateError(500, message || 'Something Went Wrong')
   }
+}
+
+export const HandleError: ErrorRequestHandler = (error: CreateError, _req, res) => {
+  let message = ''
+
+  const statusCode = error.status || 500
+  message = error.message || 'Something went wrong'
+
+  res.status(statusCode).json({
+    status: globalConstants.status.failed,
+    message,
+  })
 }
