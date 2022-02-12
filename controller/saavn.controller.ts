@@ -1,4 +1,5 @@
 import { RequestHandler } from 'express'
+import { TrendingService } from '../services/trending.service'
 import { ChartsService } from '../services/charts.service'
 import { HomeDataService } from '../services/homeData.service'
 import { SearchService } from '../services/search.service'
@@ -23,10 +24,19 @@ export class Controller {
     }
   }
 
-  public static topCharts: RequestHandler = async (_req, res, next) => {
+  public static charts: RequestHandler = async (_req, res, next) => {
     try {
-      const topCharts = await ChartsService()
-      res.json(topCharts)
+      const charts = await ChartsService()
+      res.json(charts)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public static trending: RequestHandler = async (_req, res, next) => {
+    try {
+      const trending = await TrendingService()
+      res.json(trending)
     } catch (error) {
       next(error)
     }
