@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+import { isCelebrateError } from 'celebrate'
 import { ErrorRequestHandler } from 'express'
 import { globalConstants } from '../constants'
 
@@ -34,10 +36,19 @@ export class CreateError extends Error {
 }
 
 export const HandleError: ErrorRequestHandler = (error: CreateError, _req, res) => {
+  let statusCode: number
   let message = ''
 
-  const statusCode = error.status || 500
-  message = error.message || 'Something went wrong'
+  if (isCelebrateError(error)) {
+    statusCode = 400
+
+    for (const value of error.details.values()) {
+      message += value.message.replace(/"/g, '')
+    }
+  } else {
+    statusCode = error.status || 500
+    message = error.message || 'Something went wrong'
+  }
 
   res.status(statusCode).json({
     status: globalConstants.status.failed,
