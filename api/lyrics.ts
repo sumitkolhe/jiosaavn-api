@@ -2,28 +2,24 @@ import { VercelRequest, VercelResponse } from '@vercel/node'
 import { AxiosResponse } from 'axios'
 import { Lyrics } from '../interfaces/lyrics'
 import { axiosInstance } from '../config/axios'
-import { getLyricsUrl } from '../config/endpoints'
-import { setHeaders } from '../utils/headers'
+import { endpoints } from '../config/endpoints'
 import { CreateError } from '../utils/errorHandler'
 
-const lyrics = async (req: VercelRequest, res: VercelResponse) => {
-  setHeaders(res)
+const lyricsData = async (req: VercelRequest, res: VercelResponse) => {
   const songId = req.query.id as string
 
   try {
-    await axiosInstance.get(getLyricsUrl(songId)).then((lyricsDetails: AxiosResponse<Lyrics>) => {
-      if (!lyricsDetails.data.lyrics) CreateError.BadRequest('lyrics are not available for this song')
-      else
-        res.json({
-          lyrics: lyricsDetails.data.lyrics.replace(/<br>/g, ' '),
-          snippet: lyricsDetails.data.snippet,
-        })
+    const lyrics: AxiosResponse<Lyrics> = await axiosInstance.get(endpoints.lyrics + songId)
+
+    if (!lyrics.data.lyrics) CreateError.BadRequest('lyrics are not available for this song')
+
+    res.json({
+      lyrics: lyrics.data.lyrics.replace(/<br>/g, ' '),
+      snippet: lyrics.data.snippet,
     })
   } catch (error) {
-    res.status(500).json({
-      message: 'something went wrong',
-    })
+    CreateError.InternalServerError(error as string)
   }
 }
 
-export default lyrics
+export default lyricsData

@@ -3,13 +3,10 @@ import { AxiosResponse } from 'axios'
 import { generateSongPayload } from '../helpers/createPayload'
 import { axiosInstance } from '../config/axios'
 import { getSongDetailsByTokenUrl, getSongDetailsUrl } from '../config/endpoints'
-import { setHeaders } from '../utils/headers'
 import { Song } from '../interfaces/song'
 import { extractIdFromLink } from '../utils/validator'
 
 const song = async (req: VercelRequest, res: VercelResponse) => {
-  setHeaders(res)
-
   const songId = req.query.pids as string
   const songToken = req.query.link as string
   if ((!songId && !songToken) || (songId && songToken)) res.status(400).json({ message: 'incorrect query parameters' })
