@@ -17,7 +17,17 @@ export class Controller {
   public static searchAll: RequestHandler = async (req, res, next) => {
     try {
       const { query } = req.query
-      const topCharts = await SearchService(query as string)
+      const topCharts = await SearchService.searchAll(query as string)
+      res.json(topCharts)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public static searchSongs: RequestHandler = async (req, res, next) => {
+    try {
+      const { query, page, limit } = req.query
+      const topCharts = await SearchService.searchSongs(query as string, page as string, limit as string)
       res.json(topCharts)
     } catch (error) {
       next(error)
