@@ -1,15 +1,10 @@
-import express, { NextFunction, Request, Response } from 'express'
-import { parentRouter } from '../routes'
-import { CreateError, HandleError } from '../middleware/errorHandler'
+import { NowRequest, NowResponse } from "@vercel/node";
 
-const app = express()
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(parentRouter)
-app.use((_req: Request, _res: Response, next: NextFunction) => {
-  next(CreateError.NotFound('Not Found'))
-})
-app.use((err: unknown, req: Request, res: Response, next: NextFunction) => HandleError(err, req, res, next))
-
-export default app
+module.exports = async (_req: NowRequest, res: NowResponse) => {
+  res.json({
+    Server: "online",
+    Documentation: "https://docs.saavn.me",
+    Github_repo: "https://github.com/sumitkolhe/jiosaavn-api",
+    Author: "https://sumit.codes",
+  });
+};

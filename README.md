@@ -16,7 +16,7 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
 
 ## :mag_right: Usage
 
-### For usage, see [Documentation](https://docs.saavn.me)
+###  For how to use, check out [Documentation](https://docs.saavn.me).
 
 ## :construction_worker: Local development
 
@@ -29,35 +29,40 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
 
 - Clone the Repo
 
-  ```sh
-  git clone https://github.com/sumitkolhe/jiosaavn-api
+  ```
+  $ git clone https://github.com/sumitkolhe/jiosaavn-api
 
-  cd jiosaavn-api
+  $ cd jiosaavn-api
   ```
 
 - Install the dependencies
 
-  ```sh
+  ```
   npm install
   ```
 
 - Start development server
 
-  ```sh
+  ```
   npm start
   ```
 
 - Deploy to your vercel account
 
-  ```sh
+  ```
   npm run deploy
   ```
 
 ## :rocket: Deploy to Vercel
 
 **You can directly deploy this repo to your Vercel account by clicking the button below.**
+<br>
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/sumitkolhe/jiosaavn-api)
+
+## ✍️ Authors
+
+- [**Sumit Kolhe**](https://github.com/sumitkolhe) - _Author_
 
 ## 📜 License
 
