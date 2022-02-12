@@ -30,7 +30,7 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'import/extensions': 'off',
     'import/no-unresolved': 'error',
-    'no-console': 'error',
+    'no-console': process.env === 'Production' ? 'error' : 'warn',
     'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/no-explicit-any': 'error',
     'no-unused-vars': 'off',
