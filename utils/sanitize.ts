@@ -2,6 +2,8 @@ export const createDownloadLinks = (link: string) => {
   if (!link) return false
 
   const qualities = [
+    { id: '_12', bitrate: '12kbps' },
+    { id: '_48', bitrate: '48kbps' },
     { id: '_96', bitrate: '96kbps' },
     { id: '_160', bitrate: '160kbps' },
     { id: '_320', bitrate: '320kbps' },
