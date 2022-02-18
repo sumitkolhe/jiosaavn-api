@@ -12,9 +12,9 @@ parentRouter.get('/', (_req, res) => {
     author: 'https://sumit.co',
   })
 })
-parentRouter.get('/search', validators.search, Controller.searchAll)
-parentRouter.get('/searchSongs', validators.searchSongs, Controller.searchSongs)
-parentRouter.get('/searchAlbums', validators.searchSongs, Controller.searchAlbums)
+parentRouter.get('/search/all', validators.searchAll, Controller.searchAll)
+parentRouter.get('/search/songs', validators.searchSpecific, Controller.searchSongs)
+parentRouter.get('/search/albums', validators.searchSpecific, Controller.searchAlbums)
 parentRouter.get('/home', Controller.homeData)
 parentRouter.get('/charts', Controller.charts)
 parentRouter.get('/trending', Controller.trending)
