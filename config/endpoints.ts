@@ -1,12 +1,23 @@
 const BaseUrl = 'https://www.jiosaavn.com/api.php?_format=json&_marker=0&ctx=web6dot0'
 
 export const enum ApiType {
-  homeData = 'webapi.getLaunchData',
-  searchAll = 'autocomplete.get',
+  // content from browse section
   charts = 'content.getCharts',
   trending = 'content.getTrending',
-  searchSong = 'search.getResults',
-  searchAlbum = 'search.getAlbumResults',
+  albums = 'content.getAlbums', // supports pagination
+
+  // search
+  searchSong = 'search.getResults', // supports pagination
+  searchAlbum = 'search.getAlbumResults', // supports pagination
+  searchArtist = 'search.getArtistResults', // supports pagination
+
+  // details
+  songDetails = 'song.songDetails',
+  albumDetails = 'content.getAlbumDetails',
+
+  // misc
+  homeData = 'webapi.getLaunchData',
+  searchAll = 'autocomplete.get',
 }
 
 export const getEndpoint = (isVersion4: boolean, api: string) =>
