@@ -16,3 +16,16 @@ export const createDownloadLinks = (link: string) => {
     })) || false
   )
 }
+
+export const createImageLinks = (link: string) => {
+  if (!link) return false
+
+  const qualities = ['50x50', '150x150', '500x500']
+
+  return (
+    qualities.map((quality) => ({
+      quality,
+      link: link.replace('150x150', quality),
+    })) || false
+  )
+}
