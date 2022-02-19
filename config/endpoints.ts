@@ -12,7 +12,7 @@ export const enum ApiType {
   searchArtist = 'search.getArtistResults', // supports pagination
 
   // details
-  songDetails = 'song.songDetails',
+  songDetails = 'song.getDetails',
   albumDetails = 'content.getAlbumDetails',
 
   // misc
