@@ -18,3 +18,4 @@ parentRouter.get('/search/albums', validators.searchSpecific, Controller.searchA
 parentRouter.get('/home', Controller.homeData)
 parentRouter.get('/charts', Controller.charts)
 parentRouter.get('/trending', Controller.trending)
+parentRouter.get('/albums', validators.albumDetails, Controller.albumDetails)
