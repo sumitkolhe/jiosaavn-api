@@ -6,6 +6,7 @@ import { GeneratePayload } from './payload.service'
 
 export class SearchService {
   public static searchAll = async (query: string) => {
+    // api version doesnt cause any difference
     const endpoint = getEndpoint(false, ApiType.searchAll)
 
     const response = await axiosInstance.get(endpoint, { params: { query } })
@@ -21,7 +22,7 @@ export class SearchService {
       params: { q: query, p: page || 1, n: limit || 20 },
     })
 
-    const payload = GeneratePayload.songs(response)
+    const payload = GeneratePayload.songSearchPayload(response.data)
     return payload
   }
 
