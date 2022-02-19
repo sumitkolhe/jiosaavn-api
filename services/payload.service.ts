@@ -1,34 +1,35 @@
 import { AxiosResponse } from 'axios'
-import { createDownloadLinks } from '../utils/sanitize'
+import { createDownloadLinks, createImageLinks } from '../utils/sanitize'
 import { SongSearch, Song } from '../interfaces/song'
 import { AlbumSearch, Album } from '../interfaces/album'
 
 export class GeneratePayload {
-  public static songs = (response: AxiosResponse<SongSearch>) => {
+  public static songPayload = (song: Song) => {
+    const songPayload = {
+      id: song.id,
+      name: song.song,
+      album: { id: song.albumid, name: song.album, url: song.album_url },
+      year: song.year,
+      releaseDate: song.release_date,
+      duration: song.duration,
+      playCount: song.play_count,
+      language: song.language,
+      hasLyrics: song.has_lyrics,
+      artist: song.primary_artists,
+      image: createImageLinks(song.image),
+      url: song.perma_url,
+      label: song.label,
+      copyright: song.copyright_text,
+      downloadUrl: createDownloadLinks(song.media_preview_url),
+    }
+    return songPayload
+  }
+
+  public static songSearchPayload = (songs: SongSearch) => {
     const payload = [] as unknown[]
 
-    response.data.results.forEach((song: Song) => {
-      payload.push({
-        id: song.id,
-        name: song.song,
-        album: {
-          id: song.albumid,
-          name: song.album,
-          url: song.album_url,
-        },
-        year: song.year,
-        releaseDate: song.release_date,
-        duration: song.duration,
-        playCount: song.play_count,
-        language: song.language,
-        hasLyrics: song.has_lyrics,
-        artist: song.primary_artists,
-        image: song.image.replace('150x150', '500x500'),
-        url: song.perma_url,
-        label: song.label,
-        copyright: song.copyright_text,
-        downloadUrl: createDownloadLinks(song.media_preview_url),
-      })
+    songs.results.forEach((song: Song) => {
+      payload.push(GeneratePayload.songPayload(song))
     })
 
     return payload
@@ -46,8 +47,8 @@ export class GeneratePayload {
         language: album.language,
         explicit_content: album.explicit_content,
         song_count: album.more_info.song_count,
-        artist: album.more_info.artistMap.primary_artists[0].name,
-        image: album.image.replace('150x150', '500x500'),
+        artist: album.more_info?.artistMap?.primary_artists[0]?.name,
+        image: createImageLinks(album.image),
         url: album.perma_url,
       })
     })
