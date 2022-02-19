@@ -14,7 +14,7 @@ export const validators = {
       limit: Joi.string(),
     }),
   }),
-  albumDetails: celebrate({
+  details: celebrate({
     [Segments.QUERY]: Joi.object().keys({
       id: Joi.string().required().min(1),
     }),
