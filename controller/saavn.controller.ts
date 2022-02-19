@@ -5,6 +5,7 @@ import { HomeService } from '../services/home.service'
 import { SearchService } from '../services/search.service'
 import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
+import { SongsService } from '../services/songs.service'
 
 export class Controller {
   // get homepage data
@@ -87,6 +88,19 @@ export class Controller {
       const albums = await AlbumsService(id as string)
 
       res.json({ status: globalConstants.status.success, data: albums })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  // get song details
+  public static songDetails: RequestHandler = async (req, res, next) => {
+    try {
+      const { id } = req.query
+
+      const songs = await SongsService(id as string)
+
+      res.json({ status: globalConstants.status.success, data: songs })
     } catch (error) {
       next(error)
     }
