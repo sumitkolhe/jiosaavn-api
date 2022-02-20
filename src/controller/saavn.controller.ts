@@ -1,6 +1,5 @@
 import { RequestHandler } from 'express'
 import { TrendingService } from '../services/trending.service'
-import { ChartsService } from '../services/charts.service'
 import { SearchService } from '../services/search.service'
 import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
@@ -61,7 +60,7 @@ export class Controller {
   // get top charts
   public static charts: RequestHandler = async (_req, res, next) => {
     try {
-      const charts = await ChartsService()
+      const charts = await MiscellaneousService.Charts()
 
       res.json({ status: globalConstants.status.success, results: charts })
     } catch (error) {

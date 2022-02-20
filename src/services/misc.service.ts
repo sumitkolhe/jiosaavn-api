@@ -7,4 +7,10 @@ export class MiscellaneousService {
     const response = await axiosInstance.get(endpoint)
     return response.data
   }
+
+  public static Charts = async () => {
+    const endpoint = getEndpoint(true, ApiType.charts)
+    const result = await axiosInstance.get(endpoint)
+    return result.data
+  }
 }
