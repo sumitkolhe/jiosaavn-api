@@ -13,4 +13,10 @@ export class MiscellaneousService {
     const result = await axiosInstance.get(endpoint)
     return result.data
   }
+
+  public static Trending = async () => {
+    const endpoint = getEndpoint(true, ApiType.trending)
+    const result = await axiosInstance.get(endpoint)
+    return result.data
+  }
 }
