@@ -4,6 +4,7 @@ export interface Song {
   album: string
   year: string
   primary_artists: string
+  primary_artists_id: string
   image: string
   label: string
   albumid: string

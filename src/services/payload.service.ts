@@ -13,6 +13,7 @@ export class GeneratePayload {
       duration: song.duration,
       label: song.label,
       primaryArtists: song.primary_artists,
+      primaryArtistsId: song.primary_artists_id,
       explicitContent: song.explicit_content,
       playCount: song.play_count,
       language: song.language,
@@ -38,7 +39,6 @@ export class GeneratePayload {
 
   public static albumPayload = (album: Album) => {
     const songsArray = [] as Song[]
-
     const albumPayload = {
       id: album?.albumid || album?.id,
       name: album.title,
