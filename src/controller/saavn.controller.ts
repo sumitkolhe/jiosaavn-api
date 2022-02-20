@@ -3,7 +3,7 @@ import { TrendingService } from '../services/trending.service'
 import { ChartsService } from '../services/charts.service'
 import { HomeService } from '../services/home.service'
 import { SearchService } from '../services/search.service'
-import { globalConstants } from '../constants'
+import { globalConstants } from '../../constants'
 import { AlbumsService } from '../services/albums.service'
 import { SongsService } from '../services/songs.service'
 

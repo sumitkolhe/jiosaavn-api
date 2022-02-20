@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express'
-import { parentRouter } from '../routes'
-import { CreateError, HandleError } from '../middleware/errorHandler'
+import { parentRouter } from '../src/routes'
+import { CreateError, HandleError } from '../src/middleware/errorHandler'
 
 const app = express()
 

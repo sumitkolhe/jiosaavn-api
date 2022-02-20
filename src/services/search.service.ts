@@ -22,6 +22,8 @@ export class SearchService {
       params: { q: query, p: page || 1, n: limit || 20 },
     })
 
+    console.log(response.request)
+
     const payload = GeneratePayload.songSearchPayload(response.data)
     return payload
   }
@@ -33,7 +35,7 @@ export class SearchService {
       params: { q: query, p: page || 1, n: limit || 20 },
     })
 
-    const payload = GeneratePayload.albums(response)
+    const payload = GeneratePayload.albumSearchPayload(response.data)
     return payload
   }
 }

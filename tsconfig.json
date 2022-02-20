@@ -19,7 +19,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "baseUrl": "./",
-    "typeRoots": ["interfaces"]
+    "typeRoots": ["src/interfaces"]
   },
   "include": ["/**/*"],
   "exclude": ["node_modules"]
