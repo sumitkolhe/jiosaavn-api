@@ -103,4 +103,17 @@ export class Controller {
       next(error)
     }
   }
+
+  // get lyrics
+  public static lyrics: RequestHandler = async (req, res, next) => {
+    try {
+      const { id } = req.query
+
+      const songLyrics = await MiscellaneousService.lyrics(id as string)
+
+      res.json({ status: globalConstants.status.success, results: songLyrics })
+    } catch (error) {
+      next(error)
+    }
+  }
 }
