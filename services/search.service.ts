@@ -11,6 +11,7 @@ export class SearchService {
 
     const response = await axiosInstance.get(endpoint, { params: { query } })
 
+    console.log(response.headers)
     return response.data
   }
 
