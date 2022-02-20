@@ -8,13 +8,13 @@ export class MiscellaneousService {
     return response.data
   }
 
-  public static Charts = async () => {
+  public static charts = async () => {
     const endpoint = getEndpoint(true, ApiType.charts)
     const result = await axiosInstance.get(endpoint)
     return result.data
   }
 
-  public static Trending = async () => {
+  public static trending = async () => {
     const endpoint = getEndpoint(true, ApiType.trending)
     const result = await axiosInstance.get(endpoint)
     return result.data

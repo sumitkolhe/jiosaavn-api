@@ -59,7 +59,7 @@ export class Controller {
   // get top charts
   public static charts: RequestHandler = async (_req, res, next) => {
     try {
-      const charts = await MiscellaneousService.Charts()
+      const charts = await MiscellaneousService.charts()
 
       res.json({ status: globalConstants.status.success, results: charts })
     } catch (error) {
@@ -70,7 +70,7 @@ export class Controller {
   // get trending media
   public static trending: RequestHandler = async (_req, res, next) => {
     try {
-      const trending = await MiscellaneousService.Trending()
+      const trending = await MiscellaneousService.trending()
 
       res.json({ status: globalConstants.status.success, results: trending })
     } catch (error) {
