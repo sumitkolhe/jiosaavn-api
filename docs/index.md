@@ -17,11 +17,6 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
 - :musical_score: Lyrics for supported songs.
 - :heart: Open-Source
 - :cloud: Lightweight and has minimal dependencies.
-- :package: Host your own instance on [vercel](https://vercel.com).
-
-## :mag_right: Usage
-
-### For usage, see [Documentation](https://docs.saavn.me)
 
 ## :construction_worker: Local development
 
@@ -57,12 +52,6 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
   ```sh
   npm run deploy
   ```
-
-## :rocket: Deploy to Vercel
-
-**You can directly deploy this repo to your Vercel account by clicking the button below.**
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/sumitkolhe/jiosaavn-api)
 
 ## 📜 License
 
