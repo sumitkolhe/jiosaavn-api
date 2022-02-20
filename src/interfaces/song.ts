@@ -13,7 +13,6 @@ export interface Song {
   explicit_content: number
   has_lyrics: string
   release_date: string
-  lyrics_snippet: string
   media_preview_url: string
   perma_url: string
   album_url: string
