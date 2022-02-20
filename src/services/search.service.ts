@@ -22,8 +22,6 @@ export class SearchService {
       params: { q: query, p: page || 1, n: limit || 20 },
     })
 
-    console.log(response.request)
-
     const payload = GeneratePayload.songSearchPayload(response.data)
     return payload
   }
