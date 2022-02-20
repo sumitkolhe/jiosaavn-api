@@ -1,3 +1,4 @@
+import { sanitizeLyrics } from '../utils/sanitize'
 import { axiosInstance } from '../config/axios'
 import { ApiType, getEndpoint } from '../config/endpoints'
 
@@ -18,5 +19,11 @@ export class MiscellaneousService {
     const endpoint = getEndpoint(true, ApiType.trending)
     const result = await axiosInstance.get(endpoint)
     return result.data
+  }
+
+  public static lyrics = async (songId: string) => {
+    const endpoint = getEndpoint(true, ApiType.lyrics)
+    const result = await axiosInstance.get(endpoint, { params: { lyrics_id: songId } })
+    return sanitizeLyrics(result.data)
   }
 }
