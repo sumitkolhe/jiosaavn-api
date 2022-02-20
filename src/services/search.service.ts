@@ -6,7 +6,7 @@ import { GeneratePayload } from './payload.service'
 
 export class SearchService {
   public static searchAll = async (query: string) => {
-    // api version doesnt cause any difference
+    // api version doesn't cause any difference
     const endpoint = getEndpoint(false, ApiType.searchAll)
 
     const response = await axiosInstance.get(endpoint, { params: { query } })
