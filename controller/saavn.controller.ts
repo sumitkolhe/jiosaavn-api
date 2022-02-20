@@ -39,7 +39,7 @@ export class Controller {
 
       const songSearchResults = await SearchService.searchSongs(query as string, page as string, limit as string)
 
-      res.json({ status: globalConstants.status.success, data: songSearchResults })
+      res.json({ status: globalConstants.status.success, results: songSearchResults })
     } catch (error) {
       next(error)
     }
