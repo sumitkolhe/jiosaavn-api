@@ -13,7 +13,7 @@ export class Controller {
     try {
       const homeData = await HomeService()
 
-      res.json({ status: globalConstants.status.success, data: homeData })
+      res.json({ status: globalConstants.status.success, results: homeData })
     } catch (error) {
       next(error)
     }
@@ -24,9 +24,9 @@ export class Controller {
     try {
       const { query } = req.query
 
-      const searchResults = await SearchService.searchAll(query as string)
+      const allSearchResults = await SearchService.searchAll(query as string)
 
-      res.json({ status: globalConstants.status.success, data: searchResults })
+      res.json({ status: globalConstants.status.success, results: allSearchResults })
     } catch (error) {
       next(error)
     }
@@ -37,9 +37,9 @@ export class Controller {
     try {
       const { query, page, limit } = req.query
 
-      const searchResults = await SearchService.searchSongs(query as string, page as string, limit as string)
+      const songSearchResults = await SearchService.searchSongs(query as string, page as string, limit as string)
 
-      res.json({ status: globalConstants.status.success, data: searchResults })
+      res.json({ status: globalConstants.status.success, data: songSearchResults })
     } catch (error) {
       next(error)
     }
@@ -50,9 +50,9 @@ export class Controller {
     try {
       const { query, page, limit } = req.query
 
-      const searchResults = await SearchService.searchAlbums(query as string, page as string, limit as string)
+      const albumSearchResults = await SearchService.searchAlbums(query as string, page as string, limit as string)
 
-      res.json({ status: globalConstants.status.success, data: searchResults })
+      res.json({ status: globalConstants.status.success, results: albumSearchResults })
     } catch (error) {
       next(error)
     }
@@ -63,7 +63,7 @@ export class Controller {
     try {
       const charts = await ChartsService()
 
-      res.json({ status: globalConstants.status.success, data: charts })
+      res.json({ status: globalConstants.status.success, results: charts })
     } catch (error) {
       next(error)
     }
@@ -74,7 +74,7 @@ export class Controller {
     try {
       const trending = await TrendingService()
 
-      res.json({ status: globalConstants.status.success, data: trending })
+      res.json({ status: globalConstants.status.success, results: trending })
     } catch (error) {
       next(error)
     }
@@ -85,9 +85,9 @@ export class Controller {
     try {
       const { id } = req.query
 
-      const albums = await AlbumsService(id as string)
+      const albumDetails = await AlbumsService(id as string)
 
-      res.json({ status: globalConstants.status.success, data: albums })
+      res.json({ status: globalConstants.status.success, results: albumDetails })
     } catch (error) {
       next(error)
     }
@@ -98,9 +98,9 @@ export class Controller {
     try {
       const { id } = req.query
 
-      const songs = await SongsService(id as string)
+      const songDetails = await SongsService(id as string)
 
-      res.json({ status: globalConstants.status.success, data: songs })
+      res.json({ status: globalConstants.status.success, results: songDetails })
     } catch (error) {
       next(error)
     }
