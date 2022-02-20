@@ -8,6 +8,6 @@ export const AlbumsService = async (albumid: string) => {
 
   const response = await axiosInstance.get(endpoint, { params: { albumid } })
 
-  const payload = GeneratePayload.songPayload(response.data)
+  const payload = GeneratePayload.albumPayload(response.data)
   return payload
 }
