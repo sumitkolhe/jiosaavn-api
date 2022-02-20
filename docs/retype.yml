@@ -1,8 +1,8 @@
 input: .
 output: ./public
-url: # Add your website address here
+url: https://docs.saavn.me
 branding:
-  title: JioSaavn API
+  title: JioSaavn
   label: Docs v2.0.0
 links:
   - text: API
