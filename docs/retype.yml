@@ -1,5 +1,5 @@
 input: .
-output: .retype
+output: ./public
 url: # Add your website address here
 branding:
   title: JioSaavn API
