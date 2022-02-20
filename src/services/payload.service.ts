@@ -39,6 +39,7 @@ export class GeneratePayload {
 
   public static albumPayload = (album: Album) => {
     const songsArray = [] as Song[]
+
     const albumPayload = {
       id: album?.albumid || album?.id,
       name: album.title,
@@ -53,6 +54,7 @@ export class GeneratePayload {
       songs: [] as Song[],
     }
 
+    // if album details contain song list
     if (album.songs) {
       album.songs.forEach((song: Song) => songsArray.push(GeneratePayload.songPayload(song) as never))
       albumPayload.songs = songsArray
