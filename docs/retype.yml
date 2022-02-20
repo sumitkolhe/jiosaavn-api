@@ -7,5 +7,9 @@ branding:
 links:
   - text: API
     link: https://saavn.me
+  - text: Github
+    link: https://github.com/sumitkolhe/jiosaavn-api
+  - text: Author
+    link: https://sumit.co
 footer:
   copyright: '&copy; Copyright {{ year }}. All rights reserved.'
