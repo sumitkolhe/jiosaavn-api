@@ -1,3 +1,5 @@
+import { Lyrics } from '../interfaces/lyrics'
+
 export const createDownloadLinks = (link: string) => {
   if (!link) return false
 
@@ -29,3 +31,16 @@ export const createImageLinks = (link: string) => {
     })) || false
   )
 }
+
+export const sentenceCase = (text: string) => {
+  const firstLetter = text.slice(0, 1)
+  return firstLetter.toUpperCase() + text.substring(1)
+}
+
+export const sanitizeLyrics = (lyrics: Lyrics) =>
+  lyrics.lyrics
+    .replace(/"/gi, "'")
+    .replace(/ {2}/gi, ' ')
+    .split('<br>')
+    .map((text) => sentenceCase(text))
+    .join('<br>')
