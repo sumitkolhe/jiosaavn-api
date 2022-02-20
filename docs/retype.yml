@@ -1,0 +1,11 @@
+input: .
+output: .retype
+url: # Add your website address here
+branding:
+  title: JioSaavn API
+  label: Docs v2.0.0
+links:
+  - text: API
+    link: https://saavn.me
+footer:
+  copyright: '&copy; Copyright {{ year }}. All rights reserved.'
