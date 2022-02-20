@@ -1,17 +1,17 @@
 import { RequestHandler } from 'express'
 import { TrendingService } from '../services/trending.service'
 import { ChartsService } from '../services/charts.service'
-import { HomeService } from '../services/home.service'
 import { SearchService } from '../services/search.service'
 import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
 import { SongsService } from '../services/songs.service'
+import { MiscellaneousService } from 'src/services/misc.service'
 
 export class Controller {
   // get homepage data
   public static homeData: RequestHandler = async (_req, res, next) => {
     try {
-      const homeData = await HomeService()
+      const homeData = await MiscellaneousService.home()
 
       res.json({ status: globalConstants.status.success, results: homeData })
     } catch (error) {
