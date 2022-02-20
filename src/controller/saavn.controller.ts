@@ -3,7 +3,7 @@ import { SearchService } from '../services/search.service'
 import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
 import { SongsService } from '../services/songs.service'
-import { MiscellaneousService } from 'src/services/misc.service'
+import { MiscellaneousService } from '../services/misc.service'
 
 export class Controller {
   // get homepage data
