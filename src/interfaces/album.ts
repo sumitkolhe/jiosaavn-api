@@ -11,6 +11,7 @@ interface MoreInfo {
 }
 export interface Album {
   id: string
+  albumid: string
   title: string
   image: string
   perma_url: string
@@ -18,8 +19,11 @@ export interface Album {
   play_count: string
   language: string
   explicit_content: string
+  primary_artists: string
+  primary_artists_id: string
+  release_date: string
   more_info: MoreInfo
-  songs?: Array<Song>
+  songs: Array<Song>
 }
 
 export interface AlbumSearch {
