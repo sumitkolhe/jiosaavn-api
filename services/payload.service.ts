@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios'
 import { createDownloadLinks, createImageLinks } from '../utils/sanitize'
 import { SongSearch, Song } from '../interfaces/song'
 import { AlbumSearch, Album } from '../interfaces/album'
@@ -35,10 +34,10 @@ export class GeneratePayload {
     return payload
   }
 
-  public static albums = (response: AxiosResponse<AlbumSearch>) => {
+  public static albumSearchPayload = (albums: AlbumSearch) => {
     const payload = [] as unknown[]
 
-    response.data.results.forEach((album: Album) => {
+    albums.results.forEach((album: Album) => {
       payload.push({
         id: album.id,
         name: album.title,
