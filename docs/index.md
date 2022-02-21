@@ -1,6 +1,6 @@
 ---
-order: 100
-icon: home
+order: 1000
+icon: rocket
 ---
 
 # Introduction
