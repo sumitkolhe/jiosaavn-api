@@ -44,5 +44,3 @@ export const sanitizeLyrics = (lyrics: Lyrics) =>
     .split('<br>')
     .map((text) => sentenceCase(text))
     .join('<br>')
-
-export const encodeQuery = (query: string) => encodeURIComponent(query)
