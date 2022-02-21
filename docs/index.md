@@ -5,24 +5,23 @@ icon: home
 
 # Introduction
 
-An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality for free.
+[Saavn.me](https://saavn.me) is an unofficial API for JioSaavn for downloading songs in high-quality i.e 320kbps for free.
 
-## :sparkles: Features
+## Features
 
 - :rocket: Blazing fast
 - :notes: Download High Quality Songs (320kbps).
-- :lock: Rotating User-Agents to avoid detection.
 - :sunrise: Download High quality song/album thumbnails.
 - :mag_right: Search support for songs and albums.
 - :musical_score: Lyrics for supported songs.
 - :heart: Open-Source
 - :cloud: Lightweight and has minimal dependencies.
 
-## :construction_worker: Local development
+## Local development
 
 ### Prerequisites
 
-- NodeJS v10+
+- NodeJS v14+
 - Vercel CLI : To install Vercel CLI globally use `npm i -g vercel`
 
 ### Run locally
@@ -47,12 +46,6 @@ An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality 
   npm start
   ```
 
-- Deploy to your vercel account
+## License
 
-  ```sh
-  npm run deploy
-  ```
-
-## 📜 License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](https://github.com/sumitkolhe/jiosaavn-api/blob/main/LICENSE) file for details.
