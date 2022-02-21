@@ -1,6 +1,6 @@
 ---
 order: 999
-icon: search
+icon: globe
 ---
 
 # Search All

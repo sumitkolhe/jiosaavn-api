@@ -1,6 +1,6 @@
 ---
 order: 100
-icon: search
+icon: note
 ---
 
 # Search Albums

@@ -1,6 +1,6 @@
 ---
 order: 10
-icon: search
+icon: play
 ---
 
 # Search Songs
