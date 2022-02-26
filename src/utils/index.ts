@@ -1,3 +1,5 @@
+import { Request } from 'express'
+
 export class Utils {
   // create download links for different bitrates
   public static createDownloadLinks = (link: string) => {
@@ -47,6 +49,17 @@ export class Utils {
       .split('<br>')
       .map((text) => Utils.sentenceCase(text))
       .join('<br>')
+
+  // create identifier object for checking if id or link is provided in query params
+  public static createIdentifier = (req: Request, linkType: string) => {
+    const { id, link } = req.query
+
+    const identifier = {
+      type: id ? 'id' : 'link',
+      value: (id as string) || Utils.extractIdFromLink(link as string, linkType),
+    }
+    return identifier
+  }
 
   // extract token id from a song or album link
   public static extractIdFromLink = (link: string, type: string): string => {
