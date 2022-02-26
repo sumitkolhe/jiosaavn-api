@@ -7,9 +7,13 @@ export const enum ApiType {
   searchAlbum = 'search.getAlbumResults', // supports pagination
   searchArtist = 'search.getArtistResults', // supports pagination
 
-  // details
+  // details by id
   songDetails = 'song.getDetails',
   albumDetails = 'content.getAlbumDetails',
+
+  // details by link
+  songDetailsByLink = 'webapi.get&type=song',
+  albumDetailsByLink = 'webapi.get&type=album',
 
   // misc
   homeData = 'webapi.getLaunchData',
