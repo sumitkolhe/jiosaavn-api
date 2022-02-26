@@ -2,11 +2,15 @@ import { GeneratePayload } from './payload.service'
 import { axiosInstance } from '../config/axios'
 import { ApiType, getEndpoint } from '../config/endpoints'
 
-export const AlbumsService = async (albumid: string) => {
-  // api v4 does not contain media_preview_url
-  const endpoint = getEndpoint(false, ApiType.albumDetails)
+export const AlbumsService = async (identifier: { type: string; value: string }) => {
+  const isByLink = identifier.type === 'link'
 
-  const response = await axiosInstance.get(endpoint, { params: { albumid } })
+  // api v4 does not contain media_preview_url
+  const endpoint = getEndpoint(false, isByLink ? ApiType.albumDetailsByLink : ApiType.albumDetails)
+
+  const response = await axiosInstance.get(endpoint, {
+    params: isByLink ? { token: identifier.value } : { albumid: identifier.value },
+  })
 
   const payload = GeneratePayload.albumPayload(response.data)
   return payload

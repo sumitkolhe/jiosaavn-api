@@ -82,9 +82,9 @@ export class Controller {
   // get album details
   public static albumDetails: RequestHandler = async (req, res, next) => {
     try {
-      const { id } = req.query
+      const identifier = Utils.createIdentifier(req, 'album')
 
-      const albumDetails = await AlbumsService(id as string)
+      const albumDetails = await AlbumsService(identifier)
 
       res.json({ status: globalConstants.status.success, results: albumDetails })
     } catch (error) {
