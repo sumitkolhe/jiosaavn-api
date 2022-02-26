@@ -4,6 +4,7 @@ import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
 import { SongsService } from '../services/songs.service'
 import { MiscellaneousService } from '../services/misc.service'
+import { Utils } from '../utils'
 
 export class Controller {
   // get homepage data
@@ -94,9 +95,9 @@ export class Controller {
   // get song details
   public static songDetails: RequestHandler = async (req, res, next) => {
     try {
-      const { id } = req.query
+      const identifier = Utils.createIdentifier(req, 'song')
 
-      const songDetails = await SongsService(id as string)
+      const songDetails = await SongsService(identifier)
 
       res.json({ status: globalConstants.status.success, results: songDetails })
     } catch (error) {
