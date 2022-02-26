@@ -1,4 +1,4 @@
-import { createDownloadLinks, createImageLinks } from '../utils/sanitize'
+import { Utils } from '../utils'
 import { SongSearch, Song } from '../interfaces/song'
 import { AlbumSearch, Album } from '../interfaces/album'
 
@@ -19,10 +19,10 @@ export class GeneratePayload {
       language: song.language,
       hasLyrics: song.has_lyrics,
       artist: song.primary_artists,
-      image: createImageLinks(song.image),
+      image: Utils.createImageLinks(song.image),
       url: song.perma_url,
       copyright: song.copyright_text,
-      downloadUrl: createDownloadLinks(song.media_preview_url),
+      downloadUrl: Utils.createDownloadLinks(song.media_preview_url),
     }
     return songPayload
   }
@@ -49,7 +49,7 @@ export class GeneratePayload {
       explicitContent: album.explicit_content,
       songCount: album?.more_info?.song_count || album?.songs?.length,
       primaryArtist: album.primary_artists || album.more_info?.artistMap?.primary_artists[0]?.name,
-      image: createImageLinks(album.image),
+      image: Utils.createImageLinks(album.image),
       url: album.perma_url,
       songs: [] as Song[],
     }
