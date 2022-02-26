@@ -24,6 +24,6 @@ export class MiscellaneousService {
   public static lyrics = async (songId: string) => {
     const endpoint = getEndpoint(true, ApiType.lyrics)
     const result = await axiosInstance.get(endpoint, { params: { lyrics_id: songId } })
-    return Utils.sanitizeLyrics(result.data)
+    return Utils.sanitizeLyrics(result.data.lyrics)
   }
 }

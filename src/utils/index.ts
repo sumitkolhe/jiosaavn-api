@@ -42,8 +42,8 @@ export class Utils {
   }
 
   // sanitize lyrics using sentence case
-  public static sanitizeLyrics = (lyrics: Lyrics) =>
-    lyrics.lyrics
+  public static sanitizeLyrics = (lyrics: string) =>
+    lyrics
       .replace(/"/gi, "'")
       .replace(/ {2}/gi, ' ')
       .split('<br>')
