@@ -1,6 +1,7 @@
 import { Lyrics } from '../interfaces/lyrics'
 
 export class Utils {
+  // create download links for different bitrates
   public static createDownloadLinks = (link: string) => {
     if (!link) return false
 
@@ -20,6 +21,7 @@ export class Utils {
     )
   }
 
+  // create image links for different resolutions
   public static createImageLinks = (link: string) => {
     if (!link) return false
 
@@ -33,11 +35,13 @@ export class Utils {
     )
   }
 
+  // capitalize first letter
   private static sentenceCase = (text: string) => {
     const firstLetter = text.slice(0, 1)
     return firstLetter.toUpperCase() + text.substring(1)
   }
 
+  // sanitize lyrics using sentence case
   public static sanitizeLyrics = (lyrics: Lyrics) =>
     lyrics.lyrics
       .replace(/"/gi, "'")
@@ -46,6 +50,7 @@ export class Utils {
       .map((text) => Utils.sentenceCase(text))
       .join('<br>')
 
+  // extract token id from a song or album link
   public static extractIdFromLink = (link: string, type: string): string => {
     if (link.includes(`jiosaavn.com/${type}/`)) {
       return link.split(`${type}/`)[1].split('/')[1].slice(0, 11)
