@@ -17,8 +17,11 @@ export const validators = {
     }),
   }),
   details: celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-      id: Joi.string().trim().required().min(1),
-    }),
+    [Segments.QUERY]: Joi.object()
+      .keys({
+        id: Joi.string().trim(),
+        link: Joi.string().trim(),
+      })
+      .or('id', 'link'),
   }),
 }
