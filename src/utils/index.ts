@@ -1,5 +1,7 @@
 import type { Request } from 'express'
 
+type IdentifierType = 'song' | 'album'
+
 export class Utils {
   // create download links for different bitrates
   public static createDownloadLinks = (link: string) => {
@@ -51,20 +53,20 @@ export class Utils {
       .join('<br>')
 
   // create identifier object for checking if id or link is provided in query params
-  public static createIdentifier = (req: Request, linkType: string) => {
+  public static createIdentifier = (req: Request, identifierType: IdentifierType) => {
     const { id, link } = req.query
 
     const identifier = {
       type: id ? 'id' : 'link',
-      value: (id as string) || Utils.extractIdFromLink(link as string, linkType),
+      value: (id as string) || Utils.extractIdFromLink(link as string, identifierType),
     }
     return identifier
   }
 
   // extract token id from a song or album link
-  public static extractIdFromLink = (link: string, type: string): string => {
-    if (link.includes(`jiosaavn.com/${type}/`)) {
-      return link.split(`${type}/`)[1].split('/')[1].slice(0, 11)
+  public static extractIdFromLink = (link: string, identifierType: IdentifierType): string => {
+    if (link.includes(`jiosaavn.com/${identifierType}/`)) {
+      return link.split(`${identifierType}/`)[1].split('/')[1].slice(0, 11)
     }
     return ''
   }
