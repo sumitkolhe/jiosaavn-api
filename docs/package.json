@@ -2,15 +2,15 @@
   "name": "jiosaavn-api-docs",
   "version": "1.0.0",
   "description": "An Unofficial API for JioSaavn that allows downloading songs in 320kbps quality for free.",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "dev": "retype watch",
     "build": "retype build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "retypeapp": "^1.11.2"
+    "retypeapp": "^2.2.0"
   }
 }
