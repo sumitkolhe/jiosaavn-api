@@ -5,7 +5,7 @@ icon: play
 
 # Search Songs
 
-Search songs by query.
+Search songs by query -
 
 +++ Request
 
