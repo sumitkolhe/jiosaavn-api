@@ -1,10 +1,10 @@
-import { RequestHandler } from 'express'
 import { SearchService } from '../services/search.service'
 import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
 import { SongsService } from '../services/songs.service'
 import { MiscellaneousService } from '../services/misc.service'
 import { Utils } from '../utils'
+import type { RequestHandler } from 'express'
 
 export class Controller {
   // get homepage data

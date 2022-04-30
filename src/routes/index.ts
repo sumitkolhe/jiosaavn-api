@@ -1,6 +1,7 @@
-import express, { Router } from 'express'
+import express from 'express'
 import { validators } from '../middleware/validator'
 import { Controller } from '../controller/saavn.controller'
+import type { Router } from 'express'
 
 export const parentRouter: Router = express.Router()
 

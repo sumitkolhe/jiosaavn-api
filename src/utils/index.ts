@@ -1,4 +1,4 @@
-import { Request } from 'express'
+import type { Request } from 'express'
 
 export class Utils {
   // create download links for different bitrates
@@ -38,7 +38,7 @@ export class Utils {
   // capitalize first letter
   private static sentenceCase = (text: string) => {
     const firstLetter = text.slice(0, 1)
-    return firstLetter.toUpperCase() + text.substring(1)
+    return firstLetter.toUpperCase() + text.slice(1)
   }
 
   // sanitize lyrics using sentence case

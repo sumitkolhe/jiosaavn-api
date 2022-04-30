@@ -1,4 +1,4 @@
-import { Song } from './song'
+import type { Song } from './song'
 
 interface MoreInfo {
   song_count: string

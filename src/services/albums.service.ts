@@ -1,6 +1,6 @@
-import { GeneratePayload } from './payload.service'
 import { axiosInstance } from '../config/axios'
 import { ApiType, getEndpoint } from '../config/endpoints'
+import { GeneratePayload } from './payload.service'
 
 export const AlbumsService = async (identifier: { type: string; value: string }) => {
   const isByLink = identifier.type === 'link'

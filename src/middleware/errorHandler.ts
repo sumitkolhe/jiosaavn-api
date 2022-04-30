@@ -1,17 +1,16 @@
-/* eslint-disable no-restricted-syntax */
 import { isCelebrateError } from 'celebrate'
-import { ErrorRequestHandler } from 'express'
 import { globalConstants } from '../constants'
+import type { ErrorRequestHandler } from 'express'
 
 export class CreateError extends Error {
   public status: number
 
-  public message: string
+  public message!: string
 
   public constructor(status: number, message: string) {
     super(message)
     this.status = status
-    this.message = message
+    this.name = 'CreateError'
   }
 
   static NoContent(message?: string): CreateError {
@@ -43,7 +42,7 @@ export const HandleError: ErrorRequestHandler = (error: CreateError, _req, res) 
     statusCode = 400
 
     for (const value of error.details.values()) {
-      message += value.message.replace(/"/g, '')
+      message += value.message.replaceAll('"', '')
     }
   } else {
     statusCode = error.status || 500

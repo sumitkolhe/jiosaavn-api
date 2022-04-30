@@ -1,8 +1,8 @@
-import { AxiosResponse } from 'axios'
-import { SongSearch } from '../interfaces/song'
 import { axiosInstance } from '../config/axios'
 import { ApiType, getEndpoint } from '../config/endpoints'
 import { GeneratePayload } from './payload.service'
+import type { SongSearch } from '../interfaces/song'
+import type { AxiosResponse } from 'axios'
 
 export class SearchService {
   public static searchAll = async (query: string) => {

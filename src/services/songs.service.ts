@@ -1,7 +1,7 @@
-import { GeneratePayload } from './payload.service'
 import { axiosInstance } from '../config/axios'
 import { ApiType, getEndpoint } from '../config/endpoints'
 import { CreateError } from '../middleware/errorHandler'
+import { GeneratePayload } from './payload.service'
 
 export const SongsService = async (identifier: { type: string; value: string }) => {
   const isByLink = identifier.type === 'link'
@@ -12,7 +12,7 @@ export const SongsService = async (identifier: { type: string; value: string }) 
     params: isByLink ? { token: identifier.value } : { pids: identifier.value },
   })
 
-  if (!response.data.songs) throw CreateError.InternalServerError()
+  if (!response.data.songs) throw new CreateError.InternalServerError()
 
   // switch payload generator depending upon if multiple song ids are passed
   const payload =

@@ -1,6 +1,7 @@
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express'
 import { parentRouter } from '../src/routes'
 import { CreateError, HandleError } from '../src/middleware/errorHandler'
+import type { NextFunction, Request, Response } from 'express'
 
 const app = express()
 

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ESNEXT",
     "module": "commonjs",
     "strict": true,
     "noImplicitAny": true,

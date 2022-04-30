@@ -1,5 +1,5 @@
 import Joi from 'joi'
-import { celebrate, Segments } from 'celebrate'
+import { Segments, celebrate } from 'celebrate'
 
 const encodeQuery = (query: string) => encodeURIComponent(query)
 
