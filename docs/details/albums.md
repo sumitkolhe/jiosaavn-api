@@ -1,6 +1,6 @@
 ---
 order: 10
-icon: play
+icon: file
 ---
 
 # Album Details

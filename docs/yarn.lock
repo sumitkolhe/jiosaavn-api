@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-retypeapp@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/retypeapp/-/retypeapp-2.2.0.tgz#14567879d127948c5b1f05ea645397996eb32c9a"
-  integrity sha512-S6fM2j6gEDLpVIenmbQU1b0O7G4QQd/GRP1pHxm2qjiXnXE8y2XKgADrDqif4RwmgwcjkQ5DYTd8nbM0hvZlyA==
+retypeapp@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/retypeapp/-/retypeapp-2.3.0.tgz#8a76e6a7e311703146dafa0e50058a621e3b6ff1"
+  integrity sha512-K88zGACI5UCyQw52VF1xOEi1DQ8o4pT5/+DKPKdQEVLQR5FkQDSPeMpER/s1wXg1m7yPt18rGlHKoJF9+XaAHw==
