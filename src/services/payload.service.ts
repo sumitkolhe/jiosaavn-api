@@ -1,6 +1,7 @@
 import { Utils } from '../utils'
 import type { Song, SongSearch } from '../interfaces/song'
 import type { Album, AlbumSearch } from '../interfaces/album'
+import type { Playlist } from '../interfaces/playlist'
 
 export class GeneratePayload {
   public static songPayload = (song: Song) => {
@@ -71,5 +72,31 @@ export class GeneratePayload {
     })
 
     return payload
+  }
+
+  public static playlistPayload = (playlist: Playlist) => {
+    const songsArray = [] as Song[]
+
+    const playlistPayload = {
+      id: playlist.listid,
+      name: playlist.listname,
+      followerCount: playlist.follower_count,
+      songCount: playlist.list_count || playlist?.songs?.length,
+      fanCount: playlist.fan_count,
+      username: playlist.username,
+      firstname: playlist.firstname,
+      lastname: playlist.lastname,
+      image: Utils.createImageLinks(playlist.image),
+      url: playlist.perma_url,
+      songs: [] as Song[],
+    }
+
+    // if playlist details contain song list
+    if (playlist.songs) {
+      playlist.songs.forEach((song: Song) => songsArray.push(GeneratePayload.songPayload(song) as never))
+      playlistPayload.songs = songsArray
+    }
+
+    return playlistPayload
   }
 }
