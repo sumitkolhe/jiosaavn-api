@@ -10,17 +10,19 @@ export const enum ApiType {
   // details by id
   songDetails = 'song.getDetails',
   albumDetails = 'content.getAlbumDetails',
+  playlistDetails = 'playlist.getDetails',
 
   // details by link
   songDetailsByLink = 'webapi.get&type=song',
   albumDetailsByLink = 'webapi.get&type=album',
 
-  // misc
+  // list
   homeData = 'webapi.getLaunchData',
   charts = 'content.getCharts',
   trending = 'content.getTrending',
   albums = 'content.getAlbums', // supports pagination
   lyrics = 'lyrics.getLyrics',
+  playlists = 'content.getFeaturedPlaylists&fetch_from_serialized_files=true', // supports pagination
 }
 
 export const getEndpoint = (isVersion4: boolean, api: string) =>
