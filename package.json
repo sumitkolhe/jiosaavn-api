@@ -10,14 +10,13 @@
     "url": "https://github.com/sumitkolhe/jiosaavn-api"
   },
   "scripts": {
-    "start": "vercel dev",
+    "dev": "nodemon",
     "pretty": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint . --ext \".ts\"",
     "lint:fix": "eslint --fix --ext .js,.ts .",
     "deploy": "vercel deploy --prod"
   },
   "dependencies": {
-    "@kolhe/eslint-config": "^1.1.5",
     "axios": "^0.27.2",
     "celebrate": "^15.0.1",
     "express": "^4.18.1",
@@ -25,12 +24,16 @@
     "joi": "^17.6.0"
   },
   "devDependencies": {
+    "@kolhe/eslint-config": "^1.1.5",
     "@types/express": "^4.17.13",
     "@types/http-errors": "^1.8.2",
-    "@typescript-eslint/eslint-plugin": "^5.30.3",
-    "@typescript-eslint/parser": "^5.30.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
     "eslint": "^8.19.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
+    "ts-node": "^10.8.2",
     "typescript": "^4.7.4"
   }
 }
