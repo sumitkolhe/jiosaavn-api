@@ -1,8 +1,9 @@
 import { SearchService } from '../services/search.service'
 import { globalConstants } from '../constants'
-import { AlbumsService } from '../services/albums.service'
-import { SongsService } from '../services/songs.service'
+import { AlbumService } from '../services/albums.service'
+import { SongService } from '../services/song.service'
 import { MiscellaneousService } from '../services/misc.service'
+import { PlaylistService } from '../services/playlist.service'
 import { Utils } from '../utils'
 import type { RequestHandler } from 'express'
 
@@ -79,12 +80,35 @@ export class Controller {
     }
   }
 
+  // get playlists / playlist details
+  public static playlists: RequestHandler = async (req, res, next) => {
+    try {
+      const { id } = req.query
+
+      // if id query exists get playlist details
+      if (id) {
+        const playlistDetails = await PlaylistService.playlistDetails(id as string)
+
+        res.json({ status: globalConstants.status.success, results: playlistDetails })
+      } else {
+        const { language } = req.query
+
+        // set default playlist language to english
+        const playlists = await PlaylistService.playlists((language as string) || 'english')
+
+        res.json({ status: globalConstants.status.success, results: playlists })
+      }
+    } catch (error) {
+      next(error)
+    }
+  }
+
   // get album details
   public static albumDetails: RequestHandler = async (req, res, next) => {
     try {
       const identifier = Utils.createIdentifier(req, 'album')
 
-      const albumDetails = await AlbumsService(identifier)
+      const albumDetails = await AlbumService.albumDetails(identifier)
 
       res.json({ status: globalConstants.status.success, results: albumDetails })
     } catch (error) {
@@ -97,7 +121,7 @@ export class Controller {
     try {
       const identifier = Utils.createIdentifier(req, 'song')
 
-      const songDetails = await SongsService(identifier)
+      const songDetails = await SongService.songDetails(identifier)
 
       res.json({ status: globalConstants.status.success, results: songDetails })
     } catch (error) {
