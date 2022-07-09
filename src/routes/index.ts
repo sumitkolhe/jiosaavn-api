@@ -19,6 +19,7 @@ parentRouter.get('/search/albums', validators.searchSpecific, Controller.searchA
 parentRouter.get('/home', Controller.homeData)
 parentRouter.get('/charts', Controller.charts)
 parentRouter.get('/trending', Controller.trending)
+parentRouter.get('/playlists', Controller.playlists)
 parentRouter.get('/albums', validators.details, Controller.albumDetails)
 parentRouter.get('/songs', validators.details, Controller.songDetails)
 parentRouter.get('/lyrics', validators.details, Controller.lyrics)
