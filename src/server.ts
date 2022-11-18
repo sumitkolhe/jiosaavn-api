@@ -1,6 +1,7 @@
-import app from '../api'
+import 'dotenv/config'
+import { App } from './app'
+import { IndexRoute } from './routes/index.route'
 
-const serverPort = 3000
+const app = new App([new IndexRoute()])
 
-app.listen(serverPort)
-console.info(`Server listening on PORT : ${serverPort}`)
+app.listen()
