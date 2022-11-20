@@ -1,3 +1,5 @@
+import type { Endpoint } from './endpoint.interface'
+
 export interface Config {
   env: string
   server: {
@@ -13,7 +15,5 @@ export interface Config {
     level: 'error' | 'warn' | 'info' | 'http' | 'debug'
   }
   baseURL: string
-  endpoints: {
-    [key: string]: string
-  }
+  endpoint: Endpoint
 }
