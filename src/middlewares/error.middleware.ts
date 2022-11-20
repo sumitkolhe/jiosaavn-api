@@ -1,4 +1,5 @@
 import { isCelebrateError } from 'celebrate'
+import { globalConstants } from '../constants'
 import { logger } from '../utils/logger'
 import type { NextFunction, Request, Response } from 'express'
 import type { HttpExceptionError } from '../exceptions/http.exception'
@@ -21,7 +22,7 @@ export const errorMiddleware = (error: HttpExceptionError, req: Request, res: Re
     logger.error(`[${req.method}] ${req.path} >> StatusCode:: ${status}, Message:: ${message}`)
 
     res.status(status).json({
-      status: 'FAILED',
+      status: globalConstants.status.failed,
       message,
       data: null,
     })
