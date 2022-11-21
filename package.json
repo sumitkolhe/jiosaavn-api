@@ -17,6 +17,8 @@
     "deploy": "vercel deploy --prod"
   },
   "dependencies": {
+    "@upstash/ratelimit": "^0.1.5",
+    "@upstash/redis": "^1.16.1",
     "celebrate": "^15.0.1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
