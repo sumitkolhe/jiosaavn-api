@@ -17,10 +17,7 @@
           "key": "Access-Control-Allow-Methods",
           "value": "GET, OPTIONS"
         },
-        {
-          "key": "Cache-Control",
-          "value": "s-maxage=300, stale-while-revalidate"
-        },
+
         {
           "key": "Author",
           "value": "Sumit Kolhe"
