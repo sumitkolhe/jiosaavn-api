@@ -33,7 +33,7 @@ export class SearchController {
     try {
       const { query, page, limit } = req.query
 
-      const result = await this.searchService.songs(query as string, page as string, limit as string)
+      const result = await this.searchService.songs(query as string, Number(page), Number(limit))
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
@@ -50,7 +50,7 @@ export class SearchController {
     try {
       const { query, page, limit } = req.query
 
-      const result = await this.searchService.albums(query as string, page as string, limit as string)
+      const result = await this.searchService.albums(query as string, Number(page), Number(limit))
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
