@@ -18,12 +18,15 @@ export interface Endpoint {
     album: string
     artist: string
   }
-  details: {
-    id: {
-      song: string
-      album: string
-      playlist: string
-    }
-    link: { song: string; album: string }
+  songs: {
+    id: string
+    link: string
+  }
+  albums: {
+    id: string
+    link: string
+  }
+  playlists: {
+    id: string
   }
 }
