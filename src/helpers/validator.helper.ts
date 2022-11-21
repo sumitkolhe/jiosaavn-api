@@ -30,7 +30,7 @@ export const songsSchema = celebrate(
         }),
       })
       .xor('id', 'link')
-      .messages({ custom: 'id and link are not supported together, pass only one of them' }),
+      .messages({ error: 'id and link are not supported together, pass only one of them' }),
   },
   { abortEarly: false },
   { mode: Modes.FULL }
@@ -54,7 +54,7 @@ export const albumsSchema = celebrate(
         }),
       })
       .xor('id', 'link')
-      .messages({ custom: 'id and link are not supported together, pass only one of them' }),
+      .messages({ error: 'id and link are not supported together, pass only one of them' }),
   },
   { abortEarly: false },
   { mode: Modes.FULL }
