@@ -1,8 +1,8 @@
 import { globalConstants } from '../constants'
 import { SearchService } from '../services/search.service'
-import type { AlbumSearchResponse } from 'interfaces/album.interface'
-import type { SongSearchResponse } from 'interfaces/song.interface'
-import type { CustomResponse } from 'interfaces/response.interface'
+import type { AlbumSearchResponse } from '../interfaces/album.interface'
+import type { SongSearchResponse } from '../interfaces/song.interface'
+import type { CustomResponse } from '../interfaces/response.interface'
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
 
 export class SearchController {

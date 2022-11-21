@@ -8,7 +8,7 @@
   "repository": "https://github.com/sumitkolhe/node-serverless-template",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx watch ./src/server.ts",
-    "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
+    "start": "npm run build && cross-env NODE_ENV=production node public/server.js",
     "build": "tsc",
     "pretty": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint . --ext \".ts\"",

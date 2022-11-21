@@ -1,6 +1,6 @@
 import { Ratelimit } from '@upstash/ratelimit' // for deno: see above
 import { Redis } from '@upstash/redis'
-import { HttpExceptionError } from 'exceptions/http.exception'
+import { HttpExceptionError } from '../exceptions/http.exception'
 import type { NextFunction, Request, Response } from 'express'
 
 const ratelimit = new Ratelimit({

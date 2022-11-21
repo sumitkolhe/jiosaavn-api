@@ -1,5 +1,5 @@
 import { PayloadService } from './payload.service'
-import type { AlbumRequest, AlbumResponse } from 'interfaces/album.interface'
+import type { AlbumRequest, AlbumResponse } from '../interfaces/album.interface'
 
 export class AlbumsService extends PayloadService {
   constructor() {

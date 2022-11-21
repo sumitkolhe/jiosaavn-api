@@ -1,6 +1,6 @@
-import got from 'got'
+import got from 'got-cjs'
 import { getConfig } from '../configs'
-import type { Got } from 'got'
+import type { Got } from 'got-cjs'
 import type { Config } from '../interfaces/config.interface'
 
 export class ApiService {
@@ -22,7 +22,11 @@ export class ApiService {
       ]),
       responseType: 'json',
       hooks: {
-        beforeRequest: [(options) => {}],
+        beforeRequest: [
+          (options) => {
+            // console.log(options.url)
+          },
+        ],
       },
     })
   }

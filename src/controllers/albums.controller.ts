@@ -1,6 +1,6 @@
 import { globalConstants } from '../constants'
 import { AlbumsService } from '../services/albums.service'
-import type { AlbumResponse } from 'interfaces/album.interface'
+import type { AlbumResponse } from '../interfaces/album.interface'
 import type { CustomResponse } from '../interfaces/response.interface'
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
 
