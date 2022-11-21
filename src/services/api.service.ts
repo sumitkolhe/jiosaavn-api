@@ -22,18 +22,13 @@ export class ApiService {
       ]),
       responseType: 'json',
       hooks: {
-        beforeRequest: [
-          // (options) => {
-          // console.log(options.url)
-          // },
-        ],
+        beforeRequest: [(options) => {}],
       },
     })
   }
 
   protected http<T>(url: string, isVersion4: boolean, query?: Record<string, string | number>): Promise<T> {
     const v4 = isVersion4 ? { api_version: 4 } : undefined
-
     const queryParams = { ...v4, ...query }
 
     return this.httpClient<T>({ searchParams: { __call: url, ...queryParams } }).json()
