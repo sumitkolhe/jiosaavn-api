@@ -16,7 +16,7 @@
     "pretty": true,
     "sourceMap": false,
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./public",
     "allowJs": true,
     "noEmit": false,
     "esModuleInterop": true,
