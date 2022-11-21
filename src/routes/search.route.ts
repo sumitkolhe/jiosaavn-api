@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { searchSchema } from 'helpers/validator.helper'
+import { searchSchema } from '../helpers/validator.helper'
 import { SearchController } from '../controllers/search.controller'
 import type { Routes } from '../interfaces/routes.interface'
 

@@ -1,5 +1,6 @@
-import { SongsController } from 'controllers/songs.controller'
 import { Router } from 'express'
+import { SongsController } from '../controllers/songs.controller'
+import { songsSchema } from '../helpers/validator.helper'
 import type { Routes } from '../interfaces/routes.interface'
 
 export class SongsRoute implements Routes {
@@ -13,6 +14,6 @@ export class SongsRoute implements Routes {
 
   private initializeRoutes() {
     // this.router.get(`${this.path}`, this.songsController.searchSongs)
-    this.router.get(`${this.path}`, this.songsController.songDetails)
+    this.router.get(`${this.path}`, songsSchema, this.songsController.songDetails)
   }
 }

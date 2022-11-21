@@ -19,13 +19,15 @@ export class SongsController {
     try {
       const { id, link } = req.query
 
+      let result: SongResponse[]
+
       if (id) {
-        const result = await this.songsService.detailsById(id as string)
-        res.json({ status: globalConstants.status.success, message: null, data: result })
-      } else if (link) {
-        const result = await this.songsService.detailsByLink(link as string)
-        res.json({ status: globalConstants.status.success, message: null, data: result })
+        result = await this.songsService.detailsById(id as string)
+      } else {
+        result = await this.songsService.detailsByLink(link as string)
       }
+
+      res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
       next(error)
     }

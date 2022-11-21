@@ -18,14 +18,9 @@ export class SongsService extends PayloadService {
   }
 
   public detailsByLink = async (link: string): Promise<SongResponse[]> => {
-    let token = ''
-    if (link.includes(`jiosaavn.com/song/`)) {
-      token = link.split(`song/`)[1].split('/')[1].slice(0, 11)
-    }
-
     // api v4 does not contain media_preview_url
     const response = await this.http<{ songs: SongRequest[] }>(this.endpoints.songs.link, false, {
-      token,
+      token: link,
       type: 'song',
     })
 
