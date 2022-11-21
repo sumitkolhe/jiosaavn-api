@@ -24,10 +24,7 @@ export interface AlbumRequest extends Album {
   subtitle: string
   header_desc: string
   type: string
-  perma_url: string
-  image: string
   language: string
-  year: string
   play_count: string
   explicit_content: string
   list_count: string
@@ -74,7 +71,9 @@ export interface AlbumResponse {
   language: string
   explicitContent: string
   primaryArtists: string
+  primaryArtistsId: string
   songCount: string
+  releaseDate: string
   image: Array<{ quality: string; link: string }> | boolean
   url: string
   songs: Array<SongResponse>
