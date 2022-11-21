@@ -12,23 +12,24 @@ export class SearchService extends PayloadService {
     return result
   }
 
-  public songs = async (query: string, page: string, limit: string): Promise<SongSearchResponse> => {
+  public songs = async (query: string, page: number, limit: number): Promise<SongSearchResponse> => {
     // api v4 does not contain media_preview_url
+
     const response = await this.http<SongSearchRequest>(this.endpoints.search.song, false, {
       q: query,
-      p: page || 1,
-      n: limit || 10,
+      p: page,
+      n: limit,
     })
 
     const searchResults = this.songSearchPayload(response)
     return searchResults
   }
 
-  public albums = async (query: string, page: string, limit: string) => {
+  public albums = async (query: string, page: number, limit: number) => {
     const response = await this.http<AlbumSearchRequest>(this.endpoints.search.album, true, {
       q: query,
-      p: page || 1,
-      n: limit || 10,
+      p: page,
+      n: limit,
     })
 
     const payload = this.albumSearchPayload(response)
