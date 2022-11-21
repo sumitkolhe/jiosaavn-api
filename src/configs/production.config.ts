@@ -7,36 +7,31 @@ export const productionConfig: Config = {
     port: Number(process.env.PORT) || 80,
   },
   cors: {
-    origin: 'my-domain.com',
+    origin: 'saavn.me',
     credentials: true,
   },
   log: {
     format: 'tiny',
     level: 'info',
   },
-  baseURL: 'https://www.jiosaavn.com/api.php?_format=json&_marker=0&ctx=web6dot0',
-  endpoints: {
-    // search
-    searchAll: 'autocomplete.get',
-    searchSong: 'search.getResults', // supports pagination
-    searchAlbum: 'search.getAlbumResults', // supports pagination
-    searchArtist: 'search.getArtistResults', // supports pagination
-
-    // details by id
-    songDetails: 'song.getDetails',
-    albumDetails: 'content.getAlbumDetails',
-    playlistDetails: 'playlist.getDetails',
-
-    // details by link
-    songDetailsByLink: 'webapi.get&type=song',
-    albumDetailsByLink: 'webapi.get&type=album',
-
-    // list
-    homeData: 'webapi.getLaunchData',
-    charts: 'content.getCharts',
-    trending: 'content.getTrending',
-    albums: 'content.getAlbums', // supports pagination
-    lyrics: 'lyrics.getLyrics',
-    playlists: 'content.getFeaturedPlaylists&fetch_from_serialized_files=true',
+  baseURL: 'https://www.jiosaavn.com/api.php',
+  endpoint: {
+    search: {
+      all: 'autocomplete.get',
+      song: 'search.getResults', // supports pagination
+      album: 'search.getAlbumResults', // supports pagination
+      artist: 'search.getArtistResults', // supports pagination
+    },
+    songs: {
+      id: 'song.getDetails',
+      link: 'webapi.get',
+    },
+    albums: {
+      id: 'content.getAlbumDetails',
+      link: 'webapi.get',
+    },
+    playlists: {
+      id: 'playlist.getDetails',
+    },
   },
 }
