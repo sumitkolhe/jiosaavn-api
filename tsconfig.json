@@ -9,7 +9,6 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "skipLibCheck": true,
     "module": "commonjs",
     "strict": true,
     "strictPropertyInitialization": false,
