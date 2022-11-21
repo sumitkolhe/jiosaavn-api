@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { searchSchema } from 'helpers/validator.helper'
 import { SearchController } from '../controllers/search.controller'
 import type { Routes } from '../interfaces/routes.interface'
 
@@ -13,7 +14,7 @@ export class SearchRoute implements Routes {
 
   private initializeRoutes() {
     this.router.get(`${this.path}/all`, this.searchController.searchAll)
-    this.router.get(`${this.path}/songs`, this.searchController.searchSongs)
-    this.router.get(`${this.path}/albums`, this.searchController.searchAlbums)
+    this.router.get(`${this.path}/songs`, searchSchema, this.searchController.searchSongs)
+    this.router.get(`${this.path}/albums`, searchSchema, this.searchController.searchAlbums)
   }
 }
