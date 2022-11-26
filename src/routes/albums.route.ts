@@ -13,7 +13,6 @@ export class AlbumsRoute implements Routes {
   }
 
   private initializeRoutes() {
-    // this.router.get(`${this.path}`, this.songsController.searchSongs)
     this.router.get(`${this.path}`, albumsSchema, this.albumsController.albumDetails)
   }
 }

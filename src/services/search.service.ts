@@ -15,7 +15,7 @@ export class SearchService extends PayloadService {
   public songs = async (query: string, page: number, limit: number): Promise<SongSearchResponse> => {
     // api v4 does not contain media_preview_url
 
-    const response = await this.http<SongSearchRequest>(this.endpoints.search.song, false, {
+    const response = await this.http<SongSearchRequest>(this.endpoints.search.songs, false, {
       q: query,
       p: page,
       n: limit,
@@ -26,7 +26,7 @@ export class SearchService extends PayloadService {
   }
 
   public albums = async (query: string, page: number, limit: number) => {
-    const response = await this.http<AlbumSearchRequest>(this.endpoints.search.album, true, {
+    const response = await this.http<AlbumSearchRequest>(this.endpoints.search.albums, true, {
       q: query,
       p: page,
       n: limit,

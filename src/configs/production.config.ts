@@ -18,9 +18,9 @@ export const productionConfig: Config = {
   endpoint: {
     search: {
       all: 'autocomplete.get',
-      song: 'search.getResults', // supports pagination
-      album: 'search.getAlbumResults', // supports pagination
-      artist: 'search.getArtistResults', // supports pagination
+      songs: 'search.getResults', // supports pagination
+      albums: 'search.getAlbumResults', // supports pagination
+      artists: 'search.getArtistResults', // supports pagination
     },
     songs: {
       id: 'song.getDetails',

@@ -14,9 +14,9 @@ export interface Endpoint {
      * @param page - Page number
      * @param limit - Entries per page
      */
-    song: string
-    album: string
-    artist: string
+    songs: string
+    albums: string
+    artists: string
   }
   songs: {
     id: string
