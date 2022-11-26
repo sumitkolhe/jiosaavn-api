@@ -1,4 +1,4 @@
-import { HttpExceptionError } from 'exceptions/http.exception'
+import { HttpExceptionError } from '../exceptions/http.exception'
 import { PayloadService } from './payload.service'
 import type { SongRequest, SongResponse } from '../interfaces/song.interface'
 
