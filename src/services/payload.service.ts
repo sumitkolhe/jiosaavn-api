@@ -17,9 +17,9 @@ import type { SongRequest, SongResponse, SongSearchRequest, SongSearchResponse }
 export class PayloadService extends ApiService {
   protected songSearchPayload = (songs: SongSearchRequest) => {
     const payload = {
-      total: songs.total,
-      start: songs.start,
-      results: songs.results.map((song: SongRequest) => this.songPayload(song)),
+      total: songs?.total,
+      start: songs?.start,
+      results: songs?.results?.map((song: SongRequest) => this.songPayload(song)),
     } as SongSearchResponse
 
     return payload
@@ -27,32 +27,32 @@ export class PayloadService extends ApiService {
 
   protected songPayload = (song: SongRequest): SongResponse => {
     const songPayload: SongResponse = {
-      id: song.id,
-      name: song.song,
-      album: { id: song.albumid, name: song.album, url: song.album_url },
-      year: song.year,
-      releaseDate: song.release_date,
-      duration: song.duration,
-      label: song.label,
-      primaryArtists: song.primary_artists,
-      primaryArtistsId: song.primary_artists_id,
-      explicitContent: song.explicit_content,
-      playCount: song.play_count,
-      language: song.language,
-      hasLyrics: song.has_lyrics,
-      image: createImageLinks(song.image),
-      url: song.perma_url,
-      copyright: song.copyright_text,
-      downloadUrl: createDownloadLinks(song.media_preview_url),
+      id: song?.id,
+      name: song?.song,
+      album: { id: song?.albumid, name: song?.album, url: song?.album_url },
+      year: song?.year,
+      releaseDate: song?.release_date,
+      duration: song?.duration,
+      label: song?.label,
+      primaryArtists: song?.primary_artists,
+      primaryArtistsId: song?.primary_artists_id,
+      explicitContent: song?.explicit_content,
+      playCount: song?.play_count,
+      language: song?.language,
+      hasLyrics: song?.has_lyrics,
+      image: createImageLinks(song?.image),
+      url: song?.perma_url,
+      copyright: song?.copyright_text,
+      downloadUrl: createDownloadLinks(song?.media_preview_url),
     }
     return songPayload
   }
 
   protected albumSearchPayload = (albums: AlbumSearchRequest) => {
     const payload = {
-      total: albums.total,
-      start: albums.start,
-      results: albums.results.map((album: AlbumRequest) => this.albumPayload(album)),
+      total: albums?.total,
+      start: albums?.start,
+      results: albums?.results?.map((album: AlbumRequest) => this.albumPayload(album)),
     } as AlbumSearchResponse
 
     return payload
@@ -61,23 +61,23 @@ export class PayloadService extends ApiService {
   protected albumPayload = (album: AlbumRequest) => {
     const albumPayload: AlbumResponse = {
       id: album?.albumid || album?.id,
-      name: album.title,
-      year: album.year,
-      releaseDate: album.release_date,
-      playCount: album.play_count,
-      language: album.language,
-      explicitContent: album.explicit_content,
+      name: album?.title,
+      year: album?.year,
+      releaseDate: album?.release_date,
+      playCount: album?.play_count,
+      language: album?.language,
+      explicitContent: album?.explicit_content,
       songCount: album?.more_info?.song_count || album?.songs?.length?.toString(),
-      primaryArtists: album.primary_artists || album.more_info?.artistMap?.primary_artists[0]?.name,
-      primaryArtistsId: album.primary_artists_id,
-      image: createImageLinks(album.image),
-      url: album.perma_url,
+      primaryArtists: album?.primary_artists || album.more_info?.artistMap?.primary_artists[0]?.name,
+      primaryArtistsId: album?.primary_artists_id,
+      image: createImageLinks(album?.image),
+      url: album?.perma_url,
       songs: [] as SongResponse[],
     }
 
     // if album details contain song list
     if (album.songs) {
-      albumPayload.songs = album.songs.map((song: SongRequest) => this.songPayload(song))
+      albumPayload.songs = album?.songs?.map((song: SongRequest) => this.songPayload(song))
     }
 
     return albumPayload
@@ -85,9 +85,9 @@ export class PayloadService extends ApiService {
 
   protected playlistSearchPayload = (playlists: PlaylistSearchRequest) => {
     const payload = {
-      total: playlists.total,
-      start: playlists.start,
-      results: playlists.results.map((playlist: PlaylistRequest) => this.playlistPayload(playlist)),
+      total: playlists?.total,
+      start: playlists?.start,
+      results: playlists?.results?.map((playlist: PlaylistRequest) => this.playlistPayload(playlist)),
     } as PlaylistSearchResponse
 
     return payload
@@ -95,25 +95,25 @@ export class PayloadService extends ApiService {
 
   protected playlistPayload = (playlist: PlaylistRequest) => {
     const playlistPayload: PlaylistResponse = {
-      id: playlist.listid,
-      userId: playlist.uid,
-      name: playlist.listname,
-      followerCount: playlist.follower_count,
-      songCount: playlist.count || playlist.list_count,
-      fanCount: playlist.fan_count?.toString(),
-      username: playlist.username,
-      firstname: playlist.firstname,
-      lastname: playlist.lastname,
-      language: playlist.language,
-      shares: playlist.share,
-      image: createImageLinks(playlist.image),
-      url: playlist.perma_url,
+      id: playlist?.listid,
+      userId: playlist?.uid,
+      name: playlist?.listname,
+      followerCount: playlist?.follower_count,
+      songCount: playlist?.count || playlist?.list_count,
+      fanCount: playlist?.fan_count?.toString(),
+      username: playlist?.username,
+      firstname: playlist?.firstname,
+      lastname: playlist?.lastname,
+      language: playlist?.language,
+      shares: playlist?.share,
+      image: createImageLinks(playlist?.image),
+      url: playlist?.perma_url,
       songs: [] as SongResponse[],
     }
 
     // if playlist details contain song list
     if (playlist.songs) {
-      playlistPayload.songs = playlist.songs.map((song: SongRequest) => this.songPayload(song))
+      playlistPayload.songs = playlist?.songs?.map((song: SongRequest) => this.songPayload(song))
     }
 
     return playlistPayload
