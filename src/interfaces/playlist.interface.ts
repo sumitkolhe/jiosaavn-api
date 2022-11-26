@@ -51,6 +51,7 @@ export interface PlaylistSearchResponse {
 
 export interface PlaylistResponse {
   id: string
+  userId: string
   name: string
   songCount: string
   fanCount: string
@@ -59,6 +60,7 @@ export interface PlaylistResponse {
   firstname: string
   language: string
   lastname: string
+  shares: string
   image: { quality: string; link: string }[] | boolean
   url: string
   songs: SongResponse[]

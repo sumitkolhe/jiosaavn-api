@@ -96,14 +96,16 @@ export class PayloadService extends ApiService {
   protected playlistPayload = (playlist: PlaylistRequest) => {
     const playlistPayload: PlaylistResponse = {
       id: playlist.listid,
+      userId: playlist.uid,
       name: playlist.listname,
       followerCount: playlist.follower_count,
-      songCount: playlist.count,
+      songCount: playlist.count || playlist.list_count,
       fanCount: playlist.fan_count?.toString(),
       username: playlist.username,
       firstname: playlist.firstname,
       lastname: playlist.lastname,
       language: playlist.language,
+      shares: playlist.share,
       image: createImageLinks(playlist.image),
       url: playlist.perma_url,
       songs: [] as SongResponse[],
