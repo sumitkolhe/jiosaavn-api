@@ -1,7 +1,7 @@
 export interface SongSearchRequest {
   total: number
   start: number
-  results: Array<SongRequest>
+  results: SongRequest[]
 }
 
 export interface SongRequest {
@@ -56,7 +56,7 @@ export interface SongRequest {
 export interface SongSearchResponse {
   total: number
   start: number
-  results: Array<SongResponse>
+  results: SongResponse[]
 }
 
 export interface SongResponse {
@@ -77,8 +77,8 @@ export interface SongResponse {
   playCount: string
   language: string
   hasLyrics: string
-  image: Array<{ quality: string; link: string }> | boolean
+  image: { quality: string; link: string }[] | boolean
   url: string
   copyright: string
-  downloadUrl: Array<{ quality: string; link: string }> | boolean
+  downloadUrl: { quality: string; link: string }[] | boolean
 }

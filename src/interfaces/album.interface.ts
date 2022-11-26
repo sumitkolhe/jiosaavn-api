@@ -3,7 +3,7 @@ import type { SongRequest, SongResponse } from './song.interface'
 export interface AlbumSearchRequest {
   total: number
   start: number
-  results: Array<AlbumRequest>
+  results: AlbumRequest[]
 }
 
 interface Album {
@@ -36,23 +36,23 @@ export interface AlbumRequest extends Album {
     music?: string
     song_count: string
     artistMap: {
-      primary_artists: Array<{
+      primary_artists: {
         id: string
         name: string
         role: string
         image: string
         type: string
         perma_url: string
-      }>
-      featured_artists: Array<any>
-      artists: Array<{
+      }[]
+      featured_artists: any[]
+      artists: {
         id: string
         name: string
         role: string
         image: string
         type: string
         perma_url: string
-      }>
+      }[]
     }
   }
 }
@@ -60,7 +60,7 @@ export interface AlbumRequest extends Album {
 export interface AlbumSearchResponse {
   total: number
   start: number
-  results: Array<AlbumResponse>
+  results: AlbumResponse[]
 }
 
 export interface AlbumResponse {
@@ -74,7 +74,7 @@ export interface AlbumResponse {
   primaryArtistsId: string
   songCount: string
   releaseDate: string
-  image: Array<{ quality: string; link: string }> | boolean
+  image: { quality: string; link: string }[] | boolean
   url: string
-  songs: Array<SongResponse>
+  songs: SongResponse[]
 }
