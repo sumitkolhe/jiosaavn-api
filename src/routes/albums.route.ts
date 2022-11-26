@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { AlbumsController } from '../controllers/albums.controller'
 import { albumsSchema } from '../helpers/validator.helper'
-import type { Routes } from '../interfaces/routes.interface'
+import type { Route } from '../interfaces/route.interface'
 
-export class AlbumsRoute implements Routes {
+export class AlbumsRoute implements Route {
   public path = '/albums'
   public router = Router()
   public albumsController = new AlbumsController()

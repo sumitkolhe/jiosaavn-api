@@ -9,7 +9,7 @@ import { logger } from './utils/logger'
 import { getConfig } from './configs'
 import type { Request, Response } from 'express'
 import type { Config } from './interfaces/config.interface'
-import type { Routes } from './interfaces/routes.interface'
+import type { Route } from './interfaces/route.interface'
 
 export class App {
   public app: express.Application
@@ -17,7 +17,7 @@ export class App {
   public config: Config
   public env: string
 
-  constructor(routes: Routes[]) {
+  constructor(routes: Route[]) {
     this.config = getConfig()
     this.app = express()
     this.env = this.config.env
@@ -50,7 +50,7 @@ export class App {
     )
   }
 
-  private initializeRoutes(routes: Routes[]) {
+  private initializeRoutes(routes: Route[]) {
     routes.forEach((route) => {
       this.app.use('/', route.router)
     })

@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import { searchSchema } from '../helpers/validator.helper'
 import { SearchController } from '../controllers/search.controller'
-import type { Routes } from '../interfaces/routes.interface'
+import type { Route } from '../interfaces/route.interface'
 
-export class SearchRoute implements Routes {
+export class SearchRoute implements Route {
   public path = '/search'
   public router = Router()
   public searchController = new SearchController()
