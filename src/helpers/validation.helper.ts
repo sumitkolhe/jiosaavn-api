@@ -59,3 +59,13 @@ export const albumsSchema = celebrate(
   { abortEarly: false },
   { mode: Modes.FULL }
 )
+
+export const playlistsSchema = celebrate(
+  {
+    [Segments.QUERY]: Joi.object().keys({
+      id: Joi.string().required(),
+    }),
+  },
+  { abortEarly: false },
+  { mode: Modes.FULL }
+)

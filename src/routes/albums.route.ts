@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { AlbumsController } from '../controllers/albums.controller'
-import { albumsSchema } from '../helpers/validator.helper'
+import { albumsSchema } from '../helpers/validation.helper'
 import type { Route } from '../interfaces/route.interface'
 
 export class AlbumsRoute implements Route {

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { rateLimiterMiddleware } from '../middlewares/limiter.middleware'
 import { SongsController } from '../controllers/songs.controller'
-import { songsSchema } from '../helpers/validator.helper'
+import { songsSchema } from '../helpers/validation.helper'
 import type { Route } from '../interfaces/route.interface'
 
 export class SongsRoute implements Route {
