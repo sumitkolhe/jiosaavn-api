@@ -12,8 +12,8 @@ export class PlaylistsService extends PayloadService {
       listid: id,
     })
 
-    const albumResults = this.playlistPayload(response)
+    const playlistResults = this.playlistPayload(response)
 
-    return albumResults
+    return playlistResults
   }
 }
