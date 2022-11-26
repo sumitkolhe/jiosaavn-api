@@ -18,10 +18,10 @@ export const devConfig: Config = {
   endpoint: {
     search: {
       all: 'autocomplete.get',
-      songs: 'search.getResults', // supports pagination
-      albums: 'search.getAlbumResults', // supports pagination
-      artists: 'search.getArtistResults', // supports pagination
-      playlists: 'search.getPlaylistResults', // supports pagination
+      songs: 'search.getResults',
+      albums: 'search.getAlbumResults',
+      artists: 'search.getArtistResults',
+      playlists: 'search.getPlaylistResults',
     },
     songs: {
       id: 'song.getDetails',
