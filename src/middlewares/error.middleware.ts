@@ -1,31 +1,47 @@
 import { isCelebrateError } from 'celebrate'
-import { globalConstants } from '../constants'
 import { logger } from '../utils/logger'
 import type { NextFunction, Request, Response } from 'express'
 import type { HttpExceptionError } from '../exceptions/http.exception'
 
+interface ValidationError {
+  error: string
+  location: string | undefined
+}
+
 export const errorMiddleware = (error: HttpExceptionError, req: Request, res: Response, next: NextFunction) => {
   try {
-    let status: number
-    let message = ''
-
     if (isCelebrateError(error)) {
-      status = 400
+      const message: ValidationError[] = []
+      const status = 400
+
       for (const value of error.details.values()) {
-        message += value.message.replaceAll('"', '')
+        value.details.forEach((err) => {
+          message.push({
+            location: err.context?.key,
+            error: err.message.replaceAll('"', ''),
+          })
+        })
       }
+
+      logger.error(`[${req.method}] ${req.path} >> StatusCode:: ${status}, Message:: ${message}`)
+
+      res.status(status).json({
+        status: 'FAILED',
+        message,
+        data: null,
+      })
     } else {
-      status = error.status || 500
-      message = error.message || 'Something went wrong'
+      const status = error.status || 500
+      const message = error.message || 'Something went wrong'
+
+      logger.error(`[${req.method}] ${req.path} >> StatusCode:: ${status}, Message:: ${message}`)
+
+      res.status(status).json({
+        status: 'FAILED',
+        message,
+        data: null,
+      })
     }
-
-    logger.error(`[${req.method}] ${req.path} >> StatusCode:: ${status}, Message:: ${message}`)
-
-    res.status(status).json({
-      status: globalConstants.status.failed,
-      message,
-      data: null,
-    })
   } catch (error) {
     next(error)
   }
