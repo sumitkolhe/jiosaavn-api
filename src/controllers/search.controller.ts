@@ -1,5 +1,6 @@
 import { globalConstants } from '../constants'
 import { SearchService } from '../services/search.service'
+import type { PlaylistSearchResponse } from '../interfaces/playlist.interface'
 import type { AlbumSearchResponse } from '../interfaces/album.interface'
 import type { SongSearchResponse } from '../interfaces/song.interface'
 import type { CustomResponse } from '../interfaces/response.interface'
@@ -51,6 +52,23 @@ export class SearchController {
       const { query, page, limit } = req.query
 
       const result = await this.searchService.albums(query as string, Number(page), Number(limit))
+
+      res.json({ status: globalConstants.status.success, message: null, data: result })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  // search playlists only
+  public searchPlaylists: RequestHandler = async (
+    req: Request,
+    res: Response<CustomResponse<PlaylistSearchResponse>>,
+    next: NextFunction
+  ) => {
+    try {
+      const { query, page, limit } = req.query
+
+      const result = await this.searchService.playlists(query as string, Number(page), Number(limit))
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {

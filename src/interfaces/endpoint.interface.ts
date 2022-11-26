@@ -17,6 +17,7 @@ export interface Endpoint {
     songs: string
     albums: string
     artists: string
+    playlists: string
   }
   songs: {
     id: string

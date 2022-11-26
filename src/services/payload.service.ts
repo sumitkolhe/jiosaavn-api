@@ -1,6 +1,12 @@
 import { createDownloadLinks, createImageLinks } from '../utils/link'
 import { ApiService } from '../services/api.service'
 import type {
+  PlaylistRequest,
+  PlaylistResponse,
+  PlaylistSearchRequest,
+  PlaylistSearchResponse,
+} from '../interfaces/playlist.interface'
+import type {
   AlbumRequest,
   AlbumResponse,
   AlbumSearchRequest,
@@ -77,29 +83,37 @@ export class PayloadService extends ApiService {
     return albumPayload
   }
 
-  // public static playlistPayload = (playlist: Playlist) => {
-  //   const songsArray = [] as Song[]
+  protected playlistSearchPayload = (playlists: PlaylistSearchRequest) => {
+    const payload = {
+      total: playlists.total,
+      start: playlists.start,
+      results: playlists.results.map((playlist: PlaylistRequest) => this.playlistPayload(playlist)),
+    } as PlaylistSearchResponse
 
-  //   const playlistPayload = {
-  //     id: playlist.listid,
-  //     name: playlist.listname,
-  //     followerCount: playlist.follower_count,
-  //     songCount: playlist.list_count || playlist?.songs?.length,
-  //     fanCount: playlist.fan_count,
-  //     username: playlist.username,
-  //     firstname: playlist.firstname,
-  //     lastname: playlist.lastname,
-  //     image: Utils.createImageLinks(playlist.image),
-  //     url: playlist.perma_url,
-  //     songs: [] as Song[],
-  //   }
+    return payload
+  }
 
-  //   // if playlist details contain song list
-  //   if (playlist.songs) {
-  //     playlist.songs.forEach((song: Song) => songsArray.push(GeneratePayload.songPayload(song) as never))
-  //     playlistPayload.songs = songsArray
-  //   }
+  protected playlistPayload = (playlist: PlaylistRequest) => {
+    const playlistPayload: PlaylistResponse = {
+      id: playlist.listid,
+      name: playlist.listname,
+      followerCount: playlist.follower_count,
+      songCount: playlist.count,
+      fanCount: playlist.fan_count?.toString(),
+      username: playlist.username,
+      firstname: playlist.firstname,
+      lastname: playlist.lastname,
+      language: playlist.language,
+      image: createImageLinks(playlist.image),
+      url: playlist.perma_url,
+      songs: [] as SongResponse[],
+    }
 
-  //   return playlistPayload
-  // }
+    // if playlist details contain song list
+    if (playlist.songs) {
+      playlistPayload.songs = playlist.songs.map((song: SongRequest) => this.songPayload(song))
+    }
+
+    return playlistPayload
+  }
 }

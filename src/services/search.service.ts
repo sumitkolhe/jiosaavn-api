@@ -1,4 +1,5 @@
 import { PayloadService } from '../services/payload.service'
+import type { PlaylistSearchRequest } from '../interfaces/playlist.interface'
 import type { AlbumSearchRequest } from '../interfaces/album.interface'
 import type { SongSearchRequest, SongSearchResponse } from '../interfaces/song.interface'
 
@@ -33,6 +34,17 @@ export class SearchService extends PayloadService {
     })
 
     const payload = this.albumSearchPayload(response)
+    return payload
+  }
+
+  public playlists = async (query: string, page: number, limit: number) => {
+    const response = await this.http<PlaylistSearchRequest>(this.endpoints.search.playlists, false, {
+      q: query,
+      p: page,
+      n: limit,
+    })
+
+    const payload = this.playlistSearchPayload(response)
     return payload
   }
 }

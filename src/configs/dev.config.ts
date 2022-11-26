@@ -21,6 +21,7 @@ export const devConfig: Config = {
       songs: 'search.getResults', // supports pagination
       albums: 'search.getAlbumResults', // supports pagination
       artists: 'search.getArtistResults', // supports pagination
+      playlists: 'search.getPlaylistResults', // supports pagination
     },
     songs: {
       id: 'song.getDetails',
