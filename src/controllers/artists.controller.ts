@@ -1,4 +1,4 @@
-import { ArtistsService } from 'services/artists.service'
+import { ArtistsService } from '../services/artists.service'
 import { globalConstants } from '../constants'
 import type { ArtistAlbumResponse, ArtistResponse, ArtistSongResponse } from '../interfaces/artist.interface'
 import type { CustomResponse } from '../interfaces/response.interface'
