@@ -2,10 +2,14 @@ import { createDownloadLinks, createImageLinks } from '../utils/link'
 import { ApiService } from '../services/api.service'
 import type {
   Artist,
+  ArtistAlbumRequest,
+  ArtistAlbumResponse,
   ArtistRequest,
   ArtistResponse,
   ArtistSearchRequest,
   ArtistSearchResponse,
+  ArtistSongRequest,
+  ArtistSongResponse,
 } from '../interfaces/artist.interface'
 import type {
   PlaylistRequest,
@@ -179,5 +183,25 @@ export class PayloadService extends ApiService {
     }
 
     return artistPayload
+  }
+
+  protected artistSongPayload = (songs: ArtistSongRequest) => {
+    const payload = {
+      total: songs.total,
+      lastPage: songs.last_page,
+      results: songs?.songs?.map((song: SongRequest) => this.songPayload(song)),
+    } as ArtistSongResponse
+
+    return payload
+  }
+
+  protected artistAlbumPayload = (albums: ArtistAlbumRequest) => {
+    const payload = {
+      total: albums.total,
+      lastPage: albums.last_page,
+      results: albums?.albums?.map((album: AlbumRequest) => this.albumPayload(album)),
+    } as ArtistAlbumResponse
+
+    return payload
   }
 }

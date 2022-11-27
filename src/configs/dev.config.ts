@@ -36,6 +36,8 @@ export const devConfig: Config = {
     },
     artists: {
       id: 'artist.getArtistPageDetails',
+      songs: 'artist.getArtistMoreSong',
+      albums: 'artist.getArtistMoreAlbum',
     },
   },
 }

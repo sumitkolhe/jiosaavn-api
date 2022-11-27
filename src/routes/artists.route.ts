@@ -1,6 +1,5 @@
 import { Router } from 'express'
 import { ArtistsController } from '../controllers/artists.controller'
-import { albumsSchema } from '../helpers/validation.helper'
 import type { Route } from '../interfaces/route.interface'
 
 export class ArtistsRoute implements Route {
@@ -13,6 +12,8 @@ export class ArtistsRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}`, this.artistsController.artistDetails)
+    this.router.get(`${this.path}/:artistId`, this.artistsController.artistDetails)
+    this.router.get(`${this.path}/:artistId/albums`, this.artistsController.artistAblums)
+    this.router.get(`${this.path}/:artistId/songs`, this.artistsController.artistSongs)
   }
 }

@@ -1,5 +1,6 @@
 import { globalConstants } from '../constants'
 import { SearchService } from '../services/search.service'
+import type { ArtistSearchResponse } from 'interfaces/artist.interface'
 import type { PlaylistSearchResponse } from '../interfaces/playlist.interface'
 import type { AlbumSearchResponse } from '../interfaces/album.interface'
 import type { SongSearchResponse } from '../interfaces/song.interface'
@@ -79,7 +80,7 @@ export class SearchController {
   // search artists only
   public searchArtists: RequestHandler = async (
     req: Request,
-    res: Response<CustomResponse<PlaylistSearchResponse>>,
+    res: Response<CustomResponse<ArtistSearchResponse>>,
     next: NextFunction
   ) => {
     try {
