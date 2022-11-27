@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import { rateLimiterMiddleware } from '../middlewares/limiter.middleware'
 import { SongsController } from '../controllers/songs.controller'
 import { songsSchema } from '../helpers/validation.helper'
 import type { Route } from '../interfaces/route.interface'
@@ -14,6 +13,6 @@ export class SongsRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}`, rateLimiterMiddleware, songsSchema, this.songsController.songDetails)
+    this.router.get(`${this.path}`, songsSchema, this.songsController.songDetails)
   }
 }
