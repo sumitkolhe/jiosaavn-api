@@ -1,3 +1,5 @@
+import type { DownloadLink } from './image.interface'
+
 export interface SongSearchRequest {
   total: number
   start: number
@@ -81,6 +83,6 @@ export interface SongResponse {
   hasLyrics: string
   url: string
   copyright: string
-  image: { quality: string; link: string }[] | boolean
-  downloadUrl: { quality: string; link: string }[] | boolean
+  image: DownloadLink
+  downloadUrl: DownloadLink
 }

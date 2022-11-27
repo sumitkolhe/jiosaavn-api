@@ -1,3 +1,4 @@
+import type { DownloadLink } from './image.interface'
 import type { SongRequest, SongResponse } from './song.interface'
 
 export interface PlaylistSearchRequest {
@@ -61,7 +62,7 @@ export interface PlaylistResponse {
   language: string
   lastname: string
   shares: string
-  image: { quality: string; link: string }[] | boolean
+  image: DownloadLink
   url: string
   songs: SongResponse[]
 }
