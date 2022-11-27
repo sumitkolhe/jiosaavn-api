@@ -36,25 +36,29 @@ export interface AlbumRequest extends Album {
     music?: string
     song_count: string
     artistMap: {
-      primary_artists: {
-        id: string
-        name: string
-        role: string
-        image: string
-        type: string
-        perma_url: string
-      }[]
-      featured_artists: any[]
-      artists: {
-        id: string
-        name: string
-        role: string
-        image: string
-        type: string
-        perma_url: string
-      }[]
+      primary_artists: ArtistRequest[]
+      featured_artists: ArtistRequest[]
+      artists: ArtistRequest[]
     }
   }
+}
+
+export interface ArtistRequest {
+  id: string
+  name: string
+  role: string
+  image: string
+  type: string
+  perma_url: string
+}
+
+export interface ArtistResponse {
+  id: string
+  name: string
+  role: string
+  image: string
+  type: string
+  url: string
 }
 
 export interface AlbumSearchResponse {
@@ -70,8 +74,10 @@ export interface AlbumResponse {
   playCount: string
   language: string
   explicitContent: string
-  primaryArtists: string
   primaryArtistsId: string
+  primaryArtists: string | ArtistResponse[]
+  artists: ArtistResponse[]
+  featuredArtists: ArtistResponse[]
   songCount: string
   releaseDate: string
   image: { quality: string; link: string }[] | boolean

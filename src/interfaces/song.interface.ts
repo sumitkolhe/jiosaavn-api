@@ -73,12 +73,14 @@ export interface SongResponse {
   label: string
   primaryArtists: string
   primaryArtistsId: string
+  featuredArtists: string
+  featuredArtistsId: string
   explicitContent: number
   playCount: string
   language: string
   hasLyrics: string
-  image: { quality: string; link: string }[] | boolean
   url: string
   copyright: string
+  image: { quality: string; link: string }[] | boolean
   downloadUrl: { quality: string; link: string }[] | boolean
 }

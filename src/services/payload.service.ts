@@ -11,10 +11,28 @@ import type {
   AlbumResponse,
   AlbumSearchRequest,
   AlbumSearchResponse,
+  ArtistRequest,
+  ArtistResponse,
 } from '../interfaces/album.interface'
 import type { SongRequest, SongResponse, SongSearchRequest, SongSearchResponse } from '../interfaces/song.interface'
 
 export class PayloadService extends ApiService {
+  private mapArtists = (artists: ArtistRequest[]): ArtistResponse[] => {
+    if (!artists) return []
+    const mappedArtists: ArtistResponse[] = artists.map((artist) => {
+      return {
+        id: artist.id,
+        name: artist.name,
+        url: artist.perma_url,
+        image: artist.image,
+        type: artist.type,
+        role: artist.role,
+      }
+    })
+
+    return mappedArtists
+  }
+
   protected songSearchPayload = (songs: SongSearchRequest) => {
     const payload = {
       total: songs?.total,
@@ -36,13 +54,15 @@ export class PayloadService extends ApiService {
       label: song?.label,
       primaryArtists: song?.primary_artists,
       primaryArtistsId: song?.primary_artists_id,
+      featuredArtists: song?.featured_artists,
+      featuredArtistsId: song?.featured_artists_id,
       explicitContent: song?.explicit_content,
       playCount: song?.play_count,
       language: song?.language,
       hasLyrics: song?.has_lyrics,
-      image: createImageLinks(song?.image),
       url: song?.perma_url,
       copyright: song?.copyright_text,
+      image: createImageLinks(song?.image),
       downloadUrl: createDownloadLinks(song?.media_preview_url),
     }
     return songPayload
@@ -68,10 +88,12 @@ export class PayloadService extends ApiService {
       language: album?.language,
       explicitContent: album?.explicit_content,
       songCount: album?.more_info?.song_count || album?.songs?.length?.toString(),
-      primaryArtists: album?.primary_artists || album.more_info?.artistMap?.primary_artists[0]?.name,
-      primaryArtistsId: album?.primary_artists_id,
-      image: createImageLinks(album?.image),
       url: album?.perma_url,
+      primaryArtistsId: album?.primary_artists_id,
+      primaryArtists: album?.primary_artists || this.mapArtists(album?.more_info?.artistMap?.primary_artists),
+      featuredArtists: this.mapArtists(album.more_info?.artistMap.featured_artists),
+      artists: this.mapArtists(album.more_info?.artistMap.artists),
+      image: createImageLinks(album?.image),
       songs: [] as SongResponse[],
     }
 
