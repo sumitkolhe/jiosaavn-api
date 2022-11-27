@@ -1,3 +1,5 @@
+import type { DownloadLink } from './image.interface'
+import type { Artist } from './artist.interface'
 import type { SongRequest, SongResponse } from './song.interface'
 
 export interface AlbumSearchRequest {
@@ -36,29 +38,11 @@ export interface AlbumRequest extends Album {
     music?: string
     song_count: string
     artistMap: {
-      primary_artists: ArtistRequest[]
-      featured_artists: ArtistRequest[]
-      artists: ArtistRequest[]
+      primary_artists: Artist[]
+      featured_artists: Artist[]
+      artists: Artist[]
     }
   }
-}
-
-export interface ArtistRequest {
-  id: string
-  name: string
-  role: string
-  image: string
-  type: string
-  perma_url: string
-}
-
-export interface ArtistResponse {
-  id: string
-  name: string
-  role: string
-  image: string
-  type: string
-  url: string
 }
 
 export interface AlbumSearchResponse {
@@ -75,12 +59,21 @@ export interface AlbumResponse {
   language: string
   explicitContent: string
   primaryArtistsId: string
-  primaryArtists: string | ArtistResponse[]
-  artists: ArtistResponse[]
-  featuredArtists: ArtistResponse[]
+  primaryArtists: string | AlbumArtistResponse[]
+  artists: AlbumArtistResponse[]
+  featuredArtists: AlbumArtistResponse[]
   songCount: string
   releaseDate: string
-  image: { quality: string; link: string }[] | boolean
+  image: DownloadLink
   url: string
   songs: SongResponse[]
+}
+
+export interface AlbumArtistResponse {
+  id: string
+  name: string
+  role: string
+  image: DownloadLink
+  type: string
+  url: string
 }

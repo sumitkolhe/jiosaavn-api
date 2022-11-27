@@ -17,5 +17,6 @@ export class SearchRoute implements Route {
     this.router.get(`${this.path}/songs`, searchSchema, this.searchController.searchSongs)
     this.router.get(`${this.path}/albums`, searchSchema, this.searchController.searchAlbums)
     this.router.get(`${this.path}/playlists`, searchSchema, this.searchController.searchPlaylists)
+    this.router.get(`${this.path}/artists`, searchSchema, this.searchController.searchArtists)
   }
 }

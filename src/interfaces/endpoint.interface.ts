@@ -34,6 +34,14 @@ export interface Endpoint {
      * @param limit - Entries per page
      */
     playlists: string
+    /**
+     * Search for artists.
+     * @endpoint
+     * `search.getArtistResults`
+     * @isVersion4 false
+     * @param page - Page number
+     * @param limit - Entries per page
+     */
     artists: string
   }
   songs: {
@@ -75,6 +83,9 @@ export interface Endpoint {
      * `playlist.getDetails`
      * @isVersion4 false
      */
+    id: string
+  }
+  artists: {
     id: string
   }
 }

@@ -75,4 +75,21 @@ export class SearchController {
       next(error)
     }
   }
+
+  // search artists only
+  public searchArtists: RequestHandler = async (
+    req: Request,
+    res: Response<CustomResponse<PlaylistSearchResponse>>,
+    next: NextFunction
+  ) => {
+    try {
+      const { query, page, limit } = req.query
+
+      const result = await this.searchService.artists(query as string, Number(page), Number(limit))
+
+      res.json({ status: globalConstants.status.success, message: null, data: result })
+    } catch (error) {
+      next(error)
+    }
+  }
 }

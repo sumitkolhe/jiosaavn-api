@@ -34,5 +34,8 @@ export const devConfig: Config = {
     playlists: {
       id: 'playlist.getDetails',
     },
+    artists: {
+      id: 'artist.getArtistPageDetails',
+    },
   },
 }

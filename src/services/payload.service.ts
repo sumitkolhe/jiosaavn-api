@@ -1,30 +1,36 @@
 import { createDownloadLinks, createImageLinks } from '../utils/link'
 import { ApiService } from '../services/api.service'
 import type {
+  Artist,
+  ArtistRequest,
+  ArtistResponse,
+  ArtistSearchRequest,
+  ArtistSearchResponse,
+} from '../interfaces/artist.interface'
+import type {
   PlaylistRequest,
   PlaylistResponse,
   PlaylistSearchRequest,
   PlaylistSearchResponse,
 } from '../interfaces/playlist.interface'
 import type {
+  AlbumArtistResponse,
   AlbumRequest,
   AlbumResponse,
   AlbumSearchRequest,
   AlbumSearchResponse,
-  ArtistRequest,
-  ArtistResponse,
 } from '../interfaces/album.interface'
 import type { SongRequest, SongResponse, SongSearchRequest, SongSearchResponse } from '../interfaces/song.interface'
 
 export class PayloadService extends ApiService {
-  private mapArtists = (artists: ArtistRequest[]): ArtistResponse[] => {
+  private mapArtists = (artists: Artist[]): AlbumArtistResponse[] => {
     if (!artists) return []
-    const mappedArtists: ArtistResponse[] = artists.map((artist) => {
+    const mappedArtists: AlbumArtistResponse[] = artists.map((artist) => {
       return {
         id: artist.id,
         name: artist.name,
         url: artist.perma_url,
-        image: artist.image,
+        image: createImageLinks(artist.image),
         type: artist.type,
         role: artist.role,
       }
@@ -139,5 +145,39 @@ export class PayloadService extends ApiService {
     }
 
     return playlistPayload
+  }
+
+  protected artistSearchPayload = (artists: ArtistSearchRequest) => {
+    const payload = {
+      total: artists?.total,
+      start: artists?.start,
+      results: artists?.results?.map((artist: ArtistRequest) => this.artistPayload(artist)),
+    } as ArtistSearchResponse
+
+    return payload
+  }
+
+  protected artistPayload = (artist: ArtistRequest) => {
+    const artistPayload: ArtistResponse = {
+      id: artist?.artistId || artist?.id,
+      name: artist?.name,
+      url: artist?.urls?.overview || artist?.perma_url,
+      role: artist?.role,
+      image: createImageLinks(artist?.image),
+      followerCount: artist?.follower_count,
+      fanCount: artist?.fan_count,
+      isVerified: artist?.isVerified,
+      dominantLanguage: artist?.dominantLanguage,
+      dominantType: artist?.dominantType,
+      bio: artist.bio && JSON.parse(artist?.bio),
+      dob: artist?.dob,
+      fb: artist?.fb,
+      twitter: artist?.twitter,
+      wiki: artist?.wiki,
+      availableLanguages: artist?.availableLanguages,
+      isRadioPresent: artist.isRadioPresent,
+    }
+
+    return artistPayload
   }
 }
