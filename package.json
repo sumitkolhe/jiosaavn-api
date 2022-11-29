@@ -10,10 +10,14 @@
     "dev": "cross-env NODE_ENV=development tsx watch ./src/server.ts",
     "start": "npm run build && cross-env NODE_ENV=production node public/server.js",
     "build": "tsc",
-    "pretty": "prettier --write \"./**/*.{js,ts,json}\"",
+    "format": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint . --ext \".ts\"",
     "lint:fix": "eslint --fix --ext .js,.ts .",
-    "deploy": "vercel deploy --prod"
+    "deploy": "vercel deploy --prod",
+    "postinstall": "npx simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "yarn lint && yarn format"
   },
   "dependencies": {
     "@upstash/ratelimit": "^0.1.5",
@@ -41,6 +45,7 @@
     "eslint": "^8.27.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
+    "simple-git-hooks": "^2.8.1",
     "tsx": "^3.12.1",
     "typescript": "^4.9.3"
   }

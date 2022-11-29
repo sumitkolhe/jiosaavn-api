@@ -23,7 +23,7 @@ export class ApiService {
       responseType: 'json',
       hooks: {
         beforeRequest: [
-          (options) => {
+          () => {
             // console.log(options.url)
           },
         ],
