@@ -1,7 +1,6 @@
 import {} from 'dotenv/config'
 import cors from 'cors'
 import express from 'express'
-import helmet from 'helmet'
 import morgan from 'morgan'
 import timeout from 'express-timeout-handler'
 import { rateLimiterMiddleware } from './middlewares/limiter.middleware'
@@ -31,7 +30,6 @@ export class App {
   }
 
   private initializeMiddlewares() {
-    this.app.use(helmet())
     this.app.use(morgan(this.config.log.format))
     this.app.use(cors({ origin: this.config.cors.origin, credentials: this.config.cors.credentials }))
     this.app.use(express.json())
@@ -62,7 +60,7 @@ export class App {
     this.app.use((req, res) => {
       res.status(404).json({
         status: 'FAILED',
-        message: 'route not found',
+        message: 'route not found, please check documentation at https://docs.saavn.me',
         data: null,
       })
     })
