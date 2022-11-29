@@ -8,7 +8,7 @@ export class HomeController {
         <head>
           <meta name="viewport" content="width=device-width" />
           <meta charset="utf-8" />
-          <title>Saavn API</title>
+          <title>JioSaavn API</title>
           <meta name="title" content="JioSaavn API" />
           <meta name="description" content="JioSaavn API by Sumit Kolhe" />
           <meta property="og:type" content="website" />

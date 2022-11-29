@@ -87,6 +87,7 @@ export interface Endpoint {
   }
   artists: {
     id: string
+    link: string
     songs: string
     albums: string
   }

@@ -60,6 +60,30 @@ export const albumsSchema = celebrate(
   { mode: Modes.FULL }
 )
 
+export const artistsSchema = celebrate(
+  {
+    [Segments.QUERY]: Joi.object()
+      .keys({
+        id: Joi.string(),
+        link: Joi.string().custom((value, helper) => {
+          if (value.includes(`jiosaavn.com/artist/`)) {
+            const token = value.split(`artist/`)[1].split('/')[1].slice(0, 11)
+
+            return token
+          } else {
+            return helper.message({
+              custom: 'invalid artist link',
+            })
+          }
+        }),
+      })
+      .xor('id', 'link')
+      .messages({ error: 'id and link are not supported together, pass only one of them' }),
+  },
+  { abortEarly: false },
+  { mode: Modes.FULL }
+)
+
 export const playlistsSchema = celebrate(
   {
     [Segments.QUERY]: Joi.object().keys({

@@ -17,9 +17,15 @@ export class ArtistsController {
     next: NextFunction
   ) => {
     try {
-      const { artistId } = req.params
+      const { id, link } = req.query
 
-      const result = await this.artistsService.detailsById(artistId as string)
+      let result: ArtistResponse
+
+      if (id) {
+        result = await this.artistsService.detailsById(id as string)
+      } else {
+        result = await this.artistsService.detailsByLink(link as string)
+      }
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
@@ -33,9 +39,10 @@ export class ArtistsController {
     next: NextFunction
   ) => {
     try {
+      const { page } = req.query
       const { artistId } = req.params
 
-      const result = await this.artistsService.artistSongs(artistId as string)
+      const result = await this.artistsService.artistSongs(artistId as string, Number(page))
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
@@ -49,9 +56,10 @@ export class ArtistsController {
     next: NextFunction
   ) => {
     try {
+      const { page } = req.query
       const { artistId } = req.params
 
-      const result = await this.artistsService.artistAlbums(artistId as string)
+      const result = await this.artistsService.artistAlbums(artistId as string, Number(page))
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {

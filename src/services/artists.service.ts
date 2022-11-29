@@ -16,30 +16,40 @@ export class ArtistsService extends PayloadService {
       artistId: id,
     })
 
-    const artistResponse = this.artistPayload(response)
-
-    return artistResponse
+    const artistDetails = this.artistPayload(response)
+    return artistDetails
   }
 
-  public artistSongs = async (artistId: string): Promise<ArtistSongResponse> => {
+  public detailsByLink = async (link: string): Promise<ArtistResponse> => {
+    // without api v4 no data is returned
+    const response = await this.http<ArtistRequest>(this.endpoints.artists.link, true, {
+      token: link,
+      type: 'artist',
+    })
+
+    const artistDetails = this.artistPayload(response)
+    return artistDetails
+  }
+
+  public artistSongs = async (artistId: string, page: number): Promise<ArtistSongResponse> => {
     // api v4 does not contain media_preview_url
     const response = await this.http<ArtistRequest>(this.endpoints.artists.songs, false, {
       artistId,
+      page: page - 1,
     })
 
-    const artistResponse = this.artistSongPayload(response.topSongs)
-
-    return artistResponse
+    const artistSongs = this.artistSongPayload(response.topSongs)
+    return artistSongs
   }
 
-  public artistAlbums = async (artistId: string): Promise<ArtistAlbumResponse> => {
+  public artistAlbums = async (artistId: string, page: number): Promise<ArtistAlbumResponse> => {
     // without api v4 no data is returned
     const response = await this.http<ArtistRequest>(this.endpoints.artists.albums, true, {
       artistId,
+      page: page - 1,
     })
 
-    const artistResponse = this.artistAlbumPayload(response.topAlbums)
-
-    return artistResponse
+    const artistAlbums = this.artistAlbumPayload(response.topAlbums)
+    return artistAlbums
   }
 }

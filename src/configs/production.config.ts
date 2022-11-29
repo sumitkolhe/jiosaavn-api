@@ -36,6 +36,7 @@ export const productionConfig: Config = {
     },
     artists: {
       id: 'artist.getArtistPageDetails',
+      link: 'webapi.get',
       songs: 'artist.getArtistMoreSong',
       albums: 'artist.getArtistMoreAlbum',
     },
