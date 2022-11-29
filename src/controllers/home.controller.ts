@@ -10,15 +10,15 @@ export class HomeController {
           <meta charset="utf-8" />
           <title>Saavn API</title>
           <meta name="title" content="JioSaavn API" />
-          <meta name="description" content="JioSaavn API by Sumit Kolhe." />
+          <meta name="description" content="JioSaavn API by Sumit Kolhe" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://saavn.me/" />
           <meta property="og:title" content="JioSaavn API" />
-          <meta property="og:description" content="JioSaavn API by Sumit Kolhe." />
+          <meta property="og:description" content="JioSaavn API by Sumit Kolhe" />
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://saavn.me/" />
-          <meta property="twitter:title" content="Saavn" />
-          <meta property="twitter:description" content="Saavn API by Sumit Kolhe." />
+          <meta property="twitter:title" content="JioSaavn API by Sumit Kolhe" />
+          <meta property="twitter:description" content="JioSaavn API by Sumit Kolhe" />
         </head>
         <head>
           <meta charset="UTF-8" />
