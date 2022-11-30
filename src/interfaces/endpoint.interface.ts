@@ -86,9 +86,33 @@ export interface Endpoint {
     id: string
   }
   artists: {
+    /**
+     * Get artist details by artist id.
+     * @endpoint
+     * `artist.getArtistPageDetails`
+     * @isVersion4 true
+     */
     id: string
+    /**
+     * Get artist details by artist link.
+     * @endpoint
+     * `webapi.get`
+     * @isVersion4 true
+     */
     link: string
+    /**
+     * Get artist songs by artist id.
+     * @endpoint
+     * `artist.getArtistMoreSongs`
+     * @isVersion4 false
+     */
     songs: string
+    /**
+     * Get artist albums by artist id.
+     * @endpoint
+     * `artist.getArtistMoreAlbum`
+     * @isVersion4 true
+     */
     albums: string
   }
 }
