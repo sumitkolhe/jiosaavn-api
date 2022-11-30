@@ -88,7 +88,8 @@ export const artistSongsAndAlbumsSchema = celebrate(
   {
     [Segments.QUERY]: Joi.object().keys({
       page: Joi.string().default(1),
-      category: Joi.string().valid('alphabetical', 'latest').default(''),
+      category: Joi.string().valid('alphabetical', 'latest').optional(),
+      sort: Joi.string().valid('asc', 'desc').optional(),
     }),
   },
   { abortEarly: false },
