@@ -1,8 +1,11 @@
 import { Ratelimit } from '@upstash/ratelimit'
 import { Redis } from '@upstash/redis'
 import { HttpExceptionError } from '../exceptions/http.exception'
+import { getConfig } from '../configs'
 import type { NextFunction, Request, Response } from 'express'
 import 'isomorphic-fetch'
+
+const { env } = getConfig()
 
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
@@ -12,6 +15,8 @@ const ratelimit = new Ratelimit({
 
 export const rateLimiterMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    if (env === 'development') return next()
+
     const xff = req.headers['x-forwarded-for']
 
     const userIp = xff ? (Array.isArray(xff) ? xff[0] : xff.split(',')[0]) : '127.0.0.1'
