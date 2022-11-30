@@ -39,10 +39,10 @@ export class ArtistsController {
     next: NextFunction
   ) => {
     try {
-      const { page } = req.query
+      const { page, category } = req.query
       const { artistId } = req.params
 
-      const result = await this.artistsService.artistSongs(artistId as string, Number(page))
+      const result = await this.artistsService.artistSongs(artistId as string, Number(page), category as string)
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
@@ -56,10 +56,10 @@ export class ArtistsController {
     next: NextFunction
   ) => {
     try {
-      const { page } = req.query
+      const { page, category } = req.query
       const { artistId } = req.params
 
-      const result = await this.artistsService.artistAlbums(artistId as string, Number(page))
+      const result = await this.artistsService.artistAlbums(artistId as string, Number(page), category as string)
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {

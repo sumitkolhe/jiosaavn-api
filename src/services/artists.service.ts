@@ -31,22 +31,24 @@ export class ArtistsService extends PayloadService {
     return artistDetails
   }
 
-  public artistSongs = async (artistId: string, page: number): Promise<ArtistSongResponse> => {
+  public artistSongs = async (artistId: string, page: number, category: string): Promise<ArtistSongResponse> => {
     // api v4 does not contain media_preview_url
     const response = await this.http<ArtistRequest>(this.endpoints.artists.songs, false, {
       artistId,
       page: page - 1,
+      category,
     })
 
     const artistSongs = this.artistSongPayload(response.topSongs)
     return artistSongs
   }
 
-  public artistAlbums = async (artistId: string, page: number): Promise<ArtistAlbumResponse> => {
+  public artistAlbums = async (artistId: string, page: number, category: string): Promise<ArtistAlbumResponse> => {
     // without api v4 no data is returned
     const response = await this.http<ArtistRequest>(this.endpoints.artists.albums, true, {
       artistId,
       page: page - 1,
+      category,
     })
 
     const artistAlbums = this.artistAlbumPayload(response.topAlbums)
