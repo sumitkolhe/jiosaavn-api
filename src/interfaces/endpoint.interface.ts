@@ -103,7 +103,7 @@ export interface Endpoint {
     /**
      * Get artist songs by artist id.
      * @endpoint
-     * `artist.getArtistMoreSongs`
+     * `artist.getArtistMoreSong`
      * @isVersion4 false
      */
     songs: string

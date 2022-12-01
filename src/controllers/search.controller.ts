@@ -1,5 +1,6 @@
 import { globalConstants } from '../constants'
 import { SearchService } from '../services/search.service'
+import type { AllSearchResponse } from 'interfaces/search.interface'
 import type { ArtistSearchResponse } from '../interfaces/artist.interface'
 import type { PlaylistSearchResponse } from '../interfaces/playlist.interface'
 import type { AlbumSearchResponse } from '../interfaces/album.interface'
@@ -14,13 +15,17 @@ export class SearchController {
     this.searchService = new SearchService()
   }
   // search everything i.e songs, artists, albums, etc
-  public searchAll: RequestHandler = async (req, res, next) => {
+  public searchAll: RequestHandler = async (
+    req: Request,
+    res: Response<CustomResponse<AllSearchResponse>>,
+    next: NextFunction
+  ) => {
     try {
       const { query } = req.query
 
       const result = await this.searchService.all(query as string)
 
-      res.json({ status: globalConstants.status.success, results: result })
+      res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {
       next(error)
     }

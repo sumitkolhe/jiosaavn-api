@@ -1,4 +1,5 @@
 import { PayloadService } from '../services/payload.service'
+import type { AllSearchRequest } from '../interfaces/search.interface'
 import type { ArtistSearchRequest } from '../interfaces/artist.interface'
 import type { PlaylistSearchRequest } from '../interfaces/playlist.interface'
 import type { AlbumSearchRequest } from '../interfaces/album.interface'
@@ -10,8 +11,11 @@ export class SearchService extends PayloadService {
   }
 
   public all = async (query: string) => {
-    const result = await this.http<SongSearchRequest>(this.endpoints.search.all, false, { query })
-    return result
+    // api v4 doest not provide positions
+    const result = await this.http<AllSearchRequest>(this.endpoints.search.all, false, { query })
+    const allSearchResponse = this.allSearchPayload(result)
+
+    return allSearchResponse
   }
 
   public songs = async (query: string, page: number, limit: number): Promise<SongSearchResponse> => {
