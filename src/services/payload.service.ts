@@ -1,5 +1,6 @@
-import { createDownloadLinks, createImageLinks } from '../utils/link'
+import { createDownloadLinks, createImageLinks, sanitizeLyrics } from '../utils/link'
 import { ApiService } from '../services/api.service'
+import type { LyricsRequest, LyricsResponse } from '../interfaces/lyrics.interface'
 import type { AllSearchRequest, AllSearchResponse } from '../interfaces/search.interface'
 import type {
   Artist,
@@ -139,11 +140,11 @@ export class PayloadService extends ApiService {
   }
 
   protected songSearchPayload = (songs: SongSearchRequest) => {
-    const payload = {
+    const payload: SongSearchResponse = {
       total: songs?.total,
       start: songs?.start,
       results: songs?.results?.map((song: SongRequest) => this.songPayload(song)),
-    } as SongSearchResponse
+    }
 
     return payload
   }
@@ -174,11 +175,11 @@ export class PayloadService extends ApiService {
   }
 
   protected albumSearchPayload = (albums: AlbumSearchRequest) => {
-    const payload = {
+    const payload: AlbumSearchResponse = {
       total: albums?.total,
       start: albums?.start,
       results: albums?.results?.map((album: AlbumRequest) => this.albumPayload(album)),
-    } as AlbumSearchResponse
+    }
 
     return payload
   }
@@ -211,11 +212,11 @@ export class PayloadService extends ApiService {
   }
 
   protected playlistSearchPayload = (playlists: PlaylistSearchRequest) => {
-    const payload = {
+    const payload: PlaylistSearchResponse = {
       total: playlists?.total,
       start: playlists?.start,
       results: playlists?.results?.map((playlist: PlaylistRequest) => this.playlistPayload(playlist)),
-    } as PlaylistSearchResponse
+    }
 
     return payload
   }
@@ -247,11 +248,11 @@ export class PayloadService extends ApiService {
   }
 
   protected artistSearchPayload = (artists: ArtistSearchRequest) => {
-    const payload = {
+    const payload: ArtistSearchResponse = {
       total: artists?.total,
       start: artists?.start,
       results: artists?.results?.map((artist: ArtistRequest) => this.artistPayload(artist)),
-    } as ArtistSearchResponse
+    }
 
     return payload
   }
@@ -281,21 +282,31 @@ export class PayloadService extends ApiService {
   }
 
   protected artistSongPayload = (songs: ArtistSongRequest) => {
-    const payload = {
+    const payload: ArtistSongResponse = {
       total: songs.total,
       lastPage: songs.last_page,
       results: songs?.songs?.map((song: SongRequest) => this.songPayload(song)),
-    } as ArtistSongResponse
+    }
 
     return payload
   }
 
   protected artistAlbumPayload = (albums: ArtistAlbumRequest) => {
-    const payload = {
+    const payload: ArtistAlbumResponse = {
       total: albums.total,
       lastPage: albums.last_page,
       results: albums?.albums?.map((album: AlbumRequest) => this.albumPayload(album)),
-    } as ArtistAlbumResponse
+    }
+
+    return payload
+  }
+
+  protected lyricsPayload = (lyrics: LyricsRequest) => {
+    const payload: LyricsResponse = {
+      lyrics: sanitizeLyrics(lyrics.lyrics),
+      snippet: lyrics.snippet,
+      copyright: lyrics.lyrics_copyright,
+    }
 
     return payload
   }

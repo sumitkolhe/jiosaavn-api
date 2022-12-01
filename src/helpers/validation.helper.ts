@@ -96,7 +96,7 @@ export const artistSongsAndAlbumsSchema = celebrate(
   { mode: Modes.FULL }
 )
 
-export const playlistsSchema = celebrate(
+export const idSchema = celebrate(
   {
     [Segments.QUERY]: Joi.object().keys({
       id: Joi.string().required(),

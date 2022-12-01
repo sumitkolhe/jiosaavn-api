@@ -40,5 +40,6 @@ export const devConfig: Config = {
       songs: 'artist.getArtistMoreSong',
       albums: 'artist.getArtistMoreAlbum',
     },
+    lyrics: 'lyrics.getLyrics',
   },
 }

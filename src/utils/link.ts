@@ -1,7 +1,3 @@
-import type { Request } from 'express'
-
-type IdentifierType = 'song' | 'album'
-
 // create download links for different bitrates
 export const createDownloadLinks = (link?: string) => {
   if (!link) return false
@@ -47,23 +43,4 @@ export const sanitizeLyrics = (lyrics: string) =>
       const firstLetter = text.slice(0, 1)
       return firstLetter.toUpperCase() + text.slice(1)
     })
-    .join('<br>')
-
-// create identifier object for checking if id or link is provided in query params
-export const createIdentifier = (req: Request, identifierType: IdentifierType) => {
-  const { id, link } = req.query
-
-  const identifier = {
-    type: id ? 'id' : 'link',
-    value: (id as string) || extractIdFromLink(link as string, identifierType),
-  }
-  return identifier
-}
-
-// extract token id from a song or album link
-export const extractIdFromLink = (link: string, identifierType: IdentifierType): string => {
-  if (link.includes(`jiosaavn.com/${identifierType}/`)) {
-    return link.split(`${identifierType}/`)[1].split('/')[1].slice(0, 11)
-  }
-  return ''
-}
+    .join(' ')

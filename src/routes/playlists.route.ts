@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { playlistsSchema } from '../helpers/validation.helper'
+import { idSchema } from '../helpers/validation.helper'
 import { PlaylistsController } from '../controllers/playlists.controller'
 import type { Route } from '../interfaces/route.interface'
 
@@ -12,6 +12,6 @@ export class PlaylistsRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}`, playlistsSchema, this.playlistsController.playlistDetails)
+    this.router.get(`${this.path}`, idSchema, this.playlistsController.playlistDetails)
   }
 }

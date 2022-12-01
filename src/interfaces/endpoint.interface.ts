@@ -115,4 +115,11 @@ export interface Endpoint {
      */
     albums: string
   }
+  /**
+   * Get song lyrics by song ID.
+   * @endpoint
+   * `lyrics.getLyrics`
+   * @isVersion4 true
+   */
+  lyrics: string
 }
