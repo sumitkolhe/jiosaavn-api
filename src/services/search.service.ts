@@ -13,8 +13,8 @@ export class SearchService extends PayloadService {
   public all = async (query: string) => {
     // api v4 doest not provide positions
     const result = await this.http<AllSearchRequest>(this.endpoints.search.all, false, { query })
-    const allSearchResponse = this.allSearchPayload(result)
 
+    const allSearchResponse = this.allSearchPayload(result)
     return allSearchResponse
   }
 
