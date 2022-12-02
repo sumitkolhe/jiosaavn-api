@@ -1,39 +1,66 @@
-import { axiosInstance } from '../config/axios'
-import { ApiType, getEndpoint } from '../config/endpoints'
-import { GeneratePayload } from './payload.service'
-import type { SongSearch } from '../interfaces/song'
-import type { AxiosResponse } from 'axios'
+import { PayloadService } from '../services/payload.service'
+import type { AllSearchRequest } from '../interfaces/search.interface'
+import type { ArtistSearchRequest } from '../interfaces/artist.interface'
+import type { PlaylistSearchRequest } from '../interfaces/playlist.interface'
+import type { AlbumSearchRequest } from '../interfaces/album.interface'
+import type { SongSearchRequest, SongSearchResponse } from '../interfaces/song.interface'
 
-export class SearchService {
-  public static searchAll = async (query: string) => {
-    // api version doesn't cause any difference
-    const endpoint = getEndpoint(false, ApiType.searchAll)
-
-    const response = await axiosInstance.get(endpoint, { params: { query } })
-
-    return response.data
+export class SearchService extends PayloadService {
+  constructor() {
+    super()
   }
 
-  public static searchSongs = async (query: string, page: string, limit: string) => {
-    // api v4 does not contain media_preview_url
-    const endpoint = getEndpoint(false, ApiType.searchSong)
+  public all = async (query: string) => {
+    // api v4 doest not provide positions
+    const result = await this.http<AllSearchRequest>(this.endpoints.search.all, false, { query })
 
-    const response: AxiosResponse<SongSearch> = await axiosInstance.get(endpoint, {
-      params: { q: query, p: page || 1, n: limit || 20 },
+    const allSearchResponse = this.allSearchPayload(result)
+    return allSearchResponse
+  }
+
+  public songs = async (query: string, page: number, limit: number): Promise<SongSearchResponse> => {
+    // api v4 does not contain media_preview_url
+
+    const response = await this.http<SongSearchRequest>(this.endpoints.search.songs, false, {
+      q: query,
+      p: page,
+      n: limit,
     })
 
-    const payload = GeneratePayload.songSearchPayload(response.data)
+    const searchResults = this.songSearchPayload(response)
+    return searchResults
+  }
+
+  public albums = async (query: string, page: number, limit: number) => {
+    const response = await this.http<AlbumSearchRequest>(this.endpoints.search.albums, true, {
+      q: query,
+      p: page,
+      n: limit,
+    })
+
+    const payload = this.albumSearchPayload(response)
     return payload
   }
 
-  public static searchAlbums = async (query: string, page: string, limit: string) => {
-    const endpoint = getEndpoint(true, ApiType.searchAlbum)
-
-    const response = await axiosInstance.get(endpoint, {
-      params: { q: query, p: page || 1, n: limit || 20 },
+  public playlists = async (query: string, page: number, limit: number) => {
+    const response = await this.http<PlaylistSearchRequest>(this.endpoints.search.playlists, false, {
+      q: query,
+      p: page,
+      n: limit,
     })
 
-    const payload = GeneratePayload.albumSearchPayload(response.data)
+    const payload = this.playlistSearchPayload(response)
+    return payload
+  }
+
+  public artists = async (query: string, page: number, limit: number) => {
+    const response = await this.http<ArtistSearchRequest>(this.endpoints.search.artists, false, {
+      q: query,
+      p: page,
+      n: limit,
+    })
+
+    const payload = this.artistSearchPayload(response)
     return payload
   }
 }

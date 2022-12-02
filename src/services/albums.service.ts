@@ -1,19 +1,31 @@
-import { axiosInstance } from '../config/axios'
-import { ApiType, getEndpoint } from '../config/endpoints'
-import { GeneratePayload } from './payload.service'
+import { PayloadService } from './payload.service'
+import type { AlbumRequest, AlbumResponse } from '../interfaces/album.interface'
 
-export class AlbumService {
-  public static albumDetails = async (identifier: { type: string; value: string }) => {
-    const isByLink = identifier.type === 'link'
+export class AlbumsService extends PayloadService {
+  constructor() {
+    super()
+  }
 
+  public detailsById = async (id: string): Promise<AlbumResponse> => {
     // api v4 does not contain media_preview_url
-    const endpoint = getEndpoint(false, isByLink ? ApiType.albumDetailsByLink : ApiType.albumDetails)
-
-    const response = await axiosInstance.get(endpoint, {
-      params: isByLink ? { token: identifier.value } : { albumid: identifier.value },
+    const response = await this.http<AlbumRequest>(this.endpoints.albums.id, false, {
+      albumid: id,
     })
 
-    const payload = GeneratePayload.albumPayload(response.data)
-    return payload
+    const albumResults = this.albumPayload(response)
+
+    return albumResults
+  }
+
+  public detailsByLink = async (link: string): Promise<AlbumResponse> => {
+    // api v4 does not contain media_preview_url
+    const response = await this.http<AlbumRequest>(this.endpoints.albums.link, false, {
+      token: link,
+      type: 'album',
+    })
+
+    const albumResults = this.albumPayload(response)
+
+    return albumResults
   }
 }
