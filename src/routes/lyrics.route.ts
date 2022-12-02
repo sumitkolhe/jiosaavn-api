@@ -1,5 +1,5 @@
-import { LyricsController } from 'controllers/lyrics.controller'
 import { Router } from 'express'
+import { LyricsController } from '../controllers/lyrics.controller'
 import { idSchema } from '../helpers/validation.helper'
 import type { Route } from '../interfaces/route.interface'
 
