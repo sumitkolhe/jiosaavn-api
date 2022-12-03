@@ -13,7 +13,7 @@ const tokenCache = new LRU({
 export const rateLimiterMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // skip middleware if rate limit is disabled
-    if (!enableRateLimit) return next()
+    if (!enableRateLimit || req.path === '/') return next()
 
     const limit = 6
 
