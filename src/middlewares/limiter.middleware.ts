@@ -7,15 +7,15 @@ import 'isomorphic-fetch'
 
 const { rateLimit } = getConfig()
 
-const redisInstance = new Redis({
-  url: rateLimit.redisRestUrl as string,
-  token: rateLimit.redisRestToken as string,
-})
-
-const rateLimiter = new Ratelimit({
-  redis: redisInstance,
-  limiter: Ratelimit.slidingWindow(6, '1 m'),
-})
+const rateLimiter = rateLimit.enable
+  ? new Ratelimit({
+      redis: new Redis({
+        url: rateLimit.redisRestUrl as string,
+        token: rateLimit.redisRestToken as string,
+      }),
+      limiter: Ratelimit.slidingWindow(6, '1 m'),
+    })
+  : ({} as Ratelimit)
 
 export const rateLimiterMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
