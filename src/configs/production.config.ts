@@ -10,6 +10,11 @@ export const productionConfig: Config = {
     origin: true,
     credentials: true,
   },
+  rateLimit: {
+    enable: true,
+    redisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
+    redisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+  },
   log: {
     format: 'tiny',
     level: 'info',

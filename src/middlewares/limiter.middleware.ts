@@ -5,23 +5,28 @@ import { getConfig } from '../configs'
 import type { NextFunction, Request, Response } from 'express'
 import 'isomorphic-fetch'
 
-const { env } = getConfig()
+const { rateLimit } = getConfig()
 
-const ratelimit = new Ratelimit({
-  redis: Redis.fromEnv(),
+const redisInstance = new Redis({
+  url: rateLimit.redisRestUrl as string,
+  token: rateLimit.redisRestToken as string,
+})
+
+const rateLimiter = new Ratelimit({
+  redis: redisInstance,
   limiter: Ratelimit.slidingWindow(6, '1 m'),
-  // ephemeralCache: cache,
 })
 
 export const rateLimiterMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    if (env === 'development') return next()
+    // skip middleware if rate limit is disabled
+    if (!rateLimit.enable) return next()
 
     const xff = req.headers['x-forwarded-for']
 
     const userIp = xff ? (Array.isArray(xff) ? xff[0] : xff.split(',')[0]) : '127.0.0.1'
 
-    const { success, remaining, limit, reset } = await ratelimit.limit(`ip:${userIp}`)
+    const { success, remaining, limit, reset } = await rateLimiter.limit(`ip:${userIp}`)
 
     const remainingSeconds = Math.abs((Date.now() - reset) / 1000).toFixed(0)
 
