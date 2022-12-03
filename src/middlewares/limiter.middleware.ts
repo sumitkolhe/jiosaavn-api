@@ -1,40 +1,39 @@
-import { Ratelimit } from '@upstash/ratelimit'
-import { Redis } from '@upstash/redis/nodejs'
+import LRU from 'lru-cache'
 import { HttpExceptionError } from '../exceptions/http.exception'
 import { getConfig } from '../configs'
 import type { NextFunction, Request, Response } from 'express'
-import 'isomorphic-fetch'
 
-const { rateLimit } = getConfig()
+const { enableRateLimit } = getConfig()
 
-const rateLimiter = rateLimit.enable
-  ? new Ratelimit({
-      redis: new Redis({
-        url: rateLimit.redisRestUrl as string,
-        token: rateLimit.redisRestToken as string,
-      }),
-      limiter: Ratelimit.slidingWindow(6, '1 m'),
-    })
-  : ({} as Ratelimit)
+const tokenCache = new LRU({
+  max: 500,
+  ttl: 60000,
+})
 
 export const rateLimiterMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // skip middleware if rate limit is disabled
-    if (!rateLimit.enable) return next()
+    if (!enableRateLimit) return next()
+
+    const limit = 6
 
     const xff = req.headers['x-forwarded-for']
 
     const userIp = xff ? (Array.isArray(xff) ? xff[0] : xff.split(',')[0]) : '127.0.0.1'
 
-    const { success, remaining, limit, reset } = await rateLimiter.limit(`ip:${userIp}`)
+    const tokenCount = (tokenCache.get(userIp) as number[]) || [0]
 
-    const remainingSeconds = Math.abs((Date.now() - reset) / 1000).toFixed(0)
+    if (tokenCount[0] === 0) tokenCache.set(userIp, tokenCount)
 
-    if (!success) throw new HttpExceptionError(429, `rate limit exceeded, retry in ${remainingSeconds} seconds`)
+    tokenCount[0] += 1
 
-    res.set('x-ratelimit-remaining', remaining.toString())
+    const currentUsage = tokenCount[0]
+    const isRateLimited = currentUsage > limit
+
+    res.set('x-ratelimit-remaining', isRateLimited ? '0' : (limit - currentUsage).toString())
     res.set('x-ratelimit-limit', limit.toString())
-    res.set('x-ratelimit-reset', reset.toString())
+
+    if (isRateLimited) throw new HttpExceptionError(429, 'rate limit exceeded, please try again later')
 
     next()
   } catch (error) {

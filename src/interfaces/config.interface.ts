@@ -10,15 +10,11 @@ export interface Config {
     origin: string | boolean
     credentials: boolean
   }
-  rateLimit: {
-    enable: boolean
-    redisRestUrl: string
-    redisRestToken: string
-  }
   log: {
     format: 'combined' | 'common' | 'dev' | 'short' | 'tiny'
     level: 'error' | 'warn' | 'info' | 'http' | 'debug'
   }
+  enableRateLimit: boolean
   baseURL: string
   endpoint: Endpoint
 }

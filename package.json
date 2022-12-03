@@ -30,8 +30,8 @@
     "express-timeout-handler": "^2.2.2",
     "got-cjs": "^12.5.4",
     "helmet": "^6.0.0",
-    "isomorphic-fetch": "^3.0.0",
     "joi": "^17.7.0",
+    "lru-cache": "^7.14.1",
     "morgan": "^1.10.0",
     "winston": "^3.8.2"
   },

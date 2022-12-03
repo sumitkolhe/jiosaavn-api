@@ -10,11 +10,7 @@ export const devConfig: Config = {
     origin: true,
     credentials: true,
   },
-  rateLimit: {
-    enable: false,
-    redisRestUrl: '',
-    redisRestToken: '',
-  },
+  enableRateLimit: false,
   log: {
     format: 'dev',
     level: 'debug',
