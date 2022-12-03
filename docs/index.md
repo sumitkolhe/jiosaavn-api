@@ -5,24 +5,24 @@ icon: rocket
 
 # Introduction
 
-[Saavn.me](https://saavn.me) is an unofficial API for JioSaavn for downloading songs in high-quality i.e 320kbps for free.
+[Saavn.me](https://saavn.me) is an unofficial API for JioSaavn for downloading high-quality songs for free.
 
 ## Features
 
-- :rocket: Blazing fast
-- :notes: Download High Quality Songs (320kbps).
-- :sunrise: Download High quality song/album thumbnails.
-- :mag_right: Search support for songs and albums.
-- :musical_score: Lyrics for supported songs.
-- :heart: Open-Source
-- :cloud: Lightweight and has minimal dependencies.
+- 🚀 Blazingly fast
+- 🎧 Download High Quality Songs (320kbps).
+- 🌄 Download High quality song/album thumbnails.
+- 🔍 Search songs, albums, playlists, artists and much more.
+- ♬ Lyrics for supported songs.
+- ❤️ Open-Source
+- ☁️ Lightweight and has minimal dependencies.
+- 🌈 Host your own instance.
 
 ## Local development
 
 ### Prerequisites
 
-- NodeJS v14+
-- Vercel CLI : To install Vercel CLI globally use `npm i -g vercel`
+- NodeJS v16+
 
 ### Run locally
 
@@ -37,15 +37,20 @@ icon: rocket
 - Install the dependencies
 
   ```sh
-  npm install
+  yarn install
   ```
 
 - Start development server
 
   ```sh
-  npm start
+  yarn dev
   ```
 
+
+## Host your own instance
+You can host your own instance of JioSaavn API on vercel with a click of a button. 
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sumitkolhe/jiosaavn-api)
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](https://github.com/sumitkolhe/jiosaavn-api/blob/main/LICENSE) file for details.

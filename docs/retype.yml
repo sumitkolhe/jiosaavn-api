@@ -3,7 +3,7 @@ output: ./public
 url: https://docs.saavn.me
 branding:
   title: JioSaavn
-  label: Docs v2.0.0
+  label: Docs
 links:
   - text: API
     link: https://saavn.me
