@@ -3,6 +3,7 @@ import { Redis } from '@upstash/redis/with-fetch'
 import { HttpExceptionError } from '../exceptions/http.exception'
 import { getConfig } from '../configs'
 import type { NextFunction, Request, Response } from 'express'
+import 'isomorphic-fetch'
 
 const { rateLimit } = getConfig()
 
