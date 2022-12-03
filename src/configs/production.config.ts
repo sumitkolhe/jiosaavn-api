@@ -7,7 +7,7 @@ export const productionConfig: Config = {
     port: Number(process.env.PORT) || 80,
   },
   cors: {
-    origin: 'saavn.me',
+    origin: true,
     credentials: true,
   },
   log: {
