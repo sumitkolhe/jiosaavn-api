@@ -12,8 +12,8 @@ export interface Config {
   }
   rateLimit: {
     enable: boolean
-    redisRestUrl: string | undefined
-    redisRestToken: string | undefined
+    redisRestUrl: string
+    redisRestToken: string
   }
   log: {
     format: 'combined' | 'common' | 'dev' | 'short' | 'tiny'

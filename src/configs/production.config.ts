@@ -12,8 +12,8 @@ export const productionConfig: Config = {
   },
   rateLimit: {
     enable: true,
-    redisRestUrl: process.env.UPSTASH_REDIS_REST_URL,
-    redisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN,
+    redisRestUrl: process.env.UPSTASH_REDIS_REST_URL || '',
+    redisRestToken: process.env.UPSTASH_REDIS_REST_TOKEN || '',
   },
   log: {
     format: 'tiny',
