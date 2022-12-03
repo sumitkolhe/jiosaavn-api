@@ -1,5 +1,5 @@
 import { Ratelimit } from '@upstash/ratelimit'
-import { Redis } from '@upstash/redis'
+import { Redis } from '@upstash/redis/nodejs'
 import { HttpExceptionError } from '../exceptions/http.exception'
 import { getConfig } from '../configs'
 import type { NextFunction, Request, Response } from 'express'
