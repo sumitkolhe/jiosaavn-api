@@ -1,6 +1,6 @@
 ---
 order: 90
-icon: file
+icon: stack
 ---
 
 # Album Details
