@@ -784,6 +784,8 @@ curl -X GET 'https://saavn.me/artists/568707/songs?page=1' \
 | Query Paramter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="page"] | Page Number  | [!badge variant="primary" text="False"] |
+| [!badge variant="contrast" text="category"] | Song type. `alphabetical` or `latest`  | [!badge variant="primary" text="False"] |
+| [!badge variant="contrast" text="sort"] | Song sort order. `asc` or `desc`  | [!badge variant="primary" text="False"] |
 
 ## Artist Albums by artist ID
 
@@ -1934,3 +1936,5 @@ curl -X GET 'https://saavn.me/artists/568707/albums?page=1' \
 | Query Paramter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="page"] | Page Number  | [!badge variant="primary" text="False"] |
+| [!badge variant="contrast" text="category"] | Album type. `alphabetical` or `latest`  | [!badge variant="primary" text="False"] |
+| [!badge variant="contrast" text="sort"] | Album sort order. `asc` or `desc`  | [!badge variant="primary" text="False"] |
