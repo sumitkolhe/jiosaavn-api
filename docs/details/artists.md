@@ -75,7 +75,7 @@ curl -X GET 'https://saavn.me/artists?link=https://www.jiosaavn.com/song/thunder
 
 +++
 
-| Paramter                                | Description                           | Required                               |
+| Query Paramter                                | Description                           | Required                               |
 | --------------------------------------- | ------------------------------------- | -------------------------------------- |
 | [!badge variant="contrast" text="link"] | Song link from <https://jiosaavn.com> | [!badge variant="primary" text="True"] |
 

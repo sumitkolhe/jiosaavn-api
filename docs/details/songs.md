@@ -94,7 +94,7 @@ curl -X GET 'https://saavn.me/songs?link=https://www.jiosaavn.com/song/thundercl
 
 +++
 
-| Paramter                                | Description                           | Required                               |
+| Query Paramter                                | Description                           | Required                               |
 | --------------------------------------- | ------------------------------------- | -------------------------------------- |
 | [!badge variant="contrast" text="link"] | Song link from <https://jiosaavn.com> | [!badge variant="primary" text="True"] |
 
@@ -337,6 +337,6 @@ curl -X GET 'https://saavn.me/songs?id=5WXAlMNt,csaEsVWV
 
 +++
 
-| Paramter                              | Description | Required                               |
+| Query Paramter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Song ID     | [!badge variant="primary" text="True"] |
