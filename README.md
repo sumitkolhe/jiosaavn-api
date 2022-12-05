@@ -2,7 +2,7 @@
 
 An Unofficial JioSaavn API for downloading songs in 320kbps quality for free.
 
-> NOTE: https://saavn.me has rate-limiting enabled to minimise the bandwidth consumption. It is advised to deploy your own instance on vercel for production use.
+> NOTE: <https://saavn.me> has rate-limiting enabled to minimise bandwidth consumption. It is recommended to deploy your own instance on vercel for personal use.
 
 ## :sparkles: Features
 
