@@ -1,5 +1,6 @@
 import { createDownloadLinks, createImageLinks, sanitizeLyrics } from '../utils/link'
 import { ApiService } from '../services/api.service'
+import type { ModulesRequest, ModulesResponse } from '../interfaces/modules.interface'
 import type { LyricsRequest, LyricsResponse } from '../interfaces/lyrics.interface'
 import type { AllSearchRequest, AllSearchResponse } from '../interfaces/search.interface'
 import type {
@@ -43,6 +44,84 @@ export class PayloadService extends ApiService {
     })
 
     return mappedArtists
+  }
+
+  protected modulesPayload = (modules: ModulesRequest) => {
+    const modulesPayload: ModulesResponse = {
+      albums: modules.new_albums.map((album) => this.albumPayload(album)),
+      playlists: modules.top_playlists.map((playlist) => {
+        return {
+          id: playlist.id,
+          userId: playlist.more_info.uid,
+          title: playlist.title,
+          subtitle: playlist.subtitle,
+          type: playlist.type,
+          image: createImageLinks(playlist.image),
+          url: playlist.perma_url,
+          songCount: playlist.more_info.song_count,
+          firstname: playlist.more_info.firstname,
+          followerCount: playlist.more_info.follower_count,
+          lastUpdated: playlist.more_info.last_updated,
+          explicitContent: playlist.explicit_content,
+        }
+      }),
+      charts: modules.charts.map((chart) => {
+        return {
+          id: chart.id,
+          title: chart.title,
+          subtitle: chart.subtitle,
+          type: chart.type,
+          image: createImageLinks(chart.image),
+          url: chart.perma_url,
+          firstname: chart.more_info.firstname,
+          explicitContent: chart.explicit_content,
+          language: chart.language,
+        }
+      }),
+      trending: {
+        songs: modules.new_trending
+          .filter((trending) => trending.type === 'song')
+          .map((song) => {
+            return {
+              id: song?.id,
+              name: song?.title,
+              album: { id: song?.more_info?.album_id, name: song?.more_info?.album, url: song?.more_info?.album_url },
+              year: song?.year,
+              releaseDate: song?.more_info.release_date,
+              duration: song?.more_info.duration,
+              label: song?.more_info.label,
+              primaryArtists: this.mapArtists(song.more_info.artistMap.primary_artists),
+              featuredArtists: this.mapArtists(song.more_info.artistMap.featured_artists),
+              explicitContent: song?.explicit_content,
+              playCount: song?.play_count,
+              language: song?.language,
+              url: song?.perma_url,
+              image: createImageLinks(song?.image),
+            }
+          }),
+        albums: modules.new_trending
+          .filter((trending) => trending.type === 'album')
+          .map((album) => {
+            return {
+              id: album?.id,
+              name: album?.title,
+              year: album?.year,
+              releaseDate: album?.more_info.release_date,
+              playCount: album?.play_count,
+              language: album?.language,
+              explicitContent: album?.explicit_content,
+              songCount: album?.more_info?.song_count,
+              url: album?.perma_url,
+              primaryArtists: this.mapArtists(album?.more_info?.artistMap?.primary_artists),
+              featuredArtists: this.mapArtists(album?.more_info?.artistMap?.featured_artists),
+              artists: this.mapArtists(album?.more_info?.artistMap?.artists),
+              image: createImageLinks(album?.image),
+            }
+          }),
+      },
+    }
+
+    return modulesPayload
   }
 
   protected allSearchPayload = (allSearchResults: AllSearchRequest) => {
@@ -197,8 +276,8 @@ export class PayloadService extends ApiService {
       url: album?.perma_url,
       primaryArtistsId: album?.primary_artists_id,
       primaryArtists: album?.primary_artists || this.mapArtists(album?.more_info?.artistMap?.primary_artists),
-      featuredArtists: this.mapArtists(album.more_info?.artistMap.featured_artists),
-      artists: this.mapArtists(album.more_info?.artistMap.artists),
+      featuredArtists: this.mapArtists(album?.more_info?.artistMap?.featured_artists),
+      artists: this.mapArtists(album?.more_info?.artistMap?.artists),
       image: createImageLinks(album?.image),
       songs: [] as SongResponse[],
     }

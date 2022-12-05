@@ -17,6 +17,7 @@ export const devConfig: Config = {
   },
   baseURL: 'https://www.jiosaavn.com/api.php',
   endpoint: {
+    modules: 'content.getBrowseModules',
     search: {
       all: 'autocomplete.get',
       songs: 'search.getResults',

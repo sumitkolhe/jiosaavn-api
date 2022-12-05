@@ -1,4 +1,5 @@
 export interface Endpoint {
+  modules: string
   search: {
     /**
      * Search for eveything.

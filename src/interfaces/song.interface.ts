@@ -1,3 +1,4 @@
+import type { AlbumArtistResponse } from './album.interface'
 import type { DownloadLink } from './image.interface'
 
 export interface SongSearchRequest {
@@ -29,7 +30,7 @@ export interface SongRequest {
   copyright_text: string
   '320kbps': string
   is_dolby_content: boolean
-  explicit_content: number
+  explicit_content: string
   has_lyrics: string
   lyrics_snippet: string
   encrypted_media_url: string
@@ -73,11 +74,11 @@ export interface SongResponse {
   releaseDate: string
   duration: string
   label: string
-  primaryArtists: string
+  primaryArtists: string | AlbumArtistResponse[]
   primaryArtistsId: string
-  featuredArtists: string
+  featuredArtists: string | AlbumArtistResponse[]
   featuredArtistsId: string
-  explicitContent: number
+  explicitContent: string
   playCount: string
   language: string
   hasLyrics: string

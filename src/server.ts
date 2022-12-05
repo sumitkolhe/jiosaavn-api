@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import { ModulesRoute } from './routes/modules.route'
 import { LyricsRoute } from './routes/lyrics.route'
 import { HomeRoute } from './routes/home.route'
 import { PlaylistsRoute } from './routes/playlists.route'
@@ -16,6 +17,7 @@ const app = new App([
   new ArtistsRoute(),
   new PlaylistsRoute(),
   new LyricsRoute(),
+  new ModulesRoute(),
 ])
 
 app.listen()
