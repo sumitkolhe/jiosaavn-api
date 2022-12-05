@@ -65,6 +65,7 @@ export interface SongSearchResponse {
 export interface SongResponse {
   id: string
   name: string
+  type: string
   album: {
     id: string
     name: string

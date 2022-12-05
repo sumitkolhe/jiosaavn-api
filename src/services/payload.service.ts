@@ -85,6 +85,7 @@ export class PayloadService extends ApiService {
             return {
               id: song?.id,
               name: song?.title,
+              type: song?.type,
               album: { id: song?.more_info?.album_id, name: song?.more_info?.album, url: song?.more_info?.album_url },
               year: song?.year,
               releaseDate: song?.more_info?.release_date,
@@ -105,6 +106,7 @@ export class PayloadService extends ApiService {
             return {
               id: album?.id,
               name: album?.title,
+              type: album?.type,
               year: album?.year,
               releaseDate: album?.more_info?.release_date,
               playCount: album?.play_count,
@@ -232,6 +234,7 @@ export class PayloadService extends ApiService {
     const songPayload: SongResponse = {
       id: song?.id,
       name: song?.song,
+      type: song?.type,
       album: { id: song?.albumid, name: song?.album, url: song?.album_url },
       year: song?.year,
       releaseDate: song?.release_date,
@@ -268,6 +271,7 @@ export class PayloadService extends ApiService {
       id: album?.albumid || album?.id,
       name: album?.title,
       year: album?.year,
+      type: album?.type,
       releaseDate: album?.release_date,
       playCount: album?.play_count,
       language: album?.language,

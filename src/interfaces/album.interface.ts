@@ -55,6 +55,7 @@ export interface AlbumResponse {
   id: string
   name: string
   year: string
+  type: string
   playCount: string
   language: string
   explicitContent: string
