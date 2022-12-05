@@ -46,11 +46,12 @@ icon: rocket
   yarn dev
   ```
 
-
 ## Host your own instance
-You can host your own instance of JioSaavn API on vercel with a click of a button. 
+
+You can host your own instance of JioSaavn API on vercel with a click of a button.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sumitkolhe/jiosaavn-api)
+
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](https://github.com/sumitkolhe/jiosaavn-api/blob/main/LICENSE) file for details.
