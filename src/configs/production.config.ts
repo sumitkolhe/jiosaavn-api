@@ -7,7 +7,7 @@ export const productionConfig: Config = {
     port: Number(process.env.PORT) || 80,
   },
   cors: {
-    origin: '*',
+    origin: false,
     credentials: true,
   },
   enableRateLimit: process.env.ENABLE_RATE_LIMIT === 'true' || false,

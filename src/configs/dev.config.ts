@@ -7,7 +7,7 @@ export const devConfig: Config = {
     port: 3000,
   },
   cors: {
-    origin: true,
+    origin: false,
     credentials: true,
   },
   enableRateLimit: false,
