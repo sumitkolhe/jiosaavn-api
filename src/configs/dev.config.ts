@@ -6,10 +6,6 @@ export const devConfig: Config = {
     host: 'localhost',
     port: 3000,
   },
-  cors: {
-    origin: false,
-    credentials: true,
-  },
   enableRateLimit: false,
   log: {
     format: 'dev',

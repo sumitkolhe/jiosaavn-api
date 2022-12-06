@@ -6,10 +6,6 @@ export const productionConfig: Config = {
     host: '0.0.0.0',
     port: Number(process.env.PORT) || 80,
   },
-  cors: {
-    origin: false,
-    credentials: true,
-  },
   enableRateLimit: process.env.ENABLE_RATE_LIMIT === 'true' || false,
   log: {
     format: 'tiny',
