@@ -1,4 +1,4 @@
-import {} from 'dotenv/config'
+import { } from 'dotenv/config'
 import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
@@ -31,7 +31,7 @@ export class App {
 
   private initializeMiddlewares() {
     this.app.use(morgan(this.config.log.format))
-    this.app.use(cors({ origin: this.config.cors.origin, credentials: this.config.cors.credentials }))
+    this.app.use(cors())
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))
     this.app.use(rateLimiterMiddleware)
