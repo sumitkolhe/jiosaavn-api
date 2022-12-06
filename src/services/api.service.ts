@@ -21,10 +21,13 @@ export class ApiService {
         ['ctx', 'web6dot0'],
       ]),
       responseType: 'json',
+      headers: {
+        cookie: 'L=english; gdpr_acceptance=true; DL=english',
+      },
       hooks: {
         beforeRequest: [
           () => {
-            // console.log(options.url)
+            // console.log(options)
           },
         ],
       },
