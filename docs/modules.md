@@ -14,7 +14,7 @@ Get launch data from <https://jiosaavn.com> homepage for different modules such 
 HTTP
 
 ```bash
-https://saavn.me/modules
+https://saavn.me/modules?language=hindi,english
 ```
 
 CURL
