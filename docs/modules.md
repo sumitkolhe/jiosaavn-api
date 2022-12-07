@@ -3387,3 +3387,9 @@ curl -X GET 'https://saavn.me/modules' \
   }
 }
 ```
+
++++
+
+| Query Paramter                                | Description                           | Required                               |
+| --------------------------------------- | ------------------------------------- | -------------------------------------- |
+| [!badge variant="contrast" text="language"] | One or more languages from     Hindi, English, Punjabi, Tamil, Telugu, Marathi, Gujarati, Bengali, Kannada, Bhojpuri, Malayalam, Urdu, Haryanvi, Rajasthani, Odia, Assamese | [!badge variant="primary" text="False"] |
