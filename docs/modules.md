@@ -20,7 +20,7 @@ https://saavn.me/modules
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/modules' \
+curl -X GET 'https://saavn.me/modules?language=hindi,english' \
  -H 'content-type: application/json'
 ```
 
