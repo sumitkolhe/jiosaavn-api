@@ -17,7 +17,9 @@ export class ModulesController {
     next: NextFunction
   ) => {
     try {
-      const result = await this.modulesService.modules()
+      const { language } = req.query
+
+      const result = await this.modulesService.modules(language as string)
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {

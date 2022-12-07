@@ -6,8 +6,10 @@ export class ModulesService extends PayloadService {
     super()
   }
 
-  public modules = async (): Promise<ModulesResponse> => {
-    const response = await this.http<ModulesRequest>(this.endpoints.modules, true)
+  public modules = async (language: string): Promise<ModulesResponse> => {
+    const response = await this.http<ModulesRequest>(this.endpoints.modules, true, {
+      language,
+    })
 
     const modulesResult = this.modulesPayload(response)
 
