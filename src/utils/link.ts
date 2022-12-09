@@ -21,6 +21,7 @@ export const createDownloadLinks = (link?: string) => {
 
 // create image links for different resolutions
 export const createImageLinks = (link?: string) => {
+  console.log(link)
   if (!link) return false
 
   const qualities = ['50x50', '150x150', '500x500']
@@ -28,7 +29,7 @@ export const createImageLinks = (link?: string) => {
   return (
     qualities.map((quality) => ({
       quality,
-      link: link.replace('150x150', quality),
+      link: link.includes('150x150') ? link.replace('150x150', quality) : link.replace('50x50', quality),
     })) || false
   )
 }
