@@ -20,8 +20,6 @@
     "pre-commit": "yarn lint && yarn format"
   },
   "dependencies": {
-    "@upstash/ratelimit": "^0.1.5",
-    "@upstash/redis": "^1.16.1",
     "celebrate": "^15.0.1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -29,7 +27,6 @@
     "express": "^4.18.2",
     "express-timeout-handler": "^2.2.2",
     "got-cjs": "^12.5.4",
-    "helmet": "^6.0.0",
     "joi": "^17.7.0",
     "lru-cache": "^7.14.1",
     "morgan": "^1.10.0",
@@ -37,16 +34,17 @@
   },
   "devDependencies": {
     "@kolhe/eslint-config": "^1.1.8",
-    "@types/cors": "^2.8.12",
+    "@types/cors": "^2.8.13",
     "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.14",
+    "@types/express": "^4.17.15",
     "@types/morgan": "^1.9.3",
-    "@types/node": "^18.11.9",
-    "eslint": "^8.27.0",
+    "@types/node": "^18.11.17",
+    "eslint": "^8.30.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.20",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.1",
     "simple-git-hooks": "^2.8.1",
     "tsx": "^3.12.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   }
 }
