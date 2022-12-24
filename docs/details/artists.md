@@ -1941,6 +1941,10 @@ curl -X GET 'https://saavn.me/artists/568707/albums?page=1' \
 
 ## Artist Recommended Songs by artist ID and song ID
 
+!!!
+Note: Song ID is required to get the recommendations based on the song.
+!!!
+
 +++ Request
 
 HTTP
@@ -1956,7 +1960,6 @@ curl -X GET 'https://saavn.me/artists/568707/recommendations/zikdtWU6' \
  -H 'content-type: application/json'
 ```
 
-> Note: Song ID is required to get the recommendations based on the song.
 
 +++ Response
 
