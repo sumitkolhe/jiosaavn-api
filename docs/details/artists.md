@@ -1938,3 +1938,1004 @@ curl -X GET 'https://saavn.me/artists/568707/albums?page=1' \
 | [!badge variant="contrast" text="page"] | Page Number  | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="category"] | Album type. `alphabetical` or `latest`  | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="sort"] | Album sort order. `asc` or `desc`  | [!badge variant="primary" text="False"] |
+
+## Artist Recommended Songs by artist ID and song ID
+
++++ Request
+
+HTTP
+
+```bash
+https://saavn.me/artists/568707/recommendations/zikdtWU6
+```
+
+CURL
+
+```bash
+curl -X GET 'https://saavn.me/artists/568707/recommendations/zikdtWU6' \
+ -H 'content-type: application/json'
+```
+
+> Note: Song ID is required to get the recommendations based on the song.
+
++++ Response
+
+```json
+{
+  "status": "SUCCESS",
+  "message": null,
+  "data": [
+    {
+      "id": "jPaBa3UM",
+      "name": "Genius",
+      "type": "",
+      "album": {
+        "id": "12791562",
+        "name": "Genius",
+        "url": "https://www.jiosaavn.com/album/genius/nSfwzzD90wk_"
+      },
+      "year": "2018",
+      "releaseDate": "2018-05-03",
+      "duration": "216",
+      "label": "Records/Columbia",
+      "primaryArtists": "Lsd",
+      "primaryArtistsId": "1153577",
+      "featuredArtists": "Sia, Diplo, Labrinth, Sia, Diplo, And Labrinth",
+      "featuredArtistsId": "568707, 599061, 577223, 4799650",
+      "explicitContent": 0,
+      "playCount": 2479365,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/genius/GjgKcxUDYn4",
+      "copyright": "(P) 2018 RECORDS, LLC / Columbia",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/509/Genius-English-2018-20180503113343-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/509/Genius-English-2018-20180503113343-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/509/Genius-English-2018-20180503113343-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/509/f06303bea5e0b7e3f30d023ad23d5cac_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/509/f06303bea5e0b7e3f30d023ad23d5cac_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/509/f06303bea5e0b7e3f30d023ad23d5cac_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/509/f06303bea5e0b7e3f30d023ad23d5cac_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/509/f06303bea5e0b7e3f30d023ad23d5cac_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "m5dBCY1k",
+      "name": "Chandelier",
+      "type": "",
+      "album": {
+        "id": "1152146",
+        "name": "Chandelier",
+        "url": "https://www.jiosaavn.com/album/chandelier/UiL9E3H6XDc_"
+      },
+      "year": "2014",
+      "releaseDate": "2014-03-17",
+      "duration": "216",
+      "label": "Monkey Puzzle Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 3998652,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/chandelier/HV0PczdpBlg",
+      "copyright": "(P) 2014 Monkey Puzzle Records, under exclusive license to RCA Records",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/952/Chandelier-2014-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/952/Chandelier-2014-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/952/Chandelier-2014-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/952/7b60337183c7d47ead728f94ebb113cb_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/952/7b60337183c7d47ead728f94ebb113cb_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/952/7b60337183c7d47ead728f94ebb113cb_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/952/7b60337183c7d47ead728f94ebb113cb_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/952/7b60337183c7d47ead728f94ebb113cb_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "4RmwbCw4",
+      "name": "Cheap Thrills",
+      "type": "",
+      "album": {
+        "id": "1744101",
+        "name": "Cheap Thrills",
+        "url": "https://www.jiosaavn.com/album/cheap-thrills/d-w-VzXfYCU_"
+      },
+      "year": "2015",
+      "releaseDate": "2015-12-17",
+      "duration": "210",
+      "label": "Monkey Puzzle Records/RCA Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 97262918,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/cheap-thrills/RDoGRhZzQAc",
+      "copyright": "(P) 2015 Monkey Puzzle Records, under exclusive license to RCA Records",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/722/Cheap-Thrills-English-2015-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/722/Cheap-Thrills-English-2015-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/722/Cheap-Thrills-English-2015-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/722/7f3218eb23ec7273f73d5317e5083d7e_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/722/7f3218eb23ec7273f73d5317e5083d7e_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/722/7f3218eb23ec7273f73d5317e5083d7e_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/722/7f3218eb23ec7273f73d5317e5083d7e_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/722/7f3218eb23ec7273f73d5317e5083d7e_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "SxdL_VN6",
+      "name": "Dusk Till Dawn (Radio Edit)",
+      "type": "",
+      "album": {
+        "id": "11453840",
+        "name": "Dusk Till Dawn (Radio Edit)",
+        "url": "https://www.jiosaavn.com/album/dusk-till-dawn-radio-edit/4a-qawJxiqo_"
+      },
+      "year": "2017",
+      "releaseDate": "2017-09-07",
+      "duration": "239",
+      "label": "RCA Records Label",
+      "primaryArtists": "ZAYN",
+      "primaryArtistsId": "1881894",
+      "featuredArtists": "Sia",
+      "featuredArtistsId": "568707",
+      "explicitContent": 0,
+      "playCount": 49688941,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/dusk-till-dawn-radio-edit/IxAPfStmeQU",
+      "copyright": "(P) 2017 RCA Records, a division of Sony Music Entertainment",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/896/Dusk-Till-Dawn-Radio-Edit--English-2017-20170905191749-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/896/Dusk-Till-Dawn-Radio-Edit--English-2017-20170905191749-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/896/Dusk-Till-Dawn-Radio-Edit--English-2017-20170905191749-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/896/ad19c4a75775ccdef32905de23fc10c5_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/896/ad19c4a75775ccdef32905de23fc10c5_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/896/ad19c4a75775ccdef32905de23fc10c5_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/896/ad19c4a75775ccdef32905de23fc10c5_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/896/ad19c4a75775ccdef32905de23fc10c5_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "_lX2W2a_",
+      "name": "Let&#039;s Love",
+      "type": "",
+      "album": {
+        "id": "22338976",
+        "name": "Let&#039;s Love",
+        "url": "https://www.jiosaavn.com/album/lets-love/NrF9-Vkuiu4_"
+      },
+      "year": "2020",
+      "releaseDate": "2020-09-11",
+      "duration": "200",
+      "label": "Parlophone (France)",
+      "primaryArtists": "David Guetta, Sia",
+      "primaryArtistsId": "568665, 568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 682724,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/lets-love/LwQzAyMCVmw",
+      "copyright": "Under Exclusive Licence to Warner Music France, Label Parlophone, ℗ 2020 What A Producer Ltd",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/000/Let-s-Love-English-2020-20200907113205-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/000/Let-s-Love-English-2020-20200907113205-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/000/Let-s-Love-English-2020-20200907113205-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/000/779f6ded896bacae3c5fec13c4b8ac02_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/000/779f6ded896bacae3c5fec13c4b8ac02_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/000/779f6ded896bacae3c5fec13c4b8ac02_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/000/779f6ded896bacae3c5fec13c4b8ac02_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/000/779f6ded896bacae3c5fec13c4b8ac02_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "t5e4VTsk",
+      "name": "Unstoppable",
+      "type": "",
+      "album": {
+        "id": "1759517",
+        "name": "Unstoppable",
+        "url": "https://www.jiosaavn.com/album/unstoppable/1Tm2aGl16CM_"
+      },
+      "year": "2016",
+      "releaseDate": "2016-01-21",
+      "duration": "218",
+      "label": "Monkey Puzzle Records/RCA Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 22079909,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/unstoppable/BF0OBSJkRFg",
+      "copyright": "(P) 2015 Monkey Puzzle Records, under exclusive license to RCA Records",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/552/Unstoppable-English-2016-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/552/Unstoppable-English-2016-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/552/Unstoppable-English-2016-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/552/26b33054461788c6282e4ac814d3769f_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/552/26b33054461788c6282e4ac814d3769f_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/552/26b33054461788c6282e4ac814d3769f_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/552/26b33054461788c6282e4ac814d3769f_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/552/26b33054461788c6282e4ac814d3769f_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "iquFMDg0",
+      "name": "Crying in the Club",
+      "type": "",
+      "album": {
+        "id": "10845250",
+        "name": "Crying in the Club",
+        "url": "https://www.jiosaavn.com/album/crying-in-the-club/6j0IUL4,nPY_"
+      },
+      "year": "2017",
+      "releaseDate": "2017-05-19",
+      "duration": "216",
+      "label": "Syco Music/Epic",
+      "primaryArtists": "Camila Cabello",
+      "primaryArtistsId": "1342580",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 5979934,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/crying-in-the-club/GRkedzl0UAM",
+      "copyright": "(P) 2017 Simco Ltd. under exclusive license to Epic Records, a division of Sony Music Entertainment",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/209/Crying-in-the-Club-English-2017-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/209/Crying-in-the-Club-English-2017-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/209/Crying-in-the-Club-English-2017-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/209/6c76948de974d9dddaef8bfca9418148_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/209/6c76948de974d9dddaef8bfca9418148_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/209/6c76948de974d9dddaef8bfca9418148_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/209/6c76948de974d9dddaef8bfca9418148_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/209/6c76948de974d9dddaef8bfca9418148_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "vU96z8LR",
+      "name": "Floating Through Space",
+      "type": "",
+      "album": {
+        "id": "25126009",
+        "name": "Floating Through Space",
+        "url": "https://www.jiosaavn.com/album/floating-through-space/tJ88-kjlNk8_"
+      },
+      "year": "2021",
+      "releaseDate": "2021-02-04",
+      "duration": "177",
+      "label": "Monkey Puzzle/Atlantic",
+      "primaryArtists": "Sia, David Guetta",
+      "primaryArtistsId": "568707, 568665",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 407356,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/floating-through-space/Bj1SBw4Ie2E",
+      "copyright": "under exclusive license to Atlantic Recording Corporation for the United States and WEA International for the world outside of the United States., ℗ 2021 Monkey Puzzle Music, Inc.",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/504/Floating-Through-Space-English-2021-20210203054031-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/504/Floating-Through-Space-English-2021-20210203054031-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/504/Floating-Through-Space-English-2021-20210203054031-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/504/52e5c9b578f86252bc60b36d0f25536f_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/504/52e5c9b578f86252bc60b36d0f25536f_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/504/52e5c9b578f86252bc60b36d0f25536f_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/504/52e5c9b578f86252bc60b36d0f25536f_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/504/52e5c9b578f86252bc60b36d0f25536f_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "n2PC-t5G",
+      "name": "Snowman",
+      "type": "",
+      "album": {
+        "id": "16226559",
+        "name": "Snowman",
+        "url": "https://www.jiosaavn.com/album/snowman/Hv8ASgjBPA4_"
+      },
+      "year": "2017",
+      "releaseDate": "2017-11-11",
+      "duration": "165",
+      "label": "Monkey Puzzle/Atlantic",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 540438,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/snowman/Hlo7cllEAnQ",
+      "copyright": "℗ 2017 Monkey Puzzle Music, Inc., under exclusive license to Atlantic Recording Corporation for the United States and WEA International for the world outside of the United States.",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/912/Snowman-English-2017-20221102174604-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/912/Snowman-English-2017-20221102174604-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/912/Snowman-English-2017-20221102174604-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/912/579a097a2ab366f62eec9c374de9cf8f_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/912/579a097a2ab366f62eec9c374de9cf8f_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/912/579a097a2ab366f62eec9c374de9cf8f_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/912/579a097a2ab366f62eec9c374de9cf8f_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/912/579a097a2ab366f62eec9c374de9cf8f_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "U2J3f8O9",
+      "name": "Unstoppable",
+      "type": "",
+      "album": {
+        "id": "1759503",
+        "name": "This Is Acting",
+        "url": "https://www.jiosaavn.com/album/this-is-acting/WvjkPt-7qiM_"
+      },
+      "year": "2016",
+      "releaseDate": "2016-01-29",
+      "duration": "218",
+      "label": "Monkey Puzzle Records/RCA Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 22073044,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/unstoppable/JVohAhIIeAo",
+      "copyright": "(P) 2015 Monkey Puzzle Records, under exclusive license to RCA Records",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/203/af8d67ab7f66ecc23e6588e080bf2df0_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/203/af8d67ab7f66ecc23e6588e080bf2df0_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/203/af8d67ab7f66ecc23e6588e080bf2df0_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/203/af8d67ab7f66ecc23e6588e080bf2df0_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/203/af8d67ab7f66ecc23e6588e080bf2df0_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "hkftnbSX",
+      "name": "Dynamite",
+      "type": "",
+      "album": {
+        "id": "30406389",
+        "name": "Dynamite",
+        "url": "https://www.jiosaavn.com/album/dynamite/wuz-emDEzaQ_"
+      },
+      "year": "2021",
+      "releaseDate": "2021-10-22",
+      "duration": "213",
+      "label": "Universal-Island Records Ltd.",
+      "primaryArtists": "Sean Paul",
+      "primaryArtistsId": "468845",
+      "featuredArtists": "Sia",
+      "featuredArtistsId": "568707",
+      "explicitContent": 0,
+      "playCount": 146228,
+      "language": "english",
+      "hasLyrics": "true",
+      "url": "https://www.jiosaavn.com/song/dynamite/GAMNRRpSZGs",
+      "copyright": "℗ 2021 SPJ Productions Ltd, under exclusive licence to Island Records, a division of Universal Music Operations Limited",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/313/Dynamite-English-2021-20211022063616-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/313/Dynamite-English-2021-20211022063616-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/313/Dynamite-English-2021-20211022063616-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/313/4038614309288f4059582447fc13117f_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/313/4038614309288f4059582447fc13117f_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/313/4038614309288f4059582447fc13117f_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/313/4038614309288f4059582447fc13117f_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/313/4038614309288f4059582447fc13117f_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "URuxt8q-",
+      "name": "The Greatest",
+      "type": "",
+      "album": {
+        "id": "2786558",
+        "name": "This Is Acting (Deluxe Version)",
+        "url": "https://www.jiosaavn.com/album/this-is-acting-deluxe-version/vmjUuWv7xeY_"
+      },
+      "year": "2016",
+      "releaseDate": "2016-10-21",
+      "duration": "210",
+      "label": "Monkey Puzzle Records/RCA Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "Kendrick Lamar",
+      "featuredArtistsId": "612060",
+      "explicitContent": 0,
+      "playCount": 4364221,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/the-greatest/JToeSQAIRh4",
+      "copyright": "(P) 2016 Monkey Puzzle Records, under exclusive license to RCA Records",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/832/This-Is-Acting-Deluxe-Version-English-2016-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/832/This-Is-Acting-Deluxe-Version-English-2016-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/832/This-Is-Acting-Deluxe-Version-English-2016-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/832/54f46d195029b2756f567bf9976e71dc_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/832/54f46d195029b2756f567bf9976e71dc_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/832/54f46d195029b2756f567bf9976e71dc_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/832/54f46d195029b2756f567bf9976e71dc_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/832/54f46d195029b2756f567bf9976e71dc_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "5WXAlMNt",
+      "name": "Thunderclouds",
+      "type": "",
+      "album": {
+        "id": "13615087",
+        "name": "Thunderclouds",
+        "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
+      },
+      "year": "2018",
+      "releaseDate": "2018-08-09",
+      "duration": "187",
+      "label": "Records/Columbia",
+      "primaryArtists": "Lsd",
+      "primaryArtistsId": "1153577",
+      "featuredArtists": "Sia, Diplo, Labrinth, Sia, Diplo, And Labrinth",
+      "featuredArtistsId": "568707, 599061, 577223, 4799650",
+      "explicitContent": 0,
+      "playCount": 8828399,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/thunderclouds/RT8zcBh9eUc",
+      "copyright": "(P) 2018 RECORDS, LLC / Columbia",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/679/Thunderclouds-English-2018-20180809032729-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/679/Thunderclouds-English-2018-20180809032729-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/679/Thunderclouds-English-2018-20180809032729-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/679/b0b7a063d3efddf3a771a0dc91b30d69_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/679/b0b7a063d3efddf3a771a0dc91b30d69_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/679/b0b7a063d3efddf3a771a0dc91b30d69_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/679/b0b7a063d3efddf3a771a0dc91b30d69_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/679/b0b7a063d3efddf3a771a0dc91b30d69_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "iWt8op78",
+      "name": "Cheap Thrills",
+      "type": "",
+      "album": {
+        "id": "1759503",
+        "name": "This Is Acting",
+        "url": "https://www.jiosaavn.com/album/this-is-acting/WvjkPt-7qiM_"
+      },
+      "year": "2016",
+      "releaseDate": "2016-01-29",
+      "duration": "210",
+      "label": "Monkey Puzzle Records/RCA Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 97187000,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/cheap-thrills/GT8fCRtAAAs",
+      "copyright": "(P) 2015 Monkey Puzzle Records, under exclusive license to RCA Records",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/203/This-Is-Acting-English-2016-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/203/311467c464828dfc1552b27c47c50577_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/203/311467c464828dfc1552b27c47c50577_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/203/311467c464828dfc1552b27c47c50577_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/203/311467c464828dfc1552b27c47c50577_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/203/311467c464828dfc1552b27c47c50577_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "wGWwbFVX",
+      "name": "Courage to Change",
+      "type": "",
+      "album": {
+        "id": "22703343",
+        "name": "Courage to Change",
+        "url": "https://www.jiosaavn.com/album/courage-to-change/9ePIgBpmNqo_"
+      },
+      "year": "2020",
+      "releaseDate": "2020-09-24",
+      "duration": "292",
+      "label": "Atlantic Records",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 155237,
+      "language": "english",
+      "hasLyrics": "true",
+      "url": "https://www.jiosaavn.com/song/courage-to-change/By88RhZ2YWs",
+      "copyright": "under exclusive license to Atlantic Recording Corporation for the United States and WEA International for the world outside of the United States., ℗ 2020 Monkey Puzzle Music, Inc.",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/760/Courage-to-Change-English-2020-20210116043159-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/760/Courage-to-Change-English-2020-20210116043159-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/760/Courage-to-Change-English-2020-20210116043159-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/760/a12d5f509af193baee11f859ec61c321_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/760/a12d5f509af193baee11f859ec61c321_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/760/a12d5f509af193baee11f859ec61c321_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/760/a12d5f509af193baee11f859ec61c321_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/760/a12d5f509af193baee11f859ec61c321_320.mp4"
+        }
+      ]
+    },
+    {
+      "id": "qnFPUVVn",
+      "name": "Never Give Up",
+      "type": "",
+      "album": {
+        "id": "3031864",
+        "name": "Never Give Up (From &quot;Lion&quot; Soundtrack)",
+        "url": "https://www.jiosaavn.com/album/never-give-up-from-lion-soundtrack/Ls,mAR4z-D4_"
+      },
+      "year": "2016",
+      "releaseDate": "2016-11-18",
+      "duration": "222",
+      "label": "Masterworks",
+      "primaryArtists": "Sia",
+      "primaryArtistsId": "568707",
+      "featuredArtists": "",
+      "featuredArtistsId": "",
+      "explicitContent": 0,
+      "playCount": 3575066,
+      "language": "english",
+      "hasLyrics": "false",
+      "url": "https://www.jiosaavn.com/song/never-give-up/AQYtYSFmYV0",
+      "copyright": "(P) 2016 Monkey Puzzle Records Inc.",
+      "image": [
+        {
+          "quality": "50x50",
+          "link": "https://c.saavncdn.com/659/Never-Give-Up-From-Lion-Soundtrack-English-2016-50x50.jpg"
+        },
+        {
+          "quality": "150x150",
+          "link": "https://c.saavncdn.com/659/Never-Give-Up-From-Lion-Soundtrack-English-2016-150x150.jpg"
+        },
+        {
+          "quality": "500x500",
+          "link": "https://c.saavncdn.com/659/Never-Give-Up-From-Lion-Soundtrack-English-2016-500x500.jpg"
+        }
+      ],
+      "downloadUrl": [
+        {
+          "quality": "12kbps",
+          "link": "https://aac.saavncdn.com/659/490c1c31394d96c9b1c2fd7ace8f54d1_12.mp4"
+        },
+        {
+          "quality": "48kbps",
+          "link": "https://aac.saavncdn.com/659/490c1c31394d96c9b1c2fd7ace8f54d1_48.mp4"
+        },
+        {
+          "quality": "96kbps",
+          "link": "https://aac.saavncdn.com/659/490c1c31394d96c9b1c2fd7ace8f54d1_96.mp4"
+        },
+        {
+          "quality": "160kbps",
+          "link": "https://aac.saavncdn.com/659/490c1c31394d96c9b1c2fd7ace8f54d1_160.mp4"
+        },
+        {
+          "quality": "320kbps",
+          "link": "https://aac.saavncdn.com/659/490c1c31394d96c9b1c2fd7ace8f54d1_320.mp4"
+        }
+      ]
+    }
+  ]
+}
+```
+
++++
+
+| Route Paramter                              | Description | Required                               |
+| ------------------------------------- | ----------- | -------------------------------------- |
+| [!badge variant="contrast" text="id"] | Artist ID     | [!badge variant="primary" text="True"] |
+| [!badge variant="contrast" text="id"] | Song ID     | [!badge variant="primary" text="True"] |
+
+| Query Paramter                              | Description | Required                               |
+| ------------------------------------- | ----------- | -------------------------------------- |
+| [!badge variant="contrast" text="language"] | Songs language  | [!badge variant="primary" text="False"] |
