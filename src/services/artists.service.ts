@@ -1,4 +1,5 @@
 import { PayloadService } from './payload.service'
+import type { SongRequest, SongResponse } from '../interfaces/song.interface'
 import type {
   ArtistAlbumResponse,
   ArtistRequest,
@@ -65,5 +66,17 @@ export class ArtistsService extends PayloadService {
 
     const artistAlbums = this.artistAlbumPayload(response.topAlbums)
     return artistAlbums
+  }
+
+  public artistTopSongs = async (artistId: string, songId: string, language: string): Promise<SongResponse[]> => {
+    // api v4 does not contain media_preview_url
+    const response = await this.http<SongRequest[]>(this.endpoints.artists.topSongs, false, {
+      artist_ids: artistId,
+      song_id: songId,
+      language,
+    })
+
+    const artistTopSongs = response.map((song) => this.songPayload(song))
+    return artistTopSongs
   }
 }

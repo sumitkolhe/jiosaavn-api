@@ -1,5 +1,6 @@
 import { ArtistsService } from '../services/artists.service'
 import { globalConstants } from '../constants'
+import type { SongResponse } from '../interfaces/song.interface'
 import type { ArtistAlbumResponse, ArtistResponse, ArtistSongResponse } from '../interfaces/artist.interface'
 import type { CustomResponse } from '../interfaces/response.interface'
 import type { NextFunction, Request, RequestHandler, Response } from 'express'
@@ -48,6 +49,23 @@ export class ArtistsController {
         category as string,
         sort as string
       )
+
+      res.json({ status: globalConstants.status.success, message: null, data: result })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public artistTopSongs: RequestHandler = async (
+    req: Request,
+    res: Response<CustomResponse<SongResponse[]>>,
+    next: NextFunction
+  ) => {
+    try {
+      const { language } = req.query
+      const { artistId, songId } = req.params
+
+      const result = await this.artistsService.artistTopSongs(artistId, songId, language as string)
 
       res.json({ status: globalConstants.status.success, message: null, data: result })
     } catch (error) {

@@ -37,6 +37,7 @@ export const devConfig: Config = {
       link: 'webapi.get',
       songs: 'artist.getArtistMoreSong',
       albums: 'artist.getArtistMoreAlbum',
+      topSongs: 'search.artistOtherTopSongs',
     },
     lyrics: 'lyrics.getLyrics',
   },

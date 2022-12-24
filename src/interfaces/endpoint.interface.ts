@@ -109,6 +109,13 @@ export interface Endpoint {
      */
     songs: string
     /**
+     * Get artist top songs by artist id.
+     * @endpoint
+     * `search.artistOtherTopSongs`
+     * @isVersion4 false
+     */
+    topSongs: string
+    /**
      * Get artist albums by artist id.
      * @endpoint
      * `artist.getArtistMoreAlbum`
