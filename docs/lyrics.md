@@ -42,4 +42,4 @@ curl -X GET 'https://saavn.me/lyrics?id=mPTrDSun' \
 
 | Query Paramter                                | Description                           | Required                               |
 | --------------------------------------- | ------------------------------------- | -------------------------------------- |
-| [!badge variant="contrast" text="link"] | Song ID | [!badge variant="primary" text="True"] |
+| [!badge variant="contrast" text="id"] | Song ID | [!badge variant="primary" text="True"] |
