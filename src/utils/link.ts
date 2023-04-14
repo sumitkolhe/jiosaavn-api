@@ -27,7 +27,7 @@ export const createDownloadLinks = (encryptedMediaUrl: string) => {
   const links =
     qualities.map((quality) => ({
       quality: quality.bitrate,
-      link: decryptedLink,
+      link: decryptedLink.replace('_96', quality.id),
     })) || false
 
   return links
