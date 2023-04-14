@@ -251,7 +251,7 @@ export class PayloadService extends ApiService {
       url: song?.perma_url,
       copyright: song?.copyright_text,
       image: createImageLinks(song?.image),
-      downloadUrl: createDownloadLinks(song?.media_preview_url),
+      downloadUrl: createDownloadLinks(song?.encrypted_media_url),
     }
     return songPayload
   }
