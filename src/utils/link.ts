@@ -13,7 +13,12 @@ export const createDownloadLinks = (link?: string) => {
   const links =
     qualities.map((quality) => ({
       quality: quality.bitrate,
-      link: link.replace('preview.saavncdn.com', 'aac.saavncdn.com').replace('_96_p', quality.id),
+      link: link
+        .replace(
+          /\/([^/]+)(\.mp4)$/,
+          (_match, filename, extension) => `/${filename.slice(0, 32)}${quality.id}${extension}`
+        )
+        .replace('preview.saavncdn.com', 'aac.saavncdn.com'),
     })) || false
 
   return links
