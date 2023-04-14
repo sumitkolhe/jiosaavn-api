@@ -1,11 +1,11 @@
-import LRU from 'lru-cache'
+import { LRUCache } from 'lru-cache'
 import { HttpExceptionError } from '../exceptions/http.exception'
 import { getConfig } from '../configs'
 import type { NextFunction, Request, Response } from 'express'
 
 const { enableRateLimit } = getConfig()
 
-const tokenCache = new LRU({
+const tokenCache = new LRUCache({
   max: 500,
   ttl: 60000,
 })
