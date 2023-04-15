@@ -27,19 +27,26 @@ import type {
   AlbumSearchRequest,
   AlbumSearchResponse,
 } from '../interfaces/album.interface'
-import type { SongRequest, SongResponse, SongSearchRequest, SongSearchResponse } from '../interfaces/song.interface'
+import type {
+  SongArtistRequest,
+  SongArtistResponse,
+  SongRequest,
+  SongResponse,
+  SongSearchRequest,
+  SongSearchResponse,
+} from '../interfaces/song.interface'
 
 export class PayloadService extends ApiService {
-  private mapArtists = (artists: Artist[]): AlbumArtistResponse[] => {
+  private mapArtists = (artists: Artist[] | SongArtistRequest[]): AlbumArtistResponse[] | SongArtistResponse[] => {
     if (!artists) return []
     const mappedArtists: AlbumArtistResponse[] = artists.map((artist) => {
       return {
         id: artist?.id,
         name: artist?.name,
         url: artist?.perma_url,
-        image: createImageLinks(artist?.image),
         type: artist?.type,
         role: artist?.role,
+        image: createImageLinks(artist?.image),
       }
     })
 
@@ -232,26 +239,32 @@ export class PayloadService extends ApiService {
 
   protected songPayload = (song: SongRequest): SongResponse => {
     const songPayload: SongResponse = {
-      id: song?.id,
-      name: song?.song,
+      id: song.id,
+      name: song.title,
+      subtitle: song.subtitle,
       type: song?.type,
-      album: { id: song?.albumid, name: song?.album, url: song?.album_url },
-      year: song?.year,
-      releaseDate: song?.release_date,
-      duration: song?.duration,
-      label: song?.label,
-      primaryArtists: song?.primary_artists,
-      primaryArtistsId: song?.primary_artists_id,
-      featuredArtists: song?.featured_artists,
-      featuredArtistsId: song?.featured_artists_id,
-      explicitContent: song?.explicit_content,
-      playCount: song?.play_count,
-      language: song?.language,
-      hasLyrics: song?.has_lyrics,
       url: song?.perma_url,
-      copyright: song?.copyright_text,
       image: createImageLinks(song?.image),
-      downloadUrl: createDownloadLinks(song?.encrypted_media_url),
+      language: song?.language,
+      year: song?.year,
+      playCount: Number(song?.play_count || 0),
+      explicitContent: song?.explicit_content === '1' || false,
+      album: { id: song.more_info.album_id, name: song.more_info.album, url: song?.more_info?.album_url },
+      label: song?.more_info.label,
+      duration: Number(song?.more_info.duration || 0),
+      lyrics: {
+        hasLyrics: song?.more_info.has_lyrics === 'true' || false,
+        lyricsId: song?.more_info.lyrics_id,
+        lyricsSnippet: song?.more_info.lyrics_snippet,
+      },
+      copyright: song?.more_info.copyright_text,
+      releaseDate: song?.more_info.release_date,
+      artists: {
+        all: this.mapArtists(song?.more_info?.artistMap?.artists),
+        primary: this.mapArtists(song?.more_info?.artistMap?.primary_artists),
+        featured: this.mapArtists(song?.more_info?.artistMap?.featured_artists),
+      },
+      downloadUrl: createDownloadLinks(song?.more_info.encrypted_media_url),
     }
     return songPayload
   }
