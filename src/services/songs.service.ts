@@ -8,8 +8,7 @@ export class SongsService extends PayloadService {
   }
 
   public detailsById = async (ids: string): Promise<SongResponse[]> => {
-    // api v4 does not contain media_preview_url
-    const response = await this.http<{ songs: SongRequest[] }>(this.endpoints.songs.id, false, {
+    const response = await this.http<{ songs: SongRequest[] }>(this.endpoints.songs.id, true, {
       pids: ids,
     })
 
@@ -21,8 +20,7 @@ export class SongsService extends PayloadService {
   }
 
   public detailsByLink = async (link: string): Promise<SongResponse[]> => {
-    // api v4 does not contain media_preview_url
-    const response = await this.http<{ songs: SongRequest[] }>(this.endpoints.songs.link, false, {
+    const response = await this.http<{ songs: SongRequest[] }>(this.endpoints.songs.link, true, {
       token: link,
       type: 'song',
     })
