@@ -2,6 +2,8 @@
 
 An Unofficial JioSaavn API for downloading songs in 320kbps quality for free.
 
+> NOTE: <https://saavn.me> is only meant to demo the API and has rate-limiting enabled to minimise bandwidth consumption. It is recommended to deploy your own instance on vercel for personal use.
+
 ## :sparkles: Features
 
 - :rocket: Blazing fast
@@ -44,6 +46,10 @@ An Unofficial JioSaavn API for downloading songs in 320kbps quality for free.
   ```sh
   npm start
   ```
+
+## ☁️ Host your own instance
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sumitkolhe/jiosaavn-api)
 
 ## 📜 License
 

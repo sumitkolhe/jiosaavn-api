@@ -1,19 +1,23 @@
-import express from 'express'
-import createHttpError from 'http-errors'
-import { parentRouter } from '../src/routes'
-import { HandleError } from '../src/middleware/errorHandler'
-import type { NextFunction, Request, Response } from 'express'
+import 'dotenv/config'
+import { App } from '../src/app'
+import { AlbumsRoute } from '../src/routes/albums.route'
+import { SongsRoute } from '../src/routes/songs.route'
+import { SearchRoute } from '../src/routes/search.route'
+import { PlaylistsRoute } from '../src/routes/playlists.route'
+import { ArtistsRoute } from '../src/routes/artists.route'
+import { HomeRoute } from '../src/routes/home.route'
+import { LyricsRoute } from '../src/routes/lyrics.route'
+import { ModulesRoute } from '../src/routes/modules.route'
 
-const app = express()
+const app = new App([
+  new HomeRoute(),
+  new SearchRoute(),
+  new SongsRoute(),
+  new ArtistsRoute(),
+  new AlbumsRoute(),
+  new PlaylistsRoute(),
+  new LyricsRoute(),
+  new ModulesRoute(),
+])
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(parentRouter)
-app.use((_req: Request, _res: Response, next: NextFunction) => {
-  return next(new createHttpError.NotFound('not found'))
-})
-app.use((err: express.ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
-  return HandleError(err, req, res, next)
-})
-
-export default app
+export default app.getServer()
