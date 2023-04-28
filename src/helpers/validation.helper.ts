@@ -19,8 +19,7 @@ export const songsSchema = celebrate(
         id: Joi.string(),
         link: Joi.string().custom((value, helper) => {
           if (value.includes(`jiosaavn.com/song/`)) {
-            const token = value.split(`song/`)[1].split('/')[1].slice(0, 11)
-
+            const token = value.split(`/song/`)[1]?.split('/')[1]?.slice(0, 11)
             return token
           } else {
             return helper.message({
