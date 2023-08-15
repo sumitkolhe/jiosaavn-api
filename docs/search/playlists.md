@@ -5,7 +5,7 @@ icon: log
 
 # Search Playlists
 
-Search artists by query.
+Search playlists by query.
 
 +++ Request
 
