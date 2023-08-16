@@ -18,7 +18,7 @@ https://saavn.me/artists?link=https://www.jiosaavn.com/artist/sia-/C4hxFiXrHws_
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/artists?link=https://www.jiosaavn.com/song/thunderclouds/RT8zcBh9eUc' \
+curl -X GET 'https://saavn.me/artists?link=https://www.jiosaavn.com/artist/sia-/C4hxFiXrHws_' \
  -H 'content-type: application/json'
 ```
 
@@ -75,7 +75,7 @@ curl -X GET 'https://saavn.me/artists?link=https://www.jiosaavn.com/song/thunder
 
 +++
 
-| Query Paramter                                | Description                           | Required                               |
+| Query Parameter                                | Description                           | Required                               |
 | --------------------------------------- | ------------------------------------- | -------------------------------------- |
 | [!badge variant="contrast" text="link"] | Song link from <https://jiosaavn.com> | [!badge variant="primary" text="True"] |
 
@@ -149,7 +149,7 @@ curl -X GET 'https://saavn.me/artists?id=568707' \
 
 +++
 
-| Paramter                              | Description | Required                               |
+| Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Artist ID     | [!badge variant="primary" text="True"] |
 
@@ -777,11 +777,11 @@ curl -X GET 'https://saavn.me/artists/568707/songs?page=1' \
 
 +++
 
-| Route Paramter                              | Description | Required                               |
+| Route Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Artist ID     | [!badge variant="primary" text="True"] |
 
-| Query Paramter                              | Description | Required                               |
+| Query Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="page"] | Page Number  | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="category"] | Song type. `alphabetical` or `latest`  | [!badge variant="primary" text="False"] |
@@ -1929,11 +1929,11 @@ curl -X GET 'https://saavn.me/artists/568707/albums?page=1' \
 
 +++
 
-| Route Paramter                              | Description | Required                               |
+| Route Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Artist ID     | [!badge variant="primary" text="True"] |
 
-| Query Paramter                              | Description | Required                               |
+| Query Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="page"] | Page Number  | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="category"] | Album type. `alphabetical` or `latest`  | [!badge variant="primary" text="False"] |
@@ -2934,11 +2934,11 @@ curl -X GET 'https://saavn.me/artists/568707/recommendations/zikdtWU6' \
 
 +++
 
-| Route Paramter                              | Description | Required                               |
+| Route Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Artist ID     | [!badge variant="primary" text="True"] |
 | [!badge variant="contrast" text="id"] | Song ID     | [!badge variant="primary" text="True"] |
 
-| Query Paramter                              | Description | Required                               |
+| Query Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="language"] | Songs language  | [!badge variant="primary" text="False"] |
