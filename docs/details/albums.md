@@ -828,7 +828,7 @@ curl -X GET 'https://saavn.me/albums?link=https://www.jiosaavn.com/album/night-v
 
 +++
 
-| Query Paramter                                | Description                            | Required                               |
+| Query Parameter                                | Description                            | Required                               |
 | --------------------------------------- | -------------------------------------- | -------------------------------------- |
 | [!badge variant="contrast" text="link"] | Album link from <https://jiosaavn.com> | [!badge variant="primary" text="True"] |
 
@@ -1655,6 +1655,6 @@ curl -X GET 'https://saavn.me/albums?id=1142502' \
 
 +++
 
-| Query Paramter                              | Description | Required                               |
+| Query Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Album ID    | [!badge variant="primary" text="True"] |

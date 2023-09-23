@@ -1832,6 +1832,6 @@ curl -X GET 'https://saavn.me/playlists?id=159144718' \
 
 +++
 
-| Query Paramter                              | Description | Required                               |
+| Query Parameter                              | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Playlist ID     | [!badge variant="primary" text="True"] |

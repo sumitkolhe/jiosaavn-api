@@ -827,7 +827,7 @@ curl -X GET 'https://saavn.me/search/albums?query=rockstar' \
 
 +++
 
-| Query Paramter                                 | Description             | Default | Required                                |
+| Query Parameter                                 | Description             | Default | Required                                |
 | ---------------------------------------- | ----------------------- | ------- | --------------------------------------- |
 | [!badge variant="contrast" text="page"]  | Current page            | 1       | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="limit"] | limit number of results | 10      | [!badge variant="primary" text="False"] |

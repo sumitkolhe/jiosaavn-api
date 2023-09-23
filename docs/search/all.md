@@ -373,6 +373,6 @@ curl -X GET 'https://saavn.me/search/all?query=imagine+dragons' \
 
 +++
 
-| Query Paramter                                 | Description             | Default | Required                                |
+| Query Parameter                                 | Description             | Default | Required                                |
 | ---------------------------------------- | ----------------------- | ------- | --------------------------------------- |
 | [!badge variant="contrast" text="query"]  | Search query            | -       | [!badge variant="primary" text="True"] |
