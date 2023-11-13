@@ -1,11 +1,11 @@
 {
-  "name": "node-serverless-template",
+  "name": "jiosaavn-api",
   "version": "1.0.0",
-  "description": "🚀 Template for creating Serverless Node + TypeScript + Express projects",
+  "description": "Unofficial JioSaavn API",
   "license": "MIT",
-  "author": "sumit kolhe",
+  "author": "Sumit Kolhe",
   "main": "index.js",
-  "repository": "https://github.com/sumitkolhe/node-serverless-template",
+  "repository": "https://github.com/sumitkolhe/jiosaavn-api",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx watch ./src/server.ts",
     "start": "npm run build && cross-env NODE_ENV=production node public/server.js",
