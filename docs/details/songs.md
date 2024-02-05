@@ -12,13 +12,13 @@ icon: play
 HTTP
 
 ```bash
-https://saavn.me/songs?link=https://www.jiosaavn.com/song/thunderclouds/RT8zcBh9eUc
+https://saavn.dev/songs?link=https://www.jiosaavn.com/song/thunderclouds/RT8zcBh9eUc
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/songs?link=https://www.jiosaavn.com/song/thunderclouds/RT8zcBh9eUc' \
+curl -X GET 'https://saavn.dev/songs?link=https://www.jiosaavn.com/song/thunderclouds/RT8zcBh9eUc' \
  -H 'content-type: application/json'
 ```
 
@@ -94,7 +94,7 @@ curl -X GET 'https://saavn.me/songs?link=https://www.jiosaavn.com/song/thundercl
 
 +++
 
-| Query Parameter                                | Description                           | Required                               |
+| Query Parameter                         | Description                           | Required                               |
 | --------------------------------------- | ------------------------------------- | -------------------------------------- |
 | [!badge variant="contrast" text="link"] | Song link from <https://jiosaavn.com> | [!badge variant="primary" text="True"] |
 
@@ -105,13 +105,13 @@ curl -X GET 'https://saavn.me/songs?link=https://www.jiosaavn.com/song/thundercl
 HTTP
 
 ```bash
-https://saavn.me/songs?id=5WXAlMNt
+https://saavn.dev/songs?id=5WXAlMNt
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/songs?id=5WXAlMNt' \
+curl -X GET 'https://saavn.dev/songs?id=5WXAlMNt' \
  -H 'content-type: application/json'
 ```
 
@@ -194,14 +194,14 @@ You can also pass multiple comma seperated song IDs in a single request.
 +++ Request
 
 ```bash
-https://saavn.me/songs?id=5WXAlMNt,csaEsVWV
+https://saavn.dev/songs?id=5WXAlMNt,csaEsVWV
 
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/songs?id=5WXAlMNt,csaEsVWV
+curl -X GET 'https://saavn.dev/songs?id=5WXAlMNt,csaEsVWV
 ' \
  -H 'content-type: application/json'
 ```
@@ -337,6 +337,6 @@ curl -X GET 'https://saavn.me/songs?id=5WXAlMNt,csaEsVWV
 
 +++
 
-| Query Parameter                              | Description | Required                               |
+| Query Parameter                       | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Song ID     | [!badge variant="primary" text="True"] |

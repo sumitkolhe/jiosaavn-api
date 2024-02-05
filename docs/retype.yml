@@ -1,12 +1,12 @@
 input: .
 output: ./public
-url: https://docs.saavn.me
+url: https://docs.saavn.dev
 branding:
   title: JioSaavn
   label: Docs
 links:
   - text: API
-    link: https://saavn.me
+    link: https://saavn.dev
   - text: Github
     link: https://github.com/sumitkolhe/jiosaavn-api
   - text: Author

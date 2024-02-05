@@ -12,11 +12,11 @@ export class HomeController {
           <meta name="title" content="JioSaavn API" />
           <meta name="description" content="JioSaavn API by Sumit Kolhe" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://saavn.me/" />
+          <meta property="og:url" content="https://saavn.dev/" />
           <meta property="og:title" content="JioSaavn API" />
           <meta property="og:description" content="JioSaavn API by Sumit Kolhe" />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://saavn.me/" />
+          <meta property="twitter:url" content="https://saavn.dev/" />
           <meta property="twitter:title" content="JioSaavn API by Sumit Kolhe" />
           <meta property="twitter:description" content="JioSaavn API by Sumit Kolhe" />
         </head>
@@ -77,7 +77,7 @@ export class HomeController {
                   <a
                     target="_blank"
                     class="bg-white bg-opacity-0 border-b border-white border-opacity-5 relative -ml-px p-8 hover:bg-opacity-[3%] duration-100 group sm:col-span-4"
-                    href="https://docs.saavn.me"
+                    href="https://docs.saavn.dev"
                   >
                     <div class="flex flex-col">
                       <span

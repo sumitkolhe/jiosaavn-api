@@ -60,7 +60,7 @@ export class App {
     this.app.use((req, res) => {
       res.status(404).json({
         status: 'FAILED',
-        message: 'route not found, please check documentation at https://docs.saavn.me',
+        message: 'route not found, please check documentation at https://docs.saavn.dev',
         data: null,
       })
     })

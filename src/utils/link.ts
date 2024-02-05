@@ -50,8 +50,8 @@ export const createImageLinks = (link?: string) => {
 // sanitize lyrics using sentence case
 export const sanitizeLyrics = (lyrics: string) =>
   lyrics
-    .replace(/"/gi, "'")
-    .replace(/ {2}/gi, ' ')
+    .replaceAll(/"/gi, "'")
+    .replaceAll(/ {2}/gi, ' ')
     .split('<br>')
     .map((text) => {
       const firstLetter = text.slice(0, 1)

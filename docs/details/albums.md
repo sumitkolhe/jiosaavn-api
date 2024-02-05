@@ -12,13 +12,13 @@ icon: stack
 HTTP
 
 ```bash
-https://saavn.me/albums?link=https://www.jiosaavn.com/album/night-visions/xe6Gx7Sg12U_
+https://saavn.dev/albums?link=https://www.jiosaavn.com/album/night-visions/xe6Gx7Sg12U_
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/albums?link=https://www.jiosaavn.com/album/night-visions/xe6Gx7Sg12U_' \
+curl -X GET 'https://saavn.dev/albums?link=https://www.jiosaavn.com/album/night-visions/xe6Gx7Sg12U_' \
  -H 'content-type: application/json'
 ```
 
@@ -828,7 +828,7 @@ curl -X GET 'https://saavn.me/albums?link=https://www.jiosaavn.com/album/night-v
 
 +++
 
-| Query Parameter                                | Description                            | Required                               |
+| Query Parameter                         | Description                            | Required                               |
 | --------------------------------------- | -------------------------------------- | -------------------------------------- |
 | [!badge variant="contrast" text="link"] | Album link from <https://jiosaavn.com> | [!badge variant="primary" text="True"] |
 
@@ -839,13 +839,13 @@ curl -X GET 'https://saavn.me/albums?link=https://www.jiosaavn.com/album/night-v
 HTTP
 
 ```bash
-https://saavn.me/albums?id=1142502
+https://saavn.dev/albums?id=1142502
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/albums?id=1142502' \
+curl -X GET 'https://saavn.dev/albums?id=1142502' \
  -H 'content-type: application/json'
 ```
 
@@ -1655,6 +1655,6 @@ curl -X GET 'https://saavn.me/albums?id=1142502' \
 
 +++
 
-| Query Parameter                              | Description | Required                               |
+| Query Parameter                       | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
 | [!badge variant="contrast" text="id"] | Album ID    | [!badge variant="primary" text="True"] |

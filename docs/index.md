@@ -5,7 +5,7 @@ icon: rocket
 
 # Introduction
 
-[Saavn.me](https://saavn.me) is an unofficial API for JioSaavn for downloading high-quality songs for free.
+[saavn.dev](https://saavn.dev) is an unofficial API for JioSaavn for downloading high-quality songs for free.
 
 ## Features
 

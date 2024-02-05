@@ -12,13 +12,13 @@ Search songs by query -
 HTTP
 
 ```bash
-https://saavn.me/search/songs?query=kun+faya+kun&page=1&limit=2
+https://saavn.dev/search/songs?query=kun+faya+kun&page=1&limit=2
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/search/songs?query=kun+faya+kun&page=1&limit=2' \
+curl -X GET 'https://saavn.dev/search/songs?query=kun+faya+kun&page=1&limit=2' \
  -H 'content-type: application/json'
 ```
 
@@ -157,8 +157,8 @@ curl -X GET 'https://saavn.me/search/songs?query=kun+faya+kun&page=1&limit=2' \
 
 +++
 
-| Query Parameter                                 | Description             | Default | Required                                |
+| Query Parameter                          | Description             | Default | Required                                |
 | ---------------------------------------- | ----------------------- | ------- | --------------------------------------- |
 | [!badge variant="contrast" text="page"]  | Current page            | 1       | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="limit"] | limit number of results | 10      | [!badge variant="primary" text="False"] |
-| [!badge variant="contrast" text="query"]  | Search query            | -       | [!badge variant="primary" text="True"] |
+| [!badge variant="contrast" text="query"] | Search query            | -       | [!badge variant="primary" text="True"]  |

@@ -14,13 +14,13 @@ Get launch data from <https://jiosaavn.com> homepage for different modules such 
 HTTP
 
 ```bash
-https://saavn.me/modules?language=hindi,english
+https://saavn.dev/modules?language=hindi,english
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/modules?language=hindi,english' \
+curl -X GET 'https://saavn.dev/modules?language=hindi,english' \
  -H 'content-type: application/json'
 ```
 
@@ -3390,6 +3390,6 @@ curl -X GET 'https://saavn.me/modules?language=hindi,english' \
 
 +++
 
-| Query Parameter                                | Description                           | Required                               |
-| --------------------------------------- | ------------------------------------- | -------------------------------------- |
+| Query Parameter                             | Description                                                                                                                                                                 | Required                                |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | [!badge variant="contrast" text="language"] | One or more languages from     Hindi, English, Punjabi, Tamil, Telugu, Marathi, Gujarati, Bengali, Kannada, Bhojpuri, Malayalam, Urdu, Haryanvi, Rajasthani, Odia, Assamese | [!badge variant="primary" text="False"] |

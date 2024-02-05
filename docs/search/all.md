@@ -12,13 +12,13 @@ Search songs, albums, playlists, artists, etc with a query.
 HTTP
 
 ```bash
-https://saavn.me/search/all?query=imagine+dragons
+https://saavn.dev/search/all?query=imagine+dragons
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/search/all?query=imagine+dragons' \
+curl -X GET 'https://saavn.dev/search/all?query=imagine+dragons' \
  -H 'content-type: application/json'
 ```
 
@@ -373,6 +373,6 @@ curl -X GET 'https://saavn.me/search/all?query=imagine+dragons' \
 
 +++
 
-| Query Parameter                                 | Description             | Default | Required                                |
-| ---------------------------------------- | ----------------------- | ------- | --------------------------------------- |
-| [!badge variant="contrast" text="query"]  | Search query            | -       | [!badge variant="primary" text="True"] |
+| Query Parameter                          | Description  | Default | Required                               |
+| ---------------------------------------- | ------------ | ------- | -------------------------------------- |
+| [!badge variant="contrast" text="query"] | Search query | -       | [!badge variant="primary" text="True"] |

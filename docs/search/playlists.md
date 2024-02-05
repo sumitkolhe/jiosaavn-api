@@ -12,13 +12,13 @@ Search playlists by query.
 HTTP
 
 ```bash
-https://saavn.me/search/playlists?query=sia
+https://saavn.dev/search/playlists?query=sia
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/search/playlists?query=sia' \
+curl -X GET 'https://saavn.dev/search/playlists?query=sia' \
  -H 'content-type: application/json'
 ```
 
@@ -117,8 +117,8 @@ curl -X GET 'https://saavn.me/search/playlists?query=sia' \
 
 +++
 
-| Query Parameter                                 | Description             | Default | Required                                |
+| Query Parameter                          | Description             | Default | Required                                |
 | ---------------------------------------- | ----------------------- | ------- | --------------------------------------- |
 | [!badge variant="contrast" text="page"]  | Current page            | 1       | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="limit"] | limit number of results | 10      | [!badge variant="primary" text="False"] |
-| [!badge variant="contrast" text="query"]  | Search query            | -       | [!badge variant="primary" text="True"] |
+| [!badge variant="contrast" text="query"] | Search query            | -       | [!badge variant="primary" text="True"]  |

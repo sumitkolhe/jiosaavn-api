@@ -12,13 +12,13 @@ icon: log
 HTTP
 
 ```bash
-https://saavn.me/playlists?id=159144718
+https://saavn.dev/playlists?id=159144718
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/playlists?id=159144718' \
+curl -X GET 'https://saavn.dev/playlists?id=159144718' \
  -H 'content-type: application/json'
 ```
 
@@ -1832,6 +1832,6 @@ curl -X GET 'https://saavn.me/playlists?id=159144718' \
 
 +++
 
-| Query Parameter                              | Description | Required                               |
+| Query Parameter                       | Description | Required                               |
 | ------------------------------------- | ----------- | -------------------------------------- |
-| [!badge variant="contrast" text="id"] | Playlist ID     | [!badge variant="primary" text="True"] |
+| [!badge variant="contrast" text="id"] | Playlist ID | [!badge variant="primary" text="True"] |

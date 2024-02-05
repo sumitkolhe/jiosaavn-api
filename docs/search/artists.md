@@ -12,13 +12,13 @@ Search artists by query.
 HTTP
 
 ```bash
-https://saavn.me/search/artists?query=imagine+dragons
+https://saavn.dev/search/artists?query=imagine+dragons
 ```
 
 CURL
 
 ```bash
-curl -X GET 'https://saavn.me/search/artists?query=imagine+dragons' \
+curl -X GET 'https://saavn.dev/search/artists?query=imagine+dragons' \
  -H 'content-type: application/json'
 ```
 
@@ -249,8 +249,8 @@ curl -X GET 'https://saavn.me/search/artists?query=imagine+dragons' \
 
 +++
 
-| Query Parameter                                 | Description             | Default | Required                                |
+| Query Parameter                          | Description             | Default | Required                                |
 | ---------------------------------------- | ----------------------- | ------- | --------------------------------------- |
 | [!badge variant="contrast" text="page"]  | Current page            | 1       | [!badge variant="primary" text="False"] |
 | [!badge variant="contrast" text="limit"] | limit number of results | 10      | [!badge variant="primary" text="False"] |
-| [!badge variant="contrast" text="query"]  | Search query            | -       | [!badge variant="primary" text="True"] |
+| [!badge variant="contrast" text="query"] | Search query            | -       | [!badge variant="primary" text="True"]  |
