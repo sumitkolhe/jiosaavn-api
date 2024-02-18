@@ -11,7 +11,7 @@ export class GetSongByLinkUseCase implements IUseCase<String, Song[]> {
   async execute(songLink: string) {
     const response = await useFetch<{ songs: SongAPIResponse[] }>(Endpoints.songs.link, {
       token: songLink,
-      type: 'song',
+      type: 'song'
     })
 
     if (!response.songs?.length) throw new HTTPException(404, { message: 'song not found' })

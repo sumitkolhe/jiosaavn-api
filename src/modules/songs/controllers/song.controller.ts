@@ -14,7 +14,7 @@ export class SongController {
 
     const response = await this.songsService.getSongByIds({
       songIds: songId,
-      includeLyrics: lyrics,
+      includeLyrics: lyrics
     })
 
     return ctx.json({ success: true, data: response })

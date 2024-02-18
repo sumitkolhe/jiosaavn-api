@@ -8,7 +8,7 @@ export const createDownloadLinks = (encryptedMediaUrl: string) => {
     { id: '_48', bitrate: '48kbps' },
     { id: '_96', bitrate: '96kbps' },
     { id: '_160', bitrate: '160kbps' },
-    { id: '_320', bitrate: '320kbps' },
+    { id: '_320', bitrate: '320kbps' }
   ]
 
   const key = '38346591'
@@ -24,7 +24,7 @@ export const createDownloadLinks = (encryptedMediaUrl: string) => {
 
   return qualities.map((quality) => ({
     quality: quality.bitrate,
-    url: decryptedLink.replace('_96', quality.id),
+    url: decryptedLink.replace('_96', quality.id)
   }))
 }
 
@@ -36,6 +36,6 @@ export const createImageLinks = (link: string) => {
 
   return qualities.map((quality) => ({
     quality,
-    url: link.replace(regex, quality),
+    url: link.replace(regex, quality)
   }))
 }

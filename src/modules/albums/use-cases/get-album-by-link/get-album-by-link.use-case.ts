@@ -11,7 +11,7 @@ export class GetAlbumByLinkUseCase implements IUseCase<String, Album> {
   async execute(albumLink: string) {
     const response = await useFetch<AlbumAPIResponse>(Endpoints.albums.link, {
       token: albumLink,
-      type: 'album',
+      type: 'album'
     })
 
     if (!response) throw new HTTPException(404, { message: 'album not found' })

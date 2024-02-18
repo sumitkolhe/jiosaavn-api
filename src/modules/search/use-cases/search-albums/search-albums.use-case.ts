@@ -22,7 +22,7 @@ export class SearchAlbumsUseCase implements IUseCase<SearchAlbumsArgs, SearchAlb
     return {
       total: response.total,
       start: response.start,
-      results: response.results?.map(createAlbumPayload).slice(0, limit) || [],
+      results: response.results?.map(createAlbumPayload).slice(0, limit) || []
     }
   }
 }

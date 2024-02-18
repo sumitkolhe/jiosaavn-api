@@ -10,7 +10,7 @@ export const albumSchema = zValidator(
         .string()
         .refine((value) => value.includes(`jiosaavn.com/album/`), {
           message: 'invalid album link',
-          path: ['link'],
+          path: ['link']
         })
         .transform((value) => {
           if (value.includes(`jiosaavn.com/album/`)) {
@@ -19,10 +19,10 @@ export const albumSchema = zValidator(
           }
           return value
         })
-        .optional(),
+        .optional()
     })
     .refine((data) => !(data.id && data.link), {
       message: 'id and link are not supported together, pass only one of them',
-      path: [],
+      path: []
     })
 )

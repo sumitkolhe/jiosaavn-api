@@ -6,6 +6,6 @@ export const searchSchema = zValidator(
   z.object({
     query: z.string(),
     page: z.string().default('1'),
-    limit: z.string().default('10'),
+    limit: z.string().default('10')
   })
 )

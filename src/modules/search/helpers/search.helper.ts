@@ -15,10 +15,10 @@ export const createSearchPayload = (search: SearchAPIResponse): Search => ({
         description: item?.description,
         position: item?.position,
         primaryArtists: item?.more_info?.primary_artists,
-        singers: item?.more_info?.singers,
+        singers: item?.more_info?.singers
       }
     }),
-    position: search?.topquery?.position,
+    position: search?.topquery?.position
   },
 
   songs: {
@@ -34,10 +34,10 @@ export const createSearchPayload = (search: SearchAPIResponse): Search => ({
         position: song?.position,
         primaryArtists: song?.more_info?.primary_artists,
         singers: song?.more_info?.singers,
-        language: song?.more_info?.language,
+        language: song?.more_info?.language
       }
     }),
-    position: search.songs.position,
+    position: search.songs.position
   },
 
   albums: {
@@ -53,10 +53,10 @@ export const createSearchPayload = (search: SearchAPIResponse): Search => ({
         position: album?.position,
         year: album?.more_info?.year,
         songIds: album?.more_info?.song_pids,
-        language: album?.more_info?.language,
+        language: album?.more_info?.language
       }
     }),
-    position: search?.albums?.position,
+    position: search?.albums?.position
   },
 
   artists: {
@@ -68,10 +68,10 @@ export const createSearchPayload = (search: SearchAPIResponse): Search => ({
         url: artist?.url,
         type: artist?.type,
         description: artist?.description,
-        position: artist?.position,
+        position: artist?.position
       }
     }),
-    position: search?.artists?.position,
+    position: search?.artists?.position
   },
 
   playlists: {
@@ -84,9 +84,9 @@ export const createSearchPayload = (search: SearchAPIResponse): Search => ({
         type: playlist?.type,
         language: playlist?.language,
         description: playlist?.description,
-        position: playlist?.position,
+        position: playlist?.position
       }
     }),
-    position: search?.playlists?.position,
-  },
+    position: search?.playlists?.position
+  }
 })

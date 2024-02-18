@@ -3,7 +3,7 @@ import {
   SearchAlbumsUseCase,
   SearchAllUseCase,
   SearchSongsArgs,
-  SearchSongsUseCase,
+  SearchSongsUseCase
 } from '../use-cases'
 
 export class SearchService {

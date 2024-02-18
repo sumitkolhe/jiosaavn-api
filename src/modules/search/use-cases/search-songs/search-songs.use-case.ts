@@ -22,7 +22,7 @@ export class SearchSongsUseCase implements IUseCase<SearchSongsArgs, SearchSong>
     return {
       total: response.total,
       start: response.start,
-      results: response.results?.map(createSongPayload).slice(0, limit) || [],
+      results: response.results?.map(createSongPayload).slice(0, limit) || []
     }
   }
 }

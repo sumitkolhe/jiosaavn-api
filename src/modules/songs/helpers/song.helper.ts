@@ -7,7 +7,7 @@ export const createArtistMap = (artist: SongArtistMap): ArtistMap => ({
   role: artist.role,
   image: artist.image,
   type: artist.type,
-  url: artist.perma_url,
+  url: artist.perma_url
 })
 
 export const createSongPayload = (song: SongAPIResponse): Song => ({
@@ -28,19 +28,19 @@ export const createSongPayload = (song: SongAPIResponse): Song => ({
   album: {
     id: song.more_info?.album_id,
     name: song.more_info?.album,
-    url: song.more_info?.album_url,
+    url: song.more_info?.album_url
   },
   artists: {
     primary: song.more_info?.artistMap?.primary_artists?.map(createArtistMap),
     featured: song.more_info?.artistMap?.featured_artists?.map(createArtistMap),
-    all: song.more_info?.artistMap?.artists?.map(createArtistMap),
+    all: song.more_info?.artistMap?.artists?.map(createArtistMap)
   },
   image: createImageLinks(song.image),
-  downloadUrl: createDownloadLinks(song.more_info?.encrypted_media_url),
+  downloadUrl: createDownloadLinks(song.more_info?.encrypted_media_url)
 })
 
 export const createSongLyricsPayload = (lyrics: LyricsAPIResponse): Lyrics => ({
   lyrics: lyrics?.lyrics,
   snippet: lyrics?.snippet,
-  copyright: lyrics?.lyrics_copyright,
+  copyright: lyrics?.lyrics_copyright
 })

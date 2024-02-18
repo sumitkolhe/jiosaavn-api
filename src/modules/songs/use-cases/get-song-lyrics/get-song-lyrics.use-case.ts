@@ -10,7 +10,7 @@ export class GetSongLyricsUseCase implements IUseCase<String, Lyrics> {
 
   async execute(songId: string) {
     const response = await useFetch<LyricsAPIResponse>(Endpoints.lyrics, {
-      lyrics_id: songId,
+      lyrics_id: songId
     })
 
     if (!response.lyrics) throw new HTTPException(404, { message: 'lyrics not found' })

@@ -15,8 +15,8 @@ export const createAlbumPayload = (album: AlbumAPIResponse): Album => ({
   artists: {
     primary: album.more_info?.artistMap?.primary_artists?.map(createArtistMap),
     featured: album.more_info?.artistMap?.featured_artists?.map(createArtistMap),
-    all: album.more_info?.artistMap?.artists?.map(createArtistMap),
+    all: album.more_info?.artistMap?.artists?.map(createArtistMap)
   },
   image: createImageLinks(album.image),
-  songs: Array.isArray(album.list) ? album.list?.map(createSongPayload) : [],
+  songs: Array.isArray(album.list) ? album.list?.map(createSongPayload) : []
 })
