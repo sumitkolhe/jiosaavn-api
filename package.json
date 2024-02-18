@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "bun run --hot src/server.ts",
     "start": "bun dist/server.js",
-    "build": "tsc && tsc-alias",
+    "build": "tsc",
     "format": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint . --ext \".ts\"",
     "lint:fix": "eslint --fix --ext .js,.ts .",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@hono/node-server": "^1.8.0",
     "@hono/zod-validator": "^0.1.11",
-    "hono": "^4.0.3",
+    "hono": "^4.0.4",
     "lru-cache": "^10.2.0",
     "node-forge": "^1.3.1",
     "zod": "^3.22.4"
