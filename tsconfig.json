@@ -10,19 +10,24 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "module": "commonjs",
+    "skipLibCheck": true,
+    "noImplicitAny": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "pretty": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
     "sourceMap": false,
+    "strictNullChecks": true,
     "declaration": true,
-    "outDir": "./public",
+    "outDir": "./dist",
     "allowJs": true,
     "noEmit": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "importHelpers": true,
-    "baseUrl": "src"
+    "rootDir": "./src"
   },
-  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
