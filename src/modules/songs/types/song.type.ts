@@ -18,6 +18,11 @@ export interface ArtistMap {
   url: string
 }
 
+export interface SongSuggestionApiResponse {
+  stationid: string
+  songs: Record<string, { song: SongAPIResponse }>
+}
+
 export interface SongAPIResponse {
   id: string
   title: string

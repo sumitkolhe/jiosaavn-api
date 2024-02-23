@@ -8,7 +8,8 @@ export const Endpoints = {
   },
   songs: {
     id: 'song.getDetails',
-    link: 'webapi.get'
+    link: 'webapi.get',
+    suggestions: 'webradio.getSong'
   },
   albums: {
     id: 'content.getAlbumDetails',
@@ -25,5 +26,6 @@ export const Endpoints = {
     topSongs: 'search.artistOtherTopSongs'
   },
   lyrics: 'lyrics.getLyrics',
-  modules: 'content.getBrowseModules'
+  modules: 'content.getBrowseModules',
+  station: 'webradio.createEntityStation'
 }

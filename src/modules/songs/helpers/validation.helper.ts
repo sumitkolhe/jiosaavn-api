@@ -4,13 +4,16 @@ import { z } from 'zod'
 export const songSchema = zValidator(
   'query',
   z.object({
-    lyrics: z.string().transform((str) => str === 'true')
+    lyrics: z
+      .string()
+      .transform((str) => str === 'true')
+      .optional()
   })
 )
 
-export const songLyricsSchema = zValidator(
-  'param',
+export const songSuggestionSchema = zValidator(
+  'query',
   z.object({
-    id: z.string()
+    limit: z.string().default('5')
   })
 )

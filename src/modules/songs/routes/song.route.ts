@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { SongController } from '../controllers/song.controller'
-import { songLyricsSchema, songSchema } from '../helpers'
+import { songSchema, songSuggestionSchema } from '../helpers'
 import type { Routes } from '../../../common/types'
 
 export class SongRoute implements Routes {
@@ -15,6 +15,7 @@ export class SongRoute implements Routes {
 
   private initializeRoutes() {
     this.router.get(`${this.path}/:id`, songSchema, (c) => this.songController.getSong(c))
-    this.router.get(`${this.path}/:id/lyrics`, songLyricsSchema, (c) => this.songController.getLyrics(c))
+    this.router.get(`${this.path}/:id/lyrics`, (c) => this.songController.getLyrics(c))
+    this.router.get(`${this.path}/:id/suggestions`, songSuggestionSchema, (c) => this.songController.getSuggestions(c))
   }
 }

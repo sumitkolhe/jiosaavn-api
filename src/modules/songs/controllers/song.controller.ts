@@ -27,4 +27,13 @@ export class SongController {
 
     return ctx.json({ success: true, data: result })
   }
+
+  public getSuggestions = async (ctx: Context) => {
+    const songId = ctx.req.param('id')
+    const { limit } = ctx.req.valid('query' as never)
+
+    const suggestions = await this.songsService.getSongSuggestions({ songId, limit })
+
+    return ctx.json({ success: true, data: suggestions })
+  }
 }
