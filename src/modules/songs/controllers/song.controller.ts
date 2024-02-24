@@ -9,6 +9,16 @@ export class SongController {
   }
 
   public getSong = async (ctx: Context) => {
+    const { link, id } = ctx.req.valid('query' as never)
+
+    const response = id
+      ? await this.songsService.getSongByIds({ songIds: id })
+      : await this.songsService.getSongByLink(link)
+
+    return ctx.json({ success: true, data: response })
+  }
+
+  public getSongById = async (ctx: Context) => {
     const songId = ctx.req.param('id')
     const { lyrics } = ctx.req.valid('query' as never)
 

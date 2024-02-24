@@ -8,9 +8,9 @@ import type { Song, SongAPIResponse } from '../../types'
 export class GetSongByLinkUseCase implements IUseCase<String, Song[]> {
   constructor() {}
 
-  async execute(songLink: string) {
+  async execute(token: string) {
     const response = await useFetch<{ songs: SongAPIResponse[] }>(Endpoints.songs.link, {
-      token: songLink,
+      token,
       type: 'song'
     })
 

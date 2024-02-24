@@ -21,8 +21,8 @@ export class SongService {
     return this.getSongByIdUseCase.execute(args)
   }
 
-  getSongByLink = async (songLink: string) => {
-    return this.getSongByLinkUseCase.execute(songLink)
+  getSongByLink = async (token: string) => {
+    return this.getSongByLinkUseCase.execute(token)
   }
 
   getSongLyrics = async (songId: string) => {

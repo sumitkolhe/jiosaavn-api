@@ -8,7 +8,7 @@ import type { Song, SongAPIResponse } from '../../types'
 
 export interface GetSongByIdArgs {
   songIds: string
-  includeLyrics: boolean
+  includeLyrics?: boolean
 }
 
 export class GetSongByIdUseCase implements IUseCase<GetSongByIdArgs, Song[]> {
