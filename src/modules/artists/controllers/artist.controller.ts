@@ -45,4 +45,18 @@ export class ArtistController {
 
     return ctx.json({ success: true, data: response })
   }
+
+  public getArtistAlbums = async (ctx: Context) => {
+    const artistId = ctx.req.param('id')
+    const { page, sortBy, sortOrder } = ctx.req.valid('query' as never)
+
+    const response = await this.artistService.getArtistAlbums({
+      artistId,
+      page,
+      sortBy,
+      sortOrder
+    })
+
+    return ctx.json({ success: true, data: response })
+  }
 }

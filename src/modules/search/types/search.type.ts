@@ -1,4 +1,5 @@
-import { AlbumAPIResponse, Album, DownloadLink } from '../../albums/types'
+import { DownloadLink } from '../../../common/types'
+import { AlbumAPIResponse, Album } from '../../albums/types'
 import { SongAPIResponse, Song } from '../../songs/types'
 
 export interface SearchSongAPIResponse {

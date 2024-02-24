@@ -1,4 +1,4 @@
-import type { DownloadLink } from '../../albums/types'
+import type { DownloadLink } from '../../../common/types'
 
 export interface SongArtistMap {
   id: string

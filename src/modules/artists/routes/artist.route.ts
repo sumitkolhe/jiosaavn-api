@@ -19,5 +19,8 @@ export class ArtistRoute implements Routes {
     this.router.get(`${this.path}/:id/songs`, artistSongsAndAlbumsSchema, (c) =>
       this.artistController.getArtistSongs(c)
     )
+    this.router.get(`${this.path}/:id/albums`, artistSongsAndAlbumsSchema, (c) =>
+      this.artistController.getArtistAlbums(c)
+    )
   }
 }
