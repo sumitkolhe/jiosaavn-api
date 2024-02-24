@@ -23,5 +23,23 @@ export const createArtistPayload = (artist: ArtistAPIResponse): Artist => ({
   image: createImageLinks(artist.image),
   topSongs: artist.topSongs?.map(createSongPayload) || [],
   topAlbums: artist.topAlbums?.map(createAlbumPayload) || [],
-  singles: artist.singles?.map(createSongPayload) || []
+  singles: artist.singles?.map(createSongPayload) || [],
+  similarArtists:
+    artist.similarArtists?.map((similarArtist) => ({
+      id: similarArtist.id,
+      name: similarArtist.name,
+      url: similarArtist.perma_url,
+      image: createImageLinks(similarArtist.image_url),
+      languages: similarArtist.languages && JSON.parse(similarArtist.languages),
+      wiki: similarArtist.wiki,
+      dob: similarArtist.dob,
+      fb: similarArtist.fb,
+      twitter: similarArtist.twitter,
+      isRadioPresent: similarArtist.isRadioPresent,
+      type: similarArtist.type,
+      dominantType: similarArtist.dominantType,
+      aka: similarArtist.aka,
+      bio: similarArtist.bio,
+      similarArtists: similarArtist.similar && JSON.parse(similarArtist.similar)
+    })) || []
 })

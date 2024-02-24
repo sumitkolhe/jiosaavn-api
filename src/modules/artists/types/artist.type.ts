@@ -88,6 +88,7 @@ export interface ArtistAPIResponse {
     primary_artist_id: string
     id: string
     fb: string
+    bio: string
     perma_url: string
     type: string
     mini_obj: boolean
@@ -134,4 +135,21 @@ export interface Artist {
   topSongs: Song[]
   topAlbums: Album[]
   singles: Song[]
+  similarArtists: {
+    id: string
+    name: string
+    url: string
+    image: DownloadLink[]
+    languages: string
+    wiki: string
+    dob: string
+    fb: string
+    twitter: string
+    isRadioPresent: boolean
+    type: string
+    dominantType: string
+    aka: string
+    bio: string
+    similarArtists: string
+  }[]
 }
