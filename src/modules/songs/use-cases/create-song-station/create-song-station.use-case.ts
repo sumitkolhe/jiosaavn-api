@@ -9,7 +9,7 @@ export class CreateSongStationUseCase implements IUseCase<String, String> {
   async execute(songId: string) {
     const encodedSongId = JSON.stringify([encodeURIComponent(songId)])
 
-    const response = await useFetch<{ stationid: string }>(Endpoints.station, {
+    const response = await useFetch<{ stationid: string }>(Endpoints.songs.station, {
       entity_id: encodedSongId,
       entity_type: 'queue'
     })

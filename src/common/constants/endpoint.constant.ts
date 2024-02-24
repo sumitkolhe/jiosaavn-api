@@ -9,23 +9,23 @@ export const Endpoints = {
   songs: {
     id: 'song.getDetails',
     link: 'webapi.get',
-    suggestions: 'webradio.getSong'
+    suggestions: 'webradio.getSong',
+    lyrics: 'lyrics.getLyrics',
+    station: 'webradio.createEntityStation'
   },
   albums: {
     id: 'content.getAlbumDetails',
     link: 'webapi.get'
   },
-  playlists: {
-    id: 'playlist.getDetails'
-  },
   artists: {
     id: 'artist.getArtistPageDetails',
     link: 'webapi.get',
     songs: 'artist.getArtistMoreSong',
-    albums: 'artist.getArtistMoreAlbum',
-    topSongs: 'search.artistOtherTopSongs'
+    albums: 'artist.getArtistMoreAlbum'
   },
-  lyrics: 'lyrics.getLyrics',
+  playlists: {
+    id: 'playlist.getDetails'
+  },
   modules: 'content.getBrowseModules',
-  station: 'webradio.createEntityStation'
+  trending: 'content.getTrending'
 }

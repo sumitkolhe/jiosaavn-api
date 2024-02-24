@@ -9,7 +9,7 @@ export class GetSongLyricsUseCase implements IUseCase<String, Lyrics> {
   constructor() {}
 
   async execute(songId: string) {
-    const response = await useFetch<LyricsAPIResponse>(Endpoints.lyrics, {
+    const response = await useFetch<LyricsAPIResponse>(Endpoints.songs.lyrics, {
       lyrics_id: songId
     })
 
