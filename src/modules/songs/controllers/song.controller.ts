@@ -2,18 +2,18 @@ import { SongService } from '../services'
 import type { Context } from 'hono'
 
 export class SongController {
-  private songsService: SongService
+  private songService: SongService
 
   constructor() {
-    this.songsService = new SongService()
+    this.songService = new SongService()
   }
 
   public getSong = async (ctx: Context) => {
     const { link, id } = ctx.req.valid('query' as never)
 
     const response = id
-      ? await this.songsService.getSongByIds({ songIds: id })
-      : await this.songsService.getSongByLink(link)
+      ? await this.songService.getSongByIds({ songIds: id })
+      : await this.songService.getSongByLink(link)
 
     return ctx.json({ success: true, data: response })
   }
@@ -22,7 +22,7 @@ export class SongController {
     const songId = ctx.req.param('id')
     const { lyrics } = ctx.req.valid('query' as never)
 
-    const response = await this.songsService.getSongByIds({
+    const response = await this.songService.getSongByIds({
       songIds: songId,
       includeLyrics: lyrics
     })
@@ -33,7 +33,7 @@ export class SongController {
   public getLyrics = async (ctx: Context) => {
     const id = ctx.req.param('id')
 
-    const result = await this.songsService.getSongLyrics(id)
+    const result = await this.songService.getSongLyrics(id)
 
     return ctx.json({ success: true, data: result })
   }
@@ -42,7 +42,7 @@ export class SongController {
     const songId = ctx.req.param('id')
     const { limit } = ctx.req.valid('query' as never)
 
-    const suggestions = await this.songsService.getSongSuggestions({ songId, limit })
+    const suggestions = await this.songService.getSongSuggestions({ songId, limit })
 
     return ctx.json({ success: true, data: suggestions })
   }
