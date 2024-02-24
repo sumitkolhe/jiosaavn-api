@@ -1,9 +1,5 @@
+import type { DownloadLink } from '../../../common/types'
 import type { Song, SongAPIResponse } from '../../songs/types'
-
-export interface DownloadLink {
-  quality: string
-  url: string
-}
 
 export interface AlbumAPIResponse {
   id: string

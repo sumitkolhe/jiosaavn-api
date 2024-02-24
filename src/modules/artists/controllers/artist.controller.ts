@@ -17,9 +17,31 @@ export class ArtistController {
   }
 
   public getArtistById = async (ctx: Context) => {
-    const songId = ctx.req.param('id')
+    const artistId = ctx.req.param('id')
+    const { page, sortBy, sortOrder, songCount, albumCount } = ctx.req.valid('query' as never)
 
-    const response = await this.artistService.getArtistById(songId)
+    const response = await this.artistService.getArtistById({
+      artistId,
+      page,
+      songCount,
+      albumCount,
+      sortBy,
+      sortOrder
+    })
+
+    return ctx.json({ success: true, data: response })
+  }
+
+  public getArtistSongs = async (ctx: Context) => {
+    const artistId = ctx.req.param('id')
+    const { page, sortBy, sortOrder } = ctx.req.valid('query' as never)
+
+    const response = await this.artistService.getArtistSongs({
+      artistId,
+      page,
+      sortBy,
+      sortOrder
+    })
 
     return ctx.json({ success: true, data: response })
   }
