@@ -25,9 +25,9 @@ export const artistSchema = zValidator(
 export const artistSongsAndAlbumsSchema = zValidator(
   'query',
   z.object({
-    page: z.string().default('1'),
-    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('latest'),
-    sortOrder: z.enum(['asc', 'desc']).default('desc'),
+    page: z.string().default('0'),
+    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('popularity'),
+    sortOrder: z.enum(['asc', 'desc']).default('asc'),
     songCount: z.string().default('10'),
     albumCount: z.string().default('10')
   })
@@ -36,17 +36,17 @@ export const artistSongsAndAlbumsSchema = zValidator(
 export const artistSongsSchema = zValidator(
   'query',
   z.object({
-    page: z.string().default('1'),
-    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('latest'),
-    sortOrder: z.enum(['asc', 'desc']).default('desc')
+    page: z.string().default('0'),
+    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('popularity'),
+    sortOrder: z.enum(['asc', 'desc']).default('asc')
   })
 )
 
 export const artistAlbumsSchema = zValidator(
   'query',
   z.object({
-    page: z.string().default('1'),
-    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('latest'),
-    sortOrder: z.enum(['asc', 'desc']).default('desc')
+    page: z.string().default('0'),
+    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('popularity'),
+    sortOrder: z.enum(['asc', 'desc']).default('asc')
   })
 )
