@@ -8,9 +8,9 @@ import type { Album, AlbumAPIResponse } from '../../types'
 export class GetAlbumByLinkUseCase implements IUseCase<String, Album> {
   constructor() {}
 
-  async execute(albumLink: string) {
+  async execute(token: string) {
     const response = await useFetch<AlbumAPIResponse>(Endpoints.albums.link, {
-      token: albumLink,
+      token,
       type: 'album'
     })
 

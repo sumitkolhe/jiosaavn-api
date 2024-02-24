@@ -10,7 +10,12 @@ export const artistSchema = zValidator(
         .string()
         .url()
         .optional()
-        .transform((value) => value?.match(/jiosaavn\.com\/artist\/[^/]+\/([^/]+)$/)?.[1])
+        .transform((value) => value?.match(/jiosaavn\.com\/artist\/[^/]+\/([^/]+)$/)?.[1]),
+      page: z.string().default('0'),
+      sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('popularity'),
+      sortOrder: z.enum(['asc', 'desc']).default('asc'),
+      songCount: z.string().default('10'),
+      albumCount: z.string().default('10')
     })
     .refine((data) => !(data.id && data.link), {
       message: 'either id or link must be provided, but not both.',

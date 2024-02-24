@@ -5,8 +5,8 @@ import { createArtistPayload } from '../../helpers'
 import type { Artist, ArtistAPIResponse } from '../../types'
 import type { IUseCase } from '../../../../common/types'
 
-export interface GetArtistByIdArgs {
-  artistId: string
+export interface GetArtistByLinkArgs {
+  token: string
   page: number
   songCount: number
   albumCount: number
@@ -14,17 +14,18 @@ export interface GetArtistByIdArgs {
   sortOrder: 'asc' | 'desc'
 }
 
-export class GetArtistByIdUseCase implements IUseCase<GetArtistByIdArgs, Artist> {
+export class GetArtistByLinkUseCase implements IUseCase<GetArtistByLinkArgs, Artist> {
   constructor() {}
 
-  async execute({ artistId, page, songCount, albumCount, sortBy, sortOrder }: GetArtistByIdArgs) {
-    const response = await useFetch<ArtistAPIResponse>(Endpoints.artists.id, {
-      artistId,
+  async execute({ token, page, songCount, albumCount, sortBy, sortOrder }: GetArtistByLinkArgs) {
+    const response = await useFetch<ArtistAPIResponse>(Endpoints.artists.link, {
+      token,
       n_song: songCount,
       n_album: albumCount,
       page,
       sort_order: sortOrder,
-      category: sortBy
+      category: sortBy,
+      type: 'artist'
     })
 
     if (!response) throw new HTTPException(404, { message: 'artist not found' })
