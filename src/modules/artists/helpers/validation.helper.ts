@@ -32,3 +32,21 @@ export const artistSongsAndAlbumsSchema = zValidator(
     sortOrder: z.enum(['asc', 'desc']).default('desc')
   })
 )
+
+export const artistSongsSchema = zValidator(
+  'query',
+  z.object({
+    page: z.string().default('1'),
+    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('latest'),
+    sortOrder: z.enum(['asc', 'desc']).default('desc')
+  })
+)
+
+export const artistAlbumsSchema = zValidator(
+  'query',
+  z.object({
+    page: z.string().default('1'),
+    sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('latest'),
+    sortOrder: z.enum(['asc', 'desc']).default('desc')
+  })
+)

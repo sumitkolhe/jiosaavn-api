@@ -1,6 +1,11 @@
 import { Hono } from 'hono'
 import { ArtistController } from '../controllers'
-import { artistSchema, artistSongsAndAlbumsSchema } from '../helpers/validation.helper'
+import {
+  artistAlbumsSchema,
+  artistSchema,
+  artistSongsAndAlbumsSchema,
+  artistSongsSchema
+} from '../helpers/validation.helper'
 import type { Routes } from '../../../common/types'
 
 export class ArtistRoute implements Routes {
@@ -16,11 +21,7 @@ export class ArtistRoute implements Routes {
   private initializeRoutes() {
     this.router.get(this.path, artistSchema, (c) => this.artistController.getArtist(c))
     this.router.get(`${this.path}/:id`, artistSongsAndAlbumsSchema, (c) => this.artistController.getArtistById(c))
-    this.router.get(`${this.path}/:id/songs`, artistSongsAndAlbumsSchema, (c) =>
-      this.artistController.getArtistSongs(c)
-    )
-    this.router.get(`${this.path}/:id/albums`, artistSongsAndAlbumsSchema, (c) =>
-      this.artistController.getArtistAlbums(c)
-    )
+    this.router.get(`${this.path}/:id/songs`, artistSongsSchema, (c) => this.artistController.getArtistSongs(c))
+    this.router.get(`${this.path}/:id/albums`, artistAlbumsSchema, (c) => this.artistController.getArtistAlbums(c))
   }
 }
