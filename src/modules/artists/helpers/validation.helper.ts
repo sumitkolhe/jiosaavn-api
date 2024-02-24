@@ -26,10 +26,10 @@ export const artistSongsAndAlbumsSchema = zValidator(
   'query',
   z.object({
     page: z.string().default('1'),
-    songCount: z.string().default('10'),
-    albumCount: z.string().default('10'),
     sortBy: z.enum(['alphabetical', 'popularity', 'latest']).default('latest'),
-    sortOrder: z.enum(['asc', 'desc']).default('desc')
+    sortOrder: z.enum(['asc', 'desc']).default('desc'),
+    songCount: z.string().default('10'),
+    albumCount: z.string().default('10')
   })
 )
 
