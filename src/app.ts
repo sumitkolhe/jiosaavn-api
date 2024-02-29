@@ -33,9 +33,19 @@ export class App {
   }
 
   private initializeSwaggerUI() {
-    this.app.doc('/docs', (c) => ({
-      openapi: '3.0.0',
-      info: { version: '1.0.0', title: 'JioSaavn API' },
+    this.app.doc31('/docs', (c) => ({
+      openapi: '3.1.0',
+      tags: [
+        {
+          name: 'songs',
+          description: 'Operations related to songs'
+        }
+      ],
+      info: {
+        version: '1.0.0',
+        title: 'JioSaavn API',
+        description: `# Introduction \n[saavn.dev](https://saavn.dev) is an unofficial API for JioSaavn for downloading high-quality songs for free. \n`
+      },
       servers: [{ url: new URL(c.req.url).origin, description: 'Current environment' }]
     }))
 
@@ -43,9 +53,13 @@ export class App {
       '/ui',
       apiReference({
         pageTitle: 'JioSaavn API',
-        theme: 'saturn',
+        theme: 'deepSpace',
         isEditable: false,
         layout: 'modern',
+        darkMode: true,
+        metaData: {
+          description: 'JioSaavn API is an unofficial API for JioSaavn for downloading high-quality songs for free.'
+        },
         spec: { url: '/docs' }
       })
     )

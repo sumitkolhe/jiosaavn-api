@@ -17,6 +17,7 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs',
+        tags: ['songs'],
         request: {
           query: z.object({
             id: z.string().optional().openapi({ description: 'Id of the song', type: 'string', example: 'Hq1sr6xu' }),
@@ -65,6 +66,7 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs/{id}',
+        tags: ['songs'],
         request: {
           params: z.object({
             id: z.string().openapi({ example: '1212121' })
@@ -108,6 +110,7 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs/{id}/lyrics',
+        tags: ['songs'],
         request: {
           params: z.object({
             id: z.string().openapi({ example: '1212121' })
@@ -144,6 +147,7 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs/{id}/suggestions',
+        tags: ['songs'],
         request: {
           params: z.object({
             id: z.string().openapi({ example: '1212121' })
