@@ -1,6 +1,6 @@
-import type { Hono } from 'hono'
+import type { OpenAPIHono } from '@hono/zod-openapi'
 
 export interface Routes {
-  path?: string
-  router: Hono
+  controller: OpenAPIHono
+  initRoutes(): void
 }

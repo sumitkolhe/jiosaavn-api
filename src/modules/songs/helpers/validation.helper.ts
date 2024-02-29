@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { z } from 'zod'
+import { z } from '@hono/zod-openapi'
 
 export const songSchema = zValidator(
   'query',

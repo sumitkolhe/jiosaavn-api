@@ -1,5 +1,7 @@
 import { GetSongByIdUseCase, GetSongByLinkUseCase, GetSongLyricsUseCase, GetSongSuggestionsUseCase } from '../use-cases'
 import { CreateSongStationUseCase } from '../use-cases/create-song-station'
+import type { SongModel } from '../models/song.model'
+import type { z } from 'zod'
 import type { GetSongByIdArgs, GetSongSuggestionsArgs } from '../use-cases'
 
 export class SongService {
@@ -17,11 +19,11 @@ export class SongService {
     this.getSongSuggestionsUseCase = new GetSongSuggestionsUseCase()
   }
 
-  getSongByIds = async (args: GetSongByIdArgs) => {
+  getSongByIds = async (args: GetSongByIdArgs): Promise<z.infer<typeof SongModel>[]> => {
     return this.getSongByIdUseCase.execute(args)
   }
 
-  getSongByLink = async (token: string) => {
+  getSongByLink = async (token: string): Promise<z.infer<typeof SongModel>[]> => {
     return this.getSongByLinkUseCase.execute(token)
   }
 
