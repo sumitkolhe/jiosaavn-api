@@ -1,9 +1,6 @@
 import { App } from './app'
-import { AlbumRoute } from './modules/albums/routes'
-import { ArtistRoute } from './modules/artists/routes'
-import { SearchRoute } from './modules/search/routes'
-import { SongRoute } from './modules/songs/routes'
+import { SongController } from './modules/songs/controllers/song.controller'
 
-const app = new App([new SearchRoute(), new SongRoute(), new AlbumRoute(), new ArtistRoute()])
+const app = new App([new SongController()])
 
 export default app.getApp()
