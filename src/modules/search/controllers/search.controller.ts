@@ -18,23 +18,32 @@ export class SearchController {
         method: 'get',
         path: '/search',
         tags: ['search'],
+        summary: 'Perform a global search',
+        description: 'Searches for songs, albums, artists, and playlists based on the provided query string.',
+        operationId: 'globalSearch',
         request: {
           query: z.object({
-            query: z.string()
+            query: z.string().openapi({
+              description: 'Search query string',
+              type: 'string',
+              example: 'Imagine Dragons'
+            })
           })
         },
         responses: {
           200: {
-            description: 'search songs, albums, artists, and playlists',
+            description: 'Successful search across all categories',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the search was successful',
                     type: 'boolean',
                     example: true
                   }),
-                  data: SearchModel
+                  data: SearchModel.openapi({
+                    description: 'Search results including songs, albums, artists, and playlists'
+                  })
                 })
               }
             }
@@ -55,25 +64,44 @@ export class SearchController {
         method: 'get',
         path: '/search/songs',
         tags: ['search'],
+        summary: 'Search for songs',
+        description: 'Searches for songs based on the provided query string, with pagination support.',
+        operationId: 'searchSongs',
         request: {
           query: z.object({
-            query: z.string(),
-            page: z.string().pipe(z.coerce.number().default(0)),
-            limit: z.string().pipe(z.coerce.number().default(10))
+            query: z.string().openapi({
+              description: 'Search query string for songs',
+              type: 'string',
+              example: 'Believer'
+            }),
+            page: z.string().pipe(z.coerce.number().default(0)).openapi({
+              description: 'Page number for pagination',
+              type: 'integer',
+              example: 1,
+              default: 0
+            }),
+            limit: z.string().pipe(z.coerce.number().default(10)).openapi({
+              description: 'Number of search results per page',
+              type: 'integer',
+              example: 10,
+              default: 10
+            })
           })
         },
         responses: {
           200: {
-            description: 'search songs',
+            description: 'Successful search for songs',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the song search was successful',
                     type: 'boolean',
                     example: true
                   }),
-                  data: SearchSongModel
+                  data: SearchSongModel.openapi({
+                    description: 'Search results for songs'
+                  })
                 })
               }
             }
@@ -94,25 +122,44 @@ export class SearchController {
         method: 'get',
         path: '/search/albums',
         tags: ['search'],
+        summary: 'Search for albums',
+        description: 'Searches for albums based on the provided query string, with pagination support.',
+        operationId: 'searchAlbums',
         request: {
           query: z.object({
-            query: z.string(),
-            page: z.string().pipe(z.coerce.number().default(0)),
-            limit: z.string().pipe(z.coerce.number().default(10))
+            query: z.string().openapi({
+              description: 'Search query string for albums',
+              type: 'string',
+              example: 'Evolve'
+            }),
+            page: z.string().pipe(z.coerce.number().default(0)).openapi({
+              description: 'Page number for pagination',
+              type: 'integer',
+              example: 1,
+              default: 0
+            }),
+            limit: z.string().pipe(z.coerce.number().default(10)).openapi({
+              description: 'Number of search results per page',
+              type: 'integer',
+              example: 10,
+              default: 10
+            })
           })
         },
         responses: {
           200: {
-            description: 'search albums',
+            description: 'Successful search for albums',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the album search was successful',
                     type: 'boolean',
                     example: true
                   }),
-                  data: SearchAlbumModel
+                  data: SearchAlbumModel.openapi({
+                    description: 'Search results for albums'
+                  })
                 })
               }
             }

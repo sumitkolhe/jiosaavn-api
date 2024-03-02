@@ -18,16 +18,22 @@ export class SongController implements Routes {
         method: 'get',
         path: '/songs',
         tags: ['songs'],
+        summary: 'Retrieve songs by ID or link',
+        description: 'Fetches song details either by a unique song ID or by a direct song link.',
+        operationId: 'getSongs',
         request: {
           query: z.object({
-            id: z.string().optional().openapi({ description: 'Id of the song', type: 'string', example: 'Hq1sr6xu' }),
+            id: z
+              .string()
+              .optional()
+              .openapi({ description: 'Unique identifier of the song', type: 'string', example: 'Hq1sr6xu' }),
             link: z
               .string()
               .url()
               .optional()
               .transform((value) => value?.match(/jiosaavn\.com\/song\/[^/]+\/([^/]+)$/)?.[1])
               .openapi({
-                description: 'song link',
+                description: 'Direct link to the song on JioSaavn',
                 type: 'string',
                 example: 'https://www.jiosaavn.com/song/houdini/OgwhbhtDRwM'
               })
@@ -35,16 +41,18 @@ export class SongController implements Routes {
         },
         responses: {
           200: {
-            description: 'song details',
+            description: 'Successful retrieval of song details',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the request was successful',
                     type: 'boolean',
                     example: true
                   }),
-                  data: z.array(SongModel)
+                  data: z.array(SongModel).openapi({
+                    description: 'Array of song details'
+                  })
                 })
               }
             }
@@ -67,29 +75,36 @@ export class SongController implements Routes {
         method: 'get',
         path: '/songs/{id}',
         tags: ['songs'],
+        summary: 'Retrieve a song by its ID',
+        description: 'Fetches detailed information about a song using its unique identifier.',
+        operationId: 'getSongById',
         request: {
           params: z.object({
-            id: z.string().openapi({ example: '1212121' })
+            id: z.string().openapi({ description: 'Unique identifier of the song', type: 'string', example: '1212121' })
           }),
           query: z.object({
-            lyrics: z
-              .string()
-              .default('false')
-              .openapi({ description: 'Id of the song', type: 'boolean', example: 'true', default: 'false' })
+            lyrics: z.string().default('false').openapi({
+              description: 'Flag to include lyrics in the response',
+              type: 'boolean',
+              example: 'true',
+              default: 'false'
+            })
           })
         },
         responses: {
           200: {
-            description: 'song details',
+            description: 'Successful retrieval of the song',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the request was successful',
                     type: 'boolean',
                     example: true
                   }),
-                  data: z.array(SongModel)
+                  data: z.array(SongModel).openapi({
+                    description: 'Song details including lyrics if requested'
+                  })
                 })
               }
             }
@@ -111,23 +126,32 @@ export class SongController implements Routes {
         method: 'get',
         path: '/songs/{id}/lyrics',
         tags: ['songs'],
+        summary: 'Retrieve lyrics for a song',
+        description: 'Provides the lyrics for a song specified by its unique identifier.',
+        operationId: 'getSongLyrics',
         request: {
           params: z.object({
-            id: z.string().openapi({ example: '1212121' })
+            id: z.string().openapi({
+              description: 'Unique identifier of the song for which to retrieve lyrics',
+              type: 'string',
+              example: '1212121'
+            })
           })
         },
         responses: {
           200: {
-            description: 'song details',
+            description: 'Successful retrieval of song lyrics',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the lyrics were successfully retrieved',
                     type: 'boolean',
                     example: true
                   }),
-                  data: LyricsModel
+                  data: LyricsModel.openapi({
+                    description: 'Lyrics of the requested song'
+                  })
                 })
               }
             }
@@ -148,29 +172,38 @@ export class SongController implements Routes {
         method: 'get',
         path: '/songs/{id}/suggestions',
         tags: ['songs'],
+        summary: 'Retrieve song suggestions based on a song ID',
+        description: 'Provides a list of suggested songs related to the song specified by its unique identifier.',
+        operationId: 'getSongSuggestions',
         request: {
           params: z.object({
-            id: z.string().openapi({ example: '1212121' })
+            id: z.string().openapi({
+              description: 'Unique identifier of the song to base suggestions on',
+              type: 'string',
+              example: '1212121'
+            })
           }),
           query: z.object({
             limit: z
               .string()
               .pipe(z.coerce.number().default(10))
-              .openapi({ description: 'limit of suggestions', type: 'integer', example: 10 })
+              .openapi({ description: 'Maximum number of song suggestions to retrieve', type: 'integer', example: 10 })
           })
         },
         responses: {
           200: {
-            description: 'song details',
+            description: 'Successful retrieval of song suggestions',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'whether the request was successful or not',
+                    description: 'Indicates whether the suggestions were successfully retrieved',
                     type: 'boolean',
                     example: true
                   }),
-                  data: z.array(SongModel)
+                  data: z.array(SongModel).openapi({
+                    description: 'Array of suggested songs'
+                  })
                 })
               }
             }
