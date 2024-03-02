@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import { AlbumAPIResponseModel } from '../../albums/models'
+import { AlbumAPIResponseModel, AlbumModel } from '../../albums/models'
 
-export const ArtistModelAPIResponseModel = z.object({
+export const ArtistAlbumAPIResponseModel = z.object({
   artistId: z.string(),
   name: z.string(),
   subtitle: z.string(),
@@ -12,12 +12,12 @@ export const ArtistModelAPIResponseModel = z.object({
   dominantLanguage: z.string(),
   dominantType: z.string(),
   topAlbums: z.object({
-    songs: z.array(AlbumAPIResponseModel),
+    albums: z.array(AlbumAPIResponseModel),
     total: z.number()
   })
 })
 
 export const ArtistAlbumModel = z.object({
   total: z.number(),
-  songs: z.array(AlbumAPIResponseModel)
+  albums: z.array(AlbumModel)
 })

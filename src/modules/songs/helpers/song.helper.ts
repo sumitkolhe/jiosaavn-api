@@ -1,16 +1,24 @@
 import { createDownloadLinks, createImageLinks } from '../../../common/helpers'
-import type { ArtistMap, Lyrics, LyricsAPIResponse, Song, SongAPIResponse, SongArtistMap } from '../types'
+import type { z } from 'zod'
+import type {
+  ArtistMapModel,
+  LyricsAPIResponseModel,
+  LyricsModel,
+  SongAPIResponseModel,
+  SongArtistMapModel,
+  SongModel
+} from '../models'
 
-export const createArtistMap = (artist: SongArtistMap): ArtistMap => ({
+export const createArtistMap = (artist: z.infer<typeof SongArtistMapModel>): z.infer<typeof ArtistMapModel> => ({
   id: artist.id,
   name: artist.name,
   role: artist.role,
-  image: artist.image,
+  image: createImageLinks(artist.image),
   type: artist.type,
   url: artist.perma_url
 })
 
-export const createSongPayload = (song: SongAPIResponse): Song => ({
+export const createSongPayload = (song: z.infer<typeof SongAPIResponseModel>): z.infer<typeof SongModel> => ({
   id: song.id,
   name: song.title,
   type: song.type,
@@ -39,7 +47,9 @@ export const createSongPayload = (song: SongAPIResponse): Song => ({
   downloadUrl: createDownloadLinks(song.more_info?.encrypted_media_url)
 })
 
-export const createSongLyricsPayload = (lyrics: LyricsAPIResponse): Lyrics => ({
+export const createSongLyricsPayload = (
+  lyrics: z.infer<typeof LyricsAPIResponseModel>
+): z.infer<typeof LyricsModel> => ({
   lyrics: lyrics?.lyrics,
   snippet: lyrics?.snippet,
   copyright: lyrics?.lyrics_copyright

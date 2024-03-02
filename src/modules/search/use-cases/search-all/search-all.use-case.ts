@@ -3,11 +3,12 @@ import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { IUseCase } from '../../../../common/types'
 import { createSearchPayload } from '../../helpers/search.helper'
-import { Search, SearchAPIResponse } from '../../types'
+import { z } from 'zod'
+import { SearchAPIResponseModel, SearchModel } from '../../models'
 
-export class SearchAllUseCase implements IUseCase<String, Search> {
-  async execute(query: string): Promise<Search> {
-    const response = await useFetch<SearchAPIResponse>(Endpoints.search.all, { query })
+export class SearchAllUseCase implements IUseCase<String, z.infer<typeof SearchModel>> {
+  async execute(query: string): Promise<z.infer<typeof SearchModel>> {
+    const response = await useFetch<z.infer<typeof SearchAPIResponseModel>>(Endpoints.search.all, { query })
 
     if (!response) throw new HTTPException(404, { message: `no results found for ${query}` })
 

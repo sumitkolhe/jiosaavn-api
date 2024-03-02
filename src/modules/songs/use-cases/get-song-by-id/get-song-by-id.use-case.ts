@@ -3,15 +3,16 @@ import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { createSongPayload } from '../../helpers'
 import { GetSongLyricsUseCase } from '../get-song-lyrics'
+import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
-import type { Song, SongAPIResponse } from '../../types'
+import type { SongAPIResponseModel, SongModel } from '../../models'
 
 export interface GetSongByIdArgs {
   songIds: string
   includeLyrics?: boolean
 }
 
-export class GetSongByIdUseCase implements IUseCase<GetSongByIdArgs, Song[]> {
+export class GetSongByIdUseCase implements IUseCase<GetSongByIdArgs, z.infer<typeof SongModel>[]> {
   private readonly getSongLyricsUseCase: GetSongLyricsUseCase
 
   constructor() {
@@ -19,7 +20,9 @@ export class GetSongByIdUseCase implements IUseCase<GetSongByIdArgs, Song[]> {
   }
 
   async execute({ songIds, includeLyrics }: GetSongByIdArgs) {
-    const response = await useFetch<{ songs: SongAPIResponse[] }>(Endpoints.songs.id, { pids: songIds })
+    const response = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel>[] }>(Endpoints.songs.id, {
+      pids: songIds
+    })
 
     if (!response.songs?.length) throw new HTTPException(404, { message: 'song not found' })
 

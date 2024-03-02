@@ -2,8 +2,9 @@ import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { createArtistPayload } from '../../helpers'
-import type { Artist, ArtistAPIResponse } from '../../types'
+import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
+import type { ArtistAPIResponseModel, ArtistModel } from '../../models'
 
 export interface GetArtistByIdArgs {
   artistId: string
@@ -14,11 +15,11 @@ export interface GetArtistByIdArgs {
   sortOrder: 'asc' | 'desc'
 }
 
-export class GetArtistByIdUseCase implements IUseCase<GetArtistByIdArgs, Artist> {
+export class GetArtistByIdUseCase implements IUseCase<GetArtistByIdArgs, z.infer<typeof ArtistModel>> {
   constructor() {}
 
   async execute({ artistId, page, songCount, albumCount, sortBy, sortOrder }: GetArtistByIdArgs) {
-    const response = await useFetch<ArtistAPIResponse>(Endpoints.artists.id, {
+    const response = await useFetch<z.infer<typeof ArtistAPIResponseModel>>(Endpoints.artists.id, {
       artistId,
       n_song: songCount,
       n_album: albumCount,

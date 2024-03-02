@@ -34,7 +34,7 @@ export const AlbumModel = z.object({
   playCount: z.number(),
   language: z.string(),
   explicitContent: z.boolean(),
-  artists: z.array(SongAPIResponseModel.shape.more_info.shape.artistMap),
+  artists: z.object(SongModel.shape.artists.shape),
   songCount: z.number(),
   url: z.string(),
   image: z.array(DownloadLinkModel),

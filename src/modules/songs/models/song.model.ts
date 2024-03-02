@@ -1,34 +1,33 @@
 import { z } from 'zod'
 import { DownloadLinkModel } from '../../../common/models'
 
-export const LyricsSchema = z.object({
+export const LyricsModel = z.object({
   lyrics: z.string(),
   copyright: z.string(),
   snippet: z.string()
 })
 
-export const LyricsAPIResponseSchema = z.object({
+export const LyricsAPIResponseModel = z.object({
   lyrics: z.string(),
-  script_tracking_url: z.string(),
   lyrics_copyright: z.string(),
   snippet: z.string()
 })
 
-const SongArtistMapSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  url: z.string(),
-  role: z.string(),
-  image: z.string(),
-  type: z.string()
-})
-
-const SongArtistMap = z.object({
+export const SongArtistMapModel = z.object({
   id: z.string(),
   name: z.string(),
   role: z.string(),
   type: z.string(),
   image: z.string(),
+  perma_url: z.string()
+})
+
+export const ArtistMapModel = z.object({
+  id: z.string(),
+  name: z.string(),
+  role: z.string(),
+  type: z.string(),
+  image: z.array(DownloadLinkModel),
   url: z.string()
 })
 
@@ -71,9 +70,9 @@ export const SongAPIResponseModel = z.object({
     starred: z.string(),
     copyright_text: z.string(),
     artistMap: z.object({
-      primary_artists: z.array(SongArtistMapSchema),
-      featured_artists: z.array(SongArtistMapSchema),
-      artists: z.array(SongArtistMapSchema)
+      primary_artists: z.array(SongArtistMapModel),
+      featured_artists: z.array(SongArtistMapModel),
+      artists: z.array(SongArtistMapModel)
     }),
     release_date: z.string(),
     label_url: z.string(),
@@ -99,7 +98,7 @@ export const SongModel = z.object({
   language: z.string(),
   hasLyrics: z.boolean(),
   lyricsId: z.string(),
-  lyrics: LyricsSchema.optional(),
+  lyrics: LyricsModel.optional(),
   url: z.string(),
   copyright: z.string(),
   album: z.object({
@@ -108,9 +107,9 @@ export const SongModel = z.object({
     url: z.string()
   }),
   artists: z.object({
-    primary: z.array(SongArtistMap),
-    featured: z.array(SongArtistMap),
-    all: z.array(SongArtistMap)
+    primary: z.array(ArtistMapModel),
+    featured: z.array(ArtistMapModel),
+    all: z.array(ArtistMapModel)
   }),
   image: z.array(DownloadLinkModel),
   downloadUrl: z.array(DownloadLinkModel)

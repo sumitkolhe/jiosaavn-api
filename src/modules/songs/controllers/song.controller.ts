@@ -1,6 +1,6 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { SongService } from '../services'
-import { SongModel } from '../models'
+import { LyricsModel, SongModel } from '../models'
 import type { Routes } from '../../../common/types'
 
 export class SongController implements Routes {
@@ -127,7 +127,7 @@ export class SongController implements Routes {
                     type: 'boolean',
                     example: true
                   }),
-                  data: z.array(SongModel)
+                  data: LyricsModel
                 })
               }
             }

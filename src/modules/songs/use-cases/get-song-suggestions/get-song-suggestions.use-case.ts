@@ -3,15 +3,16 @@ import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { createSongPayload } from '../../helpers'
 import { CreateSongStationUseCase } from '../create-song-station'
+import type { SongModel, SongSuggestionAPIResponseModel } from '../../models'
+import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
-import type { Song, SongSuggestionApiResponse } from '../../types'
 
 export interface GetSongSuggestionsArgs {
   songId: string
   limit: number
 }
 
-export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArgs, Song[]> {
+export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArgs, z.infer<typeof SongModel>[]> {
   private readonly createSongStation: CreateSongStationUseCase
 
   constructor() {
@@ -21,15 +22,17 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
   async execute({ songId, limit }: GetSongSuggestionsArgs) {
     const stationId = await this.createSongStation.execute(songId)
 
-    const response = await useFetch<SongSuggestionApiResponse>(Endpoints.songs.suggestions, {
+    const response = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>(Endpoints.songs.suggestions, {
       stationid: stationId,
       k: limit
     })
 
-    if (!response) throw new HTTPException(404, { message: `could not get song suggestions` })
+    if (!response) {
+      throw new HTTPException(404, { message: `could not get song suggestions` })
+    }
 
     const songs =
-      Object.values(response)
+      Object.values(response.songs || {})
         .map((element) => element.song && createSongPayload(element.song))
         .filter(Boolean)
         .slice(0, limit) || []

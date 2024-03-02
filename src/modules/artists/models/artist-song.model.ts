@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { SongAPIResponseModel } from '../../songs/models'
+import { SongAPIResponseModel, SongModel } from '../../songs/models'
 
 export const ArtistSongAPIResponseModel = z.object({
   artistId: z.string(),
@@ -19,5 +19,5 @@ export const ArtistSongAPIResponseModel = z.object({
 
 export const ArtistSongModel = z.object({
   total: z.number(),
-  songs: z.array(SongAPIResponseModel)
+  songs: z.array(SongModel)
 })

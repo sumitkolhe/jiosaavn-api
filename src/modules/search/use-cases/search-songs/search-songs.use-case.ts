@@ -3,7 +3,8 @@ import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { IUseCase } from '../../../../common/types'
 import { createSongPayload } from '../../../songs/helpers'
-import { SearchSong, SearchSongAPIResponse } from '../../types'
+import { z } from 'zod'
+import { SearchSongAPIResponseModel, SearchSongModel } from '../../models'
 
 export interface SearchSongsArgs {
   query: string
@@ -11,11 +12,15 @@ export interface SearchSongsArgs {
   limit: number
 }
 
-export class SearchSongsUseCase implements IUseCase<SearchSongsArgs, SearchSong> {
+export class SearchSongsUseCase implements IUseCase<SearchSongsArgs, z.infer<typeof SearchSongModel>> {
   constructor() {}
 
-  async execute({ query, limit, page }: SearchSongsArgs): Promise<SearchSong> {
-    const response = await useFetch<SearchSongAPIResponse>(Endpoints.search.songs, { q: query, p: page, n: limit })
+  async execute({ query, limit, page }: SearchSongsArgs): Promise<z.infer<typeof SearchSongModel>> {
+    const response = await useFetch<z.infer<typeof SearchSongAPIResponseModel>>(Endpoints.search.songs, {
+      q: query,
+      p: page,
+      n: limit
+    })
 
     if (!response) throw new HTTPException(404, { message: 'song not found' })
 

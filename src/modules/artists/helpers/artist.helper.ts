@@ -1,9 +1,10 @@
 import { createImageLinks } from '../../../common/helpers'
 import { createAlbumPayload } from '../../albums/helpers'
 import { createSongPayload } from '../../songs/helpers'
-import type { Artist, ArtistAPIResponse } from '../types'
+import type { ArtistAPIResponseModel, ArtistModel } from '../models'
+import type { z } from 'zod'
 
-export const createArtistPayload = (artist: ArtistAPIResponse): Artist => ({
+export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseModel>): z.infer<typeof ArtistModel> => ({
   id: artist.artistId,
   name: artist.name,
   url: artist.urls?.overview,
@@ -25,7 +26,7 @@ export const createArtistPayload = (artist: ArtistAPIResponse): Artist => ({
   topAlbums: artist.topAlbums?.map(createAlbumPayload) || [],
   singles: artist.singles?.map(createSongPayload) || [],
   similarArtists:
-    artist.similarArtists?.map((similarArtist) => ({
+    artist.similar_artists?.map((similarArtist) => ({
       id: similarArtist.id,
       name: similarArtist.name,
       url: similarArtist.perma_url,

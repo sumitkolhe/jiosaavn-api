@@ -2,14 +2,15 @@ import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { createAlbumPayload } from '../../helpers'
+import type { AlbumAPIResponseModel, AlbumModel } from '../../models'
+import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
-import type { Album, AlbumAPIResponse } from '../../types'
 
-export class GetAlbumByLinkUseCase implements IUseCase<String, Album> {
+export class GetAlbumByLinkUseCase implements IUseCase<String, z.infer<typeof AlbumModel>> {
   constructor() {}
 
   async execute(token: string) {
-    const response = await useFetch<AlbumAPIResponse>(Endpoints.albums.link, {
+    const response = await useFetch<z.infer<typeof AlbumAPIResponseModel>>(Endpoints.albums.link, {
       token,
       type: 'album'
     })

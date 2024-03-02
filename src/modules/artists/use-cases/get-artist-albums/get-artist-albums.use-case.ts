@@ -2,8 +2,9 @@ import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { createAlbumPayload } from '../../../albums/helpers'
-import type { ArtistAlbum, ArtistAlbumAPIResponse } from '../../types/artist-album.type'
+import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
+import type { ArtistAlbumAPIResponseModel, ArtistAlbumModel } from '../../models'
 
 export interface GetArtistAlbumsArgs {
   artistId: string
@@ -12,11 +13,11 @@ export interface GetArtistAlbumsArgs {
   sortOrder: 'asc' | 'desc'
 }
 
-export class GetArtistAlbumsUseCase implements IUseCase<GetArtistAlbumsArgs, ArtistAlbum> {
+export class GetArtistAlbumsUseCase implements IUseCase<GetArtistAlbumsArgs, z.infer<typeof ArtistAlbumModel>> {
   constructor() {}
 
   async execute({ artistId, page, sortOrder, sortBy }: GetArtistAlbumsArgs) {
-    const response = await useFetch<ArtistAlbumAPIResponse>(Endpoints.artists.albums, {
+    const response = await useFetch<z.infer<typeof ArtistAlbumAPIResponseModel>>(Endpoints.artists.albums, {
       artistId,
       page,
       sort_order: sortOrder,

@@ -2,14 +2,15 @@ import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { createSongLyricsPayload } from '../../helpers'
+import type { LyricsAPIResponseModel, LyricsModel } from '../../models'
+import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
-import type { Lyrics, LyricsAPIResponse } from '../../types'
 
-export class GetSongLyricsUseCase implements IUseCase<String, Lyrics> {
+export class GetSongLyricsUseCase implements IUseCase<String, z.infer<typeof LyricsModel>> {
   constructor() {}
 
   async execute(songId: string) {
-    const response = await useFetch<LyricsAPIResponse>(Endpoints.songs.lyrics, {
+    const response = await useFetch<z.infer<typeof LyricsAPIResponseModel>>(Endpoints.songs.lyrics, {
       lyrics_id: songId
     })
 
