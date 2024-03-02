@@ -1,10 +1,7 @@
 import { handle } from '@hono/node-server/vercel'
-import { AlbumRoute } from '../src/modules/albums/routes'
-import { SongRoute } from '../src/modules/songs/routes'
-import { SearchRoute } from '../src/modules/search/routes'
-import { ArtistRoute } from '../src/modules/artists/routes'
+import { AlbumController, ArtistController, SearchController, SongController } from '../src/modules'
 import { App } from '../src/app'
 
-const app = new App([new SearchRoute(), new SongRoute(), new AlbumRoute(), new ArtistRoute()])
+const app = new App([new SongController(), new AlbumController(), new ArtistController(), new SearchController()])
 
 export default handle(app.getApp())
