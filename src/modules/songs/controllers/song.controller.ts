@@ -17,23 +17,20 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs',
-        tags: ['songs'],
+        tags: ['Songs'],
         summary: 'Retrieve songs by ID or link',
         description: 'Fetches song details either by a unique song ID or by a direct song link.',
-        operationId: 'getSongs',
+        operationId: 'getSong',
         request: {
           query: z.object({
-            id: z
-              .string()
-              .optional()
-              .openapi({ description: 'Unique identifier of the song', type: 'string', example: 'Hq1sr6xu' }),
+            id: z.string().optional().openapi({ description: 'ID of the song', type: 'string', example: '3IoDK8qI' }),
             link: z
               .string()
               .url()
               .optional()
               .transform((value) => value?.match(/jiosaavn\.com\/song\/[^/]+\/([^/]+)$/)?.[1])
               .openapi({
-                description: 'Direct link to the song on JioSaavn',
+                description: 'The direct link of the song on JioSaavn',
                 type: 'string',
                 example: 'https://www.jiosaavn.com/song/houdini/OgwhbhtDRwM'
               })
@@ -41,7 +38,7 @@ export class SongController implements Routes {
         },
         responses: {
           200: {
-            description: 'Successful retrieval of song details',
+            description: 'Successful response with song details',
             content: {
               'application/json': {
                 schema: z.object({
@@ -56,7 +53,9 @@ export class SongController implements Routes {
                 })
               }
             }
-          }
+          },
+          400: { description: 'Bad request when query parameters are missing or invalid' },
+          404: { description: 'Song not found with the given ID or link' }
         }
       }),
       async (ctx) => {
@@ -74,13 +73,13 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs/{id}',
-        tags: ['songs'],
+        tags: ['Songs'],
         summary: 'Retrieve a song by its ID',
-        description: 'Fetches detailed information about a song using its unique identifier.',
+        description: 'Fetches song using its ID.',
         operationId: 'getSongById',
         request: {
           params: z.object({
-            id: z.string().openapi({ description: 'Unique identifier of the song', type: 'string', example: '1212121' })
+            id: z.string().openapi({ description: 'ID of the song', type: 'string', example: '3IoDK8qI' })
           }),
           query: z.object({
             lyrics: z.string().default('false').openapi({
@@ -108,7 +107,9 @@ export class SongController implements Routes {
                 })
               }
             }
-          }
+          },
+          400: { description: 'Bad request when query parameters are missing or invalid' },
+          404: { description: 'Song not found with the given ID' }
         }
       }),
       async (ctx) => {
@@ -125,14 +126,14 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs/{id}/lyrics',
-        tags: ['songs'],
+        tags: ['Songs'],
         summary: 'Retrieve lyrics for a song',
-        description: 'Provides the lyrics for a song specified by its unique identifier.',
+        description: 'Fetches the lyrics for a song specified by its ID.',
         operationId: 'getSongLyrics',
         request: {
           params: z.object({
             id: z.string().openapi({
-              description: 'Unique identifier of the song for which to retrieve lyrics',
+              description: 'Id of the song for which to retrieve the lyrics',
               type: 'string',
               example: '1212121'
             })
@@ -155,7 +156,8 @@ export class SongController implements Routes {
                 })
               }
             }
-          }
+          },
+          404: { description: 'Lyrics not found for the given song ID' }
         }
       }),
       async (ctx) => {
@@ -171,14 +173,14 @@ export class SongController implements Routes {
       createRoute({
         method: 'get',
         path: '/songs/{id}/suggestions',
-        tags: ['songs'],
+        tags: ['Songs'],
         summary: 'Retrieve song suggestions based on a song ID',
-        description: 'Provides a list of suggested songs related to the song specified by its unique identifier.',
+        description: 'Provides a list of suggested songs related to the song specified by its ID.',
         operationId: 'getSongSuggestions',
         request: {
           params: z.object({
             id: z.string().openapi({
-              description: 'Unique identifier of the song to base suggestions on',
+              description: 'ID of the song to base the suggestions on',
               type: 'string',
               example: '1212121'
             })
