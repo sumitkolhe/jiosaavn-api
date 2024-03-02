@@ -1,7 +1,7 @@
 # :musical_note: JioSaavn API
 
 > [!CAUTION]
-> A new version with breaking changes is in progress, check `dev` branch for more details & changes.
+> A new version with breaking changes is in progress, check <https://staging.saavn.dev/ui> for more details & changes.
 
 
 An Unofficial JioSaavn API for downloading songs in 320kbps quality for free.
