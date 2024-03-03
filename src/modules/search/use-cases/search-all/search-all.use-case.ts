@@ -2,7 +2,7 @@ import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import { IUseCase } from '../../../../common/types'
-import { createSearchPayload } from '../../helpers/search.helper'
+import { createSearchPayload } from '../../helpers'
 import { z } from 'zod'
 import { SearchAPIResponseModel, SearchModel } from '../../models'
 
