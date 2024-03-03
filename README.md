@@ -1,64 +1,50 @@
-# :musical_note: JioSaavn API
+<h2 style="text-align: center;"><img src="public/logo.svg" alt="Logo" style="vertical-align: middle;" /> JioSaavn API</h2>
 
-> [!CAUTION]
-> A new version with breaking changes is in progress, check <https://staging.saavn.dev/ui> for more details & changes.
+An Unofficial API for downloading high-quality songs, albums, playlists, and more from JioSaavn.
 
+## 📚 Documentation
 
-An Unofficial JioSaavn API for downloading songs in 320kbps quality for free.
+Check out the [API documentation](https://saavn.dev/ui) for detailed information on how to use the API.
 
-> NOTE: <https://saavn.me> is only meant to demo the API and has rate-limiting enabled to minimise bandwidth consumption. It is recommended to deploy your own instance on vercel for personal use.
-
-## :sparkles: Features
-
-- :rocket: Blazing fast
-- :notes: Download High Quality Songs (320kbps).
-- :sunrise: Download High quality song/album thumbnails.
-- :mag_right: Search support for songs and albums.
-- :musical_score: Lyrics for supported songs.
-- :heart: Open-Source
-- :cloud: Lightweight and has minimal dependencies.
-
-## :mag_right: Usage
-
-### For usage, see [Documentation](https://docs.saavn.me)
-
-## :construction_worker: Local development
+## 🔌 Running Locally
 
 ### Prerequisites
 
-- NodeJS v14+
-- Vercel CLI : To install Vercel CLI globally use `npm i -g vercel`
+Ensure you have the following installed:
 
-### Run locally
+- Bun(1.0.26+) or Node.js(v18+)
 
-- Clone the Repo
+### Steps to Run Locally
 
-  ```sh
-  git clone https://github.com/sumitkolhe/jiosaavn-api
+1. Clone the repository:
 
-  cd jiosaavn-api
-  ```
+   ```sh
+   git clone https://github.com/sumitkolhe/jiosaavn-api
+   cd jiosaavn-api
+   ```
 
-- Install the dependencies
+2. Install the required dependencies:
 
-  ```sh
-  npm install
-  ```
+   ```sh
+   bun install
+   ```
 
-- Start development server
+3. Launch the development server:
 
-  ```sh
-  npm start
-  ```
+   ```sh
+   bun run dev
+   ```
 
-## ☁️ Host your own instance
+## ☁️ Deploying Your Own Instance
+
+You can easily deploy your own instance of the API by clicking the button below:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sumitkolhe/jiosaavn-api)
 
-## Note
+## Important Note
 
-To ensure that the API consistently respects the provided language, make sure to set the [Function region](https://vercel.com/docs/concepts/functions/serverless-functions/regions) within Vercel to `Mumbai, India (South) - bom1`.
+For optimal performance and to ensure the API provides results in the intended language, configure the [Function region](https://vercel.com/docs/concepts/functions/serverless-functions/regions) in Vercel to `Mumbai, India (South) - bom1`.
 
-## 📜 License
+## 📜 Licensing
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](LICENSE) file for details.
+This project is distributed under the [MIT License](https://opensource.org/licenses/MIT). For more information, see the [LICENSE](LICENSE) file included in this repository.

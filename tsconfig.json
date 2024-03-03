@@ -15,8 +15,6 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "pretty": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
     "sourceMap": false,
     "strictNullChecks": true,
     "declaration": true,
