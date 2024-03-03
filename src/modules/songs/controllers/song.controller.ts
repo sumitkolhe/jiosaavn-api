@@ -1,10 +1,12 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { SongService } from '../services'
 import { LyricsModel, SongModel } from '../models'
+import type { hc } from 'hono/client'
 import type { Routes } from '../../../common/types'
 
 export class SongController implements Routes {
   public controller: OpenAPIHono
+  public static songClient: typeof hc
   private songService: SongService
 
   constructor() {
@@ -19,18 +21,24 @@ export class SongController implements Routes {
         path: '/songs',
         tags: ['Songs'],
         summary: 'Retrieve songs by ID or link',
-        description: 'Fetches song details either by a unique song ID or by a direct song link.',
+        description: `Retrieve songs by a comma-separated list of IDs or by a direct song link.`,
         operationId: 'getSong',
         request: {
           query: z.object({
-            id: z.string().optional().openapi({ description: 'ID of the song', type: 'string', example: '3IoDK8qI' }),
+            ids: z.string().optional().openapi({
+              title: 'Song IDs',
+              description: 'Comma-separated list of song IDs',
+              type: 'string',
+              example: '3IoDK8qI,4IoDK8qI,5IoDK8qI'
+            }),
             link: z
               .string()
               .url()
               .optional()
               .transform((value) => value?.match(/jiosaavn\.com\/song\/[^/]+\/([^/]+)$/)?.[1])
               .openapi({
-                description: 'The direct link of the song on JioSaavn',
+                title: 'Song Link',
+                description: 'A direct link to the song on JioSaavn',
                 type: 'string',
                 example: 'https://www.jiosaavn.com/song/houdini/OgwhbhtDRwM'
               })
@@ -59,11 +67,15 @@ export class SongController implements Routes {
         }
       }),
       async (ctx) => {
-        const { link, id } = ctx.req.valid('query')
+        const { link, ids } = ctx.req.valid('query')
+
+        if (!link && !ids) {
+          return ctx.json({ success: false, message: 'Either song IDs or link is required' }, 400)
+        }
 
         const response = link
           ? await this.songService.getSongByLink(link)
-          : await this.songService.getSongByIds({ songIds: id! })
+          : await this.songService.getSongByIds({ songIds: ids! })
 
         return ctx.json({ success: true, data: response })
       }
@@ -74,8 +86,8 @@ export class SongController implements Routes {
         method: 'get',
         path: '/songs/{id}',
         tags: ['Songs'],
-        summary: 'Retrieve a song by its ID',
-        description: 'Fetches song using its ID.',
+        summary: 'Retrieve song by ID',
+        description: 'Retrieve a song by its ID. Optionally, include lyrics in the response.',
         operationId: 'getSongById',
         request: {
           params: z.object({
@@ -83,7 +95,7 @@ export class SongController implements Routes {
           }),
           query: z.object({
             lyrics: z.string().default('false').openapi({
-              description: 'Flag to include lyrics in the response',
+              description: 'Include lyrics in the response',
               type: 'boolean',
               example: 'true',
               default: 'false'
@@ -92,7 +104,7 @@ export class SongController implements Routes {
         },
         responses: {
           200: {
-            description: 'Successful retrieval of the song',
+            description: 'Successful response with song details',
             content: {
               'application/json': {
                 schema: z.object({
@@ -102,7 +114,7 @@ export class SongController implements Routes {
                     example: true
                   }),
                   data: z.array(SongModel).openapi({
-                    description: 'Song details including lyrics if requested'
+                    description: 'Array of songs'
                   })
                 })
               }
@@ -128,12 +140,12 @@ export class SongController implements Routes {
         path: '/songs/{id}/lyrics',
         tags: ['Songs'],
         summary: 'Retrieve lyrics for a song',
-        description: 'Fetches the lyrics for a song specified by its ID.',
+        description: 'Retrieve the lyrics for a song by its ID.',
         operationId: 'getSongLyrics',
         request: {
           params: z.object({
             id: z.string().openapi({
-              description: 'Id of the song for which to retrieve the lyrics',
+              description: 'ID of the song to retrieve the lyrics for',
               type: 'string',
               example: '1212121'
             })
@@ -141,17 +153,17 @@ export class SongController implements Routes {
         },
         responses: {
           200: {
-            description: 'Successful retrieval of song lyrics',
+            description: 'Successful response with song lyrics',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'Indicates whether the lyrics were successfully retrieved',
+                    description: 'Indicates whether the request was successful',
                     type: 'boolean',
                     example: true
                   }),
                   data: LyricsModel.openapi({
-                    description: 'Lyrics of the requested song'
+                    description: 'Lyrics for the song'
                   })
                 })
               }
@@ -174,37 +186,41 @@ export class SongController implements Routes {
         method: 'get',
         path: '/songs/{id}/suggestions',
         tags: ['Songs'],
-        summary: 'Retrieve song suggestions based on a song ID',
-        description: 'Provides a list of suggested songs related to the song specified by its ID.',
+        summary: 'Retrieve song suggestions',
+        description:
+          'Retrieve song suggestions based on the given song ID. This can be used to get similar songs to the one provided for infinite playback.',
         operationId: 'getSongSuggestions',
         request: {
           params: z.object({
             id: z.string().openapi({
-              description: 'ID of the song to base the suggestions on',
+              description: 'ID of the song to retrieve suggestions for',
               type: 'string',
               example: '1212121'
             })
           }),
           query: z.object({
-            limit: z
-              .string()
-              .pipe(z.coerce.number().default(10))
-              .openapi({ description: 'Maximum number of song suggestions to retrieve', type: 'integer', example: 10 })
+            limit: z.string().optional().pipe(z.coerce.number().default(10)).openapi({
+              description: 'Limit the number of suggestions to retrieve',
+              type: 'number',
+              title: 'Limit',
+              example: 10,
+              default: 10
+            })
           })
         },
         responses: {
           200: {
-            description: 'Successful retrieval of song suggestions',
+            description: 'Successful response with song suggestions',
             content: {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'Indicates whether the suggestions were successfully retrieved',
+                    description: 'Indicates whether the request was successful',
                     type: 'boolean',
                     example: true
                   }),
                   data: z.array(SongModel).openapi({
-                    description: 'Array of suggested songs'
+                    description: 'Array of song suggestions'
                   })
                 })
               }
