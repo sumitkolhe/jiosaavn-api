@@ -33,24 +33,21 @@ export class App {
   }
 
   private initializeSwaggerUI() {
-    this.app.doc31('/docs', (c) => ({
+    this.app.doc31('/swagger', (c) => ({
       openapi: '3.1.0',
-      tags: [
-        {
-          name: 'songs',
-          description: 'Operations related to songs'
-        }
-      ],
+
       info: {
         version: '1.0.0',
         title: 'JioSaavn API',
-        description: `# Introduction \n[saavn.dev](https://saavn.dev) is an unofficial API for JioSaavn for downloading high-quality songs for free. \n`
+        description: `# Introduction 
+        \nJioSaavn API, accessible at [saavn.dev](https://saavn.dev), is an unofficial API that allows users to download high-quality songs from JioSaavn at no cost. 
+        It offers a fast, reliable, and easy-to-use API for developers. \n`
       },
       servers: [{ url: new URL(c.req.url).origin, description: 'Current environment' }]
     }))
 
     this.app.get(
-      '/ui',
+      '/docs',
       apiReference({
         pageTitle: 'JioSaavn API',
         theme: 'deepSpace',
@@ -60,14 +57,14 @@ export class App {
         metaData: {
           description: 'JioSaavn API is an unofficial API for JioSaavn for downloading high-quality songs for free.'
         },
-        spec: { url: '/docs' }
+        spec: { url: '/swagger' }
       })
     )
   }
 
   private initializeRouteFallback() {
     this.app.notFound((ctx) => {
-      return ctx.json({ success: false, message: 'route not found, check docs at https://docs.saavn.dev' }, 404)
+      return ctx.json({ success: false, message: 'route not found, check docs at https://saavn.dev/docs' }, 404)
     })
   }
 
