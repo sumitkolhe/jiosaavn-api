@@ -94,7 +94,7 @@ export class SearchController {
         },
         responses: {
           200: {
-            description: 'Successful search for songs',
+            description: 'Successful response with song search results',
             content: {
               'application/json': {
                 schema: z.object({
@@ -136,13 +136,13 @@ export class SearchController {
               type: 'string',
               example: 'Evolve'
             }),
-            page: z.string().pipe(z.coerce.number()).openapi({
+            page: z.string().pipe(z.coerce.number()).optional().openapi({
               description: 'The page number of the search results to retrieve',
               type: 'integer',
               example: 0,
               default: 0
             }),
-            limit: z.string().pipe(z.coerce.number()).openapi({
+            limit: z.string().pipe(z.coerce.number()).optional().openapi({
               description: 'The number of search results per page',
               type: 'integer',
               example: 10,
@@ -152,7 +152,7 @@ export class SearchController {
         },
         responses: {
           200: {
-            description: 'Successful search for albums',
+            description: 'Successful response with album search results',
             content: {
               'application/json': {
                 schema: z.object({
@@ -173,7 +173,7 @@ export class SearchController {
       async (ctx) => {
         const { query, page, limit } = ctx.req.valid('query')
 
-        const result = await this.searchService.searchAlbums({ query, page, limit })
+        const result = await this.searchService.searchAlbums({ query, page: page || 0, limit: limit || 10 })
 
         return ctx.json({ success: true, data: result })
       }
