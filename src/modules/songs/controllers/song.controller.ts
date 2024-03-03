@@ -21,7 +21,7 @@ export class SongController implements Routes {
         path: '/songs',
         tags: ['Songs'],
         summary: 'Retrieve songs by ID or link',
-        description: `Retrieve songs by a comma-separated list of IDs or by a direct song link.`,
+        description: 'Retrieve songs by a comma-separated list of IDs or by a direct link to the song on JioSaavn.',
         operationId: 'getSong',
         request: {
           query: z.object({
@@ -56,6 +56,7 @@ export class SongController implements Routes {
                     example: true
                   }),
                   data: z.array(SongModel).openapi({
+                    title: 'Song Details',
                     description: 'Array of song details'
                   })
                 })
@@ -91,10 +92,16 @@ export class SongController implements Routes {
         operationId: 'getSongById',
         request: {
           params: z.object({
-            id: z.string().openapi({ description: 'ID of the song', type: 'string', example: '3IoDK8qI' })
+            id: z.string().openapi({
+              title: 'Song ID',
+              description: 'ID of the song to retrieve',
+              type: 'string',
+              example: '3IoDK8qI'
+            })
           }),
           query: z.object({
-            lyrics: z.string().default('false').openapi({
+            lyrics: z.string().optional().openapi({
+              title: 'Include lyrics',
               description: 'Include lyrics in the response',
               type: 'boolean',
               example: 'true',
@@ -121,7 +128,7 @@ export class SongController implements Routes {
             }
           },
           400: { description: 'Bad request when query parameters are missing or invalid' },
-          404: { description: 'Song not found with the given ID' }
+          404: { description: 'Song not found for the given ID' }
         }
       }),
       async (ctx) => {
@@ -199,7 +206,7 @@ export class SongController implements Routes {
             })
           }),
           query: z.object({
-            limit: z.string().optional().pipe(z.coerce.number().default(10)).openapi({
+            limit: z.string().pipe(z.coerce.number()).optional().openapi({
               description: 'Limit the number of suggestions to retrieve',
               type: 'number',
               title: 'Limit',
@@ -232,7 +239,7 @@ export class SongController implements Routes {
         const songId = ctx.req.param('id')
         const { limit } = ctx.req.valid('query')
 
-        const suggestions = await this.songService.getSongSuggestions({ songId, limit })
+        const suggestions = await this.songService.getSongSuggestions({ songId, limit: limit || 10 })
 
         return ctx.json({ success: true, data: suggestions })
       }

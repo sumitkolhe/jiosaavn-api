@@ -17,21 +17,29 @@ export class AlbumController {
         method: 'get',
         path: '/albums',
         tags: ['Album'],
-        summary: 'Retrieve album details by ID or link',
-        description: 'Fetches album details either by a unique song ID or by a direct song link.',
+        summary: 'Retrieve an album by ID or link',
+        description: 'Retrieve an album by providing either an ID or a direct link to the album on JioSaavn.',
         operationId: 'getAlbum',
         request: {
           query: z.object({
-            id: z.string().optional().openapi({ description: 'ID of the album', type: 'string', example: 'Hq1sr6xu' }),
+            id: z.string().optional().openapi({
+              title: 'Album ID',
+              description: 'The unique ID of the album',
+              type: 'string',
+              example: 'Hq1sr6xu',
+              default: 'Hq1sr6xu'
+            }),
             link: z
               .string()
               .url()
               .optional()
               .transform((value) => value?.match(/jiosaavn\.com\/album\/[^/]+\/([^/]+)$/)?.[1])
               .openapi({
-                description: 'The direct link of the album on JioSaavn',
+                title: 'Album Link',
+                description: 'A direct link to the album on JioSaavn',
                 type: 'string',
-                example: 'https://www.jiosaavn.com/album/houdini/OgwhbhtDRwM'
+                example: 'https://www.jiosaavn.com/album/houdini/OgwhbhtDRwM',
+                default: 'https://www.jiosaavn.com/album/houdini/OgwhbhtDRwM'
               })
           })
         },
@@ -42,19 +50,20 @@ export class AlbumController {
               'application/json': {
                 schema: z.object({
                   success: z.boolean().openapi({
-                    description: 'Indicates whether the request was successful',
+                    description: 'Indicates the success status of the request.',
                     type: 'boolean',
                     example: true
                   }),
                   data: AlbumModel.openapi({
-                    description: 'Album details'
+                    title: 'Album Details',
+                    description: 'The detailed information of the album.'
                   })
                 })
               }
             }
           },
-          400: { description: 'Bad request when query parameters are missing or invalid' },
-          404: { description: 'Album not found with the given ID or link' }
+          400: { description: 'Bad request due to missing or invalid query parameters.' },
+          404: { description: 'The album could not be found with the provided ID or link.' }
         }
       }),
       async (ctx) => {

@@ -17,14 +17,15 @@ export class SearchController {
       createRoute({
         method: 'get',
         path: '/search',
-        tags: ['search'],
-        summary: 'Perform a global search',
-        description: 'Searches for songs, albums, artists, and playlists based on the provided query string.',
+        tags: ['Search'],
+        summary: 'Global search',
+        description: 'Search for songs, albums, artists, and playlists based on the provided query string.',
         operationId: 'globalSearch',
         request: {
           query: z.object({
             query: z.string().openapi({
-              description: 'Search query string',
+              title: 'Search query',
+              description: 'Search query',
               type: 'string',
               example: 'Imagine Dragons'
             })
@@ -32,7 +33,7 @@ export class SearchController {
         },
         responses: {
           200: {
-            description: 'Successful search across all categories',
+            description: 'Successful global search',
             content: {
               'application/json': {
                 schema: z.object({
@@ -63,24 +64,27 @@ export class SearchController {
       createRoute({
         method: 'get',
         path: '/search/songs',
-        tags: ['search'],
+        tags: ['Search'],
         summary: 'Search for songs',
-        description: 'Searches for songs based on the provided query string, with pagination support.',
+        description: 'Search for songs based on the provided query',
         operationId: 'searchSongs',
         request: {
           query: z.object({
             query: z.string().openapi({
-              description: 'Search query string for songs',
+              title: 'Search query',
+              description: 'Search query for songs',
               type: 'string',
               example: 'Believer'
             }),
-            page: z.string().pipe(z.coerce.number().default(0)).openapi({
-              description: 'Page number for pagination',
+            page: z.string().pipe(z.coerce.number()).optional().openapi({
+              title: 'Page Number',
+              description: 'The page number of the search results to retrieve',
               type: 'integer',
-              example: 1,
+              example: 0,
               default: 0
             }),
-            limit: z.string().pipe(z.coerce.number().default(10)).openapi({
+            limit: z.string().pipe(z.coerce.number()).optional().openapi({
+              title: 'Limit',
               description: 'Number of search results per page',
               type: 'integer',
               example: 10,
@@ -111,7 +115,7 @@ export class SearchController {
       async (ctx) => {
         const { query, page, limit } = ctx.req.valid('query')
 
-        const result = await this.searchService.searchSongs({ query, page, limit })
+        const result = await this.searchService.searchSongs({ query, page: page || 0, limit: limit || 10 })
 
         return ctx.json({ success: true, data: result })
       }
@@ -121,25 +125,25 @@ export class SearchController {
       createRoute({
         method: 'get',
         path: '/search/albums',
-        tags: ['search'],
+        tags: ['Search'],
         summary: 'Search for albums',
-        description: 'Searches for albums based on the provided query string, with pagination support.',
+        description: 'Search for albums based on the provided query',
         operationId: 'searchAlbums',
         request: {
           query: z.object({
             query: z.string().openapi({
-              description: 'Search query string for albums',
+              description: 'Search query for albums',
               type: 'string',
               example: 'Evolve'
             }),
-            page: z.string().pipe(z.coerce.number().default(0)).openapi({
-              description: 'Page number for pagination',
+            page: z.string().pipe(z.coerce.number()).openapi({
+              description: 'The page number of the search results to retrieve',
               type: 'integer',
-              example: 1,
+              example: 0,
               default: 0
             }),
-            limit: z.string().pipe(z.coerce.number().default(10)).openapi({
-              description: 'Number of search results per page',
+            limit: z.string().pipe(z.coerce.number()).openapi({
+              description: 'The number of search results per page',
               type: 'integer',
               example: 10,
               default: 10
