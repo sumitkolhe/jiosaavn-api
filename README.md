@@ -1,10 +1,10 @@
-<h2 style="text-align: center;"><img src="public/logo.svg" alt="Logo" style="vertical-align: middle;" /> JioSaavn API</h2>
+<h2 style="text-align: center;"><img src="public/image.svg" alt="Logo" style="vertical-align: middle;" /> JioSaavn API</h2>
 
 An Unofficial API for downloading high-quality songs, albums, playlists, and more from JioSaavn.
 
 ## 📚 Documentation
 
-Check out the [API documentation](https://saavn.dev/ui) for detailed information on how to use the API.
+Check out the [API documentation](https://saavn.dev/docs) for detailed information on how to use the API.
 
 ## 🔌 Running Locally
 
