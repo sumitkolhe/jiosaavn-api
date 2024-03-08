@@ -2,6 +2,32 @@ import { Hono } from 'hono'
 
 export const Home = new Hono()
 
+const Card = (props: { title: string; tag: string; description: JSX.Element; link?: string; color: string }) => {
+  const content = (
+    <div class="flex flex-col">
+      <span
+        class={`text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-${props.color} text-${props.color}`}
+      >
+        {props.tag}
+      </span>
+      <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">{props.title}</span>
+      <div class="text-neutral-500 mt-2">{props.description}</div>
+    </div>
+  )
+
+  return props.link ? (
+    <a
+      target="_blank"
+      class={`p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
+      href={props.link}
+    >
+      {content}
+    </a>
+  ) : (
+    <div class={`p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}>{content}</div>
+  )
+}
+
 Home.get('/', (c) => {
   return c.html(
     <html>
@@ -22,88 +48,98 @@ Home.get('/', (c) => {
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
 
-      <body class="bg-black no-select">
-        <div class="mx-auto min-h-screen max-w-screen-lg flex flex-col">
-          <main class="flex flex-1 flex-col overflow-hidden">
-            <div class="mx-auto my-auto container flex flex-col p-8 sm:p-8">
-              <div class="relative mb-8 w-full">
-                <div class="flex flex-row items-center space-x-4 px-8 w-full">
-                  <p class="md:text-4xl text-2xl text-transparent font-bold leading-none -ml-px bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-                    JioSaavn API
-                  </p>
-                  <p class="text-xs uppercase px-3 py-2 text-neutral-200 rounded text-center max-w-fit bg-neutral-800 tracking-wide">
-                    Unofficial
-                  </p>
-                </div>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 relative grid-flow-row">
-                <div class="h-[400vh] border-r border-white absolute left-0 opacity-15 -top-[100vh] -ml-px"></div>
-                <div class="h-[400vh] border-r border-white absolute right-0 opacity-15 -top-[100vh]"></div>
-                <div class="w-[400vw] border-t border-white absolute top-0 opacity-15 -left-[100vw]"></div>
-                <div class="w-[400vw] border-t border-white absolute bottom-0 opacity-15 -left-[100vw]"></div>
-                <a
-                  class="bg-white bg-opacity-0 border-b border-white border-opacity-15 relative -ml-px p-8 hover:bg-opacity-5 hover:border-gray-400 duration-100 group sm:col-span-4"
-                  href="/docs"
-                >
-                  <div class="flex flex-col">
-                    <span class="text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-red-500 text-red-500">
-                      Docs
-                    </span>
-                    <span class="text-neutral-200 font-bold text-2xl mt-2">Documentation</span>
-                    <p class="text-neutral-500 mt-2">Check out the documentation to learn how to use the saavn API.</p>
-                  </div>
-                  <div class="h-[200vh] border-r border-white absolute -right-px opacity-15 -top-[100vh] hidden sm:flex"></div>
-                </a>
-                <a
-                  target="_blank"
-                  class="bg-white bg-opacity-0 border-b border-white border-opacity-15 relative -ml-px p-8 hover:bg-opacity-5 hover:border-gray-400 duration-100 group sm:col-span-4"
-                  href="https://github.com/sumitkolhe/jiosaavn-api"
-                >
-                  <div class="flex flex-col">
-                    <span class="text-xs uppercase rounded bg-opacity-15 text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-green-500 text-green-500">
-                      Open Source
-                    </span>
-                    <span class="text-neutral-200 font-bold text-2xl mt-2">Open source</span>
-                    <p class="text-neutral-500 mt-2">Saavn API is open-source. Check out the source code at github.</p>
-                  </div>
-                  <div class="h-[200vh] border-r border-white absolute -right-px opacity-15 -top-[100vh] hidden sm:flex"></div>
-                </a>
-                <a
-                  target="_blank"
-                  class="bg-white bg-opacity-0 border-b border-white border-opacity-15 relative -ml-px p-8 hover:bg-opacity-5 hover:border-gray-400 duration-100 group sm:col-span-4"
-                  href="https://github.com/sumitkolhe/jiosaavn-api/issues"
-                >
-                  <div class="flex flex-col">
-                    <span class="text-xs uppercase rounded bg-opacity-15 text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-violet-500 text-violet-500">
-                      Collaborate
-                    </span>
-                    <span class="text-neutral-200 font-bold text-2xl mt-2">Features / Bugs</span>
-                    <p class="text-neutral-500 mt-2">
-                      Found a bug? Please report it. If you'd like to contribute, feel free to raise a PR.
-                    </p>
-                  </div>
-                  <div class="h-[200vh] border-white absolute -right-px opacity-15 -top-[100vh] hidden sm:flex"></div>
-                </a>
-                <a
-                  target="_blank"
-                  class="bg-white bg-opacity-0 border-b border-white border-opacity-15 relative -ml-px p-8 hover:bg-opacity-5 hover:border-gray-400 duration-100 group sm:col-span-4"
-                  href="https://github.com/sumitkolhe"
-                >
-                  <div class="flex flex-col">
-                    <span class="text-xs uppercase rounded bg-opacity-15 text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-blue-500 text-blue-500">
-                      Author
-                    </span>
-                    <span class="text-neutral-200 font-bold text-2xl mt-2">Sumit Kolhe</span>
-                    <p class="text-neutral-500 mt-2">
-                      Saavn unofficial API is created by Sumit Kolhe. Check out other projects at github.
-                    </p>
-                  </div>
-                  <div class="h-[200vh] border-white absolute -right-px opacity-15 -top-[100vh] hidden sm:flex"></div>
-                </a>
-              </div>
+      <body class="bg-black mx-auto min-h-screen max-w-screen-lg flex flex-col">
+        <main class="flex flex-1 flex-col overflow-hidden">
+          <div class="mx-auto my-auto container flex flex-col p-8 sm:p-8">
+            <div class="relative mb-8 flex flex-row items-center space-x-4 px-8 w-full">
+              <svg class="sm:h-12 sm:w-12 h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="#ff7d78"
+                  d="M3.172 3.464C2 4.93 2 7.286 2 12c0 4.714 0 7.071 1.172 8.535C4.343 22 6.229 22 10 22h3.376A4.25 4.25 0 0 1 17 16.007V12.25a2.25 2.25 0 0 1 4.5 0a.75.75 0 0 0 .5.707V12c0-4.714 0-7.071-1.172-8.536C19.657 2 17.771 2 14 2h-4C6.229 2 4.343 2 3.172 3.464"
+                  opacity=".5"
+                />
+                <path
+                  fill="#ff7d78"
+                  fill-rule="evenodd"
+                  d="M8.25 12a3.75 3.75 0 1 1 7.5 0a3.75 3.75 0 0 1-7.5 0m11-.5a.75.75 0 0 1 .75.75a2.25 2.25 0 0 0 2.25 2.25a.75.75 0 0 1 0 1.5a3.734 3.734 0 0 1-2.25-.75v5a2.75 2.75 0 1 1-1.5-2.45v-5.55a.75.75 0 0 1 .75-.75m-.75 8.75a1.25 1.25 0 1 0-2.5 0a1.25 1.25 0 0 0 2.5 0"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <p class=" text-2xl md:text-4xl text-transparent font-bold leading-none -ml-px bg-clip-text bg-gradient-to-r from-[#ff7d78] to-purple-600">
+                JioSaavn API
+              </p>
+              <p class="text-xs animate-pulse uppercase px-1.5 sm:px-3 sm:py-2 text-neutral-200 rounded text-center bg-neutral-800 tracking-wide">
+                Unofficial
+              </p>
             </div>
-          </main>
-        </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 relative grid-flow-row">
+              <Card
+                tag="Get Started"
+                title="Explore the Docs"
+                description={<span>Check out the documentation to learn how to use the JioSaavn API.</span>}
+                link="/docs"
+                color="red-500"
+              />
+              <Card
+                tag="Open Source"
+                title="Open Source"
+                description={<span>Saavn API is open-source. Check out the source code on github.</span>}
+                link="https://github.com/sumitkolhe/jiosaavn-api"
+                color="green-500"
+              />
+              <Card
+                tag="Contribute"
+                title="Get Involved"
+                description={
+                  <span>
+                    Encounter a bug or have a feature suggestion? Report it on GitHub or contribute by submitting a pull
+                    request.
+                  </span>
+                }
+                link="https://github.com/sumitkolhe/jiosaavn-api/issues"
+                color="violet-500"
+              />
+              <Card
+                tag="Contact"
+                title="Sumit Kolhe"
+                description={
+                  <span>
+                    Have a question or need help? Reach out on{' '}
+                    <a
+                      href="https://github.com/sumitkolhe"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-600 underline"
+                    >
+                      GitHub
+                    </a>
+                    ,{' '}
+                    <a
+                      href="https://twitter.com/sumitkolhe"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 underline"
+                    >
+                      Twitter
+                    </a>
+                    , or{' '}
+                    <a
+                      href="https://t.me/sumitkolhe"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-500 underline"
+                    >
+                      Telegram
+                    </a>
+                    .
+                  </span>
+                }
+                color="blue-500"
+              />
+            </div>
+          </div>
+        </main>
       </body>
     </html>
   )
