@@ -19,11 +19,6 @@ Home.get('/', (c) => {
         <meta property="twitter:url" content="https://saavn.dev/" />
         <meta property="twitter:title" content="JioSaavn API by Sumit Kolhe" />
         <meta property="twitter:description" content="JioSaavn API by Sumit Kolhe" />
-      </head>
-
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
 
@@ -47,7 +42,6 @@ Home.get('/', (c) => {
                 <div class="w-[400vw] border-t border-white absolute top-0 opacity-15 -left-[100vw]"></div>
                 <div class="w-[400vw] border-t border-white absolute bottom-0 opacity-15 -left-[100vw]"></div>
                 <a
-                  target="_blank"
                   class="bg-white bg-opacity-0 border-b border-white border-opacity-15 relative -ml-px p-8 hover:bg-opacity-5 hover:border-gray-400 duration-100 group sm:col-span-4"
                   href="/docs"
                 >
