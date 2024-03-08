@@ -1,6 +1,6 @@
-<h2 style="text-align: center;"><img src="public/image.svg" alt="Logo" style="vertical-align: middle;" /> JioSaavn API</h2>
+# JioSaavn API
 
-An Unofficial API for downloading high-quality songs, albums, playlists, and more from JioSaavn.
+An Unofficial API for downloading high-quality songs, albums, playlists, and more from [JioSaavn](https://jiosaavn.com).
 
 ## 📚 Documentation
 
@@ -14,7 +14,8 @@ Ensure you have the following installed:
 
 - Bun(1.0.26+) or Node.js(v18+)
 
-### Steps to Run Locally
+### Steps to Run Locally,
+
 
 1. Clone the repository:
 
