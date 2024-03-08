@@ -18,13 +18,13 @@ const Card = (props: { title: string; tag: string; description: JSX.Element; lin
   return props.link ? (
     <a
       target="_blank"
-      class={`p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
+      class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
       href={props.link}
     >
       {content}
     </a>
   ) : (
-    <div class={`p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}>{content}</div>
+    <div class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}>{content}</div>
   )
 }
 
@@ -50,9 +50,9 @@ Home.get('/', (c) => {
 
       <body class="bg-black mx-auto min-h-screen max-w-screen-lg flex flex-col">
         <main class="flex flex-1 flex-col overflow-hidden">
-          <div class="mx-auto my-auto container flex flex-col p-8 sm:p-8">
+          <div class="mx-auto my-auto container flex flex-col p-6 sm:p-8">
             <div class="relative mb-8 flex flex-row items-center space-x-4 px-8 w-full">
-              <svg class="sm:h-12 sm:w-12 h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <svg class="sm:h-12 sm:w-12 h-8 w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
                   fill="#ff7d78"
                   d="M3.172 3.464C2 4.93 2 7.286 2 12c0 4.714 0 7.071 1.172 8.535C4.343 22 6.229 22 10 22h3.376A4.25 4.25 0 0 1 17 16.007V12.25a2.25 2.25 0 0 1 4.5 0a.75.75 0 0 0 .5.707V12c0-4.714 0-7.071-1.172-8.536C19.657 2 17.771 2 14 2h-4C6.229 2 4.343 2 3.172 3.464"
@@ -68,7 +68,7 @@ Home.get('/', (c) => {
               <p class=" text-2xl md:text-4xl text-transparent font-bold leading-none -ml-px bg-clip-text bg-gradient-to-r from-[#ff7d78] to-purple-600">
                 JioSaavn API
               </p>
-              <p class="text-xs animate-pulse uppercase px-1.5 sm:px-3 sm:py-2 text-neutral-200 rounded text-center bg-neutral-800 tracking-wide">
+              <p class="text-xs hidden sm:block animate-pulse uppercase px-1.5 sm:px-3 sm:py-2 text-neutral-200 rounded text-center bg-neutral-800 tracking-wide">
                 Unofficial
               </p>
             </div>
@@ -110,7 +110,7 @@ Home.get('/', (c) => {
                       href="https://github.com/sumitkolhe"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-purple-600 underline"
+                      className="underline decoration-indigo-500"
                     >
                       GitHub
                     </a>
@@ -119,7 +119,7 @@ Home.get('/', (c) => {
                       href="https://twitter.com/sumitkolhe"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 underline"
+                      className="underline decoration-sky-500"
                     >
                       Twitter
                     </a>
@@ -128,7 +128,7 @@ Home.get('/', (c) => {
                       href="https://t.me/sumitkolhe"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-500 underline"
+                      className="underline decoration-pink-500"
                     >
                       Telegram
                     </a>
