@@ -3,6 +3,7 @@ import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import { apiReference } from '@scalar/hono-api-reference'
 import { OpenAPIHono } from '@hono/zod-openapi'
+import { Home } from './home'
 import type { Routes } from './common/types'
 import type { HTTPException } from 'hono/http-exception'
 
@@ -24,6 +25,8 @@ export class App {
       route.initRoutes()
       this.app.route('/api', route.controller)
     })
+
+    this.app.route('/', Home)
   }
 
   private initializeGlobalMiddlewares() {
@@ -49,7 +52,7 @@ export class App {
     this.app.get(
       '/docs',
       apiReference({
-        pageTitle: 'JioSaavn API',
+        pageTitle: 'JioSaavn API Docs',
         theme: 'deepSpace',
         isEditable: false,
         layout: 'modern',
