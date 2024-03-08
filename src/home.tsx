@@ -49,9 +49,9 @@ Home.get('/', (c) => {
       </head>
 
       <body class="bg-black mx-auto min-h-screen max-w-screen-lg flex flex-col">
-        <main class="flex flex-1 flex-col overflow-hidden">
-          <div class="mx-auto my-auto container flex flex-col p-6 sm:p-8">
-            <div class="relative mb-8 flex flex-row items-center space-x-4 px-8 w-full">
+        <main class="flex flex-1 flex-col overflow-auto mt-8 mb-8">
+          <div class="mx-auto my-auto container flex flex-col px-4 sm:px-8">
+            <div class="relative mb-6 sm:mb-8 flex flex-row items-center space-x-4 px-4 sm:px-8 w-full">
               <svg class="sm:h-12 sm:w-12 h-8 w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
                   fill="#ff7d78"
@@ -65,10 +65,11 @@ Home.get('/', (c) => {
                   clip-rule="evenodd"
                 />
               </svg>
-              <p class=" text-2xl md:text-4xl text-transparent font-bold leading-none -ml-px bg-clip-text bg-gradient-to-r from-[#ff7d78] to-purple-600">
+              <p class="text-2xl md:text-4xl text-transparent font-bold leading-none bg-clip-text bg-gradient-to-r from-[#ff7d78] to-purple-600">
                 JioSaavn API
+                <span class="uppercase text-sm ml-3 text-gray-500 font-normal sm:hidden">unoffical</span>
               </p>
-              <p class="text-xs hidden sm:block animate-pulse uppercase px-1.5 sm:px-3 sm:py-2 text-neutral-200 rounded text-center bg-neutral-800 tracking-wide">
+              <p class="hidden sm:block text-xs animate-pulse uppercase px-1 sm:px-3 sm:py-2 text-neutral-200 rounded text-center bg-neutral-800 sm:tracking-wide">
                 Unofficial
               </p>
             </div>
