@@ -1,8 +1,8 @@
-import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import { apiReference } from '@scalar/hono-api-reference'
 import { OpenAPIHono } from '@hono/zod-openapi'
+import { serveStatic } from 'hono/bun'
 import { Home } from './home'
 import type { Routes } from './common/types'
 import type { HTTPException } from 'hono/http-exception'
@@ -27,10 +27,10 @@ export class App {
     })
 
     this.app.route('/', Home)
+    this.app.use('/static/*', serveStatic({ root: './' }))
   }
 
   private initializeGlobalMiddlewares() {
-    this.app.use(cors())
     this.app.use(logger())
     this.app.use(prettyJSON())
   }
@@ -43,7 +43,7 @@ export class App {
         version: '1.0.0',
         title: 'JioSaavn API',
         description: `# Introduction 
-        \nJioSaavn API, accessible at [saavn.dev](https://saavn.dev), is an unofficial API that allows users to download high-quality songs from JioSaavn at no cost. 
+        \nJioSaavn API, accessible at [saavn.dev](https://saavn.dev), is an unofficial API that allows users to download high-quality songs from [JioSaavn](https://jiosaavn.com). 
         It offers a fast, reliable, and easy-to-use API for developers. \n`
       },
       servers: [{ url: new URL(c.req.url).origin, description: 'Current environment' }]
@@ -52,13 +52,14 @@ export class App {
     this.app.get(
       '/docs',
       apiReference({
-        pageTitle: 'JioSaavn API Docs',
+        pageTitle: 'JioSaavn API Documentation',
         theme: 'deepSpace',
         isEditable: false,
         layout: 'modern',
         darkMode: true,
         metaData: {
-          description: 'JioSaavn API is an unofficial API for JioSaavn for downloading high-quality songs for free.'
+          description:
+            'JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more.'
         },
         spec: { url: '/swagger' }
       })

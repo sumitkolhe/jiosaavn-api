@@ -36,15 +36,27 @@ Home.get('/', (c) => {
         <meta charset="utf-8" />
         <title>JioSaavn API</title>
         <meta name="title" content="JioSaavn API" />
-        <meta name="description" content="JioSaavn API by Sumit Kolhe" />
+        <meta
+          name="description"
+          content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://saavn.dev/" />
         <meta property="og:title" content="JioSaavn API" />
-        <meta property="og:description" content="JioSaavn API by Sumit Kolhe" />
+        <meta
+          property="og:description"
+          content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
+        />
+        <meta property="og:image" content="https://saavn.dev/static/preview.jpg" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://saavn.dev/" />
-        <meta property="twitter:title" content="JioSaavn API by Sumit Kolhe" />
-        <meta property="twitter:description" content="JioSaavn API by Sumit Kolhe" />
+        <meta property="twitter:title" content="JioSaavn API" />
+        <meta
+          property="twitter:description"
+          content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
+        />
+        <meta property="twitter:image" content="https://saavn.dev/static/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
 
