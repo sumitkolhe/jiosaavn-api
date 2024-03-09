@@ -47,7 +47,7 @@ Home.get('/', (c) => {
           property="og:description"
           content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
         />
-        <meta property="og:image" content="https://saavn.dev/static/preview.jpg" />
+        <meta property="og:image" content="/assets/preview.jpg" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://saavn.dev/" />
         <meta property="twitter:title" content="JioSaavn API" />
@@ -55,8 +55,8 @@ Home.get('/', (c) => {
           property="twitter:description"
           content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
         />
-        <meta property="twitter:image" content="https://saavn.dev/static/preview.jpg" />
-        <link rel="icon" type="image/x-icon" href="https://saavn.dev/static/favicon.ico" />
+        <meta property="twitter:image" content="/assets/preview.jpg" />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
 

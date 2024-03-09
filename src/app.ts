@@ -27,7 +27,7 @@ export class App {
     })
 
     this.app.route('/', Home)
-    this.app.use('/static/*', serveStatic({ root: './' }))
+    this.app.use('/assets/*', serveStatic({ root: './' }))
   }
 
   private initializeGlobalMiddlewares() {
