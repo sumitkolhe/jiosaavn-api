@@ -1,65 +1,15 @@
 import { Hono } from 'hono'
+import { Layout } from '../components/layout'
+import { Card } from '../components/card'
 
 export const Home = new Hono()
 
-const Card = (props: { title: string; tag: string; description: JSX.Element; link?: string; color: string }) => {
-  const content = (
-    <div class="flex flex-col">
-      <span
-        class={`text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-${props.color} text-${props.color}`}
-      >
-        {props.tag}
-      </span>
-      <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">{props.title}</span>
-      <div class="text-neutral-500 mt-2">{props.description}</div>
-    </div>
-  )
-
-  return props.link ? (
-    <a
-      target="_blank"
-      class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
-      href={props.link}
-    >
-      {content}
-    </a>
-  ) : (
-    <div class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}>{content}</div>
-  )
-}
-
 Home.get('/', (c) => {
   return c.html(
-    <html>
-      <head>
-        <meta name="viewport" content="width=device-width" />
-        <meta charset="utf-8" />
-        <title>JioSaavn API</title>
-        <meta name="title" content="JioSaavn API" />
-        <meta
-          name="description"
-          content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://saavn.dev/" />
-        <meta property="og:title" content="JioSaavn API" />
-        <meta
-          property="og:description"
-          content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
-        />
-        <meta property="og:image" content="/assets/preview.jpg" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://saavn.dev/" />
-        <meta property="twitter:title" content="JioSaavn API" />
-        <meta
-          property="twitter:description"
-          content="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
-        />
-        <meta property="twitter:image" content="/assets/preview.jpg" />
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-        <script src="https://cdn.tailwindcss.com"></script>
-      </head>
-
+    <Layout
+      title="JioSaavn API"
+      description="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
+    >
       <body class="bg-black mx-auto min-h-screen max-w-screen-lg flex flex-col">
         <main class="flex flex-1 flex-col overflow-auto mt-8 mb-8">
           <div class="mx-auto my-auto container flex flex-col px-4 sm:px-8">
@@ -123,16 +73,16 @@ Home.get('/', (c) => {
                       href="https://github.com/sumitkolhe"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline decoration-indigo-500"
+                      className="hover:underline text-indigo-500"
                     >
                       GitHub
                     </a>
                     ,{' '}
                     <a
-                      href="https://twitter.com/sumitkolhe"
+                      href="https://twitter.com/thesumitkolhe"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline decoration-sky-500"
+                      className="hover:underline text-sky-500"
                     >
                       Twitter
                     </a>
@@ -141,7 +91,7 @@ Home.get('/', (c) => {
                       href="https://t.me/sumitkolhe"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline decoration-pink-500"
+                      className="hover:underline text-pink-500"
                     >
                       Telegram
                     </a>
@@ -154,6 +104,6 @@ Home.get('/', (c) => {
           </div>
         </main>
       </body>
-    </html>
+    </Layout>
   )
 })

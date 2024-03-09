@@ -2,8 +2,7 @@ import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import { apiReference } from '@scalar/hono-api-reference'
 import { OpenAPIHono } from '@hono/zod-openapi'
-import { serveStatic } from 'hono/bun'
-import { Home } from './home'
+import { Home } from './pages/home'
 import type { Routes } from './common/types'
 import type { HTTPException } from 'hono/http-exception'
 
@@ -27,7 +26,6 @@ export class App {
     })
 
     this.app.route('/', Home)
-    this.app.use('/assets/*', serveStatic({ root: './' }))
   }
 
   private initializeGlobalMiddlewares() {
