@@ -1,31 +1,5 @@
 import { z } from 'zod'
 import { DownloadLinkModel } from '../../../common/models'
-import { SongAPIResponseModel, SongModel } from '../../songs/models'
-import { AlbumAPIResponseModel, AlbumModel } from '../../albums/models'
-
-export const SearchSongAPIResponseModel = z.object({
-  total: z.number(),
-  start: z.number(),
-  results: z.array(SongAPIResponseModel)
-})
-
-export const SearchSongModel = z.object({
-  total: z.number(),
-  start: z.number(),
-  results: z.array(SongModel)
-})
-
-export const SearchAlbumAPIResponseModel = z.object({
-  total: z.number(),
-  start: z.number(),
-  results: z.array(AlbumAPIResponseModel)
-})
-
-export const SearchAlbumModel = z.object({
-  total: z.number(),
-  start: z.number(),
-  results: z.array(AlbumModel)
-})
 
 export const SearchAPIResponseModel = z.object({
   albums: z.object({

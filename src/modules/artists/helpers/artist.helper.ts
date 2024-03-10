@@ -5,9 +5,9 @@ import type { ArtistAPIResponseModel, ArtistModel } from '../models'
 import type { z } from 'zod'
 
 export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseModel>): z.infer<typeof ArtistModel> => ({
-  id: artist.artistId,
+  id: artist.artistId || artist.id,
   name: artist.name,
-  url: artist.urls?.overview,
+  url: artist.urls?.overview || artist.perma_url,
   type: artist.type,
   followerCount: artist.follower_count,
   fanCount: artist.fan_count,
