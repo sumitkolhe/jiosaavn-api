@@ -1,4 +1,3 @@
-import type { Context } from 'hono'
 import { SearchService } from '../services'
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
 import { SearchAlbumModel, SearchArtistModel, SearchModel, SearchSongModel } from '../models'
