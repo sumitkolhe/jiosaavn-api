@@ -34,18 +34,22 @@ export class App {
   }
 
   private initializeSwaggerUI() {
-    this.app.doc31('/swagger', (c) => ({
-      openapi: '3.1.0',
+    this.app.doc31('/swagger', (c) => {
+      const { protocol, hostname, port } = new URL(c.req.url)
 
-      info: {
-        version: '1.0.0',
-        title: 'JioSaavn API',
-        description: `# Introduction 
+      return {
+        openapi: '3.1.0',
+
+        info: {
+          version: '1.0.0',
+          title: 'JioSaavn API',
+          description: `# Introduction 
         \nJioSaavn API, accessible at [saavn.dev](https://saavn.dev), is an unofficial API that allows users to download high-quality songs from [JioSaavn](https://jiosaavn.com). 
         It offers a fast, reliable, and easy-to-use API for developers. \n`
-      },
-      servers: [{ url: new URL(c.req.url).origin, description: 'Current environment' }]
-    }))
+        },
+        servers: [{ url: `${protocol}//${hostname}:${port}`, description: 'Current environment' }]
+      }
+    })
 
     this.app.get(
       '/docs',
@@ -56,6 +60,11 @@ export class App {
         layout: 'modern',
         darkMode: true,
         metaData: {
+          applicationName: 'JioSaavn API',
+          author: 'Sumit Kolhe',
+          creator: 'Sumit Kolhe',
+          publisher: 'Sumit Kolhe',
+          robots: 'index, follow',
           description:
             'JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more.'
         },
