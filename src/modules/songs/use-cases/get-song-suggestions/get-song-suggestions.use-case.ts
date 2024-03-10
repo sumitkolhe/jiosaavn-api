@@ -1,0 +1,45 @@
+import { HTTPException } from 'hono/http-exception'
+import { Endpoints } from '../../../../common/constants'
+import { useFetch } from '../../../../common/helpers'
+import { createSongPayload } from '../../helpers'
+import { CreateSongStationUseCase } from '../create-song-station'
+import type { SongModel, SongSuggestionAPIResponseModel } from '../../models'
+import type { z } from 'zod'
+import type { IUseCase } from '../../../../common/types'
+
+export interface GetSongSuggestionsArgs {
+  songId: string
+  limit: number
+}
+
+export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArgs, z.infer<typeof SongModel>[]> {
+  private readonly createSongStation: CreateSongStationUseCase
+
+  constructor() {
+    this.createSongStation = new CreateSongStationUseCase()
+  }
+
+  async execute({ songId, limit }: GetSongSuggestionsArgs) {
+    const stationId = await this.createSongStation.execute(songId)
+
+    const response = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>(Endpoints.songs.suggestions, {
+      stationid: stationId,
+      k: limit
+    })
+
+    if (!response || response.error) {
+      throw new HTTPException(404, { message: `no suggestions found for the given song` })
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { stationid, ...suggestions } = response // TODO: find a better way to model the response
+
+    const songs =
+      Object.values(suggestions)
+        .map((element) => element && createSongPayload(element.song))
+        .filter(Boolean)
+        .slice(0, limit) || []
+
+    return songs
+  }
+}

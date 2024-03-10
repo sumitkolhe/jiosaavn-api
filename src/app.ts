@@ -1,82 +1,83 @@
-import {} from 'dotenv/config'
-import cors from 'cors'
-import express from 'express'
-import morgan from 'morgan'
-import timeout from 'express-timeout-handler'
-import { rateLimiterMiddleware } from './middlewares/limiter.middleware'
-import { errorMiddleware } from './middlewares/error.middleware'
-import { logger } from './utils/logger'
-import { getConfig } from './configs'
-import type { Request, Response } from 'express'
-import type { Config } from './interfaces/config.interface'
-import type { Route } from './interfaces/route.interface'
+import { logger } from 'hono/logger'
+import { prettyJSON } from 'hono/pretty-json'
+import { apiReference } from '@scalar/hono-api-reference'
+import { OpenAPIHono } from '@hono/zod-openapi'
+import { Home } from './pages/home'
+import type { Routes } from './common/types'
+import type { HTTPException } from 'hono/http-exception'
 
 export class App {
-  public app: express.Application
-  public port: number
-  public config: Config
-  public env: string
+  private app: OpenAPIHono
 
-  constructor(routes: Route[]) {
-    this.config = getConfig()
-    this.app = express()
-    this.env = this.config.env
-    this.port = this.config.server.port
+  constructor(routes: Routes[]) {
+    this.app = new OpenAPIHono()
 
-    this.initializeMiddlewares()
+    this.initializeGlobalMiddlewares()
     this.initializeRoutes(routes)
+    this.initializeSwaggerUI()
     this.initializeRouteFallback()
-    this.initializeErrorHandling()
+    this.initializeErrorHandler()
   }
 
-  private initializeMiddlewares() {
-    this.app.use(morgan(this.config.log.format))
-    this.app.use(cors())
-    this.app.use(express.json())
-    this.app.use(express.urlencoded({ extended: true }))
-    this.app.use(rateLimiterMiddleware)
-    // vercel has timeout limit of 10sec on hobby plan, this allows to throw an error before vercel times out
-    this.app.use(
-      timeout.handler({
-        timeout: 9500,
-        onTimeout(req: Request, res: Response) {
-          res.status(503).json({
-            status: 'FAILED',
-            message: 'request timeout',
-            data: null,
-          })
+  private initializeRoutes(routes: Routes[]) {
+    routes.forEach((route) => {
+      route.initRoutes()
+      this.app.route('/api', route.controller)
+    })
+
+    this.app.route('/', Home)
+  }
+
+  private initializeGlobalMiddlewares() {
+    this.app.use(logger())
+    this.app.use(prettyJSON())
+  }
+
+  private initializeSwaggerUI() {
+    this.app.doc31('/swagger', (c) => ({
+      openapi: '3.1.0',
+
+      info: {
+        version: '1.0.0',
+        title: 'JioSaavn API',
+        description: `# Introduction 
+        \nJioSaavn API, accessible at [saavn.dev](https://saavn.dev), is an unofficial API that allows users to download high-quality songs from [JioSaavn](https://jiosaavn.com). 
+        It offers a fast, reliable, and easy-to-use API for developers. \n`
+      },
+      servers: [{ url: new URL(c.req.url).origin, description: 'Current environment' }]
+    }))
+
+    this.app.get(
+      '/docs',
+      apiReference({
+        pageTitle: 'JioSaavn API Documentation',
+        theme: 'deepSpace',
+        isEditable: false,
+        layout: 'modern',
+        darkMode: true,
+        metaData: {
+          description:
+            'JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more.'
         },
+        spec: { url: '/swagger' }
       })
     )
   }
 
-  private initializeRoutes(routes: Route[]) {
-    routes.forEach((route) => {
-      this.app.use('/', route.router)
-    })
-  }
-
   private initializeRouteFallback() {
-    this.app.use((req, res) => {
-      res.status(404).json({
-        status: 'FAILED',
-        message: 'route not found, please check documentation at https://docs.saavn.dev',
-        data: null,
-      })
+    this.app.notFound((ctx) => {
+      return ctx.json({ success: false, message: 'route not found, check docs at https://saavn.dev/docs' }, 404)
     })
   }
 
-  private initializeErrorHandling() {
-    this.app.use(errorMiddleware)
-  }
-
-  public listen() {
-    this.app.listen(this.port, () => {
-      logger.info(`🚀 Server listening on ${this.port}`)
+  private initializeErrorHandler() {
+    this.app.onError((err, ctx) => {
+      const error = err as HTTPException
+      return ctx.json({ success: false, message: error.message }, error.status || 500)
     })
   }
 
-  public getServer() {
+  public getApp() {
     return this.app
   }
 }
