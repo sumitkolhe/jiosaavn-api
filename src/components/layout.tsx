@@ -26,10 +26,13 @@ export const Layout: FC<LayoutProps> = ({
         <meta property="twitter:url" content="https://saavn.dev/" />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="og:image" content="https://github.com/sumitkolhe/jiosaavn-api/blob/main/assets/preview.jpg" />
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/sumitkolhe/jiosaavn-api/main/assets/preview.jpg"
+        />
         <meta
           property="twitter:image"
-          content="https://github.com/sumitkolhe/jiosaavn-api/blob/main/assets/preview.jpg"
+          content="https://raw.githubusercontent.com/sumitkolhe/jiosaavn-api/main/assets/preview.jpg"
         />
         <link
           rel="icon"
