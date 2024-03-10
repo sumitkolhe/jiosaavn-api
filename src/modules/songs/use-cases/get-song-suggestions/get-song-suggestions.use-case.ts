@@ -27,13 +27,16 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
       k: limit
     })
 
-    if (!response) {
-      throw new HTTPException(404, { message: `could not get song suggestions` })
+    if (!response || response.error) {
+      throw new HTTPException(404, { message: `no suggestions found for the given song` })
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { stationid, ...suggestions } = response // TODO: find a better way to model the response
+
     const songs =
-      Object.values(response.songs || {})
-        .map((element) => element.song && createSongPayload(element.song))
+      Object.values(suggestions)
+        .map((element) => element && createSongPayload(element.song))
         .filter(Boolean)
         .slice(0, limit) || []
 

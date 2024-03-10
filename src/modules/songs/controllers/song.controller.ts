@@ -202,7 +202,7 @@ export class SongController implements Routes {
             id: z.string().openapi({
               description: 'ID of the song to retrieve suggestions for',
               type: 'string',
-              example: '1212121'
+              example: 'yDeAS8Eh'
             })
           }),
           query: z.object({
