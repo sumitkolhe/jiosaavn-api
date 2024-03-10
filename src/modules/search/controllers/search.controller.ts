@@ -224,7 +224,7 @@ export class SearchController {
                   }),
                   data: SearchArtistModel.openapi({
                     description: 'Search results for artists'
-                  }).omit({ similarArtists: true })
+                  })
                 })
               }
             }
