@@ -35,8 +35,8 @@ export class App {
 
   private initializeSwaggerUI() {
     this.app.doc31('/swagger', (c) => {
-      const { protocol: urlProtocol, hostname } = new URL(c.req.url)
-      const protocol = `${c.req.header('x-forwarded-proto')}:` || urlProtocol
+      const { protocol: urlProtocol, hostname, port } = new URL(c.req.url)
+      const protocol = c.req.header('x-forwarded-proto') ? `${c.req.header('x-forwarded-proto')}:` : urlProtocol
 
       return {
         openapi: '3.1.0',
@@ -48,7 +48,7 @@ export class App {
         \nJioSaavn API, accessible at [saavn.dev](https://saavn.dev), is an unofficial API that allows users to download high-quality songs from [JioSaavn](https://jiosaavn.com). 
         It offers a fast, reliable, and easy-to-use API for developers. \n`
         },
-        servers: [{ url: `${protocol}//${hostname}`, description: 'Current environment' }]
+        servers: [{ url: `${protocol}//${hostname}${port ? `:${port}` : ''}`, description: 'Current environment' }]
       }
     })
 
