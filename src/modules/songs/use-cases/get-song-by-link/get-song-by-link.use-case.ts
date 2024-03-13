@@ -6,7 +6,7 @@ import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
 import type { SongAPIResponseModel, SongModel } from '../../models'
 
-export class GetSongByLinkUseCase implements IUseCase<String, z.infer<typeof SongModel>[]> {
+export class GetSongByLinkUseCase implements IUseCase<string, z.infer<typeof SongModel>[]> {
   constructor() {}
 
   async execute(token: string) {

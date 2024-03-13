@@ -6,7 +6,7 @@ import type { z } from 'zod'
 import type { IUseCase } from '../../../../common/types'
 import type { AlbumAPIResponseModel, AlbumModel } from '../../models'
 
-export class GetAlbumByIdUseCase implements IUseCase<String, z.infer<typeof AlbumModel>> {
+export class GetAlbumByIdUseCase implements IUseCase<string, z.infer<typeof AlbumModel>> {
   constructor() {}
 
   async execute(id: string) {

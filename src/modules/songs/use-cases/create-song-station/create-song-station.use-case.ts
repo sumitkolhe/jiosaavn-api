@@ -3,7 +3,7 @@ import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
 import type { IUseCase } from '../../../../common/types'
 
-export class CreateSongStationUseCase implements IUseCase<String, String> {
+export class CreateSongStationUseCase implements IUseCase<string, string> {
   constructor() {}
 
   async execute(songId: string) {
