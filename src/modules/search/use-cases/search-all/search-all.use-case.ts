@@ -1,10 +1,10 @@
 import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
-import { IUseCase } from '../../../../common/types'
 import { createSearchPayload } from '../../helpers'
-import { z } from 'zod'
-import { SearchAPIResponseModel, SearchModel } from '../../models'
+import type { IUseCase } from '../../../../common/types'
+import type { z } from 'zod'
+import type { SearchAPIResponseModel, SearchModel } from '../../models'
 
 export class SearchAllUseCase implements IUseCase<String, z.infer<typeof SearchModel>> {
   async execute(query: string): Promise<z.infer<typeof SearchModel>> {

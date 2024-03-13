@@ -1,5 +1,5 @@
-import { SearchService } from '../services'
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
+import { SearchService } from '../services'
 import { SearchAlbumModel, SearchArtistModel, SearchModel, SearchSongModel } from '../models'
 
 export class SearchController {

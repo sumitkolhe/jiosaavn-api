@@ -1,11 +1,11 @@
 import {
-  SearchAlbumsArgs,
+  type SearchAlbumsArgs,
   SearchAlbumsUseCase,
   SearchAllUseCase,
-  SearchSongsArgs,
+  type SearchSongsArgs,
   SearchSongsUseCase
 } from '../use-cases'
-import { SearchArtistsArgs, SearchArtistsUseCase } from '../use-cases/search-artists'
+import { type SearchArtistsArgs, SearchArtistsUseCase } from '../use-cases/search-artists'
 
 export class SearchService {
   private readonly searchAllUseCase: SearchAllUseCase
@@ -20,19 +20,19 @@ export class SearchService {
     this.searchArtistsUseCase = new SearchArtistsUseCase()
   }
 
-  searchAll = async (query: string) => {
+  searchAll = (query: string) => {
     return this.searchAllUseCase.execute(query)
   }
 
-  searchSongs = async (args: SearchSongsArgs) => {
+  searchSongs = (args: SearchSongsArgs) => {
     return this.searchSongsUseCase.execute(args)
   }
 
-  searchAlbums = async (args: SearchAlbumsArgs) => {
+  searchAlbums = (args: SearchAlbumsArgs) => {
     return this.searchAlbumsUseCase.execute(args)
   }
 
-  searchArtists = async (args: SearchArtistsArgs) => {
+  searchArtists = (args: SearchArtistsArgs) => {
     return this.searchArtistsUseCase.execute(args)
   }
 }

@@ -1,10 +1,10 @@
 import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
-import { IUseCase } from '../../../../common/types'
-import { z } from 'zod'
-import { SearchArtistAPIResponseModel, SearchArtistModel } from '../../models'
 import { createArtistPayload } from '../../../artists/helpers'
+import type { IUseCase } from '../../../../common/types'
+import type { z } from 'zod'
+import type { SearchArtistAPIResponseModel, SearchArtistModel } from '../../models'
 
 export interface SearchArtistsArgs {
   query: string
@@ -21,8 +21,6 @@ export class SearchArtistsUseCase implements IUseCase<SearchArtistsArgs, z.infer
       p: page,
       n: limit
     })
-
-    console.log(response)
 
     if (!response) throw new HTTPException(404, { message: 'artist not found' })
 

@@ -1,6 +1,12 @@
-import { GetSongByIdUseCase, GetSongByLinkUseCase, GetSongLyricsUseCase, GetSongSuggestionsUseCase } from '../use-cases'
+import {
+  type GetSongByIdArgs,
+  GetSongByIdUseCase,
+  GetSongByLinkUseCase,
+  GetSongLyricsUseCase,
+  type GetSongSuggestionsArgs,
+  GetSongSuggestionsUseCase
+} from '../use-cases'
 import { CreateSongStationUseCase } from '../use-cases/create-song-station'
-import type { GetSongByIdArgs, GetSongSuggestionsArgs } from '../use-cases'
 
 export class SongService {
   private readonly getSongByIdUseCase: GetSongByIdUseCase
@@ -17,23 +23,23 @@ export class SongService {
     this.getSongSuggestionsUseCase = new GetSongSuggestionsUseCase()
   }
 
-  getSongByIds = async (args: GetSongByIdArgs) => {
+  getSongByIds = (args: GetSongByIdArgs) => {
     return this.getSongByIdUseCase.execute(args)
   }
 
-  getSongByLink = async (token: string) => {
+  getSongByLink = (token: string) => {
     return this.getSongByLinkUseCase.execute(token)
   }
 
-  getSongLyrics = async (songId: string) => {
+  getSongLyrics = (songId: string) => {
     return this.getSongLyricsUseCase.execute(songId)
   }
 
-  createSongStation = async (songIds: string) => {
+  createSongStation = (songIds: string) => {
     return this.createSongStationUseCase.execute(songIds)
   }
 
-  getSongSuggestions = async (args: GetSongSuggestionsArgs) => {
+  getSongSuggestions = (args: GetSongSuggestionsArgs) => {
     return this.getSongSuggestionsUseCase.execute(args)
   }
 }

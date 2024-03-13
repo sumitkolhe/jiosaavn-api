@@ -1,6 +1,13 @@
-import { GetArtistAlbumsUseCase, GetArtistByIdUseCase, GetArtistSongsUseCase } from '../use-cases'
+import {
+  type GetArtistAlbumsArgs,
+  GetArtistAlbumsUseCase,
+  type GetArtistByIdArgs,
+  GetArtistByIdUseCase,
+  type GetArtistByLinkArgs,
+  type GetArtistSongsArgs,
+  GetArtistSongsUseCase
+} from '../use-cases'
 import { GetArtistByLinkUseCase } from '../use-cases/get-artist-by-link'
-import type { GetArtistAlbumsArgs, GetArtistByIdArgs, GetArtistByLinkArgs, GetArtistSongsArgs } from '../use-cases'
 
 export class ArtistService {
   private readonly getArtistByIdUseCase: GetArtistByIdUseCase
@@ -15,19 +22,19 @@ export class ArtistService {
     this.getArtistAlbumsUseCase = new GetArtistAlbumsUseCase()
   }
 
-  getArtistById = async (args: GetArtistByIdArgs) => {
+  getArtistById = (args: GetArtistByIdArgs) => {
     return this.getArtistByIdUseCase.execute(args)
   }
 
-  getArtistByLink = async (args: GetArtistByLinkArgs) => {
+  getArtistByLink = (args: GetArtistByLinkArgs) => {
     return this.getArtistByLinkUseCase.execute(args)
   }
 
-  getArtistSongs = async (args: GetArtistSongsArgs) => {
+  getArtistSongs = (args: GetArtistSongsArgs) => {
     return this.getArtistSongsUseCase.execute(args)
   }
 
-  getArtistAlbums = async (args: GetArtistAlbumsArgs) => {
+  getArtistAlbums = (args: GetArtistAlbumsArgs) => {
     return this.getArtistAlbumsUseCase.execute(args)
   }
 }

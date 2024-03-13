@@ -9,11 +9,11 @@ export class AlbumService {
     this.getAlbumByLinkUseCase = new GetAlbumByLinkUseCase()
   }
 
-  getAlbumById = async (albumId: string) => {
+  getAlbumById = (albumId: string) => {
     return this.getAlbumByIdUseCase.execute(albumId)
   }
 
-  getAlbumByLink = async (albumLink: string) => {
+  getAlbumByLink = (albumLink: string) => {
     return this.getAlbumByLinkUseCase.execute(albumLink)
   }
 }

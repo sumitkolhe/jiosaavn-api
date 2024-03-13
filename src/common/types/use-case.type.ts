@@ -3,5 +3,5 @@ interface Obj {
 }
 
 export interface IUseCase<T extends Obj = any, TRes = any> {
-  execute(params: T): Promise<TRes>
+  execute: (params: T) => Promise<TRes>
 }
