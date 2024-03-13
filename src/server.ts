@@ -8,4 +8,4 @@ const app = new App([
   new ArtistController()
 ]).getApp()
 
-export { app }
+export default app
