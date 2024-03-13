@@ -2,7 +2,6 @@
   "name": "jiosaavn-api",
   "version": "1.0.0",
   "description": "Unofficial JioSaavn API",
-  "type": "module",
   "license": "MIT",
   "repository": "https://github.com/sumitkolhe/jiosaavn-api",
   "author": "Sumit Kolhe",
