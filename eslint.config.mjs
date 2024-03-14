@@ -1,6 +1,6 @@
-import { kolhe } from '@kolhe/eslint-config'
+import { config } from '@kolhe/eslint-config'
 
-export default kolhe(
+export default config(
   [
     {
       files: ['src/**/*.ts'],
