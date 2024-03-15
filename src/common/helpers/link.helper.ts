@@ -1,4 +1,5 @@
-import { cipher, util } from 'node-forge'
+import { createDecipheriv } from 'node:crypto'
+import { Buffer } from 'node:buffer'
 
 export const createDownloadLinks = (encryptedMediaUrl: string) => {
   if (!encryptedMediaUrl) return []
@@ -11,16 +12,14 @@ export const createDownloadLinks = (encryptedMediaUrl: string) => {
     { id: '_320', bitrate: '320kbps' }
   ]
 
-  const key = '38346591'
-  const iv = '00000000'
+  const key = Buffer.from('38346591', 'utf8')
+  const iv = Buffer.alloc(0)
+  const decipher = createDecipheriv('des-ecb', key, iv)
 
-  const encrypted = util.decode64(encryptedMediaUrl)
-  const decipher = cipher.createDecipher('DES-ECB', util.createBuffer(key))
-  decipher.start({ iv: util.createBuffer(iv) })
-  decipher.update(util.createBuffer(encrypted))
-  decipher.finish()
-
-  const decryptedLink = decipher.output.getBytes()
+  const decryptedLink = Buffer.concat([
+    decipher.update(Buffer.from(encryptedMediaUrl, 'base64')),
+    decipher.final()
+  ]).toString('utf8')
 
   return qualities.map((quality) => ({
     quality: quality.bitrate,
