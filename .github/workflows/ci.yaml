@@ -1,7 +1,7 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -18,7 +18,7 @@ jobs:
       - run: bun install
 
       - name: Run Tests Locally
-        run: bun test
+        run: bun run test
 
       - name: Deploy to Staging
         id: deploy-vercel-staging
@@ -32,7 +32,7 @@ jobs:
       - name: Run Tests Against Staging
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
-        run: bun test
+        run: bun run test
 
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
