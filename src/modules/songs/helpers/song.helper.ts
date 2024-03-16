@@ -1,17 +1,17 @@
 import type { z } from 'zod'
 import type {
-  ArtistMapModel,
   LyricsAPIResponseModel,
   LyricsModel,
   SongAPIResponseModel,
   SongArtistMapAPIResponseModel,
+  SongArtistMapModel,
   SongModel
 } from '#modules/songs/models'
 import { createDownloadLinks, createImageLinks } from '#common/helpers'
 
 export const createArtistMap = (
   artist: z.infer<typeof SongArtistMapAPIResponseModel>
-): z.infer<typeof ArtistMapModel> => ({
+): z.infer<typeof SongArtistMapModel> => ({
   id: artist.id,
   name: artist.name,
   role: artist.role,
