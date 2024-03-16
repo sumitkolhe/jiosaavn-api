@@ -4,12 +4,14 @@ import type {
   LyricsAPIResponseModel,
   LyricsModel,
   SongAPIResponseModel,
-  SongArtistMapModel,
+  SongArtistMapAPIResponseModel,
   SongModel
 } from '#modules/songs/models'
 import { createDownloadLinks, createImageLinks } from '#common/helpers'
 
-export const createArtistMap = (artist: z.infer<typeof SongArtistMapModel>): z.infer<typeof ArtistMapModel> => ({
+export const createArtistMap = (
+  artist: z.infer<typeof SongArtistMapAPIResponseModel>
+): z.infer<typeof ArtistMapModel> => ({
   id: artist.id,
   name: artist.name,
   role: artist.role,

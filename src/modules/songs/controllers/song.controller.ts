@@ -23,7 +23,7 @@ export class SongController implements Routes {
         tags: ['Songs'],
         summary: 'Retrieve songs by ID or link',
         description: 'Retrieve songs by a comma-separated list of IDs or by a direct link to the song on JioSaavn.',
-        operationId: 'getSong',
+        operationId: 'getSongByIdsOrLink',
         request: {
           query: z.object({
             ids: z.string().optional().openapi({

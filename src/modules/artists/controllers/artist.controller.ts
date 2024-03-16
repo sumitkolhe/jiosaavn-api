@@ -19,7 +19,7 @@ export class ArtistController {
         tags: ['Artists'],
         summary: 'Retrieve artists by ID or link',
         description: `Retrieve artists by ID or by a direct artist link.`,
-        operationId: 'getArtist',
+        operationId: 'getArtistByIdOrLink',
         request: {
           query: z.object({
             id: z.string().optional().openapi({

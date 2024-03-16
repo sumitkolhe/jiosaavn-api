@@ -13,7 +13,7 @@ export const LyricsAPIResponseModel = z.object({
   snippet: z.string()
 })
 
-export const SongArtistMapModel = z.object({
+export const SongArtistMapAPIResponseModel = z.object({
   id: z.string(),
   name: z.string(),
   role: z.string(),
@@ -22,7 +22,7 @@ export const SongArtistMapModel = z.object({
   perma_url: z.string()
 })
 
-export const ArtistMapModel = z.object({
+export const SongArtistMapModel = z.object({
   id: z.string(),
   name: z.string(),
   role: z.string(),
@@ -70,9 +70,9 @@ export const SongAPIResponseModel = z.object({
     starred: z.string(),
     copyright_text: z.string(),
     artistMap: z.object({
-      primary_artists: z.array(SongArtistMapModel),
-      featured_artists: z.array(SongArtistMapModel),
-      artists: z.array(SongArtistMapModel)
+      primary_artists: z.array(SongArtistMapAPIResponseModel),
+      featured_artists: z.array(SongArtistMapAPIResponseModel),
+      artists: z.array(SongArtistMapAPIResponseModel)
     }),
     release_date: z.string(),
     label_url: z.string(),
@@ -107,9 +107,9 @@ export const SongModel = z.object({
     url: z.string()
   }),
   artists: z.object({
-    primary: z.array(ArtistMapModel),
-    featured: z.array(ArtistMapModel),
-    all: z.array(ArtistMapModel)
+    primary: z.array(SongArtistMapModel),
+    featured: z.array(SongArtistMapModel),
+    all: z.array(SongArtistMapModel)
   }),
   image: z.array(DownloadLinkModel),
   downloadUrl: z.array(DownloadLinkModel)
