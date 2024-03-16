@@ -1,9 +1,9 @@
 import { HTTPException } from 'hono/http-exception'
-import { Endpoints } from '../../../../common/constants'
-import { useFetch } from '../../../../common/helpers'
-import type { IUseCase } from '#common/types'
 import type { z } from 'zod'
+import type { IUseCase } from '#common/types'
 import type { SearchAlbumAPIResponseModel, SearchAlbumModel } from '#modules/search/models'
+import { Endpoints } from '#common/constants'
+import { useFetch } from '#common/helpers'
 import { createAlbumPayload } from '#modules/albums/helpers'
 
 export interface SearchAlbumsArgs {

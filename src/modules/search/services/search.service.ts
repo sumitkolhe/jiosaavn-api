@@ -4,6 +4,8 @@ import {
   SearchAllUseCase,
   type SearchArtistsArgs,
   SearchArtistsUseCase,
+  type SearchPlaylistsArgs,
+  SearchPlaylistsUseCase,
   type SearchSongsArgs,
   SearchSongsUseCase
 } from '#modules/search/use-cases'
@@ -13,12 +15,14 @@ export class SearchService {
   private readonly searchSongsUseCase: SearchSongsUseCase
   private readonly searchAlbumsUseCase: SearchAlbumsUseCase
   private readonly searchArtistsUseCase: SearchArtistsUseCase
+  private readonly searchPlaylistsUseCase: SearchPlaylistsUseCase
 
   constructor() {
     this.searchAllUseCase = new SearchAllUseCase()
     this.searchSongsUseCase = new SearchSongsUseCase()
     this.searchAlbumsUseCase = new SearchAlbumsUseCase()
     this.searchArtistsUseCase = new SearchArtistsUseCase()
+    this.searchPlaylistsUseCase = new SearchPlaylistsUseCase()
   }
 
   searchAll = (query: string) => {
@@ -35,5 +39,9 @@ export class SearchService {
 
   searchArtists = (args: SearchArtistsArgs) => {
     return this.searchArtistsUseCase.execute(args)
+  }
+
+  searchPlaylists = (args: SearchPlaylistsArgs) => {
+    return this.searchPlaylistsUseCase.execute(args)
   }
 }
