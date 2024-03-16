@@ -14,14 +14,8 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
           restore-keys: ${{ runner.os }}-bun-
 
-      - name: Install Bun
-        run: |
-          curl -fsSL https://bun.sh/install | bash
-
-      - name: Build
-        run: |
-          bun install
-          bun run bundle
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install
 
       - name: Run Tests Locally
         run: bun test
