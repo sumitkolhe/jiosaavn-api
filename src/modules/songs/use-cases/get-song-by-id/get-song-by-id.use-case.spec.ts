@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, test } from 'bun:test'
+import { beforeAll, describe, expect, test } from 'vitest'
 import { GetSongByIdUseCase } from '#modules/songs/use-cases'
 
 describe('GetSongById', () => {

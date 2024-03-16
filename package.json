@@ -33,6 +33,8 @@
     "format": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint .",
     "lint:fix": "bun run lint --fix",
+    "test": "bun run vitest run",
+    "test:ui": "bun run vitest ui",
     "deploy": "vercel deploy --prod",
     "postinstall": "npx simple-git-hooks"
   },
@@ -53,11 +55,14 @@
     "@types/bun": "^1.0.8",
     "@types/node": "^20.11.28",
     "@types/node-forge": "^1.3.11",
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vitest/ui": "^1.4.0",
     "eslint": "^8.57.0",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
-    "simple-git-hooks": "^2.10.0",
+    "simple-git-hooks": "^2.11.0",
     "tsc-alias": "^1.8.8",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "vitest": "^1.4.0"
   }
 }
