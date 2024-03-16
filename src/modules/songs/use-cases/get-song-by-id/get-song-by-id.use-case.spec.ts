@@ -13,4 +13,11 @@ describe('GetSongById', () => {
     expect(song).toBeDefined()
     expect(song).toHaveLength(1)
   })
+
+  test('should return a song by id and include lyrics', async () => {
+    const song = await getSongById.execute({ songIds: 'ulCA5JTi', includeLyrics: true })
+    expect(song).toBeDefined()
+    expect(song).toHaveLength(1)
+    expect(song[0].lyrics).toBeDefined()
+  })
 })

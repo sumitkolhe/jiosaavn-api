@@ -29,7 +29,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
 
-      - name: Run Tests Against Vercel
+      - name: Run Tests Against Staging
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
         run: bun test
