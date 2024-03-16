@@ -1,15 +1,50 @@
 import { Hono } from 'hono'
-import { Layout } from '../components/layout'
-import { Card } from '../components/card'
 
 export const Home = new Hono()
 
 Home.get('/', (c) => {
+  const title = 'JioSaavn API'
+  const description =
+    'JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more.'
+
   return c.html(
-    <Layout
-      title="JioSaavn API"
-      description="JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more."
-    >
+    <html>
+      <head>
+        <title>JioSaavn API</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <meta name="description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://saavn.dev/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://saavn.dev/" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta
+          property="og:image"
+          content="https://raw.githubusercontent.com/sumitkolhe/jiosaavn-api/main/assets/preview.jpg"
+        />
+        <meta
+          property="twitter:image"
+          content="https://raw.githubusercontent.com/sumitkolhe/jiosaavn-api/main/assets/preview.jpg"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="https://raw.githubusercontent.com/sumitkolhe/jiosaavn-api/main/assets/favicon.ico"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `* { font-family: 'Inter', sans-serif; }`
+          }}
+        />
+      </head>
       <body class="bg-black mx-auto min-h-screen max-w-screen-lg flex flex-col">
         <main class="flex flex-1 flex-col overflow-auto mt-8 mb-8">
           <div class="mx-auto my-auto container flex flex-col px-4 sm:px-8">
@@ -37,37 +72,70 @@ Home.get('/', (c) => {
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 relative grid-flow-row">
-              <Card
-                tag="Get Started"
-                title="Explore the Docs"
-                description={<span>Check out the documentation to learn how to use the JioSaavn API.</span>}
-                link="/docs"
-                color="red-500"
-              />
-              <Card
-                tag="Open Source"
-                title="Open Source"
-                description={<span>Saavn API is open-source. Check out the source code on github.</span>}
-                link="https://github.com/sumitkolhe/jiosaavn-api"
-                color="green-500"
-              />
-              <Card
-                tag="Contribute"
-                title="Get Involved"
-                description={
-                  <span>
+              <a
+                target="_blank"
+                class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
+                href="/docs"
+              >
+                <div class="flex flex-col">
+                  <span
+                    class={`text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-red-500 text-red-500`}
+                  >
+                    Get Started
+                  </span>
+                  <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Explore the Docs</span>
+                  <div class="text-neutral-500 mt-2">
+                    Check out the documentation to learn how to use the JioSaavn API.
+                  </div>
+                </div>
+              </a>
+
+              <a
+                target="_blank"
+                class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
+                href="https://github.com/sumitkolhe/jiosaavn-api"
+              >
+                <div class="flex flex-col">
+                  <span
+                    class={`text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-green-500 text-green-500`}
+                  >
+                    Open Source
+                  </span>
+                  <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Open Source</span>
+                  <div class="text-neutral-500 mt-2">
+                    Saavn API is open-source. Check out the source code on github.
+                  </div>
+                </div>
+              </a>
+
+              <a
+                target="_blank"
+                class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}
+                href="https://github.com/sumitkolhe/jiosaavn-api/issues"
+              >
+                <div class="flex flex-col">
+                  <span
+                    class={`text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-violet-500 text-violet-500`}
+                  >
+                    Contribute
+                  </span>
+                  <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Get Involved</span>
+                  <div class="text-neutral-500 mt-2">
                     Encounter a bug or have a feature suggestion? Report it on GitHub or contribute by submitting a pull
                     request.
+                  </div>
+                </div>
+              </a>
+
+              <div class={`p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4`}>
+                <div class="flex flex-col">
+                  <span
+                    class={`text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-blue-500 text-blue-500`}
+                  >
+                    Contact
                   </span>
-                }
-                link="https://github.com/sumitkolhe/jiosaavn-api/issues"
-                color="violet-500"
-              />
-              <Card
-                tag="Contact"
-                title="Sumit Kolhe"
-                description={
-                  <span>
+                  <span class="text-neutral-200 font-bold text-lg sm:text-xl md:text-2xl mt-2">Sumit Kolhe</span>
+                  <div class="text-neutral-500 mt-2">
                     Have a question or need help? Reach out on{' '}
                     <a
                       href="https://github.com/sumitkolhe"
@@ -96,14 +164,13 @@ Home.get('/', (c) => {
                       Telegram
                     </a>
                     .
-                  </span>
-                }
-                color="blue-500"
-              />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </main>
       </body>
-    </Layout>
+    </html>
   )
 })
