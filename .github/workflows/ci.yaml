@@ -32,7 +32,7 @@ jobs:
       - name: Run Tests Against Vercel
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
-        run: bun run test
+        run: bun test
 
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
