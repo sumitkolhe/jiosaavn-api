@@ -24,7 +24,8 @@ export const Endpoints = {
     albums: 'artist.getArtistMoreAlbum'
   },
   playlists: {
-    id: 'playlist.getDetails'
+    id: 'playlist.getDetails',
+    link: 'webapi.get'
   },
   modules: 'content.getBrowseModules',
   trending: 'content.getTrending'
