@@ -19,7 +19,7 @@ export class AlbumController {
         tags: ['Album'],
         summary: 'Retrieve an album by ID or link',
         description: 'Retrieve an album by providing either an ID or a direct link to the album on JioSaavn.',
-        operationId: 'getAlbum',
+        operationId: 'getAlbumByIdOrLink',
         request: {
           query: z.object({
             id: z.string().optional().openapi({

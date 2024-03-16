@@ -6,6 +6,7 @@ import { createImageLinks } from '#common/helpers'
 export const createAlbumPayload = (album: z.infer<typeof AlbumAPIResponseModel>): z.infer<typeof AlbumModel> => ({
   id: album.id,
   name: album.title,
+  description: album.header_desc,
   type: album.type,
   year: Number(album.year || 0),
   playCount: Number(album.play_count),

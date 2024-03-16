@@ -29,6 +29,7 @@ export const AlbumAPIResponseModel = z.object({
 export const AlbumModel = z.object({
   id: z.string(),
   name: z.string(),
+  description: z.string(),
   year: z.number(),
   type: z.string(),
   playCount: z.number(),
