@@ -1,6 +1,6 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import { AlbumService } from '../services'
-import { AlbumModel } from '../models'
+import { AlbumService } from '#modules/albums/services'
+import { AlbumModel } from '#modules/albums/models'
 
 export class AlbumController {
   public controller: OpenAPIHono

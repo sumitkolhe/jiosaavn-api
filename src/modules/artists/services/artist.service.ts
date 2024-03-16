@@ -4,10 +4,10 @@ import {
   type GetArtistByIdArgs,
   GetArtistByIdUseCase,
   type GetArtistByLinkArgs,
+  GetArtistByLinkUseCase,
   type GetArtistSongsArgs,
   GetArtistSongsUseCase
-} from '../use-cases'
-import { GetArtistByLinkUseCase } from '../use-cases/get-artist-by-link'
+} from '#modules/artists/use-cases'
 
 export class ArtistService {
   private readonly getArtistByIdUseCase: GetArtistByIdUseCase

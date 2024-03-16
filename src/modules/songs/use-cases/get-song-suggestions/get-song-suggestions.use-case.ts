@@ -1,11 +1,11 @@
 import { HTTPException } from 'hono/http-exception'
-import { Endpoints } from '../../../../common/constants'
-import { useFetch } from '../../../../common/helpers'
-import { createSongPayload } from '../../helpers'
-import { CreateSongStationUseCase } from '../create-song-station'
-import type { SongModel, SongSuggestionAPIResponseModel } from '../../models'
 import type { z } from 'zod'
-import type { IUseCase } from '../../../../common/types'
+import type { IUseCase } from '#common/types'
+import type { SongModel, SongSuggestionAPIResponseModel } from '#modules/songs/models'
+import { Endpoints } from '#common/constants'
+import { useFetch } from '#common/helpers'
+import { createSongPayload } from '#modules/songs/helpers'
+import { CreateSongStationUseCase } from '#modules/songs/use-cases'
 
 export interface GetSongSuggestionsArgs {
   songId: string

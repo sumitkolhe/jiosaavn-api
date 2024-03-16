@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import { AlbumAPIResponseModel, AlbumModel } from '../../albums/models'
-import { SongAPIResponseModel, SongModel } from '../../songs/models'
-import { DownloadLinkModel } from '../../../common/models'
+import { AlbumAPIResponseModel, AlbumModel } from '#modules/albums/models'
+import { SongAPIResponseModel, SongModel } from '#modules/songs/models'
+import { DownloadLinkModel } from '#common/models'
 
 export const ArtistAPIResponseModel = z
   .object({

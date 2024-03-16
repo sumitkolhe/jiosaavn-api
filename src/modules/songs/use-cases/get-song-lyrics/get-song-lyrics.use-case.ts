@@ -1,10 +1,10 @@
 import { HTTPException } from 'hono/http-exception'
-import { Endpoints } from '../../../../common/constants'
-import { useFetch } from '../../../../common/helpers'
-import { createSongLyricsPayload } from '../../helpers'
-import type { LyricsAPIResponseModel, LyricsModel } from '../../models'
 import type { z } from 'zod'
-import type { IUseCase } from '../../../../common/types'
+import type { IUseCase } from '#common/types'
+import type { LyricsAPIResponseModel, LyricsModel } from '#modules/songs/models'
+import { Endpoints } from '#common/constants'
+import { useFetch } from '#common/helpers'
+import { createSongLyricsPayload } from '#modules/songs/helpers'
 
 export class GetSongLyricsUseCase implements IUseCase<string, z.infer<typeof LyricsModel>> {
   constructor() {}

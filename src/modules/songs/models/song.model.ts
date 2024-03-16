@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { DownloadLinkModel } from '../../../common/models'
+import { DownloadLinkModel } from '#common/models'
 
 export const LyricsModel = z.object({
   lyrics: z.string(),

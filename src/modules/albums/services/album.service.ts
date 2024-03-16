@@ -1,4 +1,4 @@
-import { GetAlbumByIdUseCase, GetAlbumByLinkUseCase } from '../use-cases'
+import { GetAlbumByIdUseCase, GetAlbumByLinkUseCase } from '#modules/albums/use-cases'
 
 export class AlbumService {
   private readonly getAlbumByIdUseCase: GetAlbumByIdUseCase

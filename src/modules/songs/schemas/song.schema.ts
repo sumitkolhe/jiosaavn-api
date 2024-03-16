@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { SongModel } from '../models/song.model'
+import { SongModel } from '#modules/songs/models'
 
 export const songRequestSchema = z.object({
   id: z.string().optional().openapi({ description: 'Id of the song', type: 'string', example: 'OgwhbhtDRwM' }),

@@ -1,12 +1,12 @@
 import {
+  CreateSongStationUseCase,
   type GetSongByIdArgs,
   GetSongByIdUseCase,
   GetSongByLinkUseCase,
   GetSongLyricsUseCase,
   type GetSongSuggestionsArgs,
   GetSongSuggestionsUseCase
-} from '../use-cases'
-import { CreateSongStationUseCase } from '../use-cases/create-song-station'
+} from '#modules/songs/use-cases'
 
 export class SongService {
   private readonly getSongByIdUseCase: GetSongByIdUseCase

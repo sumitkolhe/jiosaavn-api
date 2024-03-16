@@ -1,10 +1,10 @@
 import { HTTPException } from 'hono/http-exception'
 import { Endpoints } from '../../../../common/constants'
 import { useFetch } from '../../../../common/helpers'
-import { createAlbumPayload } from '../../../albums/helpers'
-import type { IUseCase } from '../../../../common/types'
+import type { IUseCase } from '#common/types'
 import type { z } from 'zod'
-import type { SearchAlbumAPIResponseModel, SearchAlbumModel } from '../../models'
+import type { SearchAlbumAPIResponseModel, SearchAlbumModel } from '#modules/search/models'
+import { createAlbumPayload } from '#modules/albums/helpers'
 
 export interface SearchAlbumsArgs {
   query: string

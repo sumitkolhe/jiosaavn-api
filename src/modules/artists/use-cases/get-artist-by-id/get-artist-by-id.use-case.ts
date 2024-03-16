@@ -1,10 +1,10 @@
 import { HTTPException } from 'hono/http-exception'
-import { Endpoints } from '../../../../common/constants'
-import { useFetch } from '../../../../common/helpers'
-import { createArtistPayload } from '../../helpers'
 import type { z } from 'zod'
-import type { IUseCase } from '../../../../common/types'
-import type { ArtistAPIResponseModel, ArtistModel } from '../../models'
+import type { IUseCase } from '#common/types'
+import type { ArtistAPIResponseModel, ArtistModel } from '#modules/artists/models'
+import { createArtistPayload } from '#modules/artists/helpers'
+import { Endpoints } from '#common/constants'
+import { useFetch } from '#common/helpers'
 
 export interface GetArtistByIdArgs {
   artistId: string

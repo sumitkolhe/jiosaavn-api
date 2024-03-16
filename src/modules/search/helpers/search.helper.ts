@@ -1,6 +1,6 @@
-import { createImageLinks } from '../../../common/helpers'
 import type { z } from 'zod'
-import type { SearchAPIResponseModel, SearchModel } from '../models'
+import type { SearchAPIResponseModel, SearchModel } from '#modules/search/models'
+import { createImageLinks } from '#common/helpers'
 
 export const createSearchPayload = (search: z.infer<typeof SearchAPIResponseModel>): z.infer<typeof SearchModel> => ({
   topQuery: {

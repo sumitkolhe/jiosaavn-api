@@ -3,7 +3,7 @@ import { prettyJSON } from 'hono/pretty-json'
 import { apiReference } from '@scalar/hono-api-reference'
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { Home } from './pages/home'
-import type { Routes } from './common/types'
+import type { Routes } from '#common/types'
 import type { HTTPException } from 'hono/http-exception'
 
 export class App {

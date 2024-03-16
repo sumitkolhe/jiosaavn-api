@@ -1,32 +1,31 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "target": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "lib": ["ESNext", "esnext.asynciterable"],
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "baseUrl": ".",
     "rootDir": "./src",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
+    "paths": {
+      "#modules/*": ["src/modules/*"],
+      "#common/*": ["src/common/*"]
+    },
     "resolveJsonModule": true,
-    "typeRoots": ["node_modules/@types"],
-    "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "declaration": true,
-    "importHelpers": true,
-    "noEmit": false,
     "outDir": "./dist",
-    "sourceMap": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "pretty": true
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "tsc-alias": {
+    "resolveFullPaths": true
+  }
 }

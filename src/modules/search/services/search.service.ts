@@ -2,10 +2,11 @@ import {
   type SearchAlbumsArgs,
   SearchAlbumsUseCase,
   SearchAllUseCase,
+  type SearchArtistsArgs,
+  SearchArtistsUseCase,
   type SearchSongsArgs,
   SearchSongsUseCase
-} from '../use-cases'
-import { type SearchArtistsArgs, SearchArtistsUseCase } from '../use-cases/search-artists'
+} from '#modules/search/use-cases'
 
 export class SearchService {
   private readonly searchAllUseCase: SearchAllUseCase

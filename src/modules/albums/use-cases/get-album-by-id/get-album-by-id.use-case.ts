@@ -1,10 +1,10 @@
 import { HTTPException } from 'hono/http-exception'
-import { Endpoints } from '../../../../common/constants'
-import { useFetch } from '../../../../common/helpers'
-import { createAlbumPayload } from '../../helpers'
 import type { z } from 'zod'
-import type { IUseCase } from '../../../../common/types'
-import type { AlbumAPIResponseModel, AlbumModel } from '../../models'
+import type { IUseCase } from '#common/types'
+import type { AlbumAPIResponseModel, AlbumModel } from '#modules/albums/models'
+import { createAlbumPayload } from '#modules/albums/helpers'
+import { useFetch } from '#common/helpers'
+import { Endpoints } from '#common/constants'
 
 export class GetAlbumByIdUseCase implements IUseCase<string, z.infer<typeof AlbumModel>> {
   constructor() {}
