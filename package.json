@@ -34,7 +34,7 @@
     "lint": "eslint .",
     "lint:fix": "bun run lint --fix",
     "test": "bun run vitest run",
-    "test:ui": "bun run vitest ui",
+    "test:ui": "bun run vitest --ui",
     "deploy": "vercel deploy --prod",
     "postinstall": "npx simple-git-hooks"
   },
