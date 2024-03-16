@@ -1,6 +1,6 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import { AlbumModel } from '#modules/albums/models'
 import { PlaylistService } from '#modules/playlists/services'
+import { PlaylistModel } from '#modules/playlists/models'
 
 export class PlaylistController {
   public controller: OpenAPIHono
@@ -54,8 +54,8 @@ export class PlaylistController {
                     type: 'boolean',
                     example: true
                   }),
-                  data: AlbumModel.openapi({
-                    title: 'Album Details',
+                  data: PlaylistModel.openapi({
+                    title: 'Playlist Details',
                     description: 'The detailed information of the playlist.'
                   })
                 })
