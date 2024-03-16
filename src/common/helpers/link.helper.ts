@@ -1,4 +1,4 @@
-import { cipher, util } from 'node-forge'
+import crypto from 'node-forge'
 
 export const createDownloadLinks = (encryptedMediaUrl: string) => {
   if (!encryptedMediaUrl) return []
@@ -14,10 +14,10 @@ export const createDownloadLinks = (encryptedMediaUrl: string) => {
   const key = '38346591'
   const iv = '00000000'
 
-  const encrypted = util.decode64(encryptedMediaUrl)
-  const decipher = cipher.createDecipher('DES-ECB', util.createBuffer(key))
-  decipher.start({ iv: util.createBuffer(iv) })
-  decipher.update(util.createBuffer(encrypted))
+  const encrypted = crypto.util.decode64(encryptedMediaUrl)
+  const decipher = crypto.cipher.createDecipher('DES-ECB', crypto.util.createBuffer(key))
+  decipher.start({ iv: crypto.util.createBuffer(iv) })
+  decipher.update(crypto.util.createBuffer(encrypted))
   decipher.finish()
   const decryptedLink = decipher.output.getBytes()
 
