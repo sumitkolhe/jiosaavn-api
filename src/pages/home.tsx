@@ -13,8 +13,7 @@ export const Meteors = ({ number }: { number: number }) => {
             top: 0,
             left: `${Math.floor(Math.random() * (400 - -400) + -400)}px`,
             animationDelay: `${Math.random() * (0.8 - 0.2) + 0.2}s`,
-            animationDuration: `${Math.floor(Math.random() * (10 - 2) + 2)}s`,
-            transform: 'translate(-50%, -50%)'
+            animationDuration: `${Math.floor(Math.random() * (10 - 2) + 2)}s`
           }}
         ></span>
       ))}
@@ -87,7 +86,9 @@ Home.get('/', (c) => {
           }}
         />
       </head>
-      <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col overflow-y-scroll overflow-x-hidden">
+      <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col overflow-x-hidden">
+        <Meteors number={15} />
+
         <main class="mx-auto my-auto flex flex-col space-y-8 px-4 py-10">
           <div class="flex flex-row items-center space-x-4 ml-6">
             <svg class="sm:h-12 sm:w-12 h-8 w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -107,7 +108,6 @@ Home.get('/', (c) => {
               JioSaavn API
               <span class="uppercase text-sm ml-3 text-gray-500 font-normal sm:hidden">Unofficial</span>
             </p>
-            <Meteors number={15} />
             <p class="hidden sm:block animate-[borderAnimation_3s_linear_infinite] rounded bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-[length:400%_400%] p-1">
               <span class="block rounded px-1.5 py-0.5 text-xs text-white uppercase tracking-wider">Unofficial</span>
             </p>
@@ -116,7 +116,7 @@ Home.get('/', (c) => {
           <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 relative grid-flow-row">
             <a
               target="_blank"
-              class="p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
+              class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
               href="/docs"
             >
               <div class="flex flex-col">
@@ -132,7 +132,7 @@ Home.get('/', (c) => {
 
             <a
               target="_blank"
-              class="p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
+              class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
               href="https://github.com/sumitkolhe/jiosaavn-api"
             >
               <div class="flex flex-col">
@@ -146,7 +146,7 @@ Home.get('/', (c) => {
 
             <a
               target="_blank"
-              class="p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
+              class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
               href="https://github.com/sumitkolhe/jiosaavn-api/issues"
             >
               <div class="flex flex-col">
@@ -161,7 +161,7 @@ Home.get('/', (c) => {
               </div>
             </a>
 
-            <div class="p-6 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4">
+            <div class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4">
               <div class="flex flex-col">
                 <span class="text-xs uppercase bg-opacity-15 rounded text-center max-w-fit px-2 py-1 font-bold tracking-wide bg-blue-500 text-blue-500">
                   Contact
