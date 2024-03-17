@@ -1,35 +1,6 @@
 import { z } from 'zod'
 import { DownloadLinkModel } from '#common/models'
-
-export const LyricsModel = z.object({
-  lyrics: z.string(),
-  copyright: z.string(),
-  snippet: z.string()
-})
-
-export const LyricsAPIResponseModel = z.object({
-  lyrics: z.string(),
-  lyrics_copyright: z.string(),
-  snippet: z.string()
-})
-
-export const SongArtistMapAPIResponseModel = z.object({
-  id: z.string(),
-  name: z.string(),
-  role: z.string(),
-  type: z.string(),
-  image: z.string(),
-  perma_url: z.string()
-})
-
-export const SongArtistMapModel = z.object({
-  id: z.string(),
-  name: z.string(),
-  role: z.string(),
-  type: z.string(),
-  image: z.array(DownloadLinkModel),
-  url: z.string()
-})
+import { LyricsModel, SongArtistMapAPIResponseModel, SongArtistMapModel } from '#modules/songs/models'
 
 export const SongAPIResponseModel = z.object({
   id: z.string(),
