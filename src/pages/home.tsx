@@ -8,14 +8,14 @@ export const Meteors = ({ number }: { number: number }) => {
       {Array.from({ length: number || 20 }, (_, idx) => (
         <span
           key={idx}
-          class="meteor animate-[meteorAnimation_3s_linear_infinite] absolute h-0.5 w-0.5 rounded-[9999px] shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
+          class="meteor animate-[meteorAnimation_3s_linear_infinite] absolute h-4 w-4 rounded-[9999px] shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
           style={{
             top: 0,
             left: `${Math.floor(Math.random() * (400 - -400) + -400)}px`,
             animationDelay: `${Math.random() * (0.8 - 0.2) + 0.2}s`,
             animationDuration: `${Math.floor(Math.random() * (10 - 2) + 2)}s`
           }}
-        ></span>
+        />
       ))}
     </>
   )
@@ -86,10 +86,10 @@ Home.get('/', (c) => {
           }}
         />
       </head>
-      <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col overflow-x-hidden">
-        <Meteors number={15} />
+      <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col">
+        <main class="mx-auto my-auto flex flex-col space-y-8 px-4 pt-4 pb-8 md:py-10 relative overflow-y-scroll overflow-x-hidden">
+          <Meteors number={15} />
 
-        <main class="mx-auto my-auto flex flex-col space-y-8 px-4 py-10">
           <div class="flex flex-row items-center space-x-4 ml-6">
             <svg class="sm:h-12 sm:w-12 h-8 w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
@@ -113,7 +113,7 @@ Home.get('/', (c) => {
             </p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 relative grid-flow-row">
+          <div class="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-2 sm:gap-0 relative grid-flow-row">
             <a
               target="_blank"
               class="p-4 sm:p-8 hover:bg-opacity-5 hover:bg-white rounded-lg duration-100 sm:col-span-4"
