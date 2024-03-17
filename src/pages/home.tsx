@@ -87,7 +87,7 @@ Home.get('/', (c) => {
           }}
         />
       </head>
-      <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col overflow-auto overflow-x-hidden">
+      <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col overflow-y-scroll overflow-x-hidden">
         <main class="mx-auto my-auto flex flex-col space-y-8 px-4 py-10">
           <div class="flex flex-row items-center space-x-4 ml-6">
             <svg class="sm:h-12 sm:w-12 h-8 w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
