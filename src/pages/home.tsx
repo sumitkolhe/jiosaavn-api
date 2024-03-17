@@ -8,7 +8,7 @@ export const Meteors = ({ number }: { number: number }) => {
       {Array.from({ length: number || 20 }, (_, idx) => (
         <span
           key={idx}
-          class="meteor animate-[meteorAnimation_3s_linear_infinite] absolute h-4 w-4 rounded-[9999px] shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
+          class="meteor animate-[meteorAnimation_3s_linear_infinite] absolute h-1 w-1 rounded-[9999px] shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]"
           style={{
             top: 0,
             left: `${Math.floor(Math.random() * (400 - -400) + -400)}px`,
@@ -87,7 +87,7 @@ Home.get('/', (c) => {
         />
       </head>
       <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col">
-        <main class="mx-auto my-auto flex flex-col space-y-8 px-4 pt-4 pb-8 md:py-10 relative overflow-y-scroll overflow-x-hidden">
+        <main class="mx-auto my-auto flex flex-col space-y-8 px-4 pb-8 md:py-10 relative overflow-y-scroll overflow-x-hidden">
           <Meteors number={15} />
 
           <div class="flex flex-row items-center space-x-4 ml-6">
