@@ -4,7 +4,7 @@ import type { IUseCase } from '#common/types'
 import type { SearchArtistAPIResponseModel, SearchArtistModel } from '#modules/search/models'
 import { Endpoints } from '#common/constants'
 import { useFetch } from '#common/helpers'
-import { createArtistPayload } from '#modules/artists/helpers'
+import { createArtistMapPayload } from '#modules/artists/helpers'
 
 export interface SearchArtistsArgs {
   query: string
@@ -27,7 +27,7 @@ export class SearchArtistsUseCase implements IUseCase<SearchArtistsArgs, z.infer
     return {
       total: response.total,
       start: response.start,
-      results: response.results?.map(createArtistPayload).slice(0, limit) || []
+      results: response.results?.map(createArtistMapPayload).slice(0, limit) || []
     }
   }
 }

@@ -1,7 +1,8 @@
 import type { z } from 'zod'
 import type { PlaylistAPIResponseModel, PlaylistModel } from '#modules/playlists/models'
-import { createArtistMap, createSongPayload } from '#modules/songs/helpers'
+import { createSongPayload } from '#modules/songs/helpers'
 import { createImageLinks } from '#common/helpers'
+import { createArtistMapPayload } from '#modules/artists/helpers'
 
 export const createPlaylistPayload = (
   album: z.infer<typeof PlaylistAPIResponseModel>
@@ -16,7 +17,7 @@ export const createPlaylistPayload = (
   explicitContent: album.explicit_content === '1',
   url: album.perma_url,
   songCount: Number(album.list_count || 0),
-  artists: album.more_info.artists?.map(createArtistMap),
+  artists: album.more_info.artists?.map(createArtistMapPayload),
   image: createImageLinks(album.image),
   ...(album.list && { songs: album.list.map((song) => createSongPayload(song)) })
 })

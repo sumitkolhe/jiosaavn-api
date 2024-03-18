@@ -1,4 +1,9 @@
-import type { ArtistAPIResponseModel, ArtistModel } from '#modules/artists/models'
+import type {
+  ArtistAPIResponseModel,
+  ArtistMapAPIResponseModel,
+  ArtistMapModel,
+  ArtistModel
+} from '#modules/artists/models'
 import type { z } from 'zod'
 import { createSongPayload } from '#modules/songs/helpers'
 import { createAlbumPayload } from '#modules/albums/helpers'
@@ -43,4 +48,15 @@ export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseMode
       bio: similarArtist.bio,
       similarArtists: similarArtist.similar && JSON.parse(similarArtist.similar)
     })) || []
+})
+
+export const createArtistMapPayload = (
+  artist: z.infer<typeof ArtistMapAPIResponseModel>
+): z.infer<typeof ArtistMapModel> => ({
+  id: artist.id,
+  name: artist.name,
+  role: artist.role,
+  image: createImageLinks(artist.image),
+  type: artist.type,
+  url: artist.perma_url
 })

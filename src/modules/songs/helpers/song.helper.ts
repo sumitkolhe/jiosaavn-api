@@ -1,24 +1,7 @@
 import type { z } from 'zod'
-import type {
-  LyricsAPIResponseModel,
-  LyricsModel,
-  SongAPIResponseModel,
-  SongArtistMapAPIResponseModel,
-  SongArtistMapModel,
-  SongModel
-} from '#modules/songs/models'
+import type { LyricsAPIResponseModel, LyricsModel, SongAPIResponseModel, SongModel } from '#modules/songs/models'
 import { createDownloadLinks, createImageLinks } from '#common/helpers'
-
-export const createArtistMap = (
-  artist: z.infer<typeof SongArtistMapAPIResponseModel>
-): z.infer<typeof SongArtistMapModel> => ({
-  id: artist.id,
-  name: artist.name,
-  role: artist.role,
-  image: createImageLinks(artist.image),
-  type: artist.type,
-  url: artist.perma_url
-})
+import { createArtistMapPayload } from '#modules/artists/helpers'
 
 export const createSongPayload = (song: z.infer<typeof SongAPIResponseModel>): z.infer<typeof SongModel> => ({
   id: song.id,
@@ -41,9 +24,9 @@ export const createSongPayload = (song: z.infer<typeof SongAPIResponseModel>): z
     url: song.more_info?.album_url
   },
   artists: {
-    primary: song.more_info?.artistMap?.primary_artists?.map(createArtistMap),
-    featured: song.more_info?.artistMap?.featured_artists?.map(createArtistMap),
-    all: song.more_info?.artistMap?.artists?.map(createArtistMap)
+    primary: song.more_info?.artistMap?.primary_artists?.map(createArtistMapPayload),
+    featured: song.more_info?.artistMap?.featured_artists?.map(createArtistMapPayload),
+    all: song.more_info?.artistMap?.artists?.map(createArtistMapPayload)
   },
   image: createImageLinks(song.image),
   downloadUrl: createDownloadLinks(song.more_info?.encrypted_media_url)

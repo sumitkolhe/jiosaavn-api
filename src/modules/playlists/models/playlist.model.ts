@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { DownloadLinkModel } from '#common/models'
-import { SongAPIResponseModel, SongArtistMapModel, SongModel } from '#modules/songs/models'
+import { SongAPIResponseModel, SongModel } from '#modules/songs/models'
+import { ArtistMapModel } from '#modules/artists/models'
 
 export const PlaylistAPIResponseModel = z.object({
   id: z.string(),
@@ -62,5 +63,5 @@ export const PlaylistModel = z.object({
   url: z.string(),
   image: z.array(DownloadLinkModel),
   songs: z.array(SongModel),
-  artists: z.array(SongArtistMapModel)
+  artists: z.array(ArtistMapModel)
 })

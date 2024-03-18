@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { DownloadLinkModel } from '#common/models'
 
-export const SongArtistMapAPIResponseModel = z.object({
+export const ArtistMapAPIResponseModel = z.object({
   id: z.string(),
   name: z.string(),
   role: z.string(),
@@ -10,7 +10,7 @@ export const SongArtistMapAPIResponseModel = z.object({
   perma_url: z.string()
 })
 
-export const SongArtistMapModel = z.object({
+export const ArtistMapModel = z.object({
   id: z.string(),
   name: z.string(),
   role: z.string(),

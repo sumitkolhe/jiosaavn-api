@@ -1,6 +1,7 @@
 import { z } from 'zod'
+import { LyricsModel } from './song-lyrics.model'
 import { DownloadLinkModel } from '#common/models'
-import { LyricsModel, SongArtistMapAPIResponseModel, SongArtistMapModel } from '#modules/songs/models'
+import { ArtistMapAPIResponseModel, ArtistMapModel } from '#modules/artists/models/artist-map.model' // import from absolute path to avoid circular dependency
 
 export const SongAPIResponseModel = z.object({
   id: z.string(),
@@ -41,9 +42,9 @@ export const SongAPIResponseModel = z.object({
     starred: z.string(),
     copyright_text: z.string(),
     artistMap: z.object({
-      primary_artists: z.array(SongArtistMapAPIResponseModel),
-      featured_artists: z.array(SongArtistMapAPIResponseModel),
-      artists: z.array(SongArtistMapAPIResponseModel)
+      primary_artists: z.array(ArtistMapAPIResponseModel),
+      featured_artists: z.array(ArtistMapAPIResponseModel),
+      artists: z.array(ArtistMapAPIResponseModel)
     }),
     release_date: z.string(),
     label_url: z.string(),
@@ -78,9 +79,9 @@ export const SongModel = z.object({
     url: z.string()
   }),
   artists: z.object({
-    primary: z.array(SongArtistMapModel),
-    featured: z.array(SongArtistMapModel),
-    all: z.array(SongArtistMapModel)
+    primary: z.array(ArtistMapModel),
+    featured: z.array(ArtistMapModel),
+    all: z.array(ArtistMapModel)
   }),
   image: z.array(DownloadLinkModel),
   downloadUrl: z.array(DownloadLinkModel)
