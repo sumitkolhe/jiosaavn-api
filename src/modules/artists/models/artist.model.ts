@@ -71,7 +71,7 @@ export const ArtistAPIResponseModel = z
         numsongs: z.number()
       })
     ),
-    similar_artists: z.array(
+    similarArtists: z.array(
       z.object({
         _id: z.string(),
         similar: z.string(),

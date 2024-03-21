@@ -31,7 +31,7 @@ export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseMode
   topAlbums: artist.topAlbums?.map(createAlbumPayload) || [],
   singles: artist.singles?.map(createSongPayload) || [],
   similarArtists:
-    artist.similar_artists?.map((similarArtist) => ({
+    artist.similarArtists?.map((similarArtist) => ({
       id: similarArtist.id,
       name: similarArtist.name,
       url: similarArtist.perma_url,
