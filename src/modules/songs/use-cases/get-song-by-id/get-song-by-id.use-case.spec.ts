@@ -10,14 +10,17 @@ describe('GetSongById', () => {
 
   test('should return a song by id', async () => {
     const song = await getSongById.execute({ songIds: '3IoDK8qI' })
-    expect(song).toBeDefined()
-    expect(song).toHaveLength(1)
+
+    expect(song[0]).toMatchSnapshot({
+      playCount: expect.any(Number)
+    })
   })
 
   test('should return a song by id and include lyrics', async () => {
     const song = await getSongById.execute({ songIds: 'ulCA5JTi', includeLyrics: true })
-    expect(song).toBeDefined()
-    expect(song).toHaveLength(1)
-    expect(song[0].lyrics).toBeDefined()
+
+    expect(song[0]).toMatchSnapshot({
+      playCount: expect.any(Number)
+    })
   })
 })

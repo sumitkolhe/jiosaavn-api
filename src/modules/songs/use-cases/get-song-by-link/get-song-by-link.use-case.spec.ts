@@ -11,7 +11,8 @@ describe('GetSongByLink', () => {
   test('should return a song by link', async () => {
     const song = await getSongByLink.execute('OgwhbhtDRwM')
 
-    expect(song).toBeDefined()
-    expect(song).toHaveLength(1)
+    expect(song[0]).toMatchSnapshot({
+      playCount: expect.any(Number)
+    })
   })
 })

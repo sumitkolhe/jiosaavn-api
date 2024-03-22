@@ -10,8 +10,9 @@ describe('GetSongLyrics', () => {
   })
 
   test('should return lyrics for a song', async () => {
-    const response = await getSongLyrics.execute('ulCA5JTi')
-    expect(response.lyrics).toBeDefined()
+    const lyrics = await getSongLyrics.execute('ulCA5JTi')
+
+    expect(lyrics).toMatchSnapshot()
   })
 
   test('should throw 404 error when lyrics are not found', async () => {

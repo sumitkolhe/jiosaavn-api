@@ -1,0 +1,364 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GetSongById > should return a song by id 1`] = `
+{
+  "album": {
+    "id": "23241654",
+    "name": "Future Nostalgia",
+    "url": "https://www.jiosaavn.com/album/future-nostalgia/ITIyo-GDr7A_",
+  },
+  "artists": {
+    "all": [
+      {
+        "id": "573802",
+        "image": [],
+        "name": "Clarence Coffee Jr",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/clarence-coffee-jr-songs/2mX96rBxCYU_",
+      },
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+      {
+        "id": "702498",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/587/Gypsy-Girl-A-Cappella--English-2017-20191123100913-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/587/Gypsy-Girl-A-Cappella--English-2017-20191123100913-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/587/Gypsy-Girl-A-Cappella--English-2017-20191123100913-500x500.jpg",
+          },
+        ],
+        "name": "Sarah Hudson",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/sarah-hudson-songs/pW4Y,NKAPPI_",
+      },
+      {
+        "id": "599533",
+        "image": [],
+        "name": "Stephen Kozmeniuk",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/stephen-kozmeniuk-songs/lS1-2YuC5oc_",
+      },
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "singer",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+    ],
+    "featured": [],
+    "primary": [
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "primary_artists",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+    ],
+  },
+  "copyright": "℗ 2020  Dua Lipa Limited under exclusive license to Warner Records UK, a division of Warner Music UK Limited",
+  "downloadUrl": [
+    {
+      "quality": "12kbps",
+      "url": "https://aac.saavncdn.com/665/7790c3b9097592113008eaf1031d6e57_12.mp4",
+    },
+    {
+      "quality": "48kbps",
+      "url": "https://aac.saavncdn.com/665/7790c3b9097592113008eaf1031d6e57_48.mp4",
+    },
+    {
+      "quality": "96kbps",
+      "url": "https://aac.saavncdn.com/665/7790c3b9097592113008eaf1031d6e57_96.mp4",
+    },
+    {
+      "quality": "160kbps",
+      "url": "https://aac.saavncdn.com/665/7790c3b9097592113008eaf1031d6e57_160.mp4",
+    },
+    {
+      "quality": "320kbps",
+      "url": "https://aac.saavncdn.com/665/7790c3b9097592113008eaf1031d6e57_320.mp4",
+    },
+  ],
+  "duration": 203,
+  "explicitContent": true,
+  "hasLyrics": false,
+  "id": "3IoDK8qI",
+  "image": [
+    {
+      "quality": "50x50",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-50x50.jpg",
+    },
+    {
+      "quality": "150x150",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-150x150.jpg",
+    },
+    {
+      "quality": "500x500",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-500x500.jpg",
+    },
+  ],
+  "label": "Warner Records",
+  "language": "english",
+  "lyricsId": undefined,
+  "name": "Levitating",
+  "playCount": Any<Number>,
+  "releaseDate": "2020-03-27",
+  "type": "song",
+  "url": "https://www.jiosaavn.com/song/levitating/QyEEdT8IRno",
+  "year": 2020,
+}
+`;
+
+exports[`GetSongById > should return a song by id and include lyrics 1`] = `
+{
+  "album": {
+    "id": "11289256",
+    "name": "Believer",
+    "url": "https://www.jiosaavn.com/album/believer/RHQSPSHgPE0_",
+  },
+  "artists": {
+    "all": [
+      {
+        "id": "914898",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/883/Best-F-r-iends-Original-Motion-Picture-Soundtrack-English-2019-20190128215540-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/883/Best-F-r-iends-Original-Motion-Picture-Soundtrack-English-2019-20190128215540-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/883/Best-F-r-iends-Original-Motion-Picture-Soundtrack-English-2019-20190128215540-500x500.jpg",
+          },
+        ],
+        "name": "Daniel Platzman",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/daniel-platzman-songs/hOWrEJ6eC9I_",
+      },
+      {
+        "id": "633532",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/916/The-Lego-Batman-Movie-Original-Motion-Picture-Soundtrack-English-2017-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/916/The-Lego-Batman-Movie-Original-Motion-Picture-Soundtrack-English-2017-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/916/The-Lego-Batman-Movie-Original-Motion-Picture-Soundtrack-English-2017-500x500.jpg",
+          },
+        ],
+        "name": "Justin Tranter",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/justin-tranter-songs/MUdaah321CU_",
+      },
+      {
+        "id": "1433426",
+        "image": [],
+        "name": "ROBIN LENNART FREDRIKSSON",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/robin-lennart-fredriksson-songs/huLBRhlQou4_",
+      },
+      {
+        "id": "915298",
+        "image": [],
+        "name": "Daniel Wayne Sermon",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/daniel-wayne-sermon-songs/tHdBCS124vU_",
+      },
+      {
+        "id": "915297",
+        "image": [],
+        "name": "Daniel Coulter Reynolds",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/daniel-coulter-reynolds-songs/7eyP5CJn5j4_",
+      },
+      {
+        "id": "1198091",
+        "image": [],
+        "name": "Mattias Per Larsson",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/mattias-per-larsson-songs/KC3pgd8koJ4_",
+      },
+      {
+        "id": "915296",
+        "image": [],
+        "name": "Benjamin Arthur McKee",
+        "role": "music",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/benjamin-arthur-mckee-songs/TKjpvvMLE-Y_",
+      },
+      {
+        "id": "3708914",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-500x500.jpg",
+          },
+        ],
+        "name": "Sound Of Believer",
+        "role": "singer",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/sound-of-believer-songs/2R6G5Ph0bfk_",
+      },
+    ],
+    "featured": [],
+    "primary": [
+      {
+        "id": "3708914",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-500x500.jpg",
+          },
+        ],
+        "name": "Sound Of Believer",
+        "role": "primary_artists",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/sound-of-believer-songs/2R6G5Ph0bfk_",
+      },
+    ],
+  },
+  "copyright": "℗ 2017 UnderWoods Ltd",
+  "downloadUrl": [
+    {
+      "quality": "12kbps",
+      "url": "https://aac.saavncdn.com/046/c4ed12c9391ba2ab532966e1ec099734_12.mp4",
+    },
+    {
+      "quality": "48kbps",
+      "url": "https://aac.saavncdn.com/046/c4ed12c9391ba2ab532966e1ec099734_48.mp4",
+    },
+    {
+      "quality": "96kbps",
+      "url": "https://aac.saavncdn.com/046/c4ed12c9391ba2ab532966e1ec099734_96.mp4",
+    },
+    {
+      "quality": "160kbps",
+      "url": "https://aac.saavncdn.com/046/c4ed12c9391ba2ab532966e1ec099734_160.mp4",
+    },
+    {
+      "quality": "320kbps",
+      "url": "https://aac.saavncdn.com/046/c4ed12c9391ba2ab532966e1ec099734_320.mp4",
+    },
+  ],
+  "duration": 201,
+  "explicitContent": false,
+  "hasLyrics": true,
+  "id": "ulCA5JTi",
+  "image": [
+    {
+      "quality": "50x50",
+      "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-50x50.jpg",
+    },
+    {
+      "quality": "150x150",
+      "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-150x150.jpg",
+    },
+    {
+      "quality": "500x500",
+      "url": "https://c.saavncdn.com/046/Believer-English-2017-20170803185842-500x500.jpg",
+    },
+  ],
+  "label": "UnderWoods Ltd",
+  "language": "english",
+  "lyrics": {
+    "copyright": "Lyrics powered by www.musixmatch.com",
+    "lyrics": "Believer<br><br>Imagine Dragons<br><br>Buy for ₹15.00<br><br>song and millions of other songs. First month free.<br><br>First things first<br>I'ma say all the words inside my head<br>I'm fired up and tired of the way that things have been, oh ooh<br>The way that things have been, oh ooh<br>Second thing<br>Second, don't you tell me what you think that I can be<br>I'm the one at the sail, I'm the master of my sea, oh ooh<br>The master of my sea, oh ooh<br><br>I was broken from a young age<br>Taking my sulking to the masses<br>Write down my poems for the few<br>That looked at me took to me, shook to me, feeling me<br>Singing from heart ache from the pain<br>Take up my message from the veins<br>Speaking my lesson from the brain<br>Seeing the beauty through the<br><br>You made me a, you made me a believer, believer<br>(Pain, pain)<br>You break me down, you build me up, believer, believer<br>(Pain)<br>I let the bullets fly, oh let them rain<br>My life, my love, my drive, it came from<br>(Pain)<br>You made me a, you made me a believer, believer<br><br>Third things third<br>Send a prayer to the ones up above<br>All the hate that you've heard has<br>turned your spirit to a dove, oh ooh<br>Your spirit up above, oh ooh<br><br>I was choking in the crowd<br>Living my brain up in the cloud<br>Falling like ashes to the ground<br>Hoping my feelings, they would drown<br>But they never did, ever lived, ebbing and flowing<br>Inhibited, limited<br>'Til it broke up and it rained down<br>It rained down, like<br><br>You made me a, you made me a believer, believer<br>(Pain, pain)<br>You break me down, you built me up, believer, believer<br>(Pain)<br>I let the bullets fly, oh let them rain<br>My life, my love, my drive, it came from<br>(Pain)<br>You made me a, you made me a believer, believer<br><br>Last things last<br>By the grace of the fire and the flames<br>You're the face of the future, the blood in my veins, oh ooh<br>The blood in my veins, oh ooh<br>But they never did, ever lived, ebbing and flowing<br>Inhibited, limited<br>'Til it broke up and it rained down<br>It rained down, like<br><br>You made me a, you made me a believer, believer<br>(Pain, pain)<br>You break me down, you built me up, believer, believer<br>(Pain)<br>I let the bullets fly, oh let them rain<br>My life, my love, my drive, it came from<br>(Pain)<br>You made me a, you made me a believer, believer",
+    "snippet": "You made me a, you made me a believer, believer",
+  },
+  "lyricsId": "",
+  "name": "Believer",
+  "playCount": Any<Number>,
+  "releaseDate": "2017-08-08",
+  "type": "song",
+  "url": "https://www.jiosaavn.com/song/believer/BQQocEF6Y1o",
+  "year": 2017,
+}
+`;
