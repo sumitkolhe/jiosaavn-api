@@ -19,8 +19,7 @@ describe('GetSongById', () => {
   test('should return a song by id and include lyrics', async () => {
     const song = await getSongById.execute({ songIds: 'L91uYhUm', includeLyrics: true })
 
-    expect(song[0]).toMatchSnapshot({
-      playCount: expect.any(Number)
-    })
+    console.log(JSON.stringify(song))
+    expect(song[0]).toMatchSnapshot({ playCount: expect.any(Number) })
   })
 })
