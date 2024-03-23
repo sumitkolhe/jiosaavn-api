@@ -231,7 +231,7 @@ exports[`GetSongByLink > should return a song by link 1`] = `
   ],
   "label": "Warner Records",
   "language": "english",
-  "lyricsId": undefined,
+  "lyricsId": null,
   "name": "Houdini",
   "playCount": Any<Number>,
   "releaseDate": "2023-11-09",
