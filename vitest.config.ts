@@ -4,7 +4,6 @@ export default defineConfig({
   test: {
     include: ['src/**/*.spec.ts'],
     testTimeout: 30000,
-    clearMocks: true,
     coverage: {
       enabled: false, // TODO: enable coverage once all tests are passing
       provider: 'v8',
