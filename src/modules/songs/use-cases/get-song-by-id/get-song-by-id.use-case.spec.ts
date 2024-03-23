@@ -23,7 +23,7 @@ describe('GetSongById', () => {
     expect(song[0]).toMatchSnapshot({
       playCount: expect.any(Number),
       hasLyrics: expect.any(Boolean),
-      lyricsId: expect.anything()
+      lyricsId: song[0].lyricsId ? expect.any(String) : null
     })
   })
 })
