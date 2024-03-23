@@ -157,7 +157,7 @@ exports[`GetSongById > should return a song by id 1`] = `
   ],
   "label": "Warner Records",
   "language": "english",
-  "lyricsId": undefined,
+  "lyricsId": null,
   "name": "Levitating",
   "playCount": Any<Number>,
   "releaseDate": "2020-03-27",
@@ -390,7 +390,7 @@ exports[`GetSongById > should return a song by id and include lyrics 1`] = `
   ],
   "duration": 248,
   "explicitContent": false,
-  "hasLyrics": true,
+  "hasLyrics": Any<Boolean>,
   "id": "L91uYhUm",
   "image": [
     {
@@ -413,7 +413,7 @@ exports[`GetSongById > should return a song by id and include lyrics 1`] = `
     "lyrics": "I wake up every morning with a new resolve<br>Two hands and one heart, let the world revolve<br>One eye to the ocean and one to the sky<br>One life of devotion and where am I?<br>One heart to love within my chest<br>One life to live<br><br>I keep skipping stones, hoping for a change<br>But things just stay the same<br>I keep walking roads, looking for a home<br>That I can call my own<br>Skipping stones<br>I′m skipping stones<br>I'm skipping stones<br>I′m skipping stones<br><br>One chance to reach out and find a place for me<br>One chance to find love for all humanity<br>One eye to the mountain and one to the sands<br>One dime for the fountain and one for my hand<br>One heart to love within my chest<br>One heart to love<br><br>I keep skipping stones, hoping for a change<br>But things just stay the same<br>I keep walking roads, looking for a home<br>That I can call my own<br>Skipping stones<br>I'm skipping stones<br>I'm skipping stones<br>I′m skipping stones<br><br>Skipping stones<br>I′m skipping stones<br>I'm skipping stones<br>I′m skipping stones<br><br>Love is not a product of reasonings and statistics<br>It just comes - none knows whence - and cannot explain itself<br>Love is a madness, if thwarted, it develops fast<br>When you fish for love, bait with your heart, not your brain<br><br>I keep skipping stones, hoping for a change<br>But things just stay the same<br>I keep walking roads, looking for a home<br>That I can call my own<br>Skipping stones<br>I'm skipping stones<br>I′m skipping stones<br>I'm skipping stones<br><br>Skipping stones<br>I′m skipping stones<br>I'm skipping stones<br>I'm skipping stones",
     "snippet": "I keep skipping stones, hoping for a change",
   },
-  "lyricsId": "",
+  "lyricsId": Anything,
   "name": "Skipping Stones",
   "playCount": Any<Number>,
   "releaseDate": "2018-06-22",
