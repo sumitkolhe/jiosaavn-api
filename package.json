@@ -36,7 +36,7 @@
     "test": "bun run vitest run",
     "test:ui": "bun run vitest --ui",
     "deploy": "vercel deploy --prod",
-    "release": "changelogen --release",
+    "release": "bun run test && bun run changelogen --release --push",
     "postinstall": "npx simple-git-hooks"
   },
   "simple-git-hooks": {
