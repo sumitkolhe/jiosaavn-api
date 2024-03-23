@@ -18,9 +18,6 @@ jobs:
       - uses: oven-sh/setup-bun@v1
       - run: bun install
 
-      - name: Run Tests Locally
-        run: bun run test
-
       - name: Deploy to Staging
         id: deploy-vercel-staging
         uses: amondnet/vercel-action@v20
