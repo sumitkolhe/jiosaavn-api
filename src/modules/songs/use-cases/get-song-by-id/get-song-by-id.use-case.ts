@@ -26,7 +26,7 @@ export class GetSongByIdUseCase implements IUseCase<GetSongByIdArgs, z.infer<typ
 
     if (!response.songs?.length) throw new HTTPException(404, { message: 'song not found' })
 
-    const songs = response.songs.map((element) => createSongPayload(element))
+    const songs = response.songs.map((song) => createSongPayload(song))
 
     if (includeLyrics) {
       await Promise.all(

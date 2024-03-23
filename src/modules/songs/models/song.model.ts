@@ -69,7 +69,7 @@ export const SongModel = z.object({
   playCount: z.number(),
   language: z.string(),
   hasLyrics: z.boolean(),
-  lyricsId: z.string(),
+  lyricsId: z.string().nullable(),
   lyrics: LyricsModel.optional(),
   url: z.string(),
   copyright: z.string(),

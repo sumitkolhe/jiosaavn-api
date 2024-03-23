@@ -15,7 +15,7 @@ export const createSongPayload = (song: z.infer<typeof SongAPIResponseModel>): z
   playCount: Number(song.play_count || 0),
   language: song.language,
   hasLyrics: song.more_info?.has_lyrics === 'true',
-  lyricsId: song.more_info?.lyrics_id ?? null,
+  lyricsId: song.more_info?.lyrics_id || null,
   url: song.perma_url,
   copyright: song.more_info?.copyright_text,
   album: {
