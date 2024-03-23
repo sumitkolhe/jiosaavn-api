@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { GetSongByLinkUseCase } from '#modules/songs/use-cases'
 
 describe('GetSongByLink', () => {
@@ -8,7 +8,7 @@ describe('GetSongByLink', () => {
     getSongByLink = new GetSongByLinkUseCase()
   })
 
-  test('should return a song by link', async () => {
+  it('should return a song by link', async () => {
     const song = await getSongByLink.execute('OgwhbhtDRwM')
 
     expect(song[0]).toMatchSnapshot({

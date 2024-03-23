@@ -1,4 +1,5 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
+
 import { GetSongByIdUseCase } from '#modules/songs/use-cases'
 
 describe('GetSongById', () => {
@@ -8,7 +9,7 @@ describe('GetSongById', () => {
     getSongById = new GetSongByIdUseCase()
   })
 
-  test('should return a song by id', async () => {
+  it('should return a song by id', async () => {
     const song = await getSongById.execute({ songIds: '3IoDK8qI' })
 
     expect(song[0]).toMatchSnapshot({
@@ -16,7 +17,7 @@ describe('GetSongById', () => {
     })
   })
 
-  test('should return a song by id and include lyrics', async () => {
+  it('should return a song by id and include lyrics', async () => {
     const song = await getSongById.execute({ songIds: 'L91uYhUm', includeLyrics: true })
 
     expect(song[0]).toMatchSnapshot({
