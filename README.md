@@ -1,10 +1,17 @@
 # JioSaavn API
 
+![GitHub License](https://img.shields.io/github/license/sumitkolhe/jiosaavn-api)
+![GitHub Release](https://img.shields.io/github/v/release/sumitkolhe/jiosaavn-api)
+
 An Unofficial API for downloading high-quality songs, albums, playlists, and more from [JioSaavn](https://jiosaavn.com).
 
 ## 📚 Documentation
 
 Check out the [API documentation](https://saavn.dev/docs) for detailed information on how to use the API.
+
+## 📰 Changelog
+
+For a detailed list of changes, see the [CHANGELOG](CHANGELOG.md).
 
 ## 🔌 Running Locally
 
