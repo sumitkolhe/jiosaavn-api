@@ -128,7 +128,7 @@ export const ArtistModel = z.object({
   url: z.string(),
   type: z.string(),
   image: z.array(DownloadLinkModel),
-  followerCount: z.string(),
+  followerCount: z.number(),
   fanCount: z.string(),
   isVerified: z.boolean(),
   dominantLanguage: z.string(),

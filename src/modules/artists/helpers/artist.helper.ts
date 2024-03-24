@@ -14,7 +14,7 @@ export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseMode
   name: artist.name,
   url: artist.urls?.overview || artist.perma_url,
   type: artist.type,
-  followerCount: artist.follower_count,
+  followerCount: Number(artist.follower_count),
   fanCount: artist.fan_count,
   isVerified: artist.isVerified,
   dominantLanguage: artist.dominantLanguage,
