@@ -1,11 +1,12 @@
-name: CI
-on: [push, pull_request]
-branches:
-  - main
+name: Deploy To Production
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
-  relase:
-    name: Test and Deploy to Staging
+  deploy-production:
+    name: Run Tests and Deploy to Production
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -23,20 +24,6 @@ jobs:
       - run: bun install
 
       - name: Run Tests
-        run: bun run test
-
-      - name: Deploy to Staging
-        id: deploy-vercel-staging
-        uses: amondnet/vercel-action@v25.2.0
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
-          scope: ${{ secrets.VERCEL_ORG_ID }}
-
-      - name: Run Tests Against Staging
-        env:
-          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
         run: bun run test
 
       - name: Deploy to Production
