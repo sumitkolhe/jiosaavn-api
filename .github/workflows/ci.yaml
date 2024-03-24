@@ -1,7 +1,11 @@
 name: CI
-on: [push, pull_request]
-branches:
-  - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   relase:
