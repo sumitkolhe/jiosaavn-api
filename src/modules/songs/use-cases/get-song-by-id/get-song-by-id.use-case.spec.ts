@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it } from 'vitest'
-
+import { HTTPException } from 'hono/http-exception'
 import { GetSongByIdUseCase } from '#modules/songs/use-cases'
 
 describe('GetSongById', () => {
@@ -25,5 +25,9 @@ describe('GetSongById', () => {
       hasLyrics: expect.any(Boolean),
       lyricsId: song[0].lyricsId ? expect.any(String) : null
     })
+  })
+
+  it('should throw 404 error when song is not found', async () => {
+    await expect(getSongById.execute({ songIds: 'invalid-id' })).rejects.toThrow(HTTPException)
   })
 })

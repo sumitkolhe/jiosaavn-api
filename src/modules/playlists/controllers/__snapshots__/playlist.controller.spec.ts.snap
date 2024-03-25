@@ -1,0 +1,637 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaylistController > retrieve playlist by ID 1`] = `
+{
+  "artists": [
+    {
+      "id": "1546334",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_500x500.jpg",
+        },
+      ],
+      "name": "Prateek Kuhad",
+      "role": "singer",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/prateek-kuhad-songs/udEDVH0llw0_",
+    },
+    {
+      "id": "1546334",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_500x500.jpg",
+        },
+      ],
+      "name": "Prateek Kuhad",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/prateek-kuhad-songs/udEDVH0llw0_",
+    },
+    {
+      "id": "4230717",
+      "image": [],
+      "name": "Brandon Shoop",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/brandon-shoop-songs/z3nUd3NG6cs_",
+    },
+    {
+      "id": "467027",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_500x500.jpg",
+        },
+      ],
+      "name": "Shalmali",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/shalmali-songs/AmvCYXtSRAU_",
+    },
+    {
+      "id": "2737681",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_500x500.jpg",
+        },
+      ],
+      "name": "Natania",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/natania-songs/08-ViIgdTvw_",
+    },
+    {
+      "id": "3372836",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-500x500.jpg",
+        },
+      ],
+      "name": "Miranda Glory",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/miranda-glory-songs/J5TeCH7Cc,A_",
+    },
+    {
+      "id": "467027",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_500x500.jpg",
+        },
+      ],
+      "name": "Shalmali",
+      "role": "singer",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/shalmali-songs/AmvCYXtSRAU_",
+    },
+    {
+      "id": "467027",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_500x500.jpg",
+        },
+      ],
+      "name": "Shalmali",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/shalmali-songs/AmvCYXtSRAU_",
+    },
+    {
+      "id": "2737681",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_500x500.jpg",
+        },
+      ],
+      "name": "Natania",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/natania-songs/08-ViIgdTvw_",
+    },
+    {
+      "id": "3372836",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-500x500.jpg",
+        },
+      ],
+      "name": "Miranda Glory",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/miranda-glory-songs/J5TeCH7Cc,A_",
+    },
+    {
+      "id": "896850",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Mali_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Mali_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Mali_500x500.jpg",
+        },
+      ],
+      "name": "Mali",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/mali-songs/xLXgp1-vA8I_",
+    },
+    {
+      "id": "896850",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Mali_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Mali_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Mali_500x500.jpg",
+        },
+      ],
+      "name": "Mali",
+      "role": "singer",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/mali-songs/xLXgp1-vA8I_",
+    },
+    {
+      "id": "896850",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Mali_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Mali_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Mali_500x500.jpg",
+        },
+      ],
+      "name": "Mali",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/mali-songs/xLXgp1-vA8I_",
+    },
+    {
+      "id": "1946214",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Dhruv_Sharma_20180214073539_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Dhruv_Sharma_20180214073539_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Dhruv_Sharma_20180214073539_500x500.jpg",
+        },
+      ],
+      "name": "Dhruv Sharma",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/dhruv-sharma-songs/iu4JQ9Okcto_",
+    },
+  ],
+  "description": "The Best Desi Indie in English.                                                                              
+Artist On Cover : Prateek Kuhad.",
+  "explicitContent": false,
+  "id": "82914609",
+  "image": [
+    {
+      "quality": "50x50",
+      "url": "https://c.saavncdn.com/editorial/It_sIndieEnglish_20240126020031.jpg?bch=1709211002",
+    },
+    {
+      "quality": "150x150",
+      "url": "https://c.saavncdn.com/editorial/It_sIndieEnglish_20240126020031.jpg?bch=1709211002",
+    },
+    {
+      "quality": "500x500",
+      "url": "https://c.saavncdn.com/editorial/It_sIndieEnglish_20240126020031.jpg?bch=1709211002",
+    },
+  ],
+  "language": "",
+  "name": "It's Indie - English",
+  "playCount": Any<Number>,
+  "songCount": 30,
+  "songs": ArrayContaining [
+    ObjectContaining {
+      "playCount": Any<Number>,
+    },
+  ],
+  "type": "playlist",
+  "url": "https://www.jiosaavn.com/featured/its-indie-english/AMoxtXyKHoU_",
+  "year": 0,
+}
+`;
+
+exports[`PlaylistController > retrieve playlist by link 1`] = `
+{
+  "artists": [
+    {
+      "id": "1546334",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_500x500.jpg",
+        },
+      ],
+      "name": "Prateek Kuhad",
+      "role": "singer",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/prateek-kuhad-songs/udEDVH0llw0_",
+    },
+    {
+      "id": "1546334",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Prateek_Kuhad_005_20230506101352_500x500.jpg",
+        },
+      ],
+      "name": "Prateek Kuhad",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/prateek-kuhad-songs/udEDVH0llw0_",
+    },
+    {
+      "id": "4230717",
+      "image": [],
+      "name": "Brandon Shoop",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/brandon-shoop-songs/z3nUd3NG6cs_",
+    },
+    {
+      "id": "467027",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_500x500.jpg",
+        },
+      ],
+      "name": "Shalmali",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/shalmali-songs/AmvCYXtSRAU_",
+    },
+    {
+      "id": "2737681",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_500x500.jpg",
+        },
+      ],
+      "name": "Natania",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/natania-songs/08-ViIgdTvw_",
+    },
+    {
+      "id": "3372836",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-500x500.jpg",
+        },
+      ],
+      "name": "Miranda Glory",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/miranda-glory-songs/J5TeCH7Cc,A_",
+    },
+    {
+      "id": "467027",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_500x500.jpg",
+        },
+      ],
+      "name": "Shalmali",
+      "role": "singer",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/shalmali-songs/AmvCYXtSRAU_",
+    },
+    {
+      "id": "467027",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Shalmali_Kholgade_004_20200226073940_500x500.jpg",
+        },
+      ],
+      "name": "Shalmali",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/shalmali-songs/AmvCYXtSRAU_",
+    },
+    {
+      "id": "2737681",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Natania_Lalwani_001_20191128084944_500x500.jpg",
+        },
+      ],
+      "name": "Natania",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/natania-songs/08-ViIgdTvw_",
+    },
+    {
+      "id": "3372836",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/485/With-U-2-English-2019-20190212150435-500x500.jpg",
+        },
+      ],
+      "name": "Miranda Glory",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/miranda-glory-songs/J5TeCH7Cc,A_",
+    },
+    {
+      "id": "896850",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Mali_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Mali_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Mali_500x500.jpg",
+        },
+      ],
+      "name": "Mali",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/mali-songs/xLXgp1-vA8I_",
+    },
+    {
+      "id": "896850",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Mali_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Mali_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Mali_500x500.jpg",
+        },
+      ],
+      "name": "Mali",
+      "role": "singer",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/mali-songs/xLXgp1-vA8I_",
+    },
+    {
+      "id": "896850",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Mali_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Mali_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Mali_500x500.jpg",
+        },
+      ],
+      "name": "Mali",
+      "role": "lyricist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/mali-songs/xLXgp1-vA8I_",
+    },
+    {
+      "id": "1946214",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Dhruv_Sharma_20180214073539_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Dhruv_Sharma_20180214073539_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Dhruv_Sharma_20180214073539_500x500.jpg",
+        },
+      ],
+      "name": "Dhruv Sharma",
+      "role": "music",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/dhruv-sharma-songs/iu4JQ9Okcto_",
+    },
+  ],
+  "description": "The Best Desi Indie in English.                                                                              
+Artist On Cover : Prateek Kuhad.",
+  "explicitContent": false,
+  "id": "82914609",
+  "image": [
+    {
+      "quality": "50x50",
+      "url": "https://c.saavncdn.com/editorial/It_sIndieEnglish_20240126020031.jpg?bch=1709211002",
+    },
+    {
+      "quality": "150x150",
+      "url": "https://c.saavncdn.com/editorial/It_sIndieEnglish_20240126020031.jpg?bch=1709211002",
+    },
+    {
+      "quality": "500x500",
+      "url": "https://c.saavncdn.com/editorial/It_sIndieEnglish_20240126020031.jpg?bch=1709211002",
+    },
+  ],
+  "language": "",
+  "name": "It's Indie - English",
+  "playCount": Any<Number>,
+  "songCount": 30,
+  "songs": ArrayContaining [
+    ObjectContaining {
+      "playCount": Any<Number>,
+    },
+  ],
+  "type": "playlist",
+  "url": "https://www.jiosaavn.com/featured/its-indie-english/AMoxtXyKHoU_",
+  "year": 0,
+}
+`;

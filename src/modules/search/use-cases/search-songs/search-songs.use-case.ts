@@ -1,4 +1,3 @@
-import { HTTPException } from 'hono/http-exception'
 import type { z } from 'zod'
 import type { IUseCase } from '#common/types'
 import type { SearchSongAPIResponseModel, SearchSongModel } from '#modules/search/models'
@@ -21,8 +20,6 @@ export class SearchSongsUseCase implements IUseCase<SearchSongsArgs, z.infer<typ
       p: page,
       n: limit
     })
-
-    if (!response) throw new HTTPException(404, { message: 'song not found' })
 
     return {
       total: response.total,

@@ -1,0 +1,145 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchPlaylists > should search playlists by query and return a list of playlists 1`] = `
+{
+  "results": [
+    {
+      "artists": undefined,
+      "description": undefined,
+      "explicitContent": false,
+      "id": "936752782",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_6257_20240325060538_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_6257_20240325060538_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_6257_20240325060538_500x500.jpg",
+        },
+      ],
+      "language": undefined,
+      "name": "Go Indie - Weekly Jukebox",
+      "playCount": NaN,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/go-indie-weekly-jukebox/IpKQJdPJWofc1EngHtQQ2g__",
+      "year": 0,
+    },
+    {
+      "artists": undefined,
+      "description": undefined,
+      "explicitContent": false,
+      "id": "1035702553",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/logo/Let_sPlayDinoJames_20220303103707_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/logo/Let_sPlayDinoJames_20220303103707_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/logo/Let_sPlayDinoJames_20220303103707_500x500.jpg",
+        },
+      ],
+      "language": undefined,
+      "name": "Let's Play - Dino James",
+      "playCount": NaN,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/lets-play-dino-james/uH8dwMs4YmbWCn-BpjaL7g__",
+      "year": 0,
+    },
+    {
+      "artists": undefined,
+      "description": undefined,
+      "explicitContent": false,
+      "id": "107605145",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/It_sIndieHindi_20240321062314_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/It_sIndieHindi_20240321062314_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/It_sIndieHindi_20240321062314_500x500.jpg",
+        },
+      ],
+      "language": undefined,
+      "name": "It's Indie - Hindi",
+      "playCount": NaN,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/its-indie-hindi/jnjK2XTv9-3uCJW60TJk1Q__",
+      "year": 0,
+    },
+    {
+      "artists": undefined,
+      "description": undefined,
+      "explicitContent": false,
+      "id": "106774189",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/Let_sPlay-PrateekKuhad_20221228183004_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/Let_sPlay-PrateekKuhad_20221228183004_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/Let_sPlay-PrateekKuhad_20221228183004_500x500.jpg",
+        },
+      ],
+      "language": undefined,
+      "name": "Let's Play - Prateek Kuhad - Hindi",
+      "playCount": NaN,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/lets-play-prateek-kuhad-hindi/VebDEYr,qm,O0eMLZZxqsA__",
+      "year": 0,
+    },
+    {
+      "artists": undefined,
+      "description": undefined,
+      "explicitContent": false,
+      "id": "641632938",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/logo/AwesomeAnkur_20191121085639_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/logo/AwesomeAnkur_20191121085639_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/logo/AwesomeAnkur_20191121085639_500x500.jpg",
+        },
+      ],
+      "language": undefined,
+      "name": "Awesome Ankur",
+      "playCount": NaN,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/awesome-ankur/YvApeoD5w7pFo9wdEAzFBA__",
+      "year": 0,
+    },
+  ],
+  "start": -4,
+  "total": 49,
+}
+`;

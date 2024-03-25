@@ -1,0 +1,167 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AlbumController > retrieve album by id 1`] = `
+{
+  "artists": {
+    "all": [
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+    ],
+    "featured": [],
+    "primary": [
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+    ],
+  },
+  "description": "2020 · English Album · Dua Lipa",
+  "explicitContent": true,
+  "id": "23241654",
+  "image": [
+    {
+      "quality": "50x50",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-50x50.jpg",
+    },
+    {
+      "quality": "150x150",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-150x150.jpg",
+    },
+    {
+      "quality": "500x500",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-500x500.jpg",
+    },
+  ],
+  "language": "english",
+  "name": "Future Nostalgia",
+  "playCount": Any<Number>,
+  "songCount": Any<Number>,
+  "songs": ArrayContaining [
+    ObjectContaining {
+      "playCount": Any<Number>,
+    },
+  ],
+  "type": "album",
+  "url": "https://www.jiosaavn.com/album/future-nostalgia/ITIyo-GDr7A_",
+  "year": 2020,
+}
+`;
+
+exports[`AlbumController > retrieve album by link 1`] = `
+{
+  "artists": {
+    "all": [
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+    ],
+    "featured": [],
+    "primary": [
+      {
+        "id": "1274170",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Dua_Lipa_004_20231120090922_500x500.jpg",
+          },
+        ],
+        "name": "Dua Lipa",
+        "role": "",
+        "type": "artist",
+        "url": "https://www.jiosaavn.com/artist/dua-lipa-songs/r-OWIKgpX2I_",
+      },
+    ],
+  },
+  "description": "2020 · English Album · Dua Lipa",
+  "explicitContent": true,
+  "id": "23241654",
+  "image": [
+    {
+      "quality": "50x50",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-50x50.jpg",
+    },
+    {
+      "quality": "150x150",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-150x150.jpg",
+    },
+    {
+      "quality": "500x500",
+      "url": "https://c.saavncdn.com/665/Future-Nostalgia-English-2020-20231110075246-500x500.jpg",
+    },
+  ],
+  "language": "english",
+  "name": "Future Nostalgia",
+  "playCount": Any<Number>,
+  "songCount": Any<Number>,
+  "songs": ArrayContaining [
+    ObjectContaining {
+      "playCount": Any<Number>,
+    },
+  ],
+  "type": "album",
+  "url": "https://www.jiosaavn.com/album/future-nostalgia/ITIyo-GDr7A_",
+  "year": 2020,
+}
+`;

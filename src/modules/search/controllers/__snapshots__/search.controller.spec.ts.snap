@@ -1,0 +1,725 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchController > search albums 1`] = `
+{
+  "results": ArrayContaining [
+    ObjectContaining {
+      "playCount": Any<Number>,
+    },
+  ],
+  "start": -9,
+  "total": Any<Number>,
+}
+`;
+
+exports[`SearchController > search artists 1`] = `
+{
+  "results": [
+    {
+      "id": "610905",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/artists/Adele_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/artists/Adele_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/artists/Adele_500x500.jpg",
+        },
+      ],
+      "name": "Adele",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/adele-songs/yc6n84bIDm8_",
+    },
+    {
+      "id": "801087",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "Adele Adkins",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/adele-adkins-songs/Q73JwXv00hQ_",
+    },
+    {
+      "id": "3163978",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/605/Someone-Like-You-English-2017-50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/605/Someone-Like-You-English-2017-150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/605/Someone-Like-You-English-2017-500x500.jpg",
+        },
+      ],
+      "name": "Hello I'm Adele",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/hello-im-adele-songs/vFWAJFpzZbc_",
+    },
+    {
+      "id": "1062627",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "David Adeleke",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/david-adeleke-songs/QexQdNHsSa8_",
+    },
+    {
+      "id": "2175198",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "David Adedeji Adeleke",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/david-adedeji-adeleke-songs/bkVVAk5zNVU_",
+    },
+    {
+      "id": "3791136",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "Adele Laurie Blue Adkins; Paul Epworth",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/adele-laurie-blue-adkins%3b-paul-epworth-songs/inJegskiuQY_",
+    },
+    {
+      "id": "3792359",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "Adele Lee Partington",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/adele-lee-partington-songs/3Y7r2FZ3uaY_",
+    },
+    {
+      "id": "3803220",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "Linda Adele Aubert",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/linda-adele-aubert-songs/Gf-Tvfomt6o_",
+    },
+    {
+      "id": "3813146",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "Adele Adkins/Paul Wilson",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/adele-adkinspaul-wilson-songs/azKSkoVCdis_",
+    },
+    {
+      "id": "3925302",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://www.jiosaavn.com/_i/3.0/artist-default-music.png",
+        },
+      ],
+      "name": "Adele Marley",
+      "role": "Artist",
+      "type": "artist",
+      "url": "https://www.jiosaavn.com/artist/adele-marley-songs/7h8DFMZMYZk_",
+    },
+  ],
+  "start": -9,
+  "total": 1483,
+}
+`;
+
+exports[`SearchController > search everything 1`] = `
+{
+  "albums": {
+    "position": 2,
+    "results": [
+      {
+        "description": "2022 · English Album · Imagine Dragons",
+        "id": "33436571",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-500x500.jpg",
+          },
+        ],
+        "language": "english",
+        "songIds": "yDeAS8Eh",
+        "title": "Bones",
+        "type": "album",
+        "year": "2022",
+      },
+      {
+        "description": "2022 · English Album · Imagine Dragons, Twocolors",
+        "id": "39311737",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/601/Bones-twocolors-Remix-English-2022-20221026181026-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/601/Bones-twocolors-Remix-English-2022-20221026181026-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/601/Bones-twocolors-Remix-English-2022-20221026181026-500x500.jpg",
+          },
+        ],
+        "language": "english",
+        "songIds": "inDrtluD",
+        "title": "Bones (twocolors Remix)",
+        "type": "album",
+        "year": "2022",
+      },
+      {
+        "description": "2024 · Album · Alhanii",
+        "id": "52199809",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/944/Bones-Unknown-2024-20240226103425-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/944/Bones-Unknown-2024-20240226103425-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/944/Bones-Unknown-2024-20240226103425-500x500.jpg",
+          },
+        ],
+        "language": "unknown",
+        "songIds": "F-oqZAXE",
+        "title": "Bones",
+        "type": "album",
+        "year": "2024",
+      },
+    ],
+  },
+  "artists": {
+    "position": 1,
+    "results": [
+      {
+        "description": "Singer",
+        "id": "599452",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/artists/Imagine_Dragons_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/artists/Imagine_Dragons_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/artists/Imagine_Dragons_500x500.jpg",
+          },
+        ],
+        "position": 1,
+        "title": "Imagine Dragons",
+        "type": "artist",
+      },
+    ],
+  },
+  "playlists": {
+    "position": 4,
+    "results": [
+      {
+        "description": "Saavn Editor",
+        "id": "154025790",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/editorial/Let_sPlayImagineDragons_20231004094413_50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/editorial/Let_sPlayImagineDragons_20231004094413_150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/editorial/Let_sPlayImagineDragons_20231004094413_500x500.jpg",
+          },
+        ],
+        "title": "Let's Play - Imagine Dragons",
+        "type": "playlist",
+      },
+    ],
+  },
+  "songs": {
+    "position": 3,
+    "results": [
+      {
+        "description": "Imagine Dragons · Bones",
+        "id": "yDeAS8Eh",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-500x500.jpg",
+          },
+        ],
+        "language": "english",
+        "primaryArtists": "Imagine Dragons",
+        "singers": "Imagine Dragons",
+        "title": "Bones",
+        "type": "song",
+      },
+      {
+        "description": "Imagine Dragons · Mercury - Acts 1 &amp; 2",
+        "id": "ZQFFR_5u",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/964/Mercury-Acts-1-2-English-2022-20220701063805-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/964/Mercury-Acts-1-2-English-2022-20220701063805-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/964/Mercury-Acts-1-2-English-2022-20220701063805-500x500.jpg",
+          },
+        ],
+        "language": "english",
+        "primaryArtists": "Imagine Dragons",
+        "singers": "Imagine Dragons",
+        "title": "Bones",
+        "type": "song",
+      },
+      {
+        "description": "Imagine Dragons, Twocolors · Bones (twocolors Remix)",
+        "id": "inDrtluD",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/601/Bones-twocolors-Remix-English-2022-20221026181026-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/601/Bones-twocolors-Remix-English-2022-20221026181026-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/601/Bones-twocolors-Remix-English-2022-20221026181026-500x500.jpg",
+          },
+        ],
+        "language": "english",
+        "primaryArtists": "Imagine Dragons, Twocolors",
+        "singers": "Imagine Dragons, Twocolors",
+        "title": "Bones (twocolors Remix)",
+        "type": "song",
+      },
+    ],
+  },
+  "topQuery": {
+    "position": 0,
+    "results": [
+      {
+        "description": "Song by Imagine Dragons",
+        "id": "yDeAS8Eh",
+        "image": [
+          {
+            "quality": "50x50",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-50x50.jpg",
+          },
+          {
+            "quality": "150x150",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-150x150.jpg",
+          },
+          {
+            "quality": "500x500",
+            "url": "https://c.saavncdn.com/038/Bones-English-2022-20220311113603-500x500.jpg",
+          },
+        ],
+        "language": "english",
+        "primaryArtists": "Imagine Dragons",
+        "singers": "Imagine Dragons",
+        "title": "Bones",
+        "type": "song",
+      },
+    ],
+  },
+}
+`;
+
+exports[`SearchController > search playlists 1`] = `
+{
+  "results": [
+    {
+      "explicitContent": false,
+      "id": "936752782",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_6257_20240325060538_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_6257_20240325060538_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_6257_20240325060538_500x500.jpg",
+        },
+      ],
+      "name": "Go Indie - Weekly Jukebox",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/go-indie-weekly-jukebox/IpKQJdPJWofc1EngHtQQ2g__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "1035702553",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/logo/Let_sPlayDinoJames_20220303103707_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/logo/Let_sPlayDinoJames_20220303103707_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/logo/Let_sPlayDinoJames_20220303103707_500x500.jpg",
+        },
+      ],
+      "name": "Let's Play - Dino James",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/lets-play-dino-james/uH8dwMs4YmbWCn-BpjaL7g__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "107605145",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/It_sIndieHindi_20240321062314_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/It_sIndieHindi_20240321062314_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/It_sIndieHindi_20240321062314_500x500.jpg",
+        },
+      ],
+      "name": "It's Indie - Hindi",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/its-indie-hindi/jnjK2XTv9-3uCJW60TJk1Q__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "106774189",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/Let_sPlay-PrateekKuhad_20221228183004_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/Let_sPlay-PrateekKuhad_20221228183004_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/Let_sPlay-PrateekKuhad_20221228183004_500x500.jpg",
+        },
+      ],
+      "name": "Let's Play - Prateek Kuhad - Hindi",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/lets-play-prateek-kuhad-hindi/VebDEYr,qm,O0eMLZZxqsA__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "641632938",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/logo/AwesomeAnkur_20191121085639_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/logo/AwesomeAnkur_20191121085639_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/logo/AwesomeAnkur_20191121085639_500x500.jpg",
+        },
+      ],
+      "name": "Awesome Ankur",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/awesome-ankur/YvApeoD5w7pFo9wdEAzFBA__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "157002076",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_18_20191103132318_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_18_20191103132318_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_18_20191103132318_500x500.jpg",
+        },
+      ],
+      "name": "Weekly Jukebox - Desi-Indie Romantic",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/weekly-jukebox-desi-indie-romantic/6,bsIqbJPgPfemJ68FuXsA__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "157002136",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_4_20240325055703_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_4_20240325055703_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_4_20240325055703_500x500.jpg",
+        },
+      ],
+      "name": "Desi-Indie - Weekly Jukebox",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/desi-indie-weekly-jukebox/,K0,MpLrDlTfemJ68FuXsA__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "824479378",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_18_20240325054410_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_18_20240325054410_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_18_20240325054410_500x500.jpg",
+        },
+      ],
+      "name": "Desi-Indie Romance - Weekly Jukebox",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/desi-indie-romance-weekly-jukebox/fmSatbd,4PNFo9wdEAzFBA__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "824483903",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_48_20240325055910_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_48_20240325055910_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_48_20240325055910_500x500.jpg",
+        },
+      ],
+      "name": "Desi-Indie 00s - Weekly Jukebox",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/desi-indie-00s-weekly-jukebox/uhiYaFljwCAwkg5tVhI3fw__",
+      "year": 0,
+    },
+    {
+      "explicitContent": false,
+      "id": "157002075",
+      "image": [
+        {
+          "quality": "50x50",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_17_20240325054058_50x50.jpg",
+        },
+        {
+          "quality": "150x150",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_17_20240325054058_150x150.jpg",
+        },
+        {
+          "quality": "500x500",
+          "url": "https://c.saavncdn.com/editorial/hindi-cluster_17_20240325054058_500x500.jpg",
+        },
+      ],
+      "name": "Desi-Indie Chill - Weekly Jukebox",
+      "playCount": null,
+      "songCount": 0,
+      "type": "playlist",
+      "url": "https://www.jiosaavn.com/featured/desi-indie-chill-weekly-jukebox/6,bsIqbJPgPuCJW60TJk1Q__",
+      "year": 0,
+    },
+  ],
+  "start": -9,
+  "total": 49,
+}
+`;
+
+exports[`SearchController > search songs 1`] = `
+{
+  "results": ArrayContaining [
+    ObjectContaining {
+      "playCount": Any<Number>,
+    },
+  ],
+  "start": -9,
+  "total": Any<Number>,
+}
+`;
