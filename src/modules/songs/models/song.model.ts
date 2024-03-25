@@ -12,7 +12,7 @@ export const SongAPIResponseModel = z.object({
   perma_url: z.string(),
   image: z.string(),
   language: z.string(),
-  year: z.string(),
+  year: z.number(),
   play_count: z.string(),
   explicit_content: z.string(),
   list_count: z.string(),
