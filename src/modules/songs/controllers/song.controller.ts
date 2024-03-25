@@ -155,7 +155,7 @@ export class SongController implements Routes {
             id: z.string().openapi({
               description: 'ID of the song to retrieve the lyrics for',
               type: 'string',
-              example: '1212121'
+              example: '3IoDK8qI'
             })
           })
         },
