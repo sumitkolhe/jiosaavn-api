@@ -26,8 +26,8 @@ export class AlbumController {
               title: 'Album ID',
               description: 'The unique ID of the album',
               type: 'string',
-              example: 'Hq1sr6xu',
-              default: 'Hq1sr6xu'
+              example: '23241654',
+              default: '23241654'
             }),
             link: z
               .string()
@@ -38,8 +38,8 @@ export class AlbumController {
                 title: 'Album Link',
                 description: 'A direct link to the album on JioSaavn',
                 type: 'string',
-                example: 'https://www.jiosaavn.com/album/houdini/OgwhbhtDRwM',
-                default: 'https://www.jiosaavn.com/album/houdini/OgwhbhtDRwM'
+                example: 'https://www.jiosaavn.com/album/future-nostalgia/ITIyo-GDr7A_',
+                default: 'https://www.jiosaavn.com/album/future-nostalgia/ITIyo-GDr7A_'
               })
           })
         },
