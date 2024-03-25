@@ -1,4 +1,5 @@
 import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
+import type { Routes } from '#common/types'
 import { SearchService } from '#modules/search/services'
 import {
   SearchAlbumModel,
@@ -8,7 +9,7 @@ import {
   SearchSongModel
 } from '#modules/search/models'
 
-export class SearchController {
+export class SearchController implements Routes {
   public controller: OpenAPIHono
   private searchService: SearchService
 
