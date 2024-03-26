@@ -87,7 +87,7 @@ Home.get('/', (c) => {
         />
       </head>
       <body class="bg-black mx-auto md:min-h-screen max-w-screen-lg flex flex-col">
-        <main class="mx-auto my-auto flex flex-col space-y-8 px-4 pb-8 md:py-10 relative overflow-y-scroll overflow-x-hidden">
+        <main class="mx-auto my-auto flex flex-col space-y-8 px-4 pb-8 md:py-10 relative overflow-y-hidden overflow-x-hidden">
           <Meteors number={15} />
 
           <div class="flex flex-row items-center space-x-4 ml-6">
