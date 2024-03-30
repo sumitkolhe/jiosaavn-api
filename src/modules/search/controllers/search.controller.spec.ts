@@ -18,7 +18,7 @@ describe('SearchController', () => {
   })
 
   it('search everything', async () => {
-    const response = await searchController.controller.request('/search?query=harry+styles+watermelon+sugar')
+    const response = await searchController.controller.request('/search?query=blurryface+twenty+one+pilots')
 
     const { data } = (await response.json()) as {
       success: boolean
