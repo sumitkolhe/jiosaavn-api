@@ -14,29 +14,29 @@ export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseMode
   name: artist.name,
   url: artist.urls?.overview || artist.perma_url,
   type: artist.type,
-  followerCount: Number(artist.follower_count),
-  fanCount: artist.fan_count,
-  isVerified: artist.isVerified,
-  dominantLanguage: artist.dominantLanguage,
-  dominantType: artist.dominantType,
-  bio: artist.bio && JSON.parse(artist.bio),
-  dob: artist.dob,
-  fb: artist.fb,
-  twitter: artist.twitter,
-  wiki: artist.wiki,
-  availableLanguages: artist.availableLanguages,
-  isRadioPresent: artist.isRadioPresent,
+  followerCount: artist.follower_count ? Number(artist.follower_count) : null,
+  fanCount: artist.fan_count || null,
+  isVerified: artist.isVerified || null,
+  dominantLanguage: artist.dominantLanguage || null,
+  dominantType: artist.dominantType || null,
+  bio: artist.bio ? JSON.parse(artist.bio) : null,
+  dob: artist.dob || null,
+  fb: artist.fb || null,
+  twitter: artist.twitter || null,
+  wiki: artist.wiki || null,
+  availableLanguages: artist.availableLanguages || null,
+  isRadioPresent: artist.isRadioPresent || null,
   image: createImageLinks(artist.image),
-  topSongs: artist.topSongs?.map(createSongPayload) || [],
-  topAlbums: artist.topAlbums?.map(createAlbumPayload) || [],
-  singles: artist.singles?.map(createSongPayload) || [],
+  topSongs: artist.topSongs?.map(createSongPayload) || null,
+  topAlbums: artist.topAlbums?.map(createAlbumPayload) || null,
+  singles: artist.singles?.map(createSongPayload) || null,
   similarArtists:
     artist.similarArtists?.map((similarArtist) => ({
       id: similarArtist.id,
       name: similarArtist.name,
       url: similarArtist.perma_url,
       image: createImageLinks(similarArtist.image_url),
-      languages: similarArtist.languages && JSON.parse(similarArtist.languages),
+      languages: similarArtist.languages ? JSON.parse(similarArtist.languages) : null,
       wiki: similarArtist.wiki,
       dob: similarArtist.dob,
       fb: similarArtist.fb,
@@ -45,9 +45,9 @@ export const createArtistPayload = (artist: z.infer<typeof ArtistAPIResponseMode
       type: similarArtist.type,
       dominantType: similarArtist.dominantType,
       aka: similarArtist.aka,
-      bio: similarArtist.bio,
-      similarArtists: similarArtist.similar && JSON.parse(similarArtist.similar)
-    })) || []
+      bio: similarArtist.bio ? JSON.parse(similarArtist.bio) : null,
+      similarArtists: similarArtist.similar ? JSON.parse(similarArtist.similar) : null
+    })) || null
 })
 
 export const createArtistMapPayload = (
