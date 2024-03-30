@@ -1,4 +1,4 @@
-import { beforeAll, describe, test } from 'vitest'
+import { beforeAll, describe, it } from 'vitest'
 // import { CreateSongStationUseCase, GetSongByIdUseCase } from '#modules/songs/use-cases'
 
 describe('CreateSongStation', () => {
@@ -8,7 +8,7 @@ describe('CreateSongStation', () => {
     // createSongStation = new CreateSongStationUseCase()
   })
 
-  test('should create a song station', async () => {
+  it('should create a song station', async () => {
     // const station = await createSongStation.execute('3IoDK8qI')
     // expect(station).toBeDefined()
   })

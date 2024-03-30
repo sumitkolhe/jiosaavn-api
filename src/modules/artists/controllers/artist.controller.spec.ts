@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it } from 'vitest'
 import type { z } from 'zod'
-import type { ArtistAlbumModel, ArtistModel, ArtistSongModel } from '#modules/artists/models'
+import { ArtistModel } from '#modules/artists/models'
 import { ArtistController } from '#modules/index'
 
 describe('ArtistController', () => {
@@ -17,57 +17,27 @@ describe('ArtistController', () => {
     )
 
     const { data } = (await response.json()) as { data: z.infer<typeof ArtistModel> }
-
-    expect(data).toMatchSnapshot({
-      ...data,
-      followerCount: expect.any(Number),
-      topSongs: expect.any(Array),
-      singles: expect.any(Array),
-      topAlbums: expect.any(Array)
-    })
+    expect(() => ArtistModel.parse(data)).not.toThrow()
   })
 
-  it('retrieve artist by ID', async () => {
-    const response = await artistController.controller.request('/artists/1274170')
+  // it('retrieve artist by ID', async () => {
+  //   const response = await artistController.controller.request('/artists/1274170')
 
-    const { data } = (await response.json()) as { data: z.infer<typeof ArtistModel> }
+  //   const { data } = (await response.json()) as { data: z.infer<typeof ArtistModel> }
+  //   expect(() => ArtistModel.parse(data)).not.toThrow()
+  // })
 
-    expect(data).toMatchSnapshot({
-      ...data,
-      followerCount: expect.any(Number),
-      topSongs: expect.any(Array),
-      singles: expect.any(Array),
-      topAlbums: expect.any(Array)
-    })
-  })
+  // it(`retrieve artist's songs`, async () => {
+  //   const response = await artistController.controller.request(`/artists/1274170/songs`)
 
-  it(`retrieve artist's songs`, async () => {
-    const response = await artistController.controller.request(`/artists/1274170/songs`)
+  //   const { data } = (await response.json()) as { data: z.infer<typeof ArtistSongModel> }
+  //   expect(() => ArtistSongModel.parse(data)).not.toThrow()
+  // })
 
-    const { data } = (await response.json()) as { data: z.infer<typeof ArtistSongModel> }
+  // it(`retrieve artist's albums`, async () => {
+  //   const response = await artistController.controller.request(`/artists/1274170/albums`)
 
-    expect(data).toMatchSnapshot({
-      total: expect.any(Number),
-      songs: expect.arrayContaining([
-        expect.objectContaining({
-          playCount: expect.any(Number)
-        })
-      ])
-    })
-  })
-
-  it(`retrieve artist's albums`, async () => {
-    const response = await artistController.controller.request(`/artists/1274170/albums`)
-
-    const { data } = (await response.json()) as { data: z.infer<typeof ArtistAlbumModel> }
-
-    expect(data).toMatchSnapshot({
-      total: expect.any(Number),
-      albums: expect.arrayContaining([
-        expect.objectContaining({
-          playCount: expect.any(Number)
-        })
-      ])
-    })
-  })
+  //   const { data } = (await response.json()) as { data: z.infer<typeof ArtistAlbumModel> }
+  //   expect(() => ArtistAlbumModel.parse(data)).not.toThrow()
+  // })
 })

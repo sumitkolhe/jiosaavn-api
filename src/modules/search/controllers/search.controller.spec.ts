@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import type { z } from 'zod'
-import type {
+import {
   SearchAlbumModel,
   SearchArtistModel,
   SearchModel,
@@ -17,61 +17,42 @@ describe('SearchController', () => {
     searchController.initRoutes()
   })
 
-  test('search everything', async () => {
+  it('search everything', async () => {
     const response = await searchController.controller.request('/search?query=imagine+dragons+bones')
 
-    const searchResults = (await response.json()) as {
+    const { data } = (await response.json()) as {
       success: boolean
       data: z.infer<typeof SearchModel>
     }
 
-    expect(searchResults.success).toBe(true)
-    expect(searchResults.data).toMatchSnapshot()
+    expect(() => SearchModel.parse(data)).not.toThrow()
   })
 
-  test('search songs', async () => {
+  it('search songs', async () => {
     const response = await searchController.controller.request('/search/songs?query=believer')
 
     const { data } = (await response.json()) as { success: boolean; data: z.infer<typeof SearchSongModel> }
-
-    expect(data).toMatchSnapshot({
-      total: expect.any(Number),
-      results: expect.arrayContaining([
-        expect.objectContaining({
-          playCount: expect.any(Number)
-        })
-      ])
-    })
+    expect(() => SearchSongModel.parse(data)).not.toThrow()
   })
 
-  test('search albums', async () => {
+  it('search albums', async () => {
     const response = await searchController.controller.request('/search/albums?query=blurryface+twenty+one+pilots')
 
     const { data } = (await response.json()) as { success: boolean; data: z.infer<typeof SearchAlbumModel> }
-
-    expect(data).toMatchSnapshot({
-      total: expect.any(Number),
-      results: expect.arrayContaining([
-        expect.objectContaining({
-          playCount: expect.any(Number)
-        })
-      ])
-    })
+    expect(() => SearchAlbumModel.parse(data)).not.toThrow()
   })
 
-  test('search artists', async () => {
+  it('search artists', async () => {
     const response = await searchController.controller.request('/search/artists?query=adele')
 
     const { data } = (await response.json()) as { success: boolean; data: z.infer<typeof SearchArtistModel> }
-
-    expect(data).toMatchSnapshot()
+    expect(() => SearchArtistModel.parse(data)).not.toThrow()
   })
 
-  test('search playlists', async () => {
+  it('search playlists', async () => {
     const response = await searchController.controller.request('/search/playlists?query=indie')
 
     const { data } = (await response.json()) as { success: boolean; data: z.infer<typeof SearchPlaylistModel> }
-
-    expect(data).toMatchSnapshot()
+    expect(() => SearchPlaylistModel.parse(data)).not.toThrow()
   })
 })

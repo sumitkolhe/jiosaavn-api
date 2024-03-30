@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it } from 'vitest'
 import type { z } from 'zod'
-import type { PlaylistModel } from '#modules/playlists/models'
+import { PlaylistModel } from '#modules/playlists/models'
 import { PlaylistController } from '#modules/playlists/controllers'
 
 describe('PlaylistController', () => {
@@ -17,29 +17,13 @@ describe('PlaylistController', () => {
     )
 
     const { data } = (await response.json()) as { data: z.infer<typeof PlaylistModel> }
-
-    expect(data).toMatchSnapshot({
-      playCount: expect.any(Number),
-      songs: expect.arrayContaining([
-        expect.objectContaining({
-          playCount: expect.any(Number)
-        })
-      ])
-    })
+    expect(() => PlaylistModel.parse(data)).not.toThrow()
   })
 
   it('retrieve playlist by ID', async () => {
     const response = await playlistController.controller.request('/playlists?id=82914609')
 
     const { data } = (await response.json()) as { data: z.infer<typeof PlaylistModel> }
-
-    expect(data).toMatchSnapshot({
-      playCount: expect.any(Number),
-      songs: expect.arrayContaining([
-        expect.objectContaining({
-          playCount: expect.any(Number)
-        })
-      ])
-    })
+    expect(() => PlaylistModel.parse(data)).not.toThrow()
   })
 })

@@ -1,5 +1,6 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { GetArtistAlbumsUseCase } from '#modules/artists/use-cases'
+import { ArtistAlbumModel } from '#modules/artists/models'
 
 describe('GetArtistAlbums', () => {
   let getArtistAlbumsUseCase: GetArtistAlbumsUseCase
@@ -8,7 +9,7 @@ describe('GetArtistAlbums', () => {
     getArtistAlbumsUseCase = new GetArtistAlbumsUseCase()
   })
 
-  test('should get artist albums by artist id and return a list of albums', async () => {
+  it('should get artist albums by artist id and return a list of albums', async () => {
     const albums = await getArtistAlbumsUseCase.execute({
       artistId: '1274170',
       page: 1,
@@ -16,6 +17,6 @@ describe('GetArtistAlbums', () => {
       sortOrder: 'asc'
     })
 
-    expect(albums).toMatchSnapshot()
+    expect(() => ArtistAlbumModel.parse(albums)).not.toThrow()
   })
 })

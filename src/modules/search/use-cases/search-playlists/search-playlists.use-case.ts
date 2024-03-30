@@ -4,7 +4,7 @@ import type { z } from 'zod'
 import type { SearchPlaylistAPIResponseModel, SearchPlaylistModel } from '#modules/search/models'
 import { useFetch } from '#common/helpers'
 import { Endpoints } from '#common/constants'
-import { createPlaylistPayload } from '#modules/playlists/helpers'
+import { createSearchPlaylistPayload } from '#modules/playlists/helpers'
 
 export interface SearchPlaylistsArgs {
   query: string
@@ -24,10 +24,6 @@ export class SearchPlaylistsUseCase implements IUseCase<SearchPlaylistsArgs, z.i
 
     if (!response) throw new HTTPException(404, { message: 'playlist not found' })
 
-    return {
-      total: response.total,
-      start: response.start,
-      results: response.results?.map(createPlaylistPayload).slice(0, limit) || []
-    }
+    return createSearchPlaylistPayload(response)
   }
 }

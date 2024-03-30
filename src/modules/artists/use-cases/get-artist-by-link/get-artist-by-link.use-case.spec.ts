@@ -1,5 +1,6 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { GetArtistByLinkUseCase } from '#modules/artists/use-cases'
+import { ArtistModel } from '#modules/artists/models'
 
 describe('GetArtistByLink', () => {
   let getArtistByLinkUseCase: GetArtistByLinkUseCase
@@ -8,9 +9,9 @@ describe('GetArtistByLink', () => {
     getArtistByLinkUseCase = new GetArtistByLinkUseCase()
   })
 
-  test('should get artist by link and return an artist', async () => {
+  it('should get artist by link and return an artist', async () => {
     const artist = await getArtistByLinkUseCase.execute({
-      token: 'r-OWIKgpX2I_',
+      token: 'bQVPhRbZO1I_',
       page: 1,
       songCount: 5,
       albumCount: 5,
@@ -18,12 +19,6 @@ describe('GetArtistByLink', () => {
       sortOrder: 'asc'
     })
 
-    expect(artist).toMatchSnapshot({
-      ...artist,
-      followerCount: expect.any(Number),
-      topSongs: expect.any(Array),
-      singles: expect.any(Array),
-      topAlbums: expect.any(Array)
-    })
+    expect(() => ArtistModel.parse(artist)).not.toThrow()
   })
 })

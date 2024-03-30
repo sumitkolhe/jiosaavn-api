@@ -1,5 +1,6 @@
-import { beforeAll, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { GetArtistSongsUseCase } from '#modules/artists/use-cases'
+import { ArtistSongModel } from '#modules/artists/models'
 
 describe('GetArtistSongs', () => {
   let getArtistSongsUseCase: GetArtistSongsUseCase
@@ -8,7 +9,7 @@ describe('GetArtistSongs', () => {
     getArtistSongsUseCase = new GetArtistSongsUseCase()
   })
 
-  test('should get artist songs by artist id and return a list of songs', async () => {
+  it('should get artist songs by artist id and return a list of songs', async () => {
     const songs = await getArtistSongsUseCase.execute({
       artistId: '1274170',
       page: 1,
@@ -16,12 +17,6 @@ describe('GetArtistSongs', () => {
       sortOrder: 'asc'
     })
 
-    expect(songs).toMatchSnapshot({
-      total: expect.any(Number),
-      songs: songs.songs.map((song) => ({
-        ...song,
-        playCount: expect.any(Number)
-      }))
-    })
+    expect(() => ArtistSongModel.parse(songs)).not.toThrow()
   })
 })
