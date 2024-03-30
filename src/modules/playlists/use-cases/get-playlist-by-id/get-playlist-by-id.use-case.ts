@@ -27,8 +27,8 @@ export class GetPlaylistByIdUseCase implements IUseCase<GetPlaylistByIdArgs, z.i
     const playlist = createPlaylistPayload(response)
     return {
       ...playlist,
-      songCount: playlist.songs?.length || 0,
-      songs: playlist.songs?.slice(0, limit) || []
+      songCount: playlist?.songs?.length || null,
+      songs: playlist?.songs?.slice(0, limit) || []
     }
   }
 }

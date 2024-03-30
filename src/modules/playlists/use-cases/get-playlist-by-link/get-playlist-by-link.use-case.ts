@@ -29,8 +29,8 @@ export class GetPlaylistByLinkUseCase implements IUseCase<GetPlaylistByLinkArgs,
 
     return {
       ...playlist,
-      songCount: playlist.songs?.length,
-      songs: playlist.songs?.slice(0, limit) || []
+      songCount: playlist?.songs?.length || null,
+      songs: playlist?.songs?.slice(0, limit) || []
     }
   }
 }
