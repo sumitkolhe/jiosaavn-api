@@ -39,5 +39,5 @@ export const AlbumModel = z.object({
   songCount: z.number(),
   url: z.string(),
   image: z.array(DownloadLinkModel),
-  songs: z.array(SongModel)
+  songs: z.array(SongModel).nullable()
 })
