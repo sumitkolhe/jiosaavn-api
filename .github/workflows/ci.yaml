@@ -37,19 +37,3 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
-
-      - name: Run Tests Against Staging
-        env:
-          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
-        run: bun run test
-
-      - name: Deploy to Production
-        uses: amondnet/vercel-action@v25.2.0
-        id: deploy-vercel-production
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
-          vercel-args: --prod
-          scope: ${{ secrets.VERCEL_ORG_ID }}
