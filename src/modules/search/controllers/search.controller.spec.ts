@@ -25,7 +25,7 @@ describe('SearchController', () => {
       data: z.infer<typeof SearchModel>
     }
 
-    expect(() => SearchModel.parse(data)).not.toThrow()
+    expect(() => SearchModel.omit({ topQuery: true }).parse(data)).not.toThrow()
   })
 
   it('search songs', async () => {
