@@ -7,19 +7,21 @@ export const SearchAPIResponseModel = z.object({
       z.object({
         id: z.string(),
         title: z.string(),
-        image: z.string(),
-        music: z.string(),
-        url: z.string(),
+        subtitle: z.string(),
         type: z.string(),
-        description: z.string(),
-        ctr: z.number(),
-        position: z.number(),
+        image: z.string(),
+        perma_url: z.string(),
         more_info: z.object({
+          music: z.string(),
+          ctr: z.number(),
           year: z.string(),
           is_movie: z.string(),
           language: z.string(),
           song_pids: z.string()
-        })
+        }),
+        explicit_content: z.string(),
+        mini_obj: z.boolean(),
+        description: z.string()
       })
     ),
     position: z.number()
@@ -29,21 +31,25 @@ export const SearchAPIResponseModel = z.object({
       z.object({
         id: z.string(),
         title: z.string(),
-        image: z.string(),
-        album: z.string(),
-        url: z.string(),
+        subtitle: z.string(),
         type: z.string(),
-        description: z.string(),
-        ctr: z.number(),
-        position: z.number(),
+        image: z.string(),
+        perma_url: z.string(),
         more_info: z.object({
+          album: z.string(),
+          ctr: z.number(),
+          score: z.string().optional(),
           vcode: z.string(),
+          vlink: z.string().optional(),
           primary_artists: z.string(),
           singers: z.string(),
           video_available: z.boolean(),
           triller_available: z.boolean(),
           language: z.string()
-        })
+        }),
+        explicit_content: z.string(),
+        mini_obj: z.boolean(),
+        description: z.string()
       })
     ),
     position: z.number()
@@ -53,14 +59,25 @@ export const SearchAPIResponseModel = z.object({
       z.object({
         id: z.string(),
         title: z.string(),
-        image: z.string(),
-        extra: z.string(),
-        url: z.string(),
-        language: z.string(),
+        subtitle: z.string(),
         type: z.string(),
-        description: z.string(),
-        position: z.number(),
-        more_info: z.any() // TODO: replace with actual schema if available
+        image: z.string(),
+        perma_url: z.string(),
+        more_info: z.object({
+          firstname: z.string(),
+          artist_name: z.array(z.string()),
+          entity_type: z.string(),
+          entity_sub_type: z.string(),
+          video_available: z.boolean(),
+          is_dolby_content: z.boolean(),
+          sub_types: z.any(),
+          images: z.any(),
+          lastname: z.string(),
+          language: z.string()
+        }),
+        explicit_content: z.string(),
+        mini_obj: z.boolean(),
+        description: z.string()
       })
     ),
     position: z.number()
@@ -72,11 +89,12 @@ export const SearchAPIResponseModel = z.object({
         title: z.string(),
         image: z.string(),
         extra: z.string(),
-        url: z.string(),
         type: z.string(),
-        description: z.string(),
+        mini_obj: z.boolean(),
+        isRadioPresent: z.boolean(),
         ctr: z.number(),
         entity: z.number(),
+        description: z.string(),
         position: z.number()
       })
     ),
@@ -87,14 +105,14 @@ export const SearchAPIResponseModel = z.object({
       z.object({
         id: z.string(),
         title: z.string(),
-        image: z.string(),
-        album: z.string(),
-        url: z.string(),
+        subtitle: z.string(),
         type: z.string(),
-        description: z.string(),
-        ctr: z.number(),
-        position: z.number(),
+        image: z.string(),
+        perma_url: z.string(),
         more_info: z.object({
+          album: z.string(),
+          ctr: z.number(),
+          score: z.string().optional(),
           vcode: z.string(),
           vlink: z.string(),
           primary_artists: z.string(),
@@ -102,7 +120,10 @@ export const SearchAPIResponseModel = z.object({
           video_available: z.boolean(),
           triller_available: z.boolean(),
           language: z.string()
-        })
+        }),
+        explicit_content: z.string().optional(),
+        mini_obj: z.boolean(),
+        description: z.string()
       })
     ),
     position: z.number()
@@ -126,7 +147,6 @@ export const SearchModel = z.object({
         url: z.string(),
         type: z.string(),
         description: z.string(),
-        position: z.number(),
         year: z.string(),
         language: z.string(),
         songIds: z.string()
@@ -143,7 +163,6 @@ export const SearchModel = z.object({
         url: z.string(),
         type: z.string(),
         description: z.string(),
-        position: z.number(),
         primaryArtists: z.string(),
         singers: z.string(),
         language: z.string()
@@ -156,7 +175,6 @@ export const SearchModel = z.object({
         id: z.string(),
         title: z.string(),
         image: z.array(DownloadLinkModel),
-        url: z.string(),
         type: z.string(),
         description: z.string(),
         position: z.number()
@@ -172,8 +190,7 @@ export const SearchModel = z.object({
         url: z.string(),
         language: z.string(),
         type: z.string(),
-        description: z.string(),
-        position: z.number()
+        description: z.string()
       })
     )
   ),
@@ -187,7 +204,6 @@ export const SearchModel = z.object({
         url: z.string(),
         type: z.string(),
         description: z.string(),
-        position: z.number(),
         primaryArtists: z.string(),
         singers: z.string(),
         language: z.string()
