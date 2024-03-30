@@ -9,7 +9,7 @@ export const createSearchPayload = (search: z.infer<typeof SearchAPIResponseMode
         id: item?.id,
         title: item?.title,
         image: createImageLinks(item?.image),
-        album: item?.more_info.album,
+        album: item?.more_info?.album,
         url: item?.perma_url,
         type: item?.type,
         language: item?.more_info?.language,
