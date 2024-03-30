@@ -41,7 +41,21 @@ export class PlaylistController implements Routes {
                 type: 'string',
                 example: 'https://www.jiosaavn.com/featured/its-indie-english/AMoxtXyKHoU_',
                 default: 'https://www.jiosaavn.com/featured/its-indie-english/AMoxtXyKHoU_'
-              })
+              }),
+            page: z.string().pipe(z.coerce.number()).optional().openapi({
+              title: 'Page Number',
+              description: 'The page number of the songs to retrieve from the playlist',
+              type: 'integer',
+              example: 0,
+              default: 0
+            }),
+            limit: z.string().pipe(z.coerce.number()).optional().openapi({
+              title: 'Limit',
+              description: 'Number of songs to retrieve per page',
+              type: 'integer',
+              example: 10,
+              default: 10
+            })
           })
         },
         responses: {
@@ -68,15 +82,23 @@ export class PlaylistController implements Routes {
         }
       }),
       async (ctx) => {
-        const { id, link } = ctx.req.valid('query')
+        const { id, link, page, limit } = ctx.req.valid('query')
 
         if (!link && !id) {
           return ctx.json({ success: false, message: 'Either playlist ID or link is required' }, 400)
         }
 
         const response = link
-          ? await this.playlistService.getPlaylistByLink(link)
-          : await this.playlistService.getPlaylistById(id!)
+          ? await this.playlistService.getPlaylistByLink({
+              token: link,
+              page: page || 0,
+              limit: limit || 10
+            })
+          : await this.playlistService.getPlaylistById({
+              id: id!,
+              page: page || 0,
+              limit: limit || 10
+            })
 
         return ctx.json({ success: true, data: response })
       }

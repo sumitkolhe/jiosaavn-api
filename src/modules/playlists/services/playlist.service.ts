@@ -1,4 +1,9 @@
-import { GetPlaylistByIdUseCase, GetPlaylistByLinkUseCase } from '#modules/playlists/use-cases'
+import {
+  type GetPlaylistByIdArgs,
+  GetPlaylistByIdUseCase,
+  type GetPlaylistByLinkArgs,
+  GetPlaylistByLinkUseCase
+} from '#modules/playlists/use-cases'
 
 export class PlaylistService {
   private readonly getPlaylistByIdUseCase: GetPlaylistByIdUseCase
@@ -9,11 +14,11 @@ export class PlaylistService {
     this.getPlaylistByLinkUseCase = new GetPlaylistByLinkUseCase()
   }
 
-  getPlaylistById = (playlistId: string) => {
-    return this.getPlaylistByIdUseCase.execute(playlistId)
+  getPlaylistById = (args: GetPlaylistByIdArgs) => {
+    return this.getPlaylistByIdUseCase.execute(args)
   }
 
-  getPlaylistByLink = (token: string) => {
-    return this.getPlaylistByLinkUseCase.execute(token)
+  getPlaylistByLink = (args: GetPlaylistByLinkArgs) => {
+    return this.getPlaylistByLinkUseCase.execute(args)
   }
 }

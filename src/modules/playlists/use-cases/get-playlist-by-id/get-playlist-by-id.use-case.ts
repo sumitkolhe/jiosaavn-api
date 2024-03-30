@@ -6,14 +6,29 @@ import { useFetch } from '#common/helpers'
 import { Endpoints } from '#common/constants'
 import { createPlaylistPayload } from '#modules/playlists/helpers'
 
-export class GetPlaylistByIdUseCase implements IUseCase<string, z.infer<typeof PlaylistModel>> {
+export interface GetPlaylistByIdArgs {
+  id: string
+  limit: number
+  page: number
+}
+
+export class GetPlaylistByIdUseCase implements IUseCase<GetPlaylistByIdArgs, z.infer<typeof PlaylistModel>> {
   constructor() {}
 
-  async execute(id: string) {
-    const response = await useFetch<z.infer<typeof PlaylistAPIResponseModel>>(Endpoints.playlists.id, { listid: id })
+  async execute({ id, limit, page }: GetPlaylistByIdArgs) {
+    const response = await useFetch<z.infer<typeof PlaylistAPIResponseModel>>(Endpoints.playlists.id, {
+      listid: id,
+      n: limit,
+      p: page
+    })
 
     if (!response) throw new HTTPException(404, { message: 'playlist not found' })
 
-    return createPlaylistPayload(response)
+    const playlist = createPlaylistPayload(response)
+    return {
+      ...playlist,
+      songCount: playlist.songs?.length || 0,
+      songs: playlist.songs?.slice(0, limit) || []
+    }
   }
 }
