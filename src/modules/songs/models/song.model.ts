@@ -66,7 +66,7 @@ export const SongModel = z.object({
   duration: z.number().nullable(),
   label: z.string().nullable(),
   explicitContent: z.boolean(),
-  playCount: z.number(),
+  playCount: z.number().nullable(),
   language: z.string(),
   hasLyrics: z.boolean(),
   lyricsId: z.string().nullable(),
