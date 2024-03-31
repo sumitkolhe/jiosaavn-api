@@ -22,7 +22,6 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
   async execute({ songId, limit }: GetSongSuggestionsArgs) {
     const stationId = await this.createSongStation.execute(songId)
 
-    console.log({ stationId })
     const { data, ok } = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>({
       endpoint: Endpoints.songs.suggestions,
       params: {
@@ -31,8 +30,6 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
       },
       context: 'android'
     })
-
-    console.log({ data })
 
     if (!data || !ok) {
       throw new HTTPException(404, { message: `no suggestions found for the given song` })
