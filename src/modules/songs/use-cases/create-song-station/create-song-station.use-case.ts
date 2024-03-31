@@ -18,6 +18,11 @@ export class CreateSongStationUseCase implements IUseCase<string, string> {
       context: 'android'
     })
 
+    console.log({
+      songId,
+      data
+    })
+
     if (!data || !ok || !data.stationid) throw new HTTPException(500, { message: 'could not create station' })
 
     return data.stationid
