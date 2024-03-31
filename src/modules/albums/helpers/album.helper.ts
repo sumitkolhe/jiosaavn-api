@@ -14,7 +14,7 @@ export const createAlbumPayload = (album: z.infer<typeof AlbumAPIResponseModel>)
   language: album.language,
   explicitContent: album.explicit_content === '1',
   url: album.perma_url,
-  songCount: album.more_info.song_count ? Number(album.more_info.song_count) : 0,
+  songCount: album.more_info.song_count ? Number(album.more_info.song_count) : null,
   artists: {
     primary: album.more_info?.artistMap?.primary_artists?.map(createArtistMapPayload),
     featured: album.more_info?.artistMap?.featured_artists?.map(createArtistMapPayload),
