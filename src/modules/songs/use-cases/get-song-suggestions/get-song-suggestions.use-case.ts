@@ -22,7 +22,7 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
   async execute({ songId, limit }: GetSongSuggestionsArgs) {
     const stationId = await this.createSongStation.execute(songId)
 
-    const response = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>({
+    const { data, ok } = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>({
       endpoint: Endpoints.songs.suggestions,
       params: {
         stationid: stationId,
@@ -30,12 +30,12 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
       }
     })
 
-    if (!response || response.error) {
+    if (!data || !ok) {
       throw new HTTPException(404, { message: `no suggestions found for the given song` })
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { stationid, ...suggestions } = response // TODO: find a better way to model the response
+    const { stationid, ...suggestions } = data // TODO: find a better way to model the response
 
     const songs =
       Object.values(suggestions)

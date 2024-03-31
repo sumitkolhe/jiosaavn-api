@@ -10,13 +10,13 @@ export class GetAlbumByIdUseCase implements IUseCase<string, z.infer<typeof Albu
   constructor() {}
 
   async execute(id: string) {
-    const response = await useFetch<z.infer<typeof AlbumAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof AlbumAPIResponseModel>>({
       endpoint: Endpoints.albums.id,
       params: { albumid: id }
     })
 
-    if (!response) throw new HTTPException(404, { message: 'album not found' })
+    if (!data) throw new HTTPException(404, { message: 'album not found' })
 
-    return createAlbumPayload(response)
+    return createAlbumPayload(data)
   }
 }

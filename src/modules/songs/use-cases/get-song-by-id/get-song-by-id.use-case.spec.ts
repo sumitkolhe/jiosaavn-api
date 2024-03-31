@@ -16,13 +16,19 @@ describe('GetSongById', () => {
     expect(() => SongModel.parse(song[0])).not.toThrow()
   })
 
-  it('should return a song by id and include lyrics', async () => {
-    const song = await getSongById.execute({ songIds: 'L91uYhUm', includeLyrics: true })
+  it('should return multiple songs by ids', async () => {
+    const song = await getSongById.execute({ songIds: '3IoDK8qI,K1P4T0jI' })
 
     expect(() => SongModel.parse(song[0])).not.toThrow()
   })
 
   it('should throw 404 error when song is not found', async () => {
     await expect(getSongById.execute({ songIds: 'invalid-id' })).rejects.toThrow(HTTPException)
+  })
+
+  it('should return a song by id and include lyrics', async () => {
+    const song = await getSongById.execute({ songIds: 'K1P4T0jI', includeLyrics: true })
+
+    expect(() => SongModel.parse(song[0])).not.toThrow()
   })
 })

@@ -10,7 +10,7 @@ export class GetAlbumByLinkUseCase implements IUseCase<string, z.infer<typeof Al
   constructor() {}
 
   async execute(token: string) {
-    const response = await useFetch<z.infer<typeof AlbumAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof AlbumAPIResponseModel>>({
       endpoint: Endpoints.albums.link,
       params: {
         token,
@@ -18,8 +18,8 @@ export class GetAlbumByLinkUseCase implements IUseCase<string, z.infer<typeof Al
       }
     })
 
-    if (!response) throw new HTTPException(404, { message: 'album not found' })
+    if (!data) throw new HTTPException(404, { message: 'album not found' })
 
-    return createAlbumPayload(response)
+    return createAlbumPayload(data)
   }
 }

@@ -9,7 +9,7 @@ export class CreateSongStationUseCase implements IUseCase<string, string> {
   async execute(songId: string) {
     const encodedSongId = JSON.stringify([encodeURIComponent(songId)])
 
-    const response = await useFetch<{ stationid: string }>({
+    const { data, ok } = await useFetch<{ stationid: string }>({
       endpoint: Endpoints.songs.station,
       params: {
         entity_id: encodedSongId,
@@ -17,8 +17,8 @@ export class CreateSongStationUseCase implements IUseCase<string, string> {
       }
     })
 
-    if (!response || !response.stationid) throw new HTTPException(500, { message: 'could not create station' })
+    if (!data || !data.stationid || !ok) throw new HTTPException(500, { message: 'could not create station' })
 
-    return response.stationid
+    return data.stationid
   }
 }

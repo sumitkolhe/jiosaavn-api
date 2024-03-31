@@ -10,7 +10,7 @@ export const useFetch = async <T>({
   endpoint: EndpointValue
   params: Record<string, string | number>
   context?: 'android' | 'web6dot0'
-}): Promise<T> => {
+}): Promise<{ data: T; ok: Response['ok'] }> => {
   const url = new URL('https://www.jiosaavn.com/api.php')
 
   url.searchParams.append('__call', endpoint.toString())
@@ -24,5 +24,5 @@ export const useFetch = async <T>({
   const response = await fetch(url.toString())
   const data = await response.json()
 
-  return data as T
+  return { data: data as T, ...response }
 }

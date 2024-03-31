@@ -16,7 +16,7 @@ export class SearchArtistsUseCase implements IUseCase<SearchArtistsArgs, z.infer
   constructor() {}
 
   async execute({ query, limit, page }: SearchArtistsArgs): Promise<z.infer<typeof SearchArtistModel>> {
-    const response = await useFetch<z.infer<typeof SearchArtistAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof SearchArtistAPIResponseModel>>({
       endpoint: Endpoints.search.artists,
       params: {
         q: query,
@@ -25,12 +25,12 @@ export class SearchArtistsUseCase implements IUseCase<SearchArtistsArgs, z.infer
       }
     })
 
-    if (!response) throw new HTTPException(404, { message: 'artist not found' })
+    if (!data) throw new HTTPException(404, { message: 'artist not found' })
 
     return {
-      total: response.total,
-      start: response.start,
-      results: response.results?.map(createArtistMapPayload).slice(0, limit) || []
+      total: data.total,
+      start: data.start,
+      results: data.results?.map(createArtistMapPayload).slice(0, limit) || []
     }
   }
 }

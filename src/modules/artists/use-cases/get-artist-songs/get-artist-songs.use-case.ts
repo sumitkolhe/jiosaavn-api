@@ -17,7 +17,7 @@ export class GetArtistSongsUseCase implements IUseCase<GetArtistSongsArgs, z.inf
   constructor() {}
 
   async execute({ artistId, page, sortOrder, sortBy }: GetArtistSongsArgs) {
-    const response = await useFetch<z.infer<typeof ArtistSongAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof ArtistSongAPIResponseModel>>({
       endpoint: Endpoints.artists.songs,
       params: {
         artistId,
@@ -27,11 +27,11 @@ export class GetArtistSongsUseCase implements IUseCase<GetArtistSongsArgs, z.inf
       }
     })
 
-    if (!response) throw new HTTPException(404, { message: 'artist songs not found' })
+    if (!data) throw new HTTPException(404, { message: 'artist songs not found' })
 
     return {
-      total: response.topSongs.total,
-      songs: response.topSongs.songs.map((song) => createSongPayload(song))
+      total: data.topSongs.total,
+      songs: data.topSongs.songs.map((song) => createSongPayload(song))
     }
   }
 }

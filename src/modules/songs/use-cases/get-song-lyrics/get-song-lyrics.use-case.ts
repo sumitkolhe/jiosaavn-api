@@ -10,15 +10,15 @@ export class GetSongLyricsUseCase implements IUseCase<string, z.infer<typeof Lyr
   constructor() {}
 
   async execute(songId: string) {
-    const response = await useFetch<z.infer<typeof LyricsAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof LyricsAPIResponseModel>>({
       endpoint: Endpoints.songs.lyrics,
       params: {
         lyrics_id: songId
       }
     })
 
-    if (!response.lyrics) throw new HTTPException(404, { message: 'lyrics not found' })
+    if (!data.lyrics) throw new HTTPException(404, { message: 'lyrics not found' })
 
-    return createSongLyricsPayload(response)
+    return createSongLyricsPayload(data)
   }
 }

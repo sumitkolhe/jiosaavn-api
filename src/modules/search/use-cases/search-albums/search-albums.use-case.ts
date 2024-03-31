@@ -15,7 +15,7 @@ export class SearchAlbumsUseCase implements IUseCase<SearchAlbumsArgs, z.infer<t
   constructor() {}
 
   async execute({ query, limit, page }: SearchAlbumsArgs): Promise<z.infer<typeof SearchAlbumModel>> {
-    const response = await useFetch<z.infer<typeof SearchAlbumAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof SearchAlbumAPIResponseModel>>({
       endpoint: Endpoints.search.albums,
       params: {
         q: query,
@@ -24,6 +24,6 @@ export class SearchAlbumsUseCase implements IUseCase<SearchAlbumsArgs, z.infer<t
       }
     })
 
-    return createSearchAlbumPayload(response)
+    return createSearchAlbumPayload(data)
   }
 }

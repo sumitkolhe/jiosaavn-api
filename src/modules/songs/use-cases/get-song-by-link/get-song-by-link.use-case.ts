@@ -10,7 +10,7 @@ export class GetSongByLinkUseCase implements IUseCase<string, z.infer<typeof Son
   constructor() {}
 
   async execute(token: string) {
-    const response = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel>[] }>({
+    const { data } = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel>[] }>({
       endpoint: Endpoints.songs.link,
       params: {
         token,
@@ -18,8 +18,8 @@ export class GetSongByLinkUseCase implements IUseCase<string, z.infer<typeof Son
       }
     })
 
-    if (!response.songs?.length) throw new HTTPException(404, { message: 'song not found' })
+    if (!data.songs?.length) throw new HTTPException(404, { message: 'song not found' })
 
-    return response.songs.map((song) => createSongPayload(song))
+    return data.songs.map((song) => createSongPayload(song))
   }
 }

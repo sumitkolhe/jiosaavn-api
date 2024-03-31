@@ -8,13 +8,13 @@ import { createSearchPayload } from '#modules/search/helpers'
 
 export class SearchAllUseCase implements IUseCase<string, z.infer<typeof SearchModel>> {
   async execute(query: string): Promise<z.infer<typeof SearchModel>> {
-    const response = await useFetch<z.infer<typeof SearchAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof SearchAPIResponseModel>>({
       endpoint: Endpoints.search.all,
       params: { query }
     })
 
-    if (!response) throw new HTTPException(404, { message: `no results found for ${query}` })
+    if (!data) throw new HTTPException(404, { message: `no results found for ${query}` })
 
-    return createSearchPayload(response)
+    return createSearchPayload(data)
   }
 }

@@ -19,7 +19,7 @@ export class GetArtistByLinkUseCase implements IUseCase<GetArtistByLinkArgs, z.i
   constructor() {}
 
   async execute({ token, page, songCount, albumCount, sortBy, sortOrder }: GetArtistByLinkArgs) {
-    const response = await useFetch<z.infer<typeof ArtistAPIResponseModel>>({
+    const { data } = await useFetch<z.infer<typeof ArtistAPIResponseModel>>({
       endpoint: Endpoints.artists.link,
       params: {
         token,
@@ -32,8 +32,8 @@ export class GetArtistByLinkUseCase implements IUseCase<GetArtistByLinkArgs, z.i
       }
     })
 
-    if (!response) throw new HTTPException(404, { message: 'artist not found' })
+    if (!data) throw new HTTPException(404, { message: 'artist not found' })
 
-    return createArtistPayload(response)
+    return createArtistPayload(data)
   }
 }
