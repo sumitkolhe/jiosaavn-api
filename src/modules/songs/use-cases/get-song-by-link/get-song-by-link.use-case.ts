@@ -10,9 +10,12 @@ export class GetSongByLinkUseCase implements IUseCase<string, z.infer<typeof Son
   constructor() {}
 
   async execute(token: string) {
-    const response = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel>[] }>(Endpoints.songs.link, {
-      token,
-      type: 'song'
+    const response = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel>[] }>({
+      endpoint: Endpoints.songs.link,
+      params: {
+        token,
+        type: 'song'
+      }
     })
 
     if (!response.songs?.length) throw new HTTPException(404, { message: 'song not found' })

@@ -16,10 +16,13 @@ export class GetPlaylistByIdUseCase implements IUseCase<GetPlaylistByIdArgs, z.i
   constructor() {}
 
   async execute({ id, limit, page }: GetPlaylistByIdArgs) {
-    const response = await useFetch<z.infer<typeof PlaylistAPIResponseModel>>(Endpoints.playlists.id, {
-      listid: id,
-      n: limit,
-      p: page
+    const response = await useFetch<z.infer<typeof PlaylistAPIResponseModel>>({
+      endpoint: Endpoints.playlists.id,
+      params: {
+        listid: id,
+        n: limit,
+        p: page
+      }
     })
 
     if (!response) throw new HTTPException(404, { message: 'playlist not found' })

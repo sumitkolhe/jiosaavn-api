@@ -22,9 +22,12 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
   async execute({ songId, limit }: GetSongSuggestionsArgs) {
     const stationId = await this.createSongStation.execute(songId)
 
-    const response = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>(Endpoints.songs.suggestions, {
-      stationid: stationId,
-      k: limit
+    const response = await useFetch<z.infer<typeof SongSuggestionAPIResponseModel>>({
+      endpoint: Endpoints.songs.suggestions,
+      params: {
+        stationid: stationId,
+        k: limit
+      }
     })
 
     if (!response || response.error) {

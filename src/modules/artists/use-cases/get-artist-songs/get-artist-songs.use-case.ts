@@ -17,11 +17,14 @@ export class GetArtistSongsUseCase implements IUseCase<GetArtistSongsArgs, z.inf
   constructor() {}
 
   async execute({ artistId, page, sortOrder, sortBy }: GetArtistSongsArgs) {
-    const response = await useFetch<z.infer<typeof ArtistSongAPIResponseModel>>(Endpoints.artists.songs, {
-      artistId,
-      page,
-      sort_order: sortOrder,
-      category: sortBy
+    const response = await useFetch<z.infer<typeof ArtistSongAPIResponseModel>>({
+      endpoint: Endpoints.artists.songs,
+      params: {
+        artistId,
+        page,
+        sort_order: sortOrder,
+        category: sortBy
+      }
     })
 
     if (!response) throw new HTTPException(404, { message: 'artist songs not found' })

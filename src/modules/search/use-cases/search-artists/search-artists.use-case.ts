@@ -16,10 +16,13 @@ export class SearchArtistsUseCase implements IUseCase<SearchArtistsArgs, z.infer
   constructor() {}
 
   async execute({ query, limit, page }: SearchArtistsArgs): Promise<z.infer<typeof SearchArtistModel>> {
-    const response = await useFetch<z.infer<typeof SearchArtistAPIResponseModel>>(Endpoints.search.artists, {
-      q: query,
-      p: page,
-      n: limit
+    const response = await useFetch<z.infer<typeof SearchArtistAPIResponseModel>>({
+      endpoint: Endpoints.search.artists,
+      params: {
+        q: query,
+        p: page,
+        n: limit
+      }
     })
 
     if (!response) throw new HTTPException(404, { message: 'artist not found' })

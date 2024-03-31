@@ -15,10 +15,13 @@ export class SearchSongsUseCase implements IUseCase<SearchSongsArgs, z.infer<typ
   constructor() {}
 
   async execute({ query, limit, page }: SearchSongsArgs): Promise<z.infer<typeof SearchSongModel>> {
-    const response = await useFetch<z.infer<typeof SearchSongAPIResponseModel>>(Endpoints.search.songs, {
-      q: query,
-      p: page,
-      n: limit
+    const response = await useFetch<z.infer<typeof SearchSongAPIResponseModel>>({
+      endpoint: Endpoints.search.songs,
+      params: {
+        q: query,
+        p: page,
+        n: limit
+      }
     })
 
     return {

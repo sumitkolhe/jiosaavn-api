@@ -16,10 +16,13 @@ export class SearchPlaylistsUseCase implements IUseCase<SearchPlaylistsArgs, z.i
   constructor() {}
 
   async execute({ query, limit, page }: SearchPlaylistsArgs): Promise<z.infer<typeof SearchPlaylistModel>> {
-    const response = await useFetch<z.infer<typeof SearchPlaylistAPIResponseModel>>(Endpoints.search.playlists, {
-      q: query,
-      p: page,
-      n: limit
+    const response = await useFetch<z.infer<typeof SearchPlaylistAPIResponseModel>>({
+      endpoint: Endpoints.search.playlists,
+      params: {
+        q: query,
+        p: page,
+        n: limit
+      }
     })
 
     if (!response) throw new HTTPException(404, { message: 'playlist not found' })

@@ -16,11 +16,14 @@ export class GetPlaylistByLinkUseCase implements IUseCase<GetPlaylistByLinkArgs,
   constructor() {}
 
   async execute({ token, limit, page }: GetPlaylistByLinkArgs) {
-    const response = await useFetch<z.infer<typeof PlaylistAPIResponseModel>>(Endpoints.albums.link, {
-      token,
-      n: limit,
-      p: page,
-      type: 'playlist'
+    const response = await useFetch<z.infer<typeof PlaylistAPIResponseModel>>({
+      endpoint: Endpoints.albums.link,
+      params: {
+        token,
+        n: limit,
+        p: page,
+        type: 'playlist'
+      }
     })
 
     if (!response) throw new HTTPException(404, { message: 'playlist not found' })

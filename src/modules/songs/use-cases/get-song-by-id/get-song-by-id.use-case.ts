@@ -20,13 +20,18 @@ export class GetSongByIdUseCase implements IUseCase<GetSongByIdArgs, z.infer<typ
   }
 
   async execute({ songIds, includeLyrics }: GetSongByIdArgs) {
-    const response = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel>[] }>(Endpoints.songs.id, {
-      pids: songIds
+    const response = await useFetch<{ songs: z.infer<typeof SongAPIResponseModel> }>({
+      endpoint: Endpoints.songs.id,
+      params: {
+        pids: songIds
+      }
     })
 
-    if (!response.songs?.length) throw new HTTPException(404, { message: 'song not found' })
+    const songsResponse = Object.values(response) || []
 
-    const songs = response.songs.map((song) => createSongPayload(song))
+    if (!songsResponse?.length) throw new HTTPException(404, { message: 'song not found' })
+
+    const songs = songsResponse.map((song) => createSongPayload(song as any))
 
     if (includeLyrics) {
       await Promise.all(
