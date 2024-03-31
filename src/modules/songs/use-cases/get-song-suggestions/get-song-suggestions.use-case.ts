@@ -27,7 +27,8 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
       params: {
         stationid: stationId,
         k: limit
-      }
+      },
+      context: 'android'
     })
 
     if (!data || !ok) {

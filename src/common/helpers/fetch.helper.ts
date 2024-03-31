@@ -24,5 +24,5 @@ export const useFetch = async <T>({
   const response = await fetch(url.toString())
   const data = await response.json()
 
-  return { data: data as T, ...response }
+  return { data: data as T, ok: response.ok }
 }

@@ -14,10 +14,11 @@ export class CreateSongStationUseCase implements IUseCase<string, string> {
       params: {
         entity_id: encodedSongId,
         entity_type: 'queue'
-      }
+      },
+      context: 'android'
     })
 
-    if (!data || !data.stationid || !ok) throw new HTTPException(500, { message: 'could not create station' })
+    if (!data || !ok || !data.stationid) throw new HTTPException(500, { message: 'could not create station' })
 
     return data.stationid
   }
