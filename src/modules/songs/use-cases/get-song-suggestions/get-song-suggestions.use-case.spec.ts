@@ -10,8 +10,9 @@ describe('GetSongSuggestions', () => {
   })
 
   it('should return suggestions for a song', async () => {
-    const suggestions = await getSongSuggestions.execute({ songId: '3IoDK8qI', limit: 5 })
+    const suggestions = await getSongSuggestions.execute({ songId: '8N_6I8Gn', limit: 5 })
 
     expect(() => SongModel.parse(suggestions[0])).not.toThrow()
+    expect(suggestions.length).toBe(5)
   })
 })
