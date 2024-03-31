@@ -1,6 +1,14 @@
 import type { z } from 'zod'
-import type { SearchAPIResponseModel, SearchModel } from '#modules/search/models'
+import type {
+  SearchAPIResponseModel,
+  SearchAlbumAPIResponseModel,
+  SearchAlbumModel,
+  SearchModel,
+  SearchPlaylistAPIResponseModel,
+  SearchPlaylistModel
+} from '#modules/search/models'
 import { createImageLinks } from '#common/helpers'
+import { createArtistMapPayload } from '#modules/artists/helpers'
 
 export const createSearchPayload = (search: z.infer<typeof SearchAPIResponseModel>): z.infer<typeof SearchModel> => ({
   topQuery: {
@@ -85,4 +93,45 @@ export const createSearchPayload = (search: z.infer<typeof SearchAPIResponseMode
     }),
     position: search?.playlists?.position
   }
+})
+
+export const createSearchPlaylistPayload = (
+  playlist: z.infer<typeof SearchPlaylistAPIResponseModel>
+): z.infer<typeof SearchPlaylistModel> => ({
+  total: Number(playlist.total),
+  start: Number(playlist.start),
+  results: playlist.results.map((item) => ({
+    id: item.id,
+    name: item.title,
+    type: item.type,
+    image: createImageLinks(item.image),
+    url: item.perma_url,
+    songCount: item.more_info.song_count ? Number(item.more_info.song_count) : null,
+    language: item.more_info.language,
+    explicitContent: item.explicit_content === '1'
+  }))
+})
+
+export const createSearchAlbumPayload = (
+  album: z.infer<typeof SearchAlbumAPIResponseModel>
+): z.infer<typeof SearchAlbumModel> => ({
+  total: Number(album.total),
+  start: Number(album.start),
+  results: album.results.map((item) => ({
+    id: item.id,
+    name: item.title,
+    description: item.header_desc,
+    url: item.perma_url,
+    year: item.year ? Number(item.year) : null,
+    type: item.type,
+    playCount: item.play_count ? Number(item.play_count) : null,
+    language: item.language,
+    explicitContent: item.explicit_content === '1',
+    artists: {
+      primary: item.more_info?.artistMap?.primary_artists?.map(createArtistMapPayload),
+      featured: item.more_info?.artistMap?.featured_artists?.map(createArtistMapPayload),
+      all: item.more_info?.artistMap?.artists?.map(createArtistMapPayload)
+    },
+    image: createImageLinks(item.image)
+  }))
 })

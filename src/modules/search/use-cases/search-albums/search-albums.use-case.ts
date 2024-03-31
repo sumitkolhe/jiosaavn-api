@@ -3,7 +3,7 @@ import type { IUseCase } from '#common/types'
 import type { SearchAlbumAPIResponseModel, SearchAlbumModel } from '#modules/search/models'
 import { Endpoints } from '#common/constants'
 import { useFetch } from '#common/helpers'
-import { createAlbumPayload } from '#modules/albums/helpers'
+import { createSearchAlbumPayload } from '#modules/search/helpers'
 
 export interface SearchAlbumsArgs {
   query: string
@@ -21,10 +21,6 @@ export class SearchAlbumsUseCase implements IUseCase<SearchAlbumsArgs, z.infer<t
       n: limit
     })
 
-    return {
-      total: response.total,
-      start: response.start,
-      results: response.results?.map(createAlbumPayload).slice(0, limit) || []
-    }
+    return createSearchAlbumPayload(response)
   }
 }

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ArtistMapModel } from '#modules/artists/models'
+import { DownloadLinkModel } from '#common/models'
 
 export const SearchArtistAPIResponseModel = z.object({
   total: z.number(),
@@ -24,5 +24,14 @@ export const SearchArtistAPIResponseModel = z.object({
 export const SearchArtistModel = z.object({
   total: z.number(),
   start: z.number(),
-  results: z.array(ArtistMapModel)
+  results: z.array(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      role: z.string(),
+      type: z.string(),
+      image: z.array(DownloadLinkModel),
+      url: z.string()
+    })
+  )
 })

@@ -4,7 +4,7 @@ import type { z } from 'zod'
 import type { SearchPlaylistAPIResponseModel, SearchPlaylistModel } from '#modules/search/models'
 import { useFetch } from '#common/helpers'
 import { Endpoints } from '#common/constants'
-import { createSearchPlaylistPayload } from '#modules/playlists/helpers'
+import { createSearchPlaylistPayload } from '#modules/search/helpers'
 
 export interface SearchPlaylistsArgs {
   query: string
