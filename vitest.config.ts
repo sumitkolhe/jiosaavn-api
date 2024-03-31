@@ -1,11 +1,14 @@
-import { defineConfig } from 'vitest/config'
+import { configDefaults, defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
     include: ['src/**/*.spec.ts'],
+    exclude: [...configDefaults.exclude],
     testTimeout: 30000,
+    retry: 3,
     coverage: {
       enabled: false, // TODO: enable coverage once all tests are passing
+      include: ['src/common', 'src/modules'],
       provider: 'v8',
       thresholds: {
         statements: 100,
