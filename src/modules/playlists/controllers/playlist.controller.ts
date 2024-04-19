@@ -34,7 +34,13 @@ export class PlaylistController implements Routes {
               .string()
               .url()
               .optional()
-              .transform((value) => value?.match(/jiosaavn\.com\/featured\/[^/]+\/([^/]+)$/)?.[1])
+              .transform((value) => {
+                const matches = value?.match(
+                  /(?:jiosaavn\.com|saavn\.com)\/(?:featured|s\/playlist)\/[^/]+\/([^/]+)$|(?:\/([^/]+)$)/
+                )
+                const filteredMatches = matches?.filter((each) => each !== undefined)
+                return (filteredMatches && filteredMatches[filteredMatches?.length - 1 || 0]) || undefined
+              })
               .openapi({
                 title: 'Playlist Link',
                 description: 'A direct link to the playlist on JioSaavn',
