@@ -211,8 +211,8 @@ export class SongController implements Routes {
               description: 'Limit the number of suggestions to retrieve',
               type: 'number',
               title: 'Limit',
-              example: 10,
-              default: 10
+              example: '10',
+              default: '10'
             })
           })
         },

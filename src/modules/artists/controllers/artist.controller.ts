@@ -45,19 +45,19 @@ export class ArtistController implements Routes {
               title: 'Page number',
               description: 'page number',
               type: 'number',
-              example: 1
+              example: '1'
             }),
             songCount: z.string().pipe(z.coerce.number()).optional().openapi({
               title: 'Song count',
               description: 'Number of songs to fetch',
               type: 'number',
-              example: 10
+              example: '10'
             }),
             albumCount: z.string().pipe(z.coerce.number()).optional().openapi({
               title: 'Album count',
               description: 'Number of albums to fetch',
               type: 'number',
-              example: 10
+              example: '10'
             }),
             sortBy: z.enum(['popularity', 'latest', 'alphabetical']).optional().openapi({
               title: 'Sort by',
@@ -135,19 +135,19 @@ export class ArtistController implements Routes {
               title: 'Page number',
               description: 'The page number of the results to retrieve',
               type: 'integer',
-              example: 0
+              example: '0'
             }),
             songCount: z.string().pipe(z.coerce.number()).optional().openapi({
               title: 'Song count',
               description: 'The number of songs to retrieve for the artist',
               type: 'integer',
-              example: 10
+              example: '10'
             }),
             albumCount: z.string().pipe(z.coerce.number()).optional().openapi({
               title: 'Album count',
               description: 'The number of albums to retrieve for the artist',
               type: 'integer',
-              example: 10
+              example: '10'
             }),
             sortBy: z
               .enum(['popularity', 'latest', 'alphabetical'])
@@ -230,8 +230,8 @@ export class ArtistController implements Routes {
             page: z.string().pipe(z.coerce.number()).optional().openapi({
               description: 'The page number of the results to retrieve',
               type: 'number',
-              example: 0,
-              default: 0
+              example: '0',
+              default: '0'
             }),
             sortBy: z
               .enum(['popularity', 'latest', 'alphabetical'])
@@ -314,8 +314,8 @@ export class ArtistController implements Routes {
             page: z.string().pipe(z.coerce.number()).optional().openapi({
               description: 'The page number of the results to retrieve',
               type: 'number',
-              example: 0,
-              default: 0
+              example: '0',
+              default: '0'
             }),
             sortBy: z
               .enum(['popularity', 'latest', 'alphabetical'])

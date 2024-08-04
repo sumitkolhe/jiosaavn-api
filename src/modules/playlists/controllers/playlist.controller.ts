@@ -52,15 +52,15 @@ export class PlaylistController implements Routes {
               title: 'Page Number',
               description: 'The page number of the songs to retrieve from the playlist',
               type: 'integer',
-              example: 0,
-              default: 0
+              example: '0',
+              default: '0'
             }),
             limit: z.string().pipe(z.coerce.number()).optional().openapi({
               title: 'Limit',
               description: 'Number of songs to retrieve per page',
               type: 'integer',
-              example: 10,
-              default: 10
+              example: '10',
+              default: '10'
             })
           })
         },
