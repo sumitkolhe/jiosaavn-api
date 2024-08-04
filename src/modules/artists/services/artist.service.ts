@@ -1,12 +1,12 @@
 import {
-  type GetArtistAlbumsArgs,
   GetArtistAlbumsUseCase,
-  type GetArtistByIdArgs,
   GetArtistByIdUseCase,
-  type GetArtistByLinkArgs,
   GetArtistByLinkUseCase,
-  type GetArtistSongsArgs,
-  GetArtistSongsUseCase
+  GetArtistSongsUseCase,
+  type GetArtistAlbumsArgs,
+  type GetArtistByIdArgs,
+  type GetArtistByLinkArgs,
+  type GetArtistSongsArgs
 } from '#modules/artists/use-cases'
 
 export class ArtistService {

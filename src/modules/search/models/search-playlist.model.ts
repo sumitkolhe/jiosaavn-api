@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { DownloadLinkModel } from '#common/models'
+import { z } from 'zod'
 
 export const SearchPlaylistAPIResponseModel = z.object({
   total: z.number(),

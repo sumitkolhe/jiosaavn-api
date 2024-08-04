@@ -1,5 +1,5 @@
-import { beforeAll, describe, expect, it } from 'vitest'
 import { CreateSongStationUseCase } from '#modules/songs/use-cases'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('CreateSongStation', () => {
   let createSongStation: CreateSongStationUseCase

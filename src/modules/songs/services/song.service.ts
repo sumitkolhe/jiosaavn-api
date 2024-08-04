@@ -1,11 +1,11 @@
 import {
   CreateSongStationUseCase,
-  type GetSongByIdArgs,
   GetSongByIdUseCase,
   GetSongByLinkUseCase,
   GetSongLyricsUseCase,
-  type GetSongSuggestionsArgs,
-  GetSongSuggestionsUseCase
+  GetSongSuggestionsUseCase,
+  type GetSongByIdArgs,
+  type GetSongSuggestionsArgs
 } from '#modules/songs/use-cases'
 
 export class SongService {

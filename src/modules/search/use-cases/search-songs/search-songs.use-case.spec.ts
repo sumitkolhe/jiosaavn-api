@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import { SearchSongsUseCase } from '#modules/search/use-cases'
 import { SearchSongModel } from '#modules/search/models'
+import { SearchSongsUseCase } from '#modules/search/use-cases'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('SearchSongs', () => {
   let searchSongsUseCase: SearchSongsUseCase

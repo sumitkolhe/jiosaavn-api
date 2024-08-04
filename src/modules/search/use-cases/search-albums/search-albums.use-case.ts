@@ -1,9 +1,9 @@
-import type { z } from 'zod'
-import type { IUseCase } from '#common/types'
-import type { SearchAlbumAPIResponseModel, SearchAlbumModel } from '#modules/search/models'
 import { Endpoints } from '#common/constants'
 import { useFetch } from '#common/helpers'
 import { createSearchAlbumPayload } from '#modules/search/helpers'
+import type { IUseCase } from '#common/types'
+import type { SearchAlbumAPIResponseModel, SearchAlbumModel } from '#modules/search/models'
+import type { z } from 'zod'
 
 export interface SearchAlbumsArgs {
   query: string

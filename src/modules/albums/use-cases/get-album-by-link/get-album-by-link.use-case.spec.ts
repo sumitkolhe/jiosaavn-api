@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import { GetAlbumByLinkUseCase } from '#modules/albums/use-cases'
 import { AlbumModel } from '#modules/albums/models'
+import { GetAlbumByLinkUseCase } from '#modules/albums/use-cases'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetAlbumByLink', () => {
   let getAlbumByLinkUseCase: GetAlbumByLinkUseCase

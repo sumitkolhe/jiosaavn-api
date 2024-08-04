@@ -1,7 +1,7 @@
+import { SongController } from '#modules/index'
+import { LyricsModel, SongModel } from '#modules/songs/models'
 import { beforeAll, describe, expect, it } from 'vitest'
 import type { z } from 'zod'
-import { LyricsModel, SongModel } from '#modules/songs/models'
-import { SongController } from '#modules/index'
 
 describe('SongController', () => {
   let searchController: SongController

@@ -1,10 +1,10 @@
-import { HTTPException } from 'hono/http-exception'
-import type { z } from 'zod'
-import type { IUseCase } from '#common/types'
-import type { SearchArtistAPIResponseModel, SearchArtistModel } from '#modules/search/models'
 import { Endpoints } from '#common/constants'
 import { useFetch } from '#common/helpers'
 import { createArtistMapPayload } from '#modules/artists/helpers'
+import { HTTPException } from 'hono/http-exception'
+import type { IUseCase } from '#common/types'
+import type { SearchArtistAPIResponseModel, SearchArtistModel } from '#modules/search/models'
+import type { z } from 'zod'
 
 export interface SearchArtistsArgs {
   query: string

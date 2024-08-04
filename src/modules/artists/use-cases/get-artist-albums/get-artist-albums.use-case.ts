@@ -1,10 +1,10 @@
+import { Endpoints } from '#common/constants'
+import { useFetch } from '#common/helpers'
+import { createAlbumPayload } from '#modules/albums/helpers'
 import { HTTPException } from 'hono/http-exception'
-import type { z } from 'zod'
 import type { IUseCase } from '#common/types'
 import type { ArtistAlbumAPIResponseModel, ArtistAlbumModel } from '#modules/artists/models'
-import { createAlbumPayload } from '#modules/albums/helpers'
-import { useFetch } from '#common/helpers'
-import { Endpoints } from '#common/constants'
+import type { z } from 'zod'
 
 export interface GetArtistAlbumsArgs {
   artistId: string

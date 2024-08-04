@@ -1,9 +1,9 @@
-import { OpenAPIHono, createRoute } from '@hono/zod-openapi'
-import { z } from 'zod'
-import type { hc } from 'hono/client'
-import type { Routes } from '#common/types'
+import { createRoute, OpenAPIHono } from '@hono/zod-openapi'
 import { LyricsModel, SongModel } from '#modules/songs/models'
 import { SongService } from '#modules/songs/services'
+import { z } from 'zod'
+import type { Routes } from '#common/types'
+import type { hc } from 'hono/client'
 
 export class SongController implements Routes {
   public controller: OpenAPIHono

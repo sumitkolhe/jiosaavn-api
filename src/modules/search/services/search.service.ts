@@ -1,13 +1,13 @@
 import {
-  type SearchAlbumsArgs,
   SearchAlbumsUseCase,
   SearchAllUseCase,
-  type SearchArtistsArgs,
   SearchArtistsUseCase,
-  type SearchPlaylistsArgs,
   SearchPlaylistsUseCase,
-  type SearchSongsArgs,
-  SearchSongsUseCase
+  SearchSongsUseCase,
+  type SearchAlbumsArgs,
+  type SearchArtistsArgs,
+  type SearchPlaylistsArgs,
+  type SearchSongsArgs
 } from '#modules/search/use-cases'
 
 export class SearchService {

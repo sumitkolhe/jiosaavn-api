@@ -1,14 +1,14 @@
-import type { z } from 'zod'
+import { createImageLinks } from '#common/helpers'
+import { createArtistMapPayload } from '#modules/artists/helpers'
 import type {
-  SearchAPIResponseModel,
   SearchAlbumAPIResponseModel,
   SearchAlbumModel,
+  SearchAPIResponseModel,
   SearchModel,
   SearchPlaylistAPIResponseModel,
   SearchPlaylistModel
 } from '#modules/search/models'
-import { createImageLinks } from '#common/helpers'
-import { createArtistMapPayload } from '#modules/artists/helpers'
+import type { z } from 'zod'
 
 export const createSearchPayload = (search: z.infer<typeof SearchAPIResponseModel>): z.infer<typeof SearchModel> => ({
   topQuery: {

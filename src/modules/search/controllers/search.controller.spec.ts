@@ -1,5 +1,4 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import type { z } from 'zod'
+import { SearchController } from '#modules/index'
 import {
   SearchAlbumModel,
   SearchArtistModel,
@@ -7,7 +6,8 @@ import {
   SearchPlaylistModel,
   SearchSongModel
 } from '#modules/search/models'
-import { SearchController } from '#modules/index'
+import { beforeAll, describe, expect, it } from 'vitest'
+import type { z } from 'zod'
 
 describe('SearchController', () => {
   let searchController: SearchController

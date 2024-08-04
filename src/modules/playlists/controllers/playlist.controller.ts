@@ -1,7 +1,7 @@
-import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi'
-import type { Routes } from '#common/types'
-import { PlaylistService } from '#modules/playlists/services'
+import { createRoute, OpenAPIHono, z } from '@hono/zod-openapi'
 import { PlaylistModel } from '#modules/playlists/models'
+import { PlaylistService } from '#modules/playlists/services'
+import type { Routes } from '#common/types'
 
 export class PlaylistController implements Routes {
   public controller: OpenAPIHono

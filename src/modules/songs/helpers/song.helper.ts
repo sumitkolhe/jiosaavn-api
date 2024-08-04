@@ -1,7 +1,7 @@
-import type { z } from 'zod'
-import type { LyricsAPIResponseModel, LyricsModel, SongAPIResponseModel, SongModel } from '#modules/songs/models'
 import { createDownloadLinks, createImageLinks } from '#common/helpers'
 import { createArtistMapPayload } from '#modules/artists/helpers'
+import type { LyricsAPIResponseModel, LyricsModel, SongAPIResponseModel, SongModel } from '#modules/songs/models'
+import type { z } from 'zod'
 
 export const createSongPayload = (song: z.infer<typeof SongAPIResponseModel>): z.infer<typeof SongModel> => ({
   id: song.id,

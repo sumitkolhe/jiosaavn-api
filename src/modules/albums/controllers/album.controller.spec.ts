@@ -1,7 +1,7 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import type { z } from 'zod'
 import { AlbumModel } from '#modules/albums/models'
 import { AlbumController } from '#modules/index'
+import { beforeAll, describe, expect, it } from 'vitest'
+import type { z } from 'zod'
 
 describe('AlbumController', () => {
   let albumController: AlbumController

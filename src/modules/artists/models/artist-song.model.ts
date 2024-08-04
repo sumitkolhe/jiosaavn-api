@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { SongAPIResponseModel, SongModel } from '#modules/songs/models'
+import { z } from 'zod'
 
 export const ArtistSongAPIResponseModel = z.object({
   artistId: z.string(),

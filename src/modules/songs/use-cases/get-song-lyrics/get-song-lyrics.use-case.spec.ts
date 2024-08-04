@@ -1,7 +1,7 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import { HTTPException } from 'hono/http-exception'
-import { GetSongLyricsUseCase } from '#modules/songs/use-cases'
 import { LyricsModel } from '#modules/songs/models'
+import { GetSongLyricsUseCase } from '#modules/songs/use-cases'
+import { HTTPException } from 'hono/http-exception'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetSongLyrics', () => {
   let getSongLyrics: GetSongLyricsUseCase

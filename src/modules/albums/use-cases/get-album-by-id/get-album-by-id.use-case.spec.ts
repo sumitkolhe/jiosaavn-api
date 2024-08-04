@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import { GetAlbumByIdUseCase } from '#modules/albums/use-cases'
 import { AlbumModel } from '#modules/albums/models'
+import { GetAlbumByIdUseCase } from '#modules/albums/use-cases'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetAlbumById', () => {
   let getAlbumByIdUseCase: GetAlbumByIdUseCase

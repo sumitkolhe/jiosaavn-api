@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import { GetPlaylistByIdUseCase } from '#modules/playlists/use-cases'
 import { PlaylistModel } from '#modules/playlists/models'
+import { GetPlaylistByIdUseCase } from '#modules/playlists/use-cases'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetAlbumById', () => {
   let getPlaylistByIdUseCase: GetPlaylistByIdUseCase

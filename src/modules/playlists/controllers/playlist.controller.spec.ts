@@ -1,7 +1,7 @@
+import { PlaylistController } from '#modules/playlists/controllers'
+import { PlaylistModel } from '#modules/playlists/models'
 import { beforeAll, describe, expect, it } from 'vitest'
 import type { z } from 'zod'
-import { PlaylistModel } from '#modules/playlists/models'
-import { PlaylistController } from '#modules/playlists/controllers'
 
 describe('PlaylistController', () => {
   let playlistController: PlaylistController

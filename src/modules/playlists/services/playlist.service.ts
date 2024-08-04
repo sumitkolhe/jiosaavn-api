@@ -1,8 +1,8 @@
 import {
-  type GetPlaylistByIdArgs,
   GetPlaylistByIdUseCase,
-  type GetPlaylistByLinkArgs,
-  GetPlaylistByLinkUseCase
+  GetPlaylistByLinkUseCase,
+  type GetPlaylistByIdArgs,
+  type GetPlaylistByLinkArgs
 } from '#modules/playlists/use-cases'
 
 export class PlaylistService {

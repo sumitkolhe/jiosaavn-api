@@ -1,6 +1,6 @@
-import { beforeAll, describe, expect, it } from 'vitest'
-import { GetArtistAlbumsUseCase } from '#modules/artists/use-cases'
 import { ArtistAlbumModel } from '#modules/artists/models'
+import { GetArtistAlbumsUseCase } from '#modules/artists/use-cases'
+import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetArtistAlbums', () => {
   let getArtistAlbumsUseCase: GetArtistAlbumsUseCase
