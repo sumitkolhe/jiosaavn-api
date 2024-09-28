@@ -36,7 +36,7 @@ export class PlaylistController implements Routes {
               .optional()
               .transform((value) => {
                 const matches = value?.match(
-                  /(?:jiosaavn\.com|saavn\.com)\/(?:featured|s\/playlist)\/[^/]+\/([^/]+)$|(?:\/([^/]+)$)/
+                  /(?:jiosaavn\.com|saavn\.com)\/(?:featured|s\/playlist)\/[^/]+\/([^/]+)$|\/([^/]+)$/
                 )
                 const filteredMatches = matches?.filter((each) => each !== undefined)
                 return (filteredMatches && filteredMatches[filteredMatches?.length - 1 || 0]) || undefined

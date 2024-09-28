@@ -44,30 +44,30 @@
     "commit-msg": "bun run commitlint --edit $1"
   },
   "dependencies": {
-    "@hono/node-server": "^1.12.0",
-    "@hono/zod-openapi": "^0.15.1",
-    "@hono/zod-validator": "^0.2.2",
-    "@scalar/hono-api-reference": "^0.5.129",
-    "hono": "^4.5.3",
+    "@hono/node-server": "^1.13.1",
+    "@hono/zod-openapi": "^0.16.2",
+    "@hono/zod-validator": "^0.3.0",
+    "@scalar/hono-api-reference": "^0.5.149",
+    "hono": "^4.6.3",
     "node-forge": "^1.3.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@kolhe/eslint-config": "2.2.2",
-    "@types/bun": "^1.1.6",
-    "@types/node": "^22.1.0",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@kolhe/eslint-config": "2.2.5",
+    "@types/bun": "^1.1.10",
+    "@types/node": "^22.7.4",
     "@types/node-forge": "^1.3.11",
-    "@vitest/coverage-v8": "^2.0.5",
-    "@vitest/ui": "^2.0.5",
-    "changelogen": "^0.5.5",
-    "eslint": "^9.8.0",
+    "@vitest/coverage-v8": "^2.1.1",
+    "@vitest/ui": "^2.1.1",
+    "changelogen": "^0.5.7",
+    "eslint": "^9.11.1",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
     "simple-git-hooks": "^2.11.1",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.5.4",
-    "vitest": "^2.0.5"
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
   }
 }
