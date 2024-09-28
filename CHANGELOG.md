@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Add wrangler config ([69b3867](https://github.com/sumitkolhe/jiosaavn-api/commit/69b3867))
+
+### 🩹 Fixes
+
+- Fixed regex pattern to work with all playlist links Subject: playlist controller regex pattern fix ([5530c45](https://github.com/sumitkolhe/jiosaavn-api/commit/5530c45))
+- Removed package-lock.json Subject: deleted package-lock file ([9b05b14](https://github.com/sumitkolhe/jiosaavn-api/commit/9b05b14))
+- Remove hono node server ([3ccc15d](https://github.com/sumitkolhe/jiosaavn-api/commit/3ccc15d))
+
+### ❤️ Contributors
+
+- Sumit Kolhe ([@sumitkolhe](http://github.com/sumitkolhe))
+- Sbendalam <sbendalam@miraclesoft.com>
+- Sai Krishna Bendalam <saibendalam@people.health>
+
 ## v0.0.3
 
 [compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.2...v0.0.3)
