@@ -28,12 +28,3 @@ jobs:
 
       - name: Run Tests
         run: bun run test
-
-      - name: Deploy to Staging
-        id: deploy-vercel-staging
-        uses: amondnet/vercel-action@v25.2.0
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
-          scope: ${{ secrets.VERCEL_ORG_ID }}
