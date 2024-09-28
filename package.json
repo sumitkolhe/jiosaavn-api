@@ -35,7 +35,7 @@
     "lint:fix": "bun run lint --fix",
     "test": "vitest run",
     "test:ui": "vitest --ui",
-    "deploy": "vercel deploy --prod",
+    "deploy": "wrangler deploy",
     "release": "bun run test && bun run changelogen --release --push",
     "postinstall": "npx simple-git-hooks"
   },
@@ -67,6 +67,7 @@
     "simple-git-hooks": "^2.11.1",
     "tsc-alias": "^1.8.10",
     "typescript": "^5.6.2",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.1",
+    "wrangler": "^3.78.12"
   }
 }
