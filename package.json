@@ -44,7 +44,6 @@
     "commit-msg": "bun run commitlint --edit $1"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.1",
     "@hono/zod-openapi": "^0.16.2",
     "@hono/zod-validator": "^0.3.0",
     "@scalar/hono-api-reference": "^0.5.149",
