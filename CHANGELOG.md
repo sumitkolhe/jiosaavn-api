@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.4...v0.0.5)
+
+### 🩹 Fixes
+
+- Allow CORS ([902ad16](https://github.com/sumitkolhe/jiosaavn-api/commit/902ad16))
+
+### ❤️ Contributors
+
+- Sumit Kolhe ([@sumitkolhe](http://github.com/sumitkolhe))
+
 ## v0.0.4
 
 [compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.3...v0.0.4)
