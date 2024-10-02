@@ -1,5 +1,6 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { apiReference } from '@scalar/hono-api-reference'
+import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import { Home } from './pages/home'
@@ -31,6 +32,7 @@ export class App {
   private initializeGlobalMiddlewares() {
     this.app.use(logger())
     this.app.use(prettyJSON())
+    this.app.use(cors())
   }
 
   private initializeSwaggerUI() {
