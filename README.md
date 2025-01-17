@@ -16,7 +16,7 @@ For a detailed list of changes, see the [CHANGELOG](CHANGELOG.md).
 ## 🔌 Running Locally
 
 > [!NOTE]
-> You need `Bun(1.0.26+)` or `Node.js(v18+)`
+> You need `Bun(1.0.29+)` or `Node.js(v20+)`
 
 1. Clone the repository:
 
@@ -39,12 +39,15 @@ For a detailed list of changes, see the [CHANGELOG](CHANGELOG.md).
 
 ## ☁️ Deploying Your Own Instance
 
-You can easily deploy your own instance of the API by clicking the button below:
+JioSaavn API can be deployed to either Cloudflare Workers or Vercel. Below are the instructions for deploying to each platform.
+
+### Cloudflare Workers
+
+[![Deploy with Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/sumitkolhe/jiosaavn-api)
+
+### Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sumitkolhe/jiosaavn-api)
-
-> [!TIP]
-> To ensure the API provides results in the intended language, configure the [Serverless Function Region](https://vercel.com/docs/concepts/functions/serverless-functions/regions) in Vercel to `Mumbai, India (South) - > bom1`.
 
 ## 📜 License
 
