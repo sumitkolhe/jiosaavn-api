@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Add vercel deployment ([627209f](https://github.com/sumitkolhe/jiosaavn-api/commit/627209f))
+
+### 📖 Documentation
+
+- Add cloudflare and vercel deployment instructions ([f1aad15](https://github.com/sumitkolhe/jiosaavn-api/commit/f1aad15))
+
+### ❤️ Contributors
+
+- Sumit Kolhe ([@sumitkolhe](http://github.com/sumitkolhe))
+
 ## v0.0.5
 
 [compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.4...v0.0.5)
