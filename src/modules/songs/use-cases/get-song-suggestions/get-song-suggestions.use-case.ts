@@ -1,4 +1,5 @@
 import { Endpoints } from '#common/constants'
+import { ApiContextEnum } from '#common/enums'
 import { useFetch } from '#common/helpers'
 import { createSongPayload } from '#modules/songs/helpers'
 import { CreateSongStationUseCase } from '#modules/songs/use-cases'
@@ -28,7 +29,7 @@ export class GetSongSuggestionsUseCase implements IUseCase<GetSongSuggestionsArg
         stationid: stationId,
         k: limit
       },
-      context: 'android'
+      context: ApiContextEnum.ANDROID
     })
 
     if (!data || !ok) {

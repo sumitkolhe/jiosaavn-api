@@ -1,4 +1,5 @@
 import { Endpoints } from '#common/constants'
+import { ApiContextEnum } from '#common/enums'
 import { useFetch } from '#common/helpers'
 import { HTTPException } from 'hono/http-exception'
 import type { IUseCase } from '#common/types'
@@ -15,7 +16,7 @@ export class CreateSongStationUseCase implements IUseCase<string, string> {
         entity_id: encodedSongId,
         entity_type: 'queue'
       },
-      context: 'android'
+      context: ApiContextEnum.ANDROID
     })
 
     if (!data || !ok || !data.stationid) throw new HTTPException(500, { message: 'could not create station' })
