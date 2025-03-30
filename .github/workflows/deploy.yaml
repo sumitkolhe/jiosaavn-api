@@ -14,14 +14,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cache Dependencies
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4
         with:
           path: ~/.bun
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
           restore-keys: ${{ runner.os }}-bun-
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1.2.0
+        uses: oven-sh/setup-bun@v2
       - run: bun install
 
       - name: Run Tests
