@@ -1,16 +1,20 @@
-import type { Endpoints } from '#common/constants'
+import { userAgents, type Endpoints } from '#common/constants'
+import type { ApiContextEnum } from '#common/enums'
 
 type EndpointValue = (typeof Endpoints)[keyof typeof Endpoints]
 
-export const useFetch = async <T>({
-  endpoint,
-  params,
-  context
-}: {
+interface FetchParams {
   endpoint: EndpointValue
   params: Record<string, string | number>
-  context?: 'android' | 'web6dot0'
-}): Promise<{ data: T; ok: Response['ok'] }> => {
+  context?: ApiContextEnum
+}
+
+interface FetchResponse<T> {
+  data: T
+  ok: Response['ok']
+}
+
+export const useFetch = async <T>({ endpoint, params, context }: FetchParams): Promise<FetchResponse<T>> => {
   const url = new URL('https://www.jiosaavn.com/api.php')
 
   url.searchParams.append('__call', endpoint.toString())
@@ -21,7 +25,12 @@ export const useFetch = async <T>({
 
   Object.keys(params).forEach((key) => url.searchParams.append(key, String(params[key])))
 
-  const response = await fetch(url.toString())
+  const randomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)]
+
+  const response = await fetch(url.toString(), {
+    headers: { 'Content-Type': 'application/json', 'User-Agent': randomUserAgent }
+  })
+
   const data = await response.json()
 
   return { data: data as T, ok: response.ok }
