@@ -71,7 +71,7 @@ export class App {
           description:
             'JioSaavn API is an unofficial wrapper written in TypeScript for jiosaavn.com providing programmatic access to a vast library of songs, albums, artists, playlists, and more.'
         },
-        spec: { url: '/swagger' }
+        url: '/swagger'
       })
     )
   }

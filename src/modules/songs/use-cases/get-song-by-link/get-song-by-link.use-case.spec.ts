@@ -4,19 +4,19 @@ import { HTTPException } from 'hono/http-exception'
 import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetSongByLink', () => {
-  let getSongByLink: GetSongByLinkUseCase
+  let getSongByLinkUseCase: GetSongByLinkUseCase
 
   beforeAll(() => {
-    getSongByLink = new GetSongByLinkUseCase()
+    getSongByLinkUseCase = new GetSongByLinkUseCase()
   })
 
   it('should return a song by link', async () => {
-    const song = await getSongByLink.execute('OgwhbhtDRwM')
+    const song = await getSongByLinkUseCase.execute('OgwhbhtDRwM')
 
     expect(() => SongModel.parse(song[0])).not.toThrow()
   })
 
   it('should throw 404 error when song is not found', async () => {
-    await expect(getSongByLink.execute('invalid-link')).rejects.toThrow(HTTPException)
+    await expect(getSongByLinkUseCase.execute('invalid-link')).rejects.toThrow(HTTPException)
   })
 })

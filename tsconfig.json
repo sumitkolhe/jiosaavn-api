@@ -3,15 +3,12 @@
     "target": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "lib": ["ESNext", "esnext.asynciterable"],
+    "lib": ["ESNext", "esnext.asynciterable", "DOM"],
     "baseUrl": ".",
     "rootDir": "./src",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "paths": {
-      "#modules/*": ["src/modules/*"],
-      "#common/*": ["src/common/*"]
-    },
+    "moduleResolution": "bundler",
+    "paths": { "#modules/*": ["src/modules/*"], "#common/*": ["src/common/*"] },
     "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": true,
@@ -25,7 +22,5 @@
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"],
-  "tsc-alias": {
-    "resolveFullPaths": true
-  }
+  "tsc-alias": { "resolveFullPaths": true }
 }

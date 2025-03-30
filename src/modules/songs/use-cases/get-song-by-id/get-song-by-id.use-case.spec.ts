@@ -4,30 +4,30 @@ import { HTTPException } from 'hono/http-exception'
 import { beforeAll, describe, expect, it } from 'vitest'
 
 describe('GetSongById', () => {
-  let getSongById: GetSongByIdUseCase
+  let getSongByIdUseCase: GetSongByIdUseCase
 
   beforeAll(() => {
-    getSongById = new GetSongByIdUseCase()
+    getSongByIdUseCase = new GetSongByIdUseCase()
   })
 
   it('should return a song by id', async () => {
-    const song = await getSongById.execute({ songIds: '3IoDK8qI' })
+    const song = await getSongByIdUseCase.execute({ songIds: '3IoDK8qI' })
 
     expect(() => SongModel.parse(song[0])).not.toThrow()
   })
 
   it('should return multiple songs by ids', async () => {
-    const song = await getSongById.execute({ songIds: '3IoDK8qI,K1P4T0jI' })
+    const song = await getSongByIdUseCase.execute({ songIds: '3IoDK8qI,K1P4T0jI' })
 
     expect(() => SongModel.parse(song[0])).not.toThrow()
   })
 
   it('should throw 404 error when song is not found', async () => {
-    await expect(getSongById.execute({ songIds: 'invalid-id' })).rejects.toThrow(HTTPException)
+    await expect(getSongByIdUseCase.execute({ songIds: 'invalid-id' })).rejects.toThrow(HTTPException)
   })
 
   it('should return a song by id and include lyrics', async () => {
-    const song = await getSongById.execute({ songIds: 'K1P4T0jI', includeLyrics: true })
+    const song = await getSongByIdUseCase.execute({ songIds: 'K1P4T0jI', includeLyrics: true })
 
     expect(() => SongModel.parse(song[0])).not.toThrow()
   })
