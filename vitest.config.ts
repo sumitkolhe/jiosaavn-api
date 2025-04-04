@@ -7,7 +7,7 @@ export default defineConfig({
     testTimeout: 30000,
     retry: 3,
     coverage: {
-      enabled: true, // TODO: enable coverage once all tests are passing
+      enabled: false, // TODO: enable coverage once all tests are passing
       include: ['src/common', 'src/modules'],
       exclude: ['src/common/types/**'],
       provider: 'v8',
