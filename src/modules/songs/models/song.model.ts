@@ -1,7 +1,6 @@
 import { DownloadLinkModel } from '#common/models'
 import { ArtistMapAPIResponseModel, ArtistMapModel } from '#modules/artists/models/artist-map.model'
 import { z } from 'zod'
-import { LyricsModel } from './song-lyrics.model' // import from absolute path to avoid circular dependency
 
 export const SongAPIResponseModel = z.object({
   id: z.string(),
@@ -70,7 +69,6 @@ export const SongModel = z.object({
   language: z.string(),
   hasLyrics: z.boolean(),
   lyricsId: z.string().nullable(),
-  lyrics: LyricsModel.optional(),
   url: z.string(),
   copyright: z.string().nullable(),
   album: z.object({

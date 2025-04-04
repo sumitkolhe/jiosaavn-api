@@ -25,10 +25,4 @@ describe('GetSongById', () => {
   it('should throw 404 error when song is not found', async () => {
     await expect(getSongByIdUseCase.execute({ songIds: 'invalid-id' })).rejects.toThrow(HTTPException)
   })
-
-  it('should return a song by id and include lyrics', async () => {
-    const song = await getSongByIdUseCase.execute({ songIds: 'K1P4T0jI', includeLyrics: true })
-
-    expect(() => SongModel.parse(song[0])).not.toThrow()
-  })
 })

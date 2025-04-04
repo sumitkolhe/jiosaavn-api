@@ -1,5 +1,5 @@
 import { createRoute, OpenAPIHono } from '@hono/zod-openapi'
-import { LyricsModel, SongModel } from '#modules/songs/models'
+import { SongModel } from '#modules/songs/models'
 import { SongService } from '#modules/songs/services'
 import { z } from 'zod'
 import type { Routes } from '#common/types'
@@ -99,15 +99,6 @@ export class SongController implements Routes {
               type: 'string',
               example: '3IoDK8qI'
             })
-          }),
-          query: z.object({
-            lyrics: z.string().optional().openapi({
-              title: 'Include lyrics',
-              description: 'Include lyrics in the response',
-              type: 'boolean',
-              example: 'true',
-              default: 'false'
-            })
           })
         },
         responses: {
@@ -134,58 +125,10 @@ export class SongController implements Routes {
       }),
       async (ctx) => {
         const songId = ctx.req.param('id')
-        const { lyrics } = ctx.req.valid('query')
 
-        const response = await this.songService.getSongByIds({ songIds: songId, includeLyrics: lyrics === 'true' })
+        const response = await this.songService.getSongByIds({ songIds: songId })
 
         return ctx.json({ success: true, data: response })
-      }
-    )
-
-    this.controller.openapi(
-      createRoute({
-        method: 'get',
-        path: '/songs/{id}/lyrics',
-        tags: ['Songs'],
-        summary: 'Retrieve lyrics for a song',
-        description: 'Retrieve the lyrics for a song by its ID.',
-        operationId: 'getSongLyrics',
-        request: {
-          params: z.object({
-            id: z.string().openapi({
-              description: 'ID of the song to retrieve the lyrics for',
-              type: 'string',
-              example: '3IoDK8qI'
-            })
-          })
-        },
-        responses: {
-          200: {
-            description: 'Successful response with song lyrics',
-            content: {
-              'application/json': {
-                schema: z.object({
-                  success: z.boolean().openapi({
-                    description: 'Indicates whether the request was successful',
-                    type: 'boolean',
-                    example: true
-                  }),
-                  data: LyricsModel.openapi({
-                    description: 'Lyrics for the song'
-                  })
-                })
-              }
-            }
-          },
-          404: { description: 'Lyrics not found for the given song ID' }
-        }
-      }),
-      async (ctx) => {
-        const id = ctx.req.param('id')
-
-        const result = await this.songService.getSongLyrics(id)
-
-        return ctx.json({ success: true, data: result })
       }
     )
 
