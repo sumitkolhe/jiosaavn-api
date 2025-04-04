@@ -1,6 +1,6 @@
 {
   "name": "jiosaavn-api",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Unofficial JioSaavn API",
   "type": "module",
   "license": "MIT",

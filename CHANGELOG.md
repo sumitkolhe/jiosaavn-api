@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.6...v0.1.0)
+
+### 🚀 Enhancements
+
+- Use enums for context type ([2d7095c](https://github.com/sumitkolhe/jiosaavn-api/commit/2d7095c))
+- ⚠️  Remove lyrics API endpoint ([a34bfea](https://github.com/sumitkolhe/jiosaavn-api/commit/a34bfea))
+
+### 🩹 Fixes
+
+- Random 403 errors from jiosaavn if user-agent was missing ([45ad747](https://github.com/sumitkolhe/jiosaavn-api/commit/45ad747))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Remove lyrics API endpoint ([a34bfea](https://github.com/sumitkolhe/jiosaavn-api/commit/a34bfea))
+
+### ❤️ Contributors
+
+- Sumit Kolhe ([@sumitkolhe](https://github.com/sumitkolhe))
+
 ## v0.0.6
 
 [compare changes](https://github.com/sumitkolhe/jiosaavn-api/compare/v0.0.5...v0.0.6)
