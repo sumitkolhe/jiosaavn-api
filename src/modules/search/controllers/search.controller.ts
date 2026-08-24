@@ -7,7 +7,7 @@ import {
   SearchSongModel
 } from '#modules/search/models'
 import { SearchService } from '#modules/search/services'
-import type { Routes } from '#common/types'
+import type { AppBindings, Routes } from '#common/types'
 
 export class SearchController implements Routes {
   public controller: OpenAPIHono
@@ -120,8 +120,18 @@ export class SearchController implements Routes {
       }),
       async (ctx) => {
         const { query, page, limit } = ctx.req.valid('query')
+        const env = ctx.env as AppBindings | undefined
 
-        const result = await this.searchService.searchSongs({ query, page: page || 0, limit: limit || 10 })
+        const result = await this.searchService.searchSongs({
+          query,
+          page: page || 0,
+          limit: limit || 10,
+          // `languages` is not part of the schema above, and zod strips unknown
+          // keys, so it has to come off the raw request. The VibeUp client sends
+          // it on every call; the home-feed alias is the only thing that uses it.
+          languages: ctx.req.query('languages'),
+          aliasEnabled: env?.FEED_ALIASES_ENABLED !== 'false'
+        })
 
         return ctx.json({ success: true, data: result })
       }
