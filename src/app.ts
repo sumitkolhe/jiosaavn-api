@@ -1,10 +1,12 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { apiReference } from '@scalar/hono-api-reference'
+import { cacheControlFor } from '#common/helpers'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import { Home } from './pages/home'
 import type { Routes } from '#common/types'
+import type { MiddlewareHandler } from 'hono'
 import type { HTTPException } from 'hono/http-exception'
 
 export class App {
@@ -33,6 +35,31 @@ export class App {
     this.app.use(logger())
     this.app.use(prettyJSON())
     this.app.use(cors())
+    this.app.use(this.cacheHeaders)
+  }
+
+  /**
+   * Stamps `Cache-Control` on successful GETs so Workers Caching (enabled in
+   * wrangler.toml) can serve them from the edge.
+   *
+   * Runs after the handler so it can see the final status, and never overwrites
+   * a header a handler set deliberately.
+   */
+  private cacheHeaders: MiddlewareHandler = async (ctx, next) => {
+    await next()
+
+    if (ctx.req.method !== 'GET') return
+
+    // A cached failure would outlive the outage that produced it, and would
+    // also prevent stale-if-error serving the last good response.
+    if (ctx.res.status >= 400) {
+      ctx.res.headers.set('Cache-Control', 'no-store')
+      return
+    }
+
+    if (ctx.res.headers.has('Cache-Control')) return
+
+    ctx.res.headers.set('Cache-Control', cacheControlFor(new URL(ctx.req.url).pathname))
   }
 
   private initializeSwaggerUI() {

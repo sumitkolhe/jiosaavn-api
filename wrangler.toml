@@ -1,6 +1,22 @@
 name = "jiosaavn-api"
 main = "./src/server.ts"
-compatibility_date = "2024-09-28"
+compatibility_date = "2026-08-24"
+
+# Workers Caching. Serves cached responses from the edge without running the
+# worker, and collapses concurrent requests for the same url into one origin
+# fetch — which matters because a client cold start fires ~20 requests at once.
+#
+# Deliberately NOT the Cache API (caches.default) or hono's cache() middleware,
+# which is built on it: Cache API operations are a no-op on *.workers.dev
+# deployments, so both would silently do nothing on this worker's url.
+#
+# Per-route TTLs come from the Cache-Control headers set in app.ts.
+# Requires wrangler >= 4.107.0 for cross_version_cache.
+[cache]
+enabled = true
+# Keep the cache warm across deploys. Without this the worker version is part of
+# the cache key, so every deploy starts cold.
+cross_version_cache = true
 
 [vars]
 # Kill switch for the home-feed query aliases (see feed-alias.helper.ts).
