@@ -2,5 +2,11 @@ name = "jiosaavn-api"
 main = "./src/server.ts"
 compatibility_date = "2024-09-28"
 
+[vars]
+# Kill switch for the home-feed query aliases (see feed-alias.helper.ts).
+# Set to "false" in the Cloudflare dashboard to send every query through normal
+# search again — takes effect immediately, no redeploy needed.
+FEED_ALIASES_ENABLED = "true"
+
 [observability]
 enabled = true

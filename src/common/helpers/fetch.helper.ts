@@ -7,6 +7,14 @@ interface FetchParams {
   endpoint: EndpointValue
   params: Record<string, string | number>
   context?: ApiContextEnum
+  /**
+   * Raw Cookie header to send upstream.
+   *
+   * Some JioSaavn endpoints — content.getBrowseModules in particular — ignore
+   * a `language` query parameter entirely and take the listener's languages
+   * from an `L` cookie instead (e.g. `L=tamil` or `L=tamil,telugu`).
+   */
+  cookie?: string
 }
 
 interface FetchResponse<T> {
@@ -14,7 +22,7 @@ interface FetchResponse<T> {
   ok: Response['ok']
 }
 
-export const useFetch = async <T>({ endpoint, params, context }: FetchParams): Promise<FetchResponse<T>> => {
+export const useFetch = async <T>({ endpoint, params, context, cookie }: FetchParams): Promise<FetchResponse<T>> => {
   const url = new URL('https://www.jiosaavn.com/api.php')
 
   url.searchParams.append('__call', endpoint.toString())
@@ -28,7 +36,11 @@ export const useFetch = async <T>({ endpoint, params, context }: FetchParams): P
   const randomUserAgent = userAgents[Math.floor(Math.random() * userAgents.length)]
 
   const response = await fetch(url.toString(), {
-    headers: { 'Content-Type': 'application/json', 'User-Agent': randomUserAgent }
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': randomUserAgent,
+      ...(cookie ? { Cookie: cookie } : {})
+    }
   })
 
   const data = await response.json()
