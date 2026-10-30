@@ -104,3 +104,4 @@ dist
 .tern-port
 .vercel
 *.DS_Store
+.env*
