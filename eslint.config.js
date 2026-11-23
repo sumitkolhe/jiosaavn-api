@@ -2,6 +2,7 @@ import { config } from '@kolhe/eslint-config'
 
 export default config(
   [
+    { ignores: ['ios/**', 'tools/**', 'docs/research/**'] },
     {
       files: ['src/**/*.ts'],
       rules: {

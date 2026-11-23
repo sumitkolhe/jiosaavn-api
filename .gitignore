@@ -104,3 +104,8 @@ dist
 .tern-port
 .vercel
 *.DS_Store
+
+# iOS prototype
+ios/Modes/*.xcodeproj
+ios/Modes/build/
+*.xcuserstate
