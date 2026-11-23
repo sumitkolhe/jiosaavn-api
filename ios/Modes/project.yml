@@ -1,0 +1,53 @@
+name: Modes
+options:
+  bundleIdPrefix: com.nandanvarma
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+packages:
+  LNPopupUI:
+    url: https://github.com/LeoNatan/LNPopupUI
+    from: 4.0.4
+settings:
+  base:
+    DEVELOPMENT_TEAM: 72CW7UW6RB
+    SWIFT_VERSION: "6.0"
+    CODE_SIGN_STYLE: Automatic
+targets:
+  Modes:
+    type: application
+    platform: iOS
+    sources:
+      - path: Modes
+    dependencies:
+      - package: LNPopupUI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nandanvarma.modes
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Modes
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIBackgroundModes: audio
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: ""
+  ModesTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: ModesTests
+    dependencies:
+      - target: Modes
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.nandanvarma.modes.tests
+schemes:
+  Modes:
+    build:
+      targets:
+        Modes: all
+    test:
+      targets:
+        - ModesTests
