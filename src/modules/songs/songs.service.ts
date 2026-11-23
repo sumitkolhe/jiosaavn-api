@@ -29,7 +29,7 @@ export async function getSongByLink(token: string): Promise<z.infer<typeof SongS
 }
 
 /** Validates each entry on its own and skips the ones that don't parse, so one odd song never fails a batch. */
-function parseSongEntries(entries: unknown[], source: string): z.infer<typeof SongSchema>[] {
+export function parseSongEntries(entries: unknown[], source: string): z.infer<typeof SongSchema>[] {
   const songs: z.infer<typeof SongSchema>[] = []
   for (const entry of entries) {
     const parsed = SongRawSchema.safeParse(entry)

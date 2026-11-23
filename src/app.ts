@@ -2,6 +2,7 @@ import { OpenAPIHono } from '@hono/zod-openapi'
 import { apiReference } from '@scalar/hono-api-reference'
 import { albumsApp } from '#modules/albums/albums.routes.js'
 import { artistsApp } from '#modules/artists/artists.routes.js'
+import { channelsApp } from '#modules/channels/channels.routes.js'
 import { chartsApp } from '#modules/charts/charts.routes.js'
 import { playlistsApp } from '#modules/playlists/playlists.routes.js'
 import { searchApp } from '#modules/search/search.routes.js'
@@ -13,7 +14,7 @@ import { logger } from 'hono/logger'
 import { prettyJSON } from 'hono/pretty-json'
 import { home } from './home.js'
 
-const resourceApps = [songsApp, albumsApp, artistsApp, playlistsApp, searchApp, trendingApp, chartsApp]
+const resourceApps = [songsApp, albumsApp, artistsApp, playlistsApp, searchApp, trendingApp, chartsApp, channelsApp]
 
 export function createApp(): OpenAPIHono {
   const app = new OpenAPIHono()

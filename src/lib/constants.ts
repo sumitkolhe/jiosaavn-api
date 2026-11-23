@@ -30,6 +30,10 @@ export const JioSaavnEndpoint = {
     byId: 'playlist.getDetails',
     byLink: 'webapi.get'
   },
+  channels: {
+    list: 'content.getBrowseModules',
+    byId: 'channel.getDetails'
+  },
   trending: 'content.getTrending',
   charts: 'content.getCharts'
 } as const
